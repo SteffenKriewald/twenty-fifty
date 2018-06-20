@@ -14,8 +14,8 @@
     <title>2050 Pathways Calculator</title>
     <!-- assets is a function definied in the Helper module in src/server.rb --> 
     <link href='/assets/<%= assets['application.css']%>' media='screen' rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  -->
     <!-- 
     <link rel="stylesheet" href='/assets/<%= assets['BootSideMenu.css']%>' media='screen' type='text/css' />
     -->
@@ -31,188 +31,7 @@
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
-    <style rel="stylesheet" type="text/css">
-    .bootsidemenu {
-    z-index: 999999;
-    position: fixed;
-    top: -1px;
-    bottom: -1px;
-    padding: 0;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .15);
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-}
 
-.bootsidemenu > .menu-wrapper {
-    padding: 0;
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    overflow: auto;
-	width: 100%;
-}
-
-.bootsidemenu > .row {
-    margin: 0;
-}
-
-.bootsidemenu {
-    /*width: auto;*/
-	min-width: unset;
-}
-
-.bootsidemenu.bootsidemenu-left {
-    left: 0;
-    right: auto;/*20px;*/
-}
-
-.bootsidemenu.bootsidemenu-right {
-    right: 0;
-    left: auto;/*20px;*/
-}
-
-
-.toggler {
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, .15);
-    width: 20px;
-    height: 48px;
-    position: absolute;
-    top: 47%;
-    cursor: pointer;
-	background-color: #fff;
-}
-
-.bootsidemenu-left > .toggler {
-    -webkit-border-top-right-radius: 4px;
-    -webkit-border-bottom-right-radius: 4px;
-    -moz-border-radius-topright: 4px;
-    -moz-border-radius-bottomright: 4px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-left: 1px solid #fff;
-    -webkit-box-shadow: 1px 0px 8px rgba(0, 0, 0, .175);
-    box-shadow: 1px 0px 8px rgba(0, 0, 0, .175);
-    right: -20px;
-}
-
-.bootsidemenu-left > .toggler > span {
-    margin: 15px 2px;
-}
-
-.bootsidemenu-right > .toggler {
-    -webkit-border-top-left-radius: 4px;
-    -webkit-border-bottom-left-radius: 4px;
-    -moz-border-radius-topleft: 4px;
-    -moz-border-radius-bottomleft: 4px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    border-right: 1px solid #fff;
-    -webkit-box-shadow: -1px 0px 8px rgba(0, 0, 0, .175);
-    box-shadow: -1px 0px 8px rgba(0, 0, 0, .175);
-    left: -20px;
-}
-
-.bootsidemenu-right > .toggler > span {
-    margin: 15px 2px;
-}
-
-/*Native BootStrap Hack*/
-.bootsidemenu .list-group-item:last-child, .bootsidemenu .list-group-item:first-child {
-    border-radius: 0;
-}
-
-.bootsidemenu .list-group {
-    margin-bottom: 0;
-}
-
-.bootsidemenu .list-group-item {
-    border: 1px solid #DDD;
-    border-left: 0;
-    border-right: 0;
-    margin-bottom: 0;
-    margin-top: -1px;
-}
-
-.list-group .collapse a {
-    padding-left: 25px;
-}
-
-.list-group-item .glyphicon {
-    margin-right: 5px;
-}
-
-
-/*==========  Media queries for test ==========*/
-
-/* Custom, iPhone Retina */ 
-@media only screen and (min-width : 320px) {
-
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-
-}
-
-
-/*==========  Non-Mobile First Method  ==========*/
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px) {
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 992px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-    .bootsidemenu {
-        min-width: 200px;
-    }
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
-    .bootsidemenu {
-        min-width: 90%;
-    }
-}
-
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-
-}
-  
-    </style>
-    <style>
-      .accordion-toggle:hover {color:#000; text-decoration: none; cursor: pointer;}
-      .accordion-toggle {color:#000; text-decoration: none; cursor: pointer;}
-      .accordion-content {display: none;}
-      .accordion-content.default {display: block; padding-left:10px;}  
-    </style>
   </head>
   
   <body>
@@ -278,7 +97,7 @@
     <!-- / bof navpanel -->
     <div id='lever_nav_panel'>
     <!-- / These are the controls -->
-    <div id='classic_controls'>
+    <div id='classic_controls' style="width:380px;">
       <div id='accordion'>
       <!-- The left column -->
       <h4 class= "accordion-toggle">Demand</h4>
@@ -303,7 +122,7 @@
           <% structure.choices[21..34].each do |choice| %>
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>'>
               <td class='name'>
-		<a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+		<a href='/assets/onepage/<%= choice.doc %>' target='_new' -data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
                   <%= choice.name %>
                 </a>
               </td>
@@ -316,9 +135,31 @@
               </td>
 
 		<% if i == 3 %>
-	      <td class='choice2'>
-		<img src="/assets/images/sliders-h.svg" alt="custom-level" width = "16">
-		  </td>
+	      <td class='date-choice-mode-2100-wrapper'>
+		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default">
+	      <!--
+	      <img src="/assets/images/clock.svg" alt="custom-level" width = "16" onclick="jQuery(function ($) {$('#settingsModal').modal();});">
+	      -->
+
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates sd">2018</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		-
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates ed">2100</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		</div>		
+ 	      </td>
 
 		  <% end %>
 		  <% end %>
@@ -358,9 +199,31 @@
                 </a>
 		</td>
 		<% if i == 3 %>
-	      <td class='choice2'>
-		<img src="/assets/images/sliders-h.svg" alt="custom-level" width = "16">
-		  </td>
+	      <td class='date-choice-mode-2100-wrapper'>
+		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default">
+	      <!--
+	      <img src="/assets/images/clock.svg" alt="custom-level" width = "16" onclick="jQuery(function ($) {$('#settingsModal').modal();});">
+	      -->
+
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates sd">2018</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		-
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates ed">2100</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		</div>
+ 	      </td>
 		<% end %>			      
 	      <% end %>
             </tr>
@@ -403,11 +266,34 @@
                 </a>
               </td>
 		<% if i == 3 %>
-	      <td class='choice2'>
-		<img src="/assets/images/sliders-h.svg" alt="custom-level" width = "16">
-		  </td>
+	      <td class='date-choice-mode-2100-wrapper'>
+		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default">
+	      <!--
+	      <img src="/assets/images/clock.svg" alt="custom-level" width = "16" onclick="jQuery(function ($) {$('#settingsModal').modal();});">
+	      -->
+
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates sd">2018</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		-
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates ed">2100</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		</div>		
+ 	      </td>
+
 		  <% end %>
-		  		<% end %>
+		  <% end %>
             </tr>
           <% end %>
         </table>
@@ -448,11 +334,33 @@
               </td>
 
 		<% if i == 3 %>
-	      <td class='choice2'>
-		<img src="/assets/images/sliders-h.svg" alt="custom-level" width = "16">
-		  </td>
+	      <td class='date-choice-mode-2100-wrapper'>
+	      <div id='cd<%= choice.number %>' class="date-choice-mode-2100-default">
+	      <!--
+	      <img src="/assets/images/clock.svg" alt="custom-level" width = "16" onclick="jQuery(function ($) {$('#settingsModal').modal();});">
+	      -->
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates sd">2018</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>
+		</div>
+		-
+		<div class="dropdown-dates">
+		  <button class="dropbtn-dates ed">2100</button>
+		  <div class="dropdown-content-dates">
+		    <a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+		    <a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+		  </div>	
+		</div>
+		</div>
+ 	      </td>
+
 		  <% end %>
-		  		<% end %>
+		  <% end %>
             </tr>
           <% end %>
         </table>
@@ -554,432 +462,28 @@
 
 </div>
 
-<!--
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
--->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- 
-<script src='/assets/<%= assets['BootSideMenu.js']%>' type='text/javascript'></script>
--->
+<!-- bof Modal -->
+<div id="settingsModal" class="modal fade" role="dialog" style=>
+  <div class="modal-dialog">
 
-<script type="text/javascript">
-  
-</script>  
-<script type="text/javascript">
-  /**
- * BootSideMenu v 1.0
- * Author: Andrea Lombardo
- * http://www.lombardoandrea.com
- * https://github.com/AndreaLombardo/BootSideMenu
- * */
-(function ($) {
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-    $.fn.BootSideMenu = function (userOptions) {
+  </div>
+</div>
+<!-- eof Modal -->
 
-        var initialCode;
-        var newCode;
-        var menu;
-        var prevStatus;
-        var body = {};
-
-        var defaults = {
-            side: "left",
-            duration: 500,
-            remember: true,
-            autoClose: false,
-            pushBody: true,
-            closeOnClick: true,
-            width: "15%",
-            onTogglerClick: function () {
-                //code to be executed when the toggler arrow was clicked
-            },
-            onBeforeOpen: function () {
-                //code to be executed before menu open
-            },
-            onBeforeClose: function () {
-                //code to be executed before menu close
-            },
-            onOpen: function () {
-                //code to be executed after menu open
-            },
-            onClose: function () {
-                //code to be executed after menu close
-            },
-            onStartup: function () {
-                //code to be executed when the plugin is called
-            }
-        };
-
-        var options = $.extend({}, defaults, userOptions);
-
-
-        body.originalMarginLeft = $("body").css("margin-left");
-        body.originalMarginRight = $("body").css("margin-right");
-        body.width = $("body").width();
-
-        initialCode = this.html();
-
-        newCode = "	<div class=\"menu-wrapper\">\n" + initialCode + " </div>";
-        newCode += "<div class=\"toggler\" data-whois=\"toggler\">";
-        newCode += "	<span class=\"glyphicon\">&nbsp;</span>";
-        newCode += "</div>";
-
-        this.empty();
-        this.append(newCode);
-
-        menu = $(this);
-
-        menu.addClass("container");
-        menu.addClass("bootsidemenu");
-        menu.css("width", options.width);
-
-        if (options.side == "left") {
-            menu.addClass("bootsidemenu-left");
-        } else if (options.side == "right") {
-            menu.addClass("bootsidemenu-right");
-        }
-
-        menu.id = menu.attr("id");
-        menu.cookieName = "bsm2-" + menu.id;
-        menu.toggler = $(menu.children()[1]);
-        menu.originalPushBody = options.pushBody;
-        menu.originalCloseOnClick = options.closeOnClick;
-
-
-        if (options.remember) {
-            prevStatus = readCookie(menu.cookieName);
-        } else {
-            prevStatus = null;
-        }
-
-
-        forSmallBody();
-
-        switch (prevStatus) {
-            case "opened":
-                startOpened();
-                break;
-            case "closed":
-                startClosed();
-                break;
-            default:
-                startDefault();
-                break;
-        }
-
-        if (options.onStartup !== undefined) {
-            options.onStartup(menu);
-        }
-
-        $("[data-toggle=\"collapse\"]", menu).each(function () {
-            var icona = $("<span class=\"glyphicon glyphicon-chevron-right\"></span>");
-            $(this).prepend(icona);
-        });
-
-        menu.off("click", "[data-whois=toggler]");
-        menu.on("click", "[data-whois=toggler]", function () {
-            toggle();
-            if (options.onTogglerClick !== undefined) {
-                options.onTogglerClick(menu);
-            }
-        });
-
-        menu.off("click", ".list-group-item");
-        menu.on("click", ".list-group-item", function () {
-            menu.find(".list-group-item").each(function () {
-                $(this).removeClass("active");
-            });
-            $(this).addClass("active");
-            $(".glyphicon", this).toggleClass("glyphicon-chevron-right").toggleClass("glyphicon-chevron-down");
-        });
-
-
-        menu.off("click", "a.list-group-item");
-        menu.on("click", "a.list-group-item", function () {
-            if (options.closeOnClick) {
-                if ($(this).attr("data-toggle") != "collapse") {
-                    closeMenu(true);
-                }
-            }
-        });
-
-
-        function toggle() {
-            if (menu.status == "opened") {
-                closeMenu(true);
-            } else {
-                openMenu(true);
-            }
-        }
-
-        function switchArrow(side) {
-            var span = menu.toggler.find("span.glyphicon");
-            if (side == "left") {
-                span.removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-right");
-            } else if (side == "right") {
-                span.removeClass("glyphicon-chevron-right").addClass("glyphicon-chevron-left");
-            }
-        }
-
-        function startDefault() {
-            if (options.side == "left") {
-                if (options.autoClose) {
-                    menu.status = "closed";
-                    menu.hide().animate({
-                        left: -(menu.width() + 2)
-                    }, 1, function () {
-                        menu.show();
-                        switchArrow("left");
-                    });
-                } else if (!options.autoClose) {
-                    switchArrow("right");
-                    menu.status = "opened";
-                    if (options.pushBody) {
-                        $("body").css("margin-left", menu.width() + 20);
-                    }
-                }
-            } else if (options.side == "right") {
-                if (options.autoClose) {
-                    menu.status = "closed";
-                    menu.hide().animate({
-                        right: -(menu.width() + 2)
-                    }, 1, function () {
-                        menu.show();
-                        switchArrow("right");
-                    });
-                } else {
-                    switchArrow("left");
-                    menu.status = "opened";
-                    if (options.pushBody) {
-                        $("body").css("margin-right", menu.width() + 20);
-                    }
-                }
-            }
-        }
-
-        function startClosed() {
-            if (options.side == "left") {
-                menu.status = "closed";
-                menu.hide().animate({
-                    left: -(menu.width() + 2)
-                }, 1, function () {
-                    menu.show();
-                    switchArrow("left");
-                });
-            } else if (options.side == "right") {
-                menu.status = "closed";
-                menu.hide().animate({
-                    right: -(menu.width() + 2)
-                }, 1, function () {
-                    menu.show();
-                    switchArrow("right");
-                })
-            }
-        }
-
-        function startOpened() {
-            if (options.side == "left") {
-                switchArrow("right");
-                menu.status = "opened";
-                if (options.pushBody) {
-                    $("body").css("margin-left", menu.width() + 20);
-                }
-
-            } else if (options.side == "right") {
-                switchArrow("left");
-                menu.status = "opened";
-                if (options.pushBody) {
-                    $("body").css("margin-right", menu.width() + 20);
-                }
-            }
-        }
-
-        function closeMenu(execFunctions) {
-            if (execFunctions) {
-                if (options.onBeforeClose !== undefined) {
-                    options.onBeforeClose(menu);
-                }
-            }
-            if (options.side == "left") {
-
-                if (options.pushBody) {
-                    $("body").animate({marginLeft: body.originalMarginLeft}, {duration: options.duration});
-                }
-
-                menu.animate({
-                    left: -(menu.width() + 2)
-                }, {
-                    duration: options.duration,
-                    done: function () {
-                        switchArrow("left");
-                        menu.status = "closed";
-
-                        if (execFunctions) {
-                            if (options.onClose !== undefined) {
-                                options.onClose(menu);
-                            }
-                        }
-                    }
-                });
-            } else if (options.side == "right") {
-
-                if (options.pushBody) {
-                    $("body").animate({marginRight: body.originalMarginRight}, {duration: options.duration});
-                }
-
-                menu.animate({
-                    right: -(menu.width() + 2)
-                }, {
-                    duration: options.duration,
-                    done: function () {
-                        switchArrow("right");
-                        menu.status = "closed";
-
-                        if (execFunctions) {
-                            if (options.onClose !== undefined) {
-                                options.onClose(menu);
-                            }
-                        }
-                    }
-                });
-            }
-
-            if (options.remember) {
-                storeCookie(menu.cookieName, "closed");
-            }
-
-        }
-
-        function openMenu(execFunctions) {
-
-            if (execFunctions) {
-                if (options.onBeforeOpen !== undefined) {
-                    options.onBeforeOpen(menu);
-                }
-            }
-
-            if (options.side == "left") {
-
-                if (options.pushBody) {
-                    $("body").animate({marginLeft: menu.width() + 20}, {duration: options.duration});
-                }
-
-                menu.animate({
-                    left: 0
-                }, {
-                    duration: options.duration,
-                    done: function () {
-                        switchArrow("right");
-                        menu.status = "opened";
-
-                        if (execFunctions) {
-                            if (options.onOpen !== undefined) {
-                                options.onOpen(menu);
-                            }
-                        }
-                    }
-                });
-            } else if (options.side == "right") {
-
-                if (options.pushBody) {
-                    $("body").animate({marginRight: menu.width() + 20}, {duration: options.duration});
-                }
-
-                menu.animate({
-                    right: 0
-                }, {
-                    duration: options.duration,
-                    done: function () {
-                        switchArrow("left");
-                        menu.status = "opened";
-
-                        if (execFunctions) {
-                            if (options.onOpen !== undefined) {
-                                options.onOpen(menu);
-                            }
-                        }
-                    }
-                });
-            }
-
-            if (options.remember) {
-                storeCookie(menu.cookieName, "opened");
-            }
-        }
-
-
-        function forSmallBody() {
-            var windowWidth = $(window).width();
-
-            if (windowWidth <= 480) {
-                options.pushBody = false;
-                options.closeOnClick = true;
-            } else {
-                options.pushBody = menu.originalPushBody;
-                options.closeOnClick = menu.originalCloseOnClick;
-            }
-        }
-
-        function storeCookie(nome, valore) {
-            var d = new Date();
-            d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
-            var expires = "expires=" + d.toUTCString();
-            document.cookie = nome + "=" + valore + "; " + expires + "; path=/";
-        }
-
-        function readCookie(nome) {
-            var name = nome + "=";
-            var ca = document.cookie.split(";");
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == " ")
-                    c = c.substring(1);
-                if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
-            }
-            return null;
-        }
-
-
-        function onResize() {
-            forSmallBody();
-            if (menu.status == "closed") {
-                startClosed();
-            }
-            if (menu.status == "opened") {
-                startOpened();
-            }
-        }
-
-        var resizeStart;
-        var resizeEnd;
-        var wait = 250;
-        window.addEventListener("resize", function () {
-            resizeStart = new Date().getMilliseconds();
-            resizeEnd = resizeStart + wait;
-            setTimeout(function () {
-                var now = new Date().getMilliseconds();
-                if (now > resizeEnd) {
-                    onResize();
-                }
-            }, wait);
-        }, false);
-
-        return this;
-    }
-}(jQuery));
-
-</script>  
-<!--
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#lever_nav_panel').BootSideMenu({
-    side: "left",
-    width: "350px"
-    
-    });
-    });
-</script>
--->
 
   </body>
 </html>

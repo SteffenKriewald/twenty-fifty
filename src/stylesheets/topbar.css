@@ -1,7 +1,8 @@
 #topbar {
   position: relative;
   overflow: hidden;
-  width: 100%;
+/*  width: 100%;
+*/
   margin: 0 0 10px 0;
   background-color: black;
   color: white;
@@ -23,7 +24,7 @@
     margin-right: 2.4%;
     width: 180px; }
   #topbar #views {
-    margin: 0 180px;
+    margin: 0 50px;
     text-align: center; }
     #topbar #views a {
       padding-right: 10px; }

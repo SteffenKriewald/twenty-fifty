@@ -20,17 +20,16 @@
 }
 
 #classic_controls table tr:hover td.name {
-  font-weight: bold;
-  background-image: url("/assets/images/oneblackpixel.png");
+    font-weight: bold;
+    /*
+      background-image: url("/assets/images/oneblackpixel.png");
+   */
 }
 
 #classic_controls table tr:hover a.choiceLink {
   color:#000;
 }
 
-#classic_controls table tr:hover td.choice2 {
-  display:block;
-}
 
 /*
 #classic_controls table tr td a.leverNameLink {
@@ -38,11 +37,30 @@
 }
 */
 
+#classic_controls table tr td.lever-grey {
+    background-color:gray;
+}
+      
+#classic_controls table tr td.lever-lightgrey {
+    background-color:lightgray;
+}
 
-#classic_controls table td.choice2 {
-  width: 20px;
-  padding-left:4px;
-  display:none;
+#classic_controls table tr:hover td div.date-choice-mode-2100-default {
+    display:table-cell;
+}
+
+#classic_controls table td div.date-choice-mode-2100-default {
+    display:none;
+}
+
+#classic_controls table tr:hover td div.date-choice-mode-2100-edited {
+    display:table-cell;
+}
+
+#classic_controls table td.date-choice-mode-2100-wrapper {
+  width: 85px;
+  height: 16px;
+  padding-left: 4px;
 }
 
 #classic_controls table td.choice {
@@ -68,21 +86,27 @@
 */
 
 #classic_controls table td.name {
+    /*
   background-image: url("/assets/images/onegreypixel.png");
+*/
   background-position: left center;
   background-repeat: repeat-x;
   width:160px;
 }
 
 #classic_controls table td.nameL2 {
-  background-image: url("/assets/images/onegreypixel.png");
+    /*
+      background-image: url("/assets/images/onegreypixel.png");
+   */
   background-position: left center;
   background-repeat: repeat-x;
   width:150px !important;
 }
 
 #classic_controls table td.name a {
-  background-color: #fff;
+/*
+    background-color: #fff;
+*/
   text-decoration: none;
   color: #000;
   cursor: help;
@@ -153,17 +177,95 @@ color:#000; text-decoration: none;
 }
 
 #classic_controls table tr.incremental a.level1, #classic_controls div.level1 {
-  background-color: #92C979;
+/*  background-color: #92C979; */
 }
 #classic_controls table tr.incremental a.level2, #classic_controls div.level2 {
-  background-color: #EFDD60;
+/*  background-color: #EFDD60; */
 }
 #classic_controls table tr.incremental a.level3, #classic_controls div.level3 {
-  background-color: #FFAE55;
+/*  background-color: #FFAE55; */
 }
 #classic_controls table tr.incremental a.level4, #classic_controls div.level4 {
-  background-color: #F44545;
+/*  background-color: #F44545; */
 }
 #classic_controls table tr.alternative a.selected {
-  background-color: #aaa;
+  background-color: #aaa; 
 }
+
+#classic_controls table tr.incremental a.lever-grey {
+    background-color:gray;
+}
+
+#classic_controls table tr.incremental a.lever-lightgrey {
+    background-color:lightgray;
+}
+
+/*#classic_controls table tr.incremental a.level2, #classic_controls div.level2.lever-grey {
+    background-color:gray;
+}									     
+#classic_controls table tr.incremental a.level3, #classic_controls div.level3.lever-grey {
+    background-color:gray;
+}									     
+#classic_controls table tr.incremental a.level4, #classic_controls div.level4.lever-grey {
+    background-color:gray;
+}
+*/
+
+
+
+
+/* Style The Dropdown Button */
+.dropbtn-dates {
+    padding-left: 1px;
+    padding-right: 1px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown-dates {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content-dates {
+    display: none;
+    position: absolute;
+    min-width: 40px;
+    z-index: 1;
+    overflow-y: scroll;
+    height: 40px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content-dates a {
+    color: black;
+    padding: 1px 1px;
+    text-decoration: none;
+    display: block;
+    background-color: lightgrey;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content-dates a:hover {background-color: #f1f1f1}
+
+	
+/* Show the dropdown menu on hover */
+.dropdown-dates:hover .dropdown-content-dates {
+    display: block;
+}
+
+/* 
+Change the background color of the dropdown button when the dropdown content is shown 
+.dropdown-dates:hover .dropbtn-dates {
+    background-color: #3e8e41;
+	}
+*/
+
+.accordion-toggle:hover {color:#000; text-decoration: none; cursor: pointer;}
+.accordion-toggle {color:#000; text-decoration: none; cursor: pointer;}
+.accordion-content {display: none;}
+.accordion-content.default {display: block; padding-left:10px;}  

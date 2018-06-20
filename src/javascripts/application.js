@@ -14,7 +14,9 @@
 //= require raphael.min
 //= require d3.min
 //= require jstorage.min
+//= require bootstrap337.min
 //= require sankey
+//= require BootSideMenu
 
 // Now the utility methods
 //= require util/model_structure

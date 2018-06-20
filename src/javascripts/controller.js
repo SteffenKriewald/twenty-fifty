@@ -10,12 +10,78 @@
   active_view = null;
 
   // FIXME: Wrap this in a state object
-  controller = null;
-  choices = null;
-  view = null;
-  sector = null; // FIXME: Rename to sub_view.
-  comparator = null;
-  old_choices = [];
+    intermediate_classification_map = {
+	"Buildings Temperature Behaviour"					:"Buildings-Heat module",
+	"Average temperature of homes"						:"Buildings-Heat module",
+	"Home insulation"							:"Buildings-Heat module",
+	"Home heating electrification"						:"Buildings-Heat module",
+	"Home heating that isn"							:"Buildings-Heat module",
+	"Home lighting & appliances"						:"Buildings-Heat module",
+	"Electrification of home cooking"					:"Buildings-Heat module",
+	"Heating Buildings - Thermal Efficiency"				:"Buildings-Heat module",
+	"Heating Buildings - District heat share"				:"Buildings-Heat module",
+	"Heating Buildings - Heat Pump share"					:"Buildings-Heat module",
+	"Heating Buildings - Hybrid Heat Pump share"				:"Buildings-Heat module",
+	"Lighting & Appliance Efficiency"					:"Buildings-Non-Heat module ",
+	"Network Heat Supply Heat Pump Output"					:"Network Heat Source module",
+	"Network Heat Supply Bio CHP Output"					:"Network Heat Source module",	
+	"Domestic transport behaviour"						:"Transport Demand",
+	"International Aviation Demand"						:"Transport Demand",
+	"Shift to zero emission transport"					:"Transport Demand",
+	"Choice of zero-emission technology"					:"Transport Demand",
+	"Domestic freight"							:"Transport Demand",
+	"International aviation"						:"Transport Demand",
+	"International shipping"						:"Transport Demand",
+	"Light Vehicle - Electric vehicle distance share"			:"Transport (Excluding Aviation)",
+	"Light Vehicle - Hydrogen vehicle distance share"			:"Transport (Excluding Aviation)",
+	"Light Vehicle - Plug-in Hybrid Electric vehicle distance share"	:"Transport (Excluding Aviation)",
+	"Light Vehicle - Biofuel share of liquid fuel"				:"Transport (Excluding Aviation)",
+	"Heavy Vehicle - Electric vehicle distance share"			:"Transport (Excluding Aviation)",
+	"Heavy Vehicle - Hydrogen vehicle distance share"			:"Transport (Excluding Aviation)",
+	"Heavy Vehicle - Plug-in Hybrid Electric vehicle distance share"	:"Transport (Excluding Aviation)",
+	"Heavy Vehicle - Biofuel share of liquid fuel"				:"Transport (Excluding Aviation)",
+	"Aviation - Efficiency & Hybridisation"					:"Transport Aviation",
+	"Aviation - Biofuel share of liquid fuel"				:"Transport Aviation",
+	"Growth in industry"							:"Industry",
+	"Energy intensity of industry"						:"Industry",
+	"Energy Intensity"							:"Industry",
+	"Industry Electricity Fuel Share"					:"Industry",
+	"Industry Biomass Fuel Share"						:"Industry",
+	"Industry Gas Fuel Share"						:"Industry",
+	"Industry CCS - share of emissions with CCS"				:"Industry",
+	"Hydrogen share of gas grid"						:"Gas Grid Source",
+	"Biomethane share of gas grid"						:"Gas Grid Source",
+	"Hydrogen Produced form Bio Gasification CCS"				:"Hydrogen Production",
+	"Hydrogen Produced form SMR CCS"					:"Hydrogen Production",
+	"Hydrogen form Zero Carbon Imports"					:"Hydrogen Production",
+	"Emissions Removal from Other GGR"					:"Greenhouse Gas Removal (GGR)",
+	"Bio Transformation with CCS share"					:"Greenhouse Gas Removal (GGR)",
+	"CCS Capture rate development"						:"Greenhouse Gas Removal (GGR)",
+	"Land dedicated to Woodland"						:"Farming & Forestry",
+	"Land dedicated to bioenergy and share of agricultural waste collected"	:"Farming & Forestry",
+	"Agricultural emissions intensity and yield improvement"		:"Farming & Forestry",
+	"Waste reduction and diversion"						:"Bioenergy & Waste Transformations",
+	"Short term electricity storage capacity"				:"Electricity Storage and Balancing",
+	"Seasonal electricity storage capacity"					:"Electricity Storage and Balancing",
+	"Biomass CCS Generation Capacity"					:"Electricity Generation",
+	"Nuclear Generation Capacity"						:"Electricity Generation",
+	"Wind Generation Capacity"						:"Electricity Generation",
+	"Solar Generation Capacity"						:"Electricity Generation",
+	"Marine (composite) Generation Capacity"				:"Electricity Generation",
+	"Gas CCS Generation Capacity"                                           :"Electricity Generation"
+    };
+
+    controller = null;
+    choices = null;
+    startdatechoices = null;
+    enddatechoices = null;
+    old_startdatechoices = null;
+    old_enddatechoices = null;
+
+    view = null;
+    sector = null; // FIXME: Rename to sub_view.
+    comparator = null;
+    old_choices = [];
 
   // FIXME: Where is the right spot for this?
   cache = {};
@@ -41,13 +107,29 @@
     }
 	
 							
+//       setupBootSideMenu = function() {
+//   	$('#lever_nav_panel').BootSideMenu({
+//   	    side: "left",
+//   	    width: "400px"	    
+//   	});
+//       }
+    
     setupBootSideMenu = function() {
 	$('#lever_nav_panel').BootSideMenu({
 	    side: "left",
-	    width: "350px"	    
+	    width: "400px",
+	    closeOnClick: false,
+	    icons: {
+		left: '',
+		right: '',
+		down: ''
+	    },
+	    onStartup: function() {
+		$('.toggler').addClass("hide");
+	    }
 	});
+	$('#lever_nav_panel').BootSideMenu.open();
     }
-							
     
   // Some of the graphs require SVG, which is only supported in modern browsers (Internet Explorer >8)
   // This function checks that SVG is supported, and if not reveals a warning block that is 
@@ -63,7 +145,7 @@
   setUpControls = function() {
     // All links with titles have the title turned into a tooltip. The tooltip is styled
     // in src/stylesheets/tooltip.css 
-    $("a[title]").tooltip({ delay: 0, position: 'top left', offset: [3, 3], tip: '#tooltip' });
+      $("a[title]").tooltip({ delay: 0, position: 'top left', offset: [3, 3], tip: '#tooltip' });
 
     // This turns the cells that are labeled '1' '2' '3' '4' into controls that select 
     // a new pathway. The cell is expected to have a data-choicenumber attribute that 
@@ -84,6 +166,29 @@
 	  }
 	  return truncated;
     });
+
+      // This turns links containing dates '2010' .. '2100' into
+      // controls that select new pathways. The link is expected to have
+      // a data-choicenumber attribute that indicates start or end date
+      // of implementation for a pathway
+      $("a.dateChoiceLink").on('click touchend', function(event) {
+	  //	  alert("dateChoiceLink event triggered")
+	  event.preventDefault();
+	  t = $(event.target);
+	  c = t.data().choicenumber;
+	  d = t.data().datechoice;
+	  if (t.parent().parent().find("button").hasClass("sd")) {
+	      old_startdatechoices = startdatechoices.slice(0);
+	      startdatechoices[c] = d;
+	  }
+	  else {
+	      old_enddatechoices = enddatechoices.slice(0);
+	      enddatechoices[c] = d;
+	  }
+	  loadMainPathway();
+      });
+
+ 
       
     $("a.view").on('click touchend', function(event) {
       var t, v;
@@ -145,21 +250,62 @@
         active_view.updateResults(cache[codeForChoices()]);
       }, 500);
     });
+
+      _old_intermediate_category = null;
+      _intermediate_category = null;
+      _color_intermediate_category = "lever-grey";
+
+      controls = $('#classic_controls');
+      // loop over lever "hidden" categories
+      _demandIterator = [];
+      //      for (i=25; i<42; i == 31 ? i+=2 : i++) _demandIterator.push(i);
+      //      for (i in _demandIterator) {
+      for (i=25; i<42; (i == 30||i == 35||i == 38) ? i+=2 : i++) {
+//	  alert("i is '" + i + "'");
+	  row = controls.find("tr#r" + i);
+	  _original_title = row.find("a.leverNameLink").attr("data-original-title");
+	  _intermediate_category = intermediate_classification_map[_original_title];
+//	  if (_intermediate_category === undefined)
+//	  alert(_original_title);
+	  if (_old_intermediate_category == null) {
+	      _old_intermediate_category = _intermediate_category;
+	  }
+	    
+	  if (_intermediate_category !== _old_intermediate_category) {
+	      if (_color_intermediate_category === "lever-grey") {
+		  _color_intermediate_category = "lever-lightgrey";
+	      } else {
+		  _color_intermediate_category = "lever-grey";
+	      }
+	  }
+	  row.find("td.name").addClass(_color_intermediate_category);
+	  _old_intermediate_category = _intermediate_category;
+      }
       
   };
 
   setVariablesFromURL = function() {
-    var url_elements;
-    url_elements = window.location.pathname.split('/');
-    controller = url_elements[1] || "pathways";
-    choices = choicesForCode(url_elements[2] || twentyfifty.default_pathway);
-    view = url_elements[3] || "primary_energy_chart";
-    if (view === 'costs_compared_within_sector') {
-      sector = url_elements[4];
-    }
-    if (url_elements[4] === 'comparator') {
-      return comparator = url_elements[5];
-    }
+      var url_elements;
+      url_elements = window.location.pathname.split('/');
+      controller = url_elements[1] || "pathways";
+      choices = choicesForCode(url_elements[2] || twentyfifty.default_pathway);
+      startdatechoices = [];
+      for (i=1; i <=53; i++) {
+	  startdatechoices.push(2018);
+      }
+      enddatechoices = [];
+      for (i=1; i <=53; i++) {
+	  enddatechoices.push(2100);
+      }
+      old_startdatechoices = startdatechoices.slice(0);
+      old_enddatechoices = enddatechoices.slice(0);
+      view = url_elements[3] || "primary_energy_chart";
+      if (view === 'costs_compared_within_sector') {
+	  sector = url_elements[4];
+      }
+      if (url_elements[4] === 'comparator') {
+	  return comparator = url_elements[5];
+      }
   };
 
   float_to_letter_map = {
@@ -292,6 +438,16 @@
     return loadMainPathway();
   };
 
+//    goWithDates = function(index, date, ) {
+//      old_startdatechoices = startdatechoices.slice(0);
+//      startdatechoices[index] = date;
+//      old_enddatechoices = enddatechoices.slice(0);
+//      enddatechoices[index] = date;
+////      alert("date choice is: " + startdatechoices[index]);
+//      return loadMainPathway();
+//  };
+//
+    
   demoTimer = null;
 
   demoOriginalLevel = null;
@@ -447,41 +603,70 @@
     }
   };
 
-  updateControls = function(old_choices, choices) {
-    var c, choice, choice_frview, choice_whole, controls, i, old_choice, old_choice_frview, old_choice_whole, row, _i, _j, _len, _ref, _ref1, _results;
-    this.choices = choices;
-    controls = $('#classic_controls');
-    _ref = this.choices;
-    _results = [];
-    for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
-      choice = _ref[i];
-      old_choice = old_choices[i];
-      if (choice !== old_choices[i]) {
-        old_choice_whole = Math.ceil(old_choice);
-        old_choice_frview = parseInt((old_choice % 1) * 10);
-        choice_whole = Math.ceil(choice);
-        choice_frview = parseInt((choice % 1) * 10);
-        row = controls.find("tr#r" + i);
-        row.find(".selected, .level" + old_choice_whole + ", .level" + old_choice_whole + "_" + old_choice_frview).removeClass("selected level" + old_choice_whole + " level" + old_choice_whole + "_" + old_choice_frview);
-        if (old_choice_frview !== 0) {
-          controls.find("#c" + i + "l" + old_choice_whole).text(old_choice_whole);
-        }
-        row.find("#c" + i + "l" + choice_whole).addClass('selected');
-        for (c = _j = 1, _ref1 = choice_whole - 1; 1 <= _ref1 ? _j <= _ref1 : _j >= _ref1; c = 1 <= _ref1 ? ++_j : --_j) {
-          controls.find("#c" + i + "l" + c).addClass("level" + choice_whole);
-        }
-        if (choice_frview !== 0) {
-          controls.find("#c" + i + "l" + choice_whole).text(choice);
-          _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole + "_" + choice_frview));
-        } else {
-          _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole));
-        }
-      } else {
-        _results.push(void 0);
-      }
-    }
-    return _results;
-  };
+    // TODO [2018-06-19 Tue 13:43]: return value respects only the old interface, not the updated one with dates and intermediate categories
+    updateControls = function(old_choices, choices) {
+	
+	var c, choice, choice_frview, choice_whole, controls, i, old_choice, old_choice_frview, old_choice_whole, row, _i, _j, _len, _ref, _ref1, _results, _button, _startdate, _old_startdate, _enddate, _old_enddate, _original_title, _color_intermediate_category, _old_intermediate_category, intermediate_category;
+	this.choices = choices;
+	controls = $('#classic_controls');
+	_ref = this.choices;
+	_results = [];
+
+	// loop over lever levels
+	for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+	    choice = _ref[i];
+	    old_choice = old_choices[i];
+	    if (choice !== old_choices[i]) {
+		old_choice_whole = Math.ceil(old_choice);
+		old_choice_frview = parseInt((old_choice % 1) * 10);
+		choice_whole = Math.ceil(choice);
+		choice_frview = parseInt((choice % 1) * 10);
+		row = controls.find("tr#r" + i);
+		_color_intermediate_category = $("#classic_controls tr#r" + i + " td.name").hasClass("lever-grey")?"lever-grey":"lever-lightgrey";
+		row.find(".selected, .level" + old_choice_whole + ", .level" + old_choice_whole + "_" + old_choice_frview).removeClass("selected level" + old_choice_whole + " level" + old_choice_whole + "_" + old_choice_frview + " " + _color_intermediate_category);
+		
+		if (old_choice_frview !== 0) {
+		    controls.find("#c" + i + "l" + old_choice_whole).text(old_choice_whole);
+		}
+		row.find("#c" + i + "l" + choice_whole).addClass('selected');
+		for (c = _j = 1, _ref1 = choice_whole - 1; 1 <= _ref1 ? _j <= _ref1 : _j >= _ref1; c = 1 <= _ref1 ? ++_j : --_j) {
+		    controls.find("#c" + i + "l" + c).addClass("level" + choice_whole + " " + _color_intermediate_category);
+		}
+		if (choice_frview !== 0) {
+		    controls.find("#c" + i + "l" + choice_whole).text(choice);
+		    _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole + "_" + choice_frview));
+		} else {
+		    _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole + " " +  _color_intermediate_category));
+		}
+	    } else {
+		_results.push(void 0);
+	    }
+	}
+
+	// loop over date choices
+	for (i = 0; i < startdatechoices.length; i++) {
+	    _startdate = startdatechoices[i];
+	    _enddate = enddatechoices[i];
+	    _old_startdate = old_startdatechoices[i];
+	    _old_enddate = old_enddatechoices[i];
+	    if ((_startdate !== _old_startdate)||(_enddate !== _old_enddate)) {
+		_button = controls.find("#cd" + i);
+		_button.removeClass("update date-choice-mode-2100-default");
+		_button.addClass("update date-choice-mode-2100-edited");		
+	    }
+	    if (_startdate !== _old_startdate) {
+		_button.find(".sd").text(_startdate);
+	    }
+	    if (_enddate !== _old_enddate) {
+		_button.find(".ed").text(_enddate);
+	    }	    
+	    
+	}
+
+	
+
+	return _results;
+    };
 
   getSector = function() {
     return parseInt(sector);
