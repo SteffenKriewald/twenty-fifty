@@ -1,33 +1,89 @@
+:root {
+  --gap_name_choice: 0px;
+  --indent_name: 15px;
+}
+
+.gap{width:5px;}
+
+
+.rotate  {
+/*    writing-mode:tb-rl;*/
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform:rotate(90deg);
+/*    white-space:nowrap;
+    display:block;
+    bottom:0;*/
+    width:25px;
+    height:25px;
+}
+
+#classic_controls table tr.incremental a.lever-lightgrey {
+    background-color:#ccd6e0;
+    color:darkgrey;
+}
+
+#classic_controls table tr:hover.incremental a.lever-lightgrey {
+    background-color:#7f99b2;
+}
+
+.dynamicbar canvas,
+.demanddb canvas,
+.supplydb canvas,
+.otherdb canvas    {
+	margin-top:-53px;
+}
+
+/* manual horizontal centering with margin-left, due to rotation class*/
+.otherdb canvas {
+  margin-left: 20px;
+}
+
+/*
+/* Select boxes */
+.ui-select{width: 100%}
+/* This is to remove the arrow of select element in IE */
+select::-ms-expand {	display: none; }
+select{
+    -webkit-appearance: none;
+    appearance: none;
+}
+@-moz-document url-prefix(){
+	.ui-select{margin: 10px; width:47px; border: 1px solid #ccd6e0; border-radius: 10px; box-sizing: border-box; position: relative; overflow: hidden;}
+  .ui-select select { background-color: #ccd6e0;color:white;font-weight: bold; width: 150%; background-position: right 30px center !important; border: none !important;}
+}
+*/
 
 #classic_controls {
   font-size: 0.72em;
   overflow: auto;
-  width:300px;
+  width:600px;
   padding:20px;
 }
 #classic_controls #demand, #classic_controls #supply, #classic_controls #other {
   padding: 0;
   border: 0;
   margin: 0;
-  margin-left: 2.5%;
-  width: 100%;
+  /*margin-left: 2.5%;*/ /*new - remove margin of controll content table, instead introduce padding variable --intend_name*/
+  /*width: 100%;*/
   float: left;
 }
 #classic_controls table {
-  width: 100%;
+  /*width: 100%;*/
   border-collapse: separate;
   border-spacing: 0px 0px;
 }
 
 #classic_controls table tr:hover td.name {
-    font-weight: bold;
-    /*
-      background-image: url("/assets/images/oneblackpixel.png");
-   */
+    /*font-weight: bold;*/
+    /*background-image: url("/assets/images/oneblackpixel.png");*/
+    /*background-color: #7f99b2;*/
+    /* instead using #classic_controls table tr:hover td.lever-grey */
 }
 
 #classic_controls table tr:hover a.choiceLink {
-  color:#000;
+    color:#ccd6e0;
 }
 
 
@@ -37,30 +93,52 @@
 }
 */
 
+/* color for name */
 #classic_controls table tr td.lever-grey {
-    background-color:gray;
+    background-color:#b2c1d1;
 }
-      
+
 #classic_controls table tr td.lever-lightgrey {
-    background-color:lightgray;
+    background-color:#ccd6e0;
+}
+
+#classic_controls table tr:hover td.lever-grey,
+#classic_controls table tr:hover td.lever-lightgrey {
+  background-color:#7f99b2;
+/*    display:table-cell;*/
 }
 
 #classic_controls table tr:hover td div.date-choice-mode-2100-default {
-    display:table-cell;
+  color:#ccd6e0
+/*    display:table-cell;*/
 }
 
+/*
+#classic_controls table tr td div.date-choice-mode-2100-default .noUi-target {
+  visibility: hidden;
+}
+#classic_controls table tr:hover .TimeModeVisible .noUi-target{
+  visibility: visible;
+/*    display:table-cell;*/
+
 #classic_controls table td div.date-choice-mode-2100-default {
-    display:none;
+    /*display:none;*/
+    color: transparent;
 }
 
 #classic_controls table tr:hover td div.date-choice-mode-2100-edited {
-    display:table-cell;
+/*    display:table-cell;*/
+}
+
+.date-choice-mode-2100-wrapper {
+  visibility: hidden;
+	width:150px;
 }
 
 #classic_controls table td.date-choice-mode-2100-wrapper {
-  width: 85px;
-  height: 16px;
-  padding-left: 4px;
+/*  width: 85px;*/
+  height: 22px;
+  padding-left: calc(4px + var(--gap_name_choice)); /*new + padding form */
 }
 
 #classic_controls table td.choice {
@@ -74,16 +152,23 @@
   text-align: center;
   vertical-align: bottom;
   position: relative;
-  color: #FFF;
+  /* make leaver level invisible*/
+  /*color: #d9d9d9;*/
+  color: transparent;
   text-decoration: none;
-  height: 16px;
+  height: 22px;
+  /*margin-left:var(--gap_name_choice);*/
 }
 
-/*
+#classic_controls table td.choice a {
+  margin-left:var(--gap_name_choice);
+}
+
+
 #classic_controls table td.choice a.selected {
   color: #000;
 }
-*/
+
 
 #classic_controls table td.name {
     /*
@@ -91,7 +176,8 @@
 */
   background-position: left center;
   background-repeat: repeat-x;
-  width:160px;
+  width:200px;
+  padding-left:var(--indent_name);
 }
 
 #classic_controls table td.nameL2 {
@@ -112,6 +198,24 @@
   cursor: help;
 }
 
+
+
+.accordion-toggle table tr.menuWidth {
+		  width:260px;
+		  height:0px;
+}
+
+.accordion-toggle table tr.menuWidthL2 {
+		  width:250px;
+		  height:0px;
+}
+
+.accordion-toggle table tr td.menuLevelWidth {
+		  width:20px;
+		text-align: center;
+		color:#ccd6e0;
+}
+
 #classic_controls table tr.menuWidth {
 		  width:260px;
 		  height:0px;
@@ -129,6 +233,7 @@
 #classic_controls table td.name a:hover {
   text-decoration: underline;
 }
+
 #classic_controls table td.help a, #classic_controls div.help {
   text-align: center;
   display: block;
@@ -142,24 +247,21 @@
   width: 14px;
 }
 
+
+
+/* comercial - subgroub toggle /*
 #classic_controls a.accordion-toggle  {
-color:#000; text-decoration: none;
+color:#000;
+text-decoration: none;
 }
 
-#classic_controls table tr.incremental a {
-  background-position: left center;
-  background-repeat: repeat-y;
-}
-<% 1.upto(4) do |c| %>
-  <% 1.upto(9) do |i| %>
-    #classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/level<%= c %>_<%= i %>.png'); }
-  <% end %>
-<% end %>
 
-#classic_controls div.level1, 
-#classic_controls div.level2, 
+
+
+#classic_controls div.level1,
+#classic_controls div.level2,
 #classic_controls div.level3,
-#classic_controls div.level4, 
+#classic_controls div.level4,
 #classic_controls div.alternate  {
   width: 14px;
   text-align: center;
@@ -188,31 +290,30 @@ color:#000; text-decoration: none;
 #classic_controls table tr.incremental a.level4, #classic_controls div.level4 {
 /*  background-color: #F44545; */
 }
+
+/* color for click on ABCD*/
 #classic_controls table tr.alternative a.selected {
-  background-color: #aaa; 
+  background-color: transparent;
 }
 
+/* color for level*/
 #classic_controls table tr.incremental a.lever-grey {
-    background-color:gray;
+    background-color: #b2c1d1;
 }
 
-#classic_controls table tr.incremental a.lever-lightgrey {
-    background-color:lightgray;
+#classic_controls table tr:hover.incremental a.lever-grey {
+    background-color: #7f99b2;
 }
-
 /*#classic_controls table tr.incremental a.level2, #classic_controls div.level2.lever-grey {
     background-color:gray;
-}									     
+}
 #classic_controls table tr.incremental a.level3, #classic_controls div.level3.lever-grey {
     background-color:gray;
-}									     
+}
 #classic_controls table tr.incremental a.level4, #classic_controls div.level4.lever-grey {
     background-color:gray;
 }
 */
-
-
-
 
 /* Style The Dropdown Button */
 .dropbtn-dates {
@@ -222,21 +323,24 @@ color:#000; text-decoration: none;
     padding-top: 0px;
     border: none;
     cursor: pointer;
+    background-color:transparent;
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown-dates {
     position: relative;
     display: inline-block;
+    text-align: center;
 }
 
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content-dates {
+  margin-left: -10px;
     display: none;
     position: absolute;
     min-width: 40px;
-    z-index: 1;
-    overflow-y: scroll;
+    z-index: 100;
+    overflow-y: visible;
     height: 40px;
 }
 
@@ -245,27 +349,97 @@ color:#000; text-decoration: none;
     color: black;
     padding: 1px 1px;
     text-decoration: none;
+    text-align: center;
     display: block;
-    background-color: lightgrey;
+    background-color: #ccd6e0;
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content-dates a:hover {background-color: #f1f1f1}
+.dropdown-content-dates a:hover {background-color: #7f99b2;}
 
-	
+
 /* Show the dropdown menu on hover */
 .dropdown-dates:hover .dropdown-content-dates {
     display: block;
 }
 
-/* 
-Change the background color of the dropdown button when the dropdown content is shown 
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown-dates:hover .dropbtn-dates {
-    background-color: #3e8e41;
+    background-color: white;
 	}
-*/
+
 
 .accordion-toggle:hover {color:#000; text-decoration: none; cursor: pointer;}
 .accordion-toggle {color:#000; text-decoration: none; cursor: pointer;}
 .accordion-content {display: none;}
-.accordion-content.default {display: block; padding-left:10px;}  
+.accordion-content.default {display: block;}
+
+/*
+.accordion-toggle:after {
+    /*content: '\02795'; /* Unicode character for "plus" sign (+) */
+    content: '\02191';
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    /*content: "\2796"; /* Unicode character for "minus" sign (-) */
+    content: '\02193';
+}
+*/
+
+.timeslider {
+	background-color:red;
+}
+
+
+.dates-column{width:150px;height:100%;}
+.dates-column-left{float:left;width:25px;margin-left: 10px;}
+.dates-column-right{float:right;width:45px;}
+.dates-column-center{height:100%;margin:0 auto;width:50px;color:transparent;background-image:url('http://www.pik-potsdam.de/~kriewald/js/test.png');background-repeat: no-repeat;background-size: cover;}
+
+#classic_controls table tr.incremental a {
+  background-position: left center;
+  background-repeat: repeat-y;
+}
+
+<% 1.upto(4) do |c| %>
+  <% 1.upto(9) do |i| %>
+/*
+    #classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/level<%= c %>_<%= i %>.png')}
+*/
+#classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/levelgrey_<%= i %>.png')}
+  <% end %>
+<% end %>
+
+/*
+table.fixed td{  border: 1px solid #1C6EA4;}
+table.fixed { table-layout:fixed; }
+table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:center;}
+*/
+
+.buttonMode {
+  float: right;
+  margin: 4px 8px;
+  height: 21px;
+  width: 155px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: black;
+  background-color: #ccd6e0;
+  border: none;
+  border-radius: 1px;
+  /*box-shadow: 0 4px #999;*/
+}
+
+.buttonMode:hover {background-color: #b2c1d1}
+
+.buttonMode:active {
+  background-color: #7f99b2;
+  /*box-shadow: 0 2px #666;*/
+  transform: translateY(2px);
+}

@@ -17,6 +17,9 @@
 //= require bootstrap337.min
 //= require sankey
 //= require BootSideMenu
+//= require nouislider.min
+//= require jquery.sparkline
+//= require wNumb
 
 // Now the utility methods
 //= require util/model_structure
