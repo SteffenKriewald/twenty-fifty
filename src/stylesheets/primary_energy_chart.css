@@ -1,14 +1,16 @@
 svg {
   overflow: visible; }
 
+/* organisation of charts */
 .chart {
   padding: 0;
-  border: 0;
-  margin: 0;
-  margin-left: 2.4%;
-  width: 30%;
-  margin-bottom: 0px;
-  float: left; }
+/*  border: 2px solid lightgrey;*/
+  margin: 25px;
+/*  margin: 0;
+  margin-left: 2.4%; */
+  width: 80%; /* 30% for horizontal stacking */
+/*  margin-bottom: 0px;*/
+/*float: left; /* comment out for vertical stacking*/ }
 
 .chart rect.backgroundrect {
   fill: #fff; }
@@ -95,7 +97,7 @@ g.context path {
   fill: #660066; }
 
 .importedgas {
-  fill: #79187f; 
+  fill: #79187f;
 }
 
 .coal {
@@ -126,7 +128,7 @@ g.context path {
   fill: #ff0000; }
 
 .hydro {
-  fill: #0099CC; }
+  fill: #ccd6e0; }
 
 .nuclear {
   fill: #EE7C0E; }

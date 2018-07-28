@@ -18,7 +18,8 @@
     bottom: 0;
     top: 0;
     overflow: auto;
-	width: 100%;
+	width: 98%;
+  margin-left: -15px;
 }
 
 .bootsidemenu > .row {
@@ -115,13 +116,13 @@
 
 /*==========  Media queries for test ==========*/
 
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) {
 
 }
 
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 465px) {
 
 }
 
@@ -160,15 +161,14 @@
     }
 }
 
-/* Extra Small Devices, Phones */ 
-@media only screen and (max-width : 480px) {
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 465px) {
     .bootsidemenu {
         min-width: 90%;
     }
 }
 
-/* Custom, iPhone Retina */ 
+/* Custom, iPhone Retina */
 @media only screen and (max-width : 320px) {
 
 }
-  

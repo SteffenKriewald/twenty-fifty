@@ -1,17 +1,20 @@
 #topbar {
+  font-weight: bold;
   position: relative;
   overflow: hidden;
 /*  width: 100%;
 */
   margin: 0 0 10px 0;
-  background-color: black;
+  background-color: #003366;
   color: white;
-  border-bottom: solid #009ddb 3px; }
+  padding-top: 10px;
+  padding-bottom: 5px;
+/*border-bottom: solid #ccd6e0 0px; */}
   #topbar a {
     color: white;
     text-decoration: none; }
   #topbar .selectedView {
-    color: #009ddb; }
+    color: #ccd6e0; }
   #topbar a:hover {
     text-decoration: underline; }
   #topbar #name {
@@ -33,12 +36,12 @@
   z-index: 10000;
   position: absolute;
   display: none;
-  background: black;
-  border: solid 1px black;
+  background: #ccd6e0;
+  border: solid 1px #ccd6e0;
   box-shadow: 0 0 5px #888; }
   .dropdown a {
     padding: 5px;
-    color: white;
+    color: black;
     display: block;
     text-decoration: none; }
   .dropdown a:hover {

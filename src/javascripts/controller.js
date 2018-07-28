@@ -1,5 +1,5 @@
 (function() {
-  
+
   // This object contains a series of properties, where the name of the property
   // matches the name of the view as used in the URl and the value of the property
   // is a function that manages that view and is defined in the views/ folder.
@@ -24,7 +24,7 @@
 	"Heating Buildings - Hybrid Heat Pump share"				:"Buildings-Heat module",
 	"Lighting & Appliance Efficiency"					:"Buildings-Non-Heat module ",
 	"Network Heat Supply Heat Pump Output"					:"Network Heat Source module",
-	"Network Heat Supply Bio CHP Output"					:"Network Heat Source module",	
+	"Network Heat Supply Bio CHP Output"					:"Network Heat Source module",
 	"Domestic transport behaviour"						:"Transport Demand",
 	"International Aviation Demand"						:"Transport Demand",
 	"Shift to zero emission transport"					:"Transport Demand",
@@ -98,27 +98,32 @@
 	switchView(view);
 	loadMainPathway();
     });
-    
+
     accordionLeverToggle = function() {
 	$('#accordion').find('.accordion-toggle').click(function(){
+	this.classList.toggle("active"); /*new*/
 	//Expand or collapse this panel
 	$(this).next().slideToggle('fast');
+	// Show or not Show Sparklines for group
+	var spark = document.getElementById($(this).next().attr('id')+"db");
+	if (spark.style.visibility == 'hidden') {spark.style.visibility='visible'} else {spark.style.visibility='hidden'}
 	});
     }
-	
-							
+
+
 //       setupBootSideMenu = function() {
 //   	$('#lever_nav_panel').BootSideMenu({
 //   	    side: "left",
-//   	    width: "400px"	    
+//   	    width: "400px"
 //   	});
 //       }
-    
+
     setupBootSideMenu = function() {
 	$('#lever_nav_panel').BootSideMenu({
 	    side: "left",
-	    width: "400px",
+	    width: "465px",
 	    closeOnClick: false,
+//    pushBody: true,
 	    icons: {
 		left: '',
 		right: '',
@@ -130,9 +135,9 @@
 	});
 	$('#lever_nav_panel').BootSideMenu.open();
     }
-    
+
   // Some of the graphs require SVG, which is only supported in modern browsers (Internet Explorer >8)
-  // This function checks that SVG is supported, and if not reveals a warning block that is 
+  // This function checks that SVG is supported, and if not reveals a warning block that is
   // in src/index.html.erb
   checkSVGWorks = function() {
     if (!!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGRect) { return; }
@@ -140,16 +145,16 @@
   };
 
   // The controls are a series of tables in src/index.html.erb in the #classic_controls block
-  // This method attaches javascript function to those tables to trigger other jascript 
+  // This method attaches javascript function to those tables to trigger other jascript
   // methods in this file when they are clicked.
   setUpControls = function() {
     // All links with titles have the title turned into a tooltip. The tooltip is styled
-    // in src/stylesheets/tooltip.css 
-      $("a[title]").tooltip({ delay: 0, position: 'top left', offset: [3, 3], tip: '#tooltip' });
+    // in src/stylesheets/tooltip.css
+      $("a[title]").tooltip({ delay: 0, trigger : 'hover', position: 'top left', offset: [3, 3], tip: '#tooltip' });
 
-    // This turns the cells that are labeled '1' '2' '3' '4' into controls that select 
-    // a new pathway. The cell is expected to have a data-choicenumber attribute that 
-    // indicates whether it is nuclear, CCS, home heating etc and a data-choicelevel 
+    // This turns the cells that are labeled '1' '2' '3' '4' into controls that select
+    // a new pathway. The cell is expected to have a data-choicenumber attribute that
+    // indicates whether it is nuclear, CCS, home heating etc and a data-choicelevel
     // attribute that indicates whether it
     $("a.choiceLink").on('click touchend', function(event) {
       event.preventDefault();
@@ -157,12 +162,23 @@
       c = t.data().choicenumber;
       l = t.data().choicelevel;
       go(c, l);
+	g = t.data().group;
+	// create (FIXME) - Update spark plot depending on group
+	if ( g == 'demand') { var levelData = choices.slice(25, 30).concat(choices.slice(32, 35),choices.slice(37, 38),choices.slice(40, 41));}
+	if ( g == 'supply') { var levelData = choices.slice(0, 0).concat(choices.slice(2, 15),choices.slice(17, 22));}
+	if ( g == 'other') { var levelData = choices.slice(50, 52);}
+	$("."+g+"db").sparkline(levelData, {
+		type: 'bar', barColor: '#7f99b2', disableInteraction: true,
+		barWidth:'2px', height:'75px', barSpacing:'0px',
+		chartRangeMin: 0, chartRangeMax: 4}
+	);
+	document.getElementById(g+'db').style.visibility="hidden";
     });
-      
+
       $("a.leverNameLink").html(function(index, leverName) {
 	  truncated = leverName.trim().substring(0, 25);
 	  if (truncated.length < leverName.trim().length) {
-	      truncated += "..." 
+	      truncated += "..."
 	  }
 	  return truncated;
     });
@@ -177,19 +193,89 @@
 	  t = $(event.target);
 	  c = t.data().choicenumber;
 	  d = t.data().datechoice;
+
 	  if (t.parent().parent().find("button").hasClass("sd")) {
 	      old_startdatechoices = startdatechoices.slice(0);
 	      startdatechoices[c] = d;
+        if (startdatechoices[c] > enddatechoices[c]-10) {
+          old_enddatechoices = enddatechoices.slice(0);
+          //enddatechoices[c] = d;
+          /* minimal implementation time */
+          // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
+          enddatechoices[c] = d + 10;
+        }
+
 	  }
 	  else {
 	      old_enddatechoices = enddatechoices.slice(0);
 	      enddatechoices[c] = d;
+        if (enddatechoices[c] < startdatechoices[c]+10) {
+          old_startdatechoices = startdatechoices.slice(0);
+          //startdatechoices[c] = d;
+          /* minimal implementation time */
+          // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
+          startdatechoices[c] = d - 10;
+        }
+
+
 	  }
-	  loadMainPathway();
+
+
+	// destroy old slider and create new one with updated dates and colors
+	window['sliderSlider'+c].noUiSlider.destroy()
+	noUiSlider.create(window['sliderSlider'+c], {
+		start: [ startdatechoices[c], enddatechoices[c]],
+		step: 5,
+		connect: true,
+		range: {'min':  2020,'max':  2100},
+		cssPrefix: 'noUi-', // defaults to 'noUi-',
+		cssClasses: {
+			// Full list of classnames to override.
+			// Does NOT extend the default classes.
+			// Have a look at the source for the full, current list:
+			// https://github.com/leongersen/noUiSlider/blob/master/src/js/options.js#L398
+				target: 'target',
+				base: 'base',
+				origin: 'origin',
+				handle: 'handle-my',
+				handleLower: 'handle-lower',
+				handleUpper: 'handle-upper',
+				horizontal: 'horizontal',
+				vertical: 'vertical',
+				background: 'background',
+				connect: 'connect-my',
+				connects: 'connects',
+				ltr: 'ltr',
+				rtl: 'rtl',
+				draggable: 'draggable',
+				drag: 'state-drag',
+				tap: 'state-tap',
+				active: 'active',
+				tooltip: 'tooltip',
+				pips: 'pips',
+				pipsHorizontal: 'pips-horizontal',
+				pipsVertical: 'pips-vertical',
+				marker: 'marker',
+				markerHorizontal: 'marker-horizontal',
+				markerVertical: 'marker-vertical',
+				markerNormal: 'marker-normal',
+				markerLarge: 'marker-large',
+				markerSub: 'marker-sub',
+				value: 'value',
+				valueHorizontal: 'value-horizontal',
+				valueVertical: 'value-vertical',
+				valueNormal: 'value-normal',
+				valueLarge: 'value-large',
+				valueSub: 'value-sub'
+		}
+	});
+	window['sliderSlider'+c].setAttribute('disabled', true);
+
+	loadMainPathway();
       });
 
- 
-      
+
+
     $("a.view").on('click touchend', function(event) {
       var t, v;
       event.preventDefault();
@@ -197,9 +283,9 @@
       v = t.data().view;
       return switchView(v);
     });
-      
 
-    $(".newdropdown").on('click touchend', function(event) {
+
+    $(".newdropdown").on('click', function(event) {
       var d, o, space, t;
       event.preventDefault();
       t = $(event.target);
@@ -227,9 +313,9 @@
 //	  $(this).find("a.choiceLink").css("color","#FFF");
 //	  $(this).find("td.choice2").css("display","none");
 //	  });
-//     
-//	  
-	  
+//
+//
+
     // This triggers the interface to loop through levels 1 to 4
     // when the user hovers their mouse over a choice.
     d3.selectAll('td.name a')
@@ -237,8 +323,8 @@
       .on('mouseover', function(d,i) { startDemo(d.choicenumber); })
       .on('mouseout', function(d,i) { stopDemo(d.choicenumber); });
 
-  
-    // This forces the view to be redrawn if the user resizes their 
+
+    // This forces the view to be redrawn if the user resizes their
     // browser window. It uses a timer to only trigger the redraw
     // half a second after the user has stopped resizing.
     // FIXME: The redrawing sometimes appears buggy.
@@ -270,7 +356,7 @@
 	  if (_old_intermediate_category == null) {
 	      _old_intermediate_category = _intermediate_category;
 	  }
-	    
+
 	  if (_intermediate_category !== _old_intermediate_category) {
 	      if (_color_intermediate_category === "lever-grey") {
 		  _color_intermediate_category = "lever-lightgrey";
@@ -281,7 +367,7 @@
 	  row.find("td.name").addClass(_color_intermediate_category);
 	  _old_intermediate_category = _intermediate_category;
       }
-      
+
   };
 
   setVariablesFromURL = function() {
@@ -291,11 +377,11 @@
       choices = choicesForCode(url_elements[2] || twentyfifty.default_pathway);
       startdatechoices = [];
       for (i=1; i <=53; i++) {
-	  startdatechoices.push(2018);
+	  startdatechoices.push(2020);
       }
       enddatechoices = [];
       for (i=1; i <=53; i++) {
-	  enddatechoices.push(2100);
+	  enddatechoices.push(2050);
       }
       old_startdatechoices = startdatechoices.slice(0);
       old_enddatechoices = enddatechoices.slice(0);
@@ -447,7 +533,7 @@
 //      return loadMainPathway();
 //  };
 //
-    
+
   demoTimer = null;
 
   demoOriginalLevel = null;
@@ -522,6 +608,7 @@
     $('.showdropdown').removeClass("showdropdown");
     old_choices = choices.slice(0);
     choices = new_choices;
+    loadSparkLines();
     return loadMainPathway();
   };
 
@@ -605,7 +692,7 @@
 
     // TODO [2018-06-19 Tue 13:43]: return value respects only the old interface, not the updated one with dates and intermediate categories
     updateControls = function(old_choices, choices) {
-	
+
 	var c, choice, choice_frview, choice_whole, controls, i, old_choice, old_choice_frview, old_choice_whole, row, _i, _j, _len, _ref, _ref1, _results, _button, _startdate, _old_startdate, _enddate, _old_enddate, _original_title, _color_intermediate_category, _old_intermediate_category, intermediate_category;
 	this.choices = choices;
 	controls = $('#classic_controls');
@@ -624,7 +711,7 @@
 		row = controls.find("tr#r" + i);
 		_color_intermediate_category = $("#classic_controls tr#r" + i + " td.name").hasClass("lever-grey")?"lever-grey":"lever-lightgrey";
 		row.find(".selected, .level" + old_choice_whole + ", .level" + old_choice_whole + "_" + old_choice_frview).removeClass("selected level" + old_choice_whole + " level" + old_choice_whole + "_" + old_choice_frview + " " + _color_intermediate_category);
-		
+
 		if (old_choice_frview !== 0) {
 		    controls.find("#c" + i + "l" + old_choice_whole).text(old_choice_whole);
 		}
@@ -651,19 +738,20 @@
 	    _old_enddate = old_enddatechoices[i];
 	    if ((_startdate !== _old_startdate)||(_enddate !== _old_enddate)) {
 		_button = controls.find("#cd" + i);
+    // show updated years - via class change (years will be shown permanently)
 		_button.removeClass("update date-choice-mode-2100-default");
-		_button.addClass("update date-choice-mode-2100-edited");		
+		_button.addClass("update date-choice-mode-2100-edited");
 	    }
 	    if (_startdate !== _old_startdate) {
 		_button.find(".sd").text(_startdate);
 	    }
 	    if (_enddate !== _old_enddate) {
 		_button.find(".ed").text(_enddate);
-	    }	    
-	    
+	    }
+
 	}
 
-	
+
 
 	return _results;
     };
@@ -762,3 +850,40 @@
   window.twentyfifty.views = views;
 
 }).call(this);
+
+var mode2010 = "switch to 2100 mode";
+var mode2050 = "go back to 2050 mode";
+function timeMode(){
+    var mode = document.getElementById("modeSwitchID").value;
+    if ( mode == mode2010 ) {
+      var change = 'visible';
+      document.getElementById("modeSwitchID").value = mode2050;
+    } else {
+        var conf = confirm("Are you sure you want to go back to 2050 mode, all timing information will be lost.");
+        if (conf==true) {
+          var change = 'hidden';
+          document.getElementById("modeSwitchID").value = mode2010;
+          location.reload();
+        }
+      }
+    var good = document.getElementsByClassName('date-choice-mode-2100-wrapper');
+    for (var i = 0; i < good.length; i++) { good[i].style.visibility = change; }
+}
+
+function loadSparkLines() {
+  var groupArray = ["demand","supply","other"];
+    for (var i = 0; i <groupArray.length; i++) {
+      var g = groupArray[i];
+      if ( g == 'demand') { var levelData = choices.slice(25, 30).concat(choices.slice(32, 35),choices.slice(37, 38),choices.slice(40, 41));}
+      if ( g == 'supply') { var levelData = choices.slice(0, 0).concat(choices.slice(2, 15),choices.slice(17, 22));}
+      if ( g == 'other') { var levelData = choices.slice(50, 52);}
+      $("."+g+"db").sparkline(levelData, {
+        type: 'bar', barColor: '#7f99b2', disableInteraction: true,
+        barWidth:'2px', height:'75px', barSpacing:'0px',
+        chartRangeMin: 0, chartRangeMax: 4}
+      );
+    }
+
+}
+
+window.onload = loadSparkLines;
