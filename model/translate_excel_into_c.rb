@@ -1,51 +1,40 @@
+#!/usr/bin/env ruby
 begin
   require 'excel_to_code'
 rescue LoadError
-  puts "You need to install excel_to_code, try sudo gem install excel_to_code or possibly sudo gem21 install excel_to_code"
+  puts "You need to install excel_to_code"
+  puts "sudo gem install bundler"
+  puts "bundle"
   exit
 end
 
-# This needs to be changed when the spreadsheet changes
-def setup(command)
-  command.excel_file = "model.xlsx"
-  command.output_directory = '.'
-  command.output_name = 'model'
+root_directory = File.expand_path(File.join(File.dirname(__FILE__),'..'))
+model_directory = File.join(root_directory, 'model')
 
-  command.named_references_that_can_be_set_at_runtime = ['input.choices']
+command = ExcelToC.new
 
-  command.named_references_to_keep = lambda do |named_reference|
-    named_reference =~ /^(input|output)\./i
-  end
+#command.excel_file = File.join(model_directory, "model_mockup.xlsm")
+excel_file = "model.xlsm"
+puts "input is '" + excel_file + "'"
 
-  command.cells_to_keep = {
-    "Intermediate output" => :all, 
-  }
+command.excel_file = File.join(model_directory, excel_file)
+command.output_directory = model_directory
+command.output_name = 'model'
 
-  command.create_makefile = false
-  command.create_rakefile = false
+command.named_references_that_can_be_set_at_runtime = ['input.lever.ambition', 'input.lever.end', 'input.lever.start']
 
-  command.actually_compile_code = true
-  command.actually_run_tests = true
+command.named_references_to_keep = lambda do |named_reference|
+  named_reference =~ /^(input|output)\./i
 end
 
-def translate_excel_into_ruby
-  command = ExcelToC.new
-  setup(command)
-  command.go!
-end
+command.create_makefile = false
+command.create_rakefile = true
+# Trying to track down a bug
+command.dump_steps ||= {[:'Power_DRIVERS', :U444] => true}
 
-def create_a_test_for_ruby
-  command = ExcelToTest.new
-  setup(command)
-  command.actually_run_tests = true
-  command.go!
-end
+command.actually_compile_code = true
+command.actually_run_tests = true
+command.treat_external_references_as_local = true
+command.allow_unknown_functions = true
 
-def change_last_modified_date
-  File.open('model_version.rb','w') do |f|
-    f.puts "def Model.last_modified_date() @last_modified_date ||= Time.utc(*#{Time.now.to_a}); end"
-  end
-end
-
-translate_excel_into_ruby
-change_last_modified_date
+command.go!

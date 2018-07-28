@@ -18,13 +18,15 @@ Although if you have several versions of ruby installed, you may need to do:
 
     sudo gem21 install excel_to_code
 
-Put the new spreadsheet in this folder with the name model.xlsx
+For the MacKay version, excel_to_code has been updated. This should be transparently handled.
+
+Put the new spreadsheet in this folder with the name model.xlsm
 
 Then check that translate_excel_into_c.rb is set to keep the right bits of the excel.
 
 Then:
   
-    ruby translate_excel_into_ruby.rb
+    bundle exec ruby translate_excel_into_ruby.rb
 
 This may take up to 4 hours.
 

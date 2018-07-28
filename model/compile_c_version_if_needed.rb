@@ -3,7 +3,7 @@ require 'ffi'
 this_directory = File.dirname(__FILE__)
 
 unless File.exists?(File.join(this_directory, 'model.c'))
-  puts "No C file found. Try running ruby translate_excel_into_c.rb"
+  puts "No C file found. Try running bundle exec translate_excel_into_c.rb"
   exit 1
 end
 

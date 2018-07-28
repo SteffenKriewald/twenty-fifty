@@ -32,7 +32,8 @@ class DataFromModel
     # [1.8,0.0,1.6,2.0,1.3,1.3,..]
     choices = convert_letters_to_float(code.split(''))
     # Set the spreadsheet controls (input.choices is a named reference in the Excel)
-    excel.input_choices = choices
+    ## deactivate dynamics (model calculations)
+    ##excel.input_choices = choices
     # Read out the results, where each of these refers to a named reference in the Excel
     # (e.g. excel.output_impots_quantity refers to the output.imports.quantity named reference)
     { 
@@ -47,7 +48,7 @@ class DataFromModel
         'demand' => excel.output_electricity_demand,
         'supply' => excel.output_electricity_supply,
         'ghg' => excel.output_electricity_ghg,
-        'capacity' => excel.output_electricity_capacity
+        'capacity' => excel.output_electricity_capacity_type
       },
       'heating' => excel.output_heating_mix, # output.heating.mix
       'costs' => excel.output_costpercapita_detail,
@@ -82,7 +83,7 @@ class DataFromModel
       choice.descriptions = descriptions[i]
       choice.long_descriptions = long_descriptions[i]
       choice.levels = incremental ? 'A'.upto(choice_type.upcase) : 1.upto(choice_type.to_i)
-      choice.doc = one_page_note_filenames[i]
+#      choice.doc = one_page_note_filenames[i]
       choices << choice
     end
     choices
@@ -117,11 +118,13 @@ class DataFromModel
   end
     
   def example_pathways
-    @example_pathways ||= generate_example_pathways
+        @example_pathways ||= generate_example_pathways
+#        @example_pathways = []
   end
 
   def one_page_note_filenames
-    @one_page_note_filenames ||= excel.input_onepagenotes.flatten
+#    @one_page_note_filenames ||= excel.input_onepagenotes.flatten
+        @one_page_note_filenames = []
   end
   
   def generate_example_pathways
