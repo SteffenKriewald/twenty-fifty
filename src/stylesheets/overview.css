@@ -1,0 +1,124 @@
+.overview {
+  text-align: left;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  margin-left: 2.5%;
+  font-size: 12px;
+  width: 55%;
+  margin-bottom: 30px;
+  float: left;
+}
+
+  #overview {
+      margin-top: 30px;
+  }
+
+  #overview .clear {
+     clear: both; 
+  }
+
+svg {
+  overflow: visible; }
+
+/* organisation of charts */
+.chart {
+  padding: 0;
+/*  border: 2px solid lightgrey;*/
+  margin: 25px;
+/*  margin: 0;
+  margin-left: 2.4%; */
+  width: 80%; /* 30% for horizontal stacking */
+/*  margin-bottom: 0px;*/
+/*float: left; /* comment out for vertical stacking*/ }
+
+.chart rect.backgroundrect {
+  fill: #fff; }
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges; }
+
+.charttitle {
+  text-anchor: middle;
+  font-size: 1.3em; }
+
+#unzoom {
+  text-anchor: middle;
+  font-size: 1.3em;
+  text-decoration: underline;
+  fill: #00f;
+  cursor: pointer; }
+
+text.target {
+  text-anchor: middle;
+  font-size: 1em; }
+
+g.drawing {
+  pointer-events: all; }
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px; }
+
+.axis text {
+  font-size: 1em;
+  fill: #000; }
+
+.axislabel {
+  text-anchor: end;
+  font-size: 1em; }
+
+.line {
+  fill: none;
+  stroke: black;
+  stroke-width: 3px; }
+
+.linelabel {
+  font-size: 1em;
+  cursor: default; }
+
+.area {
+  fill-opacity: 1; }
+
+path.total {
+  stroke: black;
+  stroke-width: 2px;
+  fill: none; }
+
+text.seriesValue {
+  font-size: 1em;
+  text-anchor: middle; }
+
+path.total.hover {
+  stroke-width: 3px; }
+
+path.hover {
+  stroke: black;
+  stroke-width: 1px; }
+
+.linelabel.hover {
+  fill: black !important;
+  font-weight: bold; }
+
+.labelbackground {
+  fill: white; }
+
+g.context path {
+  fill: grey;
+  fill-opacity: 0.02; }
+
+g.targetlabel text {
+  font-size: 1em;
+}
+
+g.targetlabel line {
+  stroke: #ccc;
+  stroke-thickness: 1;
+}
+
+tr.primary_energy_notes {
+  display: none;
+}

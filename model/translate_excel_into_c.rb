@@ -15,6 +15,7 @@ command = ExcelToC.new
 
 #command.excel_file = File.join(model_directory, "model_mockup.xlsm")
 excel_file = "model.xlsm"
+
 puts "input is '" + excel_file + "'"
 
 command.excel_file = File.join(model_directory, excel_file)

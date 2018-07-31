@@ -30,16 +30,23 @@
 //= require controller
 
 // Now the individual views
-//= require views/primary_energy
-//= require views/electricity
-//= require views/energy_security
-//= require views/map
-//= require views/sankey_display
-//= require views/air_quality
-//= require views/costs_in_context
-//= require views/costs_compared_overview
-//= require views/costs_compared_within_sector
-//= require views/costs_sensitivity
+//= require views/overview
+//= require views/buildings
+//= require views/transport
+//= require views/industry
+//= require views/conversions_and_ghg
+//= require views/land_use
+//= require views/flows_map_imports
+//  we aren't using this: require views/primary_energy
+//  we aren't using this: require views/electricity
+//  we aren't using this: require views/energy_security
+//  we aren't using this: require views/map
+//  we aren't using this: require views/sankey_display
+//  we aren't using this: require views/air_quality
+//  we aren't using this: require views/costs_in_context
+//  we aren't using this: require views/costs_compared_overview
+//  we aren't using this: require views/costs_compared_within_sector
+//  we aren't using this: require views/costs_sensitivity
 //= require views/story
-//= require views/share
+//  we aren't using this: require views/share
 

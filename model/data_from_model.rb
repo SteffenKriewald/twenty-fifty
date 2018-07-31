@@ -40,26 +40,10 @@ class DataFromModel
       '_id' => code, 
       'choices' => choices,
       'sankey' => excel.output_flows, # output.flows in the Excel
-      'ghg' => excel.output_ghg_by_ipcc_sector, # output.ghg.by.ipcc.sector in Excel
-      'ghg_reduction_from_1990' => excel.output_ghg_percentage_reduction, # output.ghg.percentage.reduction in Excel
-      'final_energy_demand' => excel.output_finalenergydemand, # output.finalenergydemand
-      'primary_energy_supply' => excel.output_primaryenergysupply, # output.primaryenergysupply
+      'ghg' => excel.output_emissions_by_sector, # output.emissions.by.sector in Excel
       'electricity' => {
-        'demand' => excel.output_electricity_demand,
-        'supply' => excel.output_electricity_supply,
-        'ghg' => excel.output_electricity_ghg,
         'capacity' => excel.output_electricity_capacity_type
-      },
-      'heating' => excel.output_heating_mix, # output.heating.mix
-      'costs' => excel.output_costpercapita_detail,
-      'map' => excel.output_areas, # output.areas
-      'imports' => {
-        'proportion' => excel.output_imports_proportion, # output.imports.proportion
-        'quantity' => excel.output_imports_quantity # output.imports.quantity
-      },
-      'diversity' => excel.output_diversity, # output.diversity
-      'balancing' => excel.output_capacity_automaticallybuilt, # output.capacity.automaticallybuilt
-      'air_quality' => excel.output_airquality # output.airquality
+      }
     }
   end
 

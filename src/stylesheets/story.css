@@ -18,5 +18,10 @@
   .story td.target, .story th.target {
     text-align: right; }
 
-#stories .clear {
-  clear: both; }
+  #stories {
+      margin-top: 30px;
+  }
+  
+  #stories .clear {
+      clear: both;
+  }

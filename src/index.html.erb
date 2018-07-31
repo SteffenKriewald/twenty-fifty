@@ -54,22 +54,33 @@
 
       <div id='name'>
         <!-- Change this to link to your country website -->
-        <a href='https://www.pik-potsdam.de/~kriewald' style="font-weight: bold;">The UK 2050 Calculator</a>
+        <a href='' style="font-weight: bold;">The UK 2050 Calculator</a>
       </div>
 
       <!-- To add or remove views from the web tool, alter the following section -->
       <div id='views'>
-        <a class='view' data-view='primary_energy_chart' href='#'>Energy</a>
-        <a class='view' data-view='electricity' href='#'>Electricity</a>
-        <a class='view' data-view='energy_security' href='#'>Security</a>
-        <a class='view' data-view='sankey' href='#'>Flows</a>
-        <a class='view' data-view='map' href='#'>Map</a>
-        <a class='view' data-view='story' href='#'>Story</a>
-        <a class='newdropdown' data-dropdown='#cost_choices' href='#' id='cost_choice'>Costs</a>
-        <a class='view' data-view='air_quality' href='#'>Air</a>
-        <a class='view' data-view='share' href='#'>Share</a>
-        <!-- Change this to link to your own country website documentation -->
+	<a class='view' data-view='overview' href='#'>Overview</a>
+	<!-- 
+        <a class='view' data-view='primary_energy_chart' href='#'>Overview</a>
+        <a class='view' data-view='electricity' href='#'>Buildings</a>
+        <a class='view' data-view='energy_security' href='#'>Transport</a>
+        <a class='view' data-view='sankey' href='#'>Industry</a>
+        <a class='view' data-view='map' href='#'>Conversions & GHG</a>
+        <a class='view' data-view='story' href='#'>Electricity</a>
+        <a class='view' data-view='air_quality' href='#'>Land use & Biofuels</a>
+        <a class='view' data-view='share' href='#'>Flows, Map & Imports</a> 
+	-->
+        <a class='view' data-view='buildings' href='#'>Buildings</a>
+        <a class='view' data-view='transport' href='#'>Transport</a>
+        <a class='view' data-view='industry' href='#'>Industry</a>
+        <a class='view' data-view='conversions_and_ghg' href='#'>Conversions & GHG</a>
+        <a class='view' data-view='story' href='#'>Electricity</a>
+        <a class='view' data-view='land_use' href='#'>Land use & Biofuels</a>
+        <a class='view' data-view='flows_map_imports' href='#'>Flows, Map & Imports</a>
+
+        <!-- Change this to link to your own country website documentation 
         <a href='http://2050-calculator-tool-wiki.decc.gov.uk'>Docs</a>
+	-->
       </div>
     </div>
 
@@ -93,7 +104,7 @@
       <span>Calculating</span>
     </div>
     <!-- / The charts will be drawn in this block -->
-    <div id='results' style="margin-top:35px;"></div>
+    <div id='results' style="margin-top:30px;"></div>
     <!-- / bof navpanel -->
     <div id='gauge'  style="position:fixed;top:100px;right:20px;">
     <div id="slider-vertical" style="height: 80vh;"></div>
@@ -101,76 +112,76 @@
     <script>
       var verticalSlider = document.getElementById('slider-vertical');
 
-      noUiSlider.create(verticalSlider, {
-        connect: [false, true],
-        tooltips: [wNumb({
-            decimals: 0,
-            suffix: '%'
-          })
-        ],
-        pips: {
-      		mode: 'values',
-          values: [0,-80,-90],
-      		density: 10,
-          format: wNumb({
-      			decimals: 0,
-      			suffix: '%'
-      		})
-      	},
-      	start: -40,
-        direction: 'rtl',
-      	orientation: 'vertical',
-      	range: {
-      		'min': -100,
-      		'max': 0
-      	},
-        cssPrefix: 'noUi-', // defaults to 'noUi-',
-    		cssClasses: {
-    			// Full list of classnames to override.
-    			// Does NOT extend the default classes.
-    			// Have a look at the source for the full, current list:
-    			// https://github.com/leongersen/noUiSlider/blob/master/src/js/options.js#L398
-    				target: 'target',
-    				base: 'Gbase',
-    				origin: 'origin',
-    				handle: 'Ghandle',
-    				handleLower: 'handle-lower',
-    				handleUpper: 'handle-upper',
-    				horizontal: 'horizontal',
-    				vertical: 'vertical',
-    				background: 'background',
-    				connect: 'Gconnect',
-    				connects: 'connects',
-    				ltr: 'ltr',
-    				rtl: 'rtl',
-    				draggable: 'draggable',
-    				drag: 'state-drag',
-    				tap: 'state-tap',
-    				active: 'active',
-    				tooltip: 'Gtooltip',
-    				pips: 'pips',
-    				pipsHorizontal: 'pips-horizontal',
-    				pipsVertical: 'pips-vertical',
-    				marker: 'marker',
-    				markerHorizontal: 'marker-horizontal',
-    				markerVertical: 'marker-vertical',
-    				markerNormal: 'marker-normal',
-    				markerLarge: 'marker-large',
-    				markerSub: 'marker-sub',
-    				value: 'value',
-    				valueHorizontal: 'value-horizontal',
-    				valueVertical: 'value-vertical',
-    				valueNormal: 'value-normal',
-    				valueLarge: 'value-large',
-    				valueSub: 'value-sub'
-    		}
-      });
-
+//      noUiSlider.create(verticalSlider, {
+//        connect: [false, true],
+//        tooltips: [wNumb({
+//            decimals: 0,
+//            suffix: '%'
+//          })
+//        ],
+//        pips: {
+//      		mode: 'values',
+//          values: [0,-80,-90],
+//      		density: 10,
+//          format: wNumb({
+//      			decimals: 0,
+//      			suffix: '%'
+//      		})
+//      	},
+//      	start: -40,
+//        direction: 'rtl',
+//      	orientation: 'vertical',
+//      	range: {
+//      		'min': -100,
+//      		'max': 0
+//      	},
+//        cssPrefix: 'noUi-', // defaults to 'noUi-',
+//    		cssClasses: {
+//    			// Full list of classnames to override.
+//    			// Does NOT extend the default classes.
+//    			// Have a look at the source for the full, current list:
+//    			// https://github.com/leongersen/noUiSlider/blob/master/src/js/options.js#L398
+//    				target: 'target',
+//    				base: 'Gbase',
+//    				origin: 'origin',
+//    				handle: 'Ghandle',
+//    				handleLower: 'handle-lower',
+//    				handleUpper: 'handle-upper',
+//    				horizontal: 'horizontal',
+//    				vertical: 'vertical',
+//    				background: 'background',
+//    				connect: 'Gconnect',
+//    				connects: 'connects',
+//    				ltr: 'ltr',
+//    				rtl: 'rtl',
+//    				draggable: 'draggable',
+//    				drag: 'state-drag',
+//    				tap: 'state-tap',
+//    				active: 'active',
+//    				tooltip: 'Gtooltip',
+//    				pips: 'pips',
+//    				pipsHorizontal: 'pips-horizontal',
+//    				pipsVertical: 'pips-vertical',
+//    				marker: 'marker',
+//    				markerHorizontal: 'marker-horizontal',
+//    				markerVertical: 'marker-vertical',
+//    				markerNormal: 'marker-normal',
+//    				markerLarge: 'marker-large',
+//    				markerSub: 'marker-sub',
+//    				value: 'value',
+//    				valueHorizontal: 'value-horizontal',
+//    				valueVertical: 'value-vertical',
+//    				valueNormal: 'value-normal',
+//    				valueLarge: 'value-large',
+//    				valueSub: 'value-sub'
+//    		}
+//      });
+//
       </script>
     </div>
 
 
-    <div id='lever_nav_panel'  style="margin-top:40px;">
+    <div id='lever_nav_panel'  style="margin-top:35px;">
 
       <div id='examples'>
         <a class='buttonMode newdropdown' style="position: absolute; top:10px; left:-5px;" data-dropdown='#savedpathway_choices' href='#'>Examples</a>
@@ -244,7 +255,7 @@
 
 
           <!-- One row per choice -->
-          <% structure.choices[21..34].each do |choice| %>
+          <% structure.choices[21..39].each do |choice| %>
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>'>
               <td class='name'>
 
@@ -269,9 +280,9 @@
 	      <td class='date-choice-mode-2100-wrapper' style="width:150px;">
 		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
 <script>
-var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
-slider<%= choice.number %>.setAttribute('disabled', true);
+//var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+//noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+//slider<%= choice.number %>.setAttribute('disabled', true);
 </script>
 
 <div class="dates-column">
@@ -334,122 +345,6 @@ slider<%= choice.number %>.setAttribute('disabled', true);
             <% end %>
 	</table>
 
-<!--
-	<a href="#" class= "accordion-toggle">COMMERCIAL</a>
-        <div class="accordion-content default" style="display: none">
-	  <table class="fixed">
-	    	  <tr class='menuWidthL2'>
-	    <td class='nameL2'>
-	    </td>
-	    <td class='menuLevelWidth'>
-	    </td>
-	    <td class='menuLevelWidth'>
-	    </td>
-	    <td class='menuLevelWidth'>
-	    </td>
-	    <td class='menuLevelWidth'>
-	    </td>
-	    <td class='menuLevelWidth'>
-	    </td>
-	  </tr>
-
-            <% structure.choices[35..39].each do |choice| %>
-            <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>'>
-              <td class='name nameL2'>
-		<!--
-                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
--->
-                  <%= choice.name %>
-                </a>
-              </td>
-              <!-- One cell per level for that choice -@>
-              <% choice.levels.each.with_index do |level,i| %>
-                <td class='choice'>
-                  <a href='#' data-choicenumber='<%= choice.number %>' data-choicelevel='<%= i+1 %>' id='c<%= choice.number %>l<%= i+1%>' title='<%= choice.descriptions[i] %>' class='choiceLink' >
-                    <%= level %>
-                </a>
-		</td>
-		<% if i == 3 %>
-	      <td class='date-choice-mode-2100-wrapper'>
-		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default">
-	      <!--
-	      <img src="/assets/images/clock.svg" alt="custom-level" width = "16" onclick="jQuery(function ($) {$('#settingsModal').modal();});">
-	      -@>
-
-		<script>
-
-var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-
-noUiSlider.create(sliderSlider<%= choice.number %>, {
-	start: [ 2020, 2050],
-	step: 5,
-//	behaviour: 'snap', //https://refreshless.com/nouislider/behaviour-option/
-	connect: true,
-	range: {
-		'min':  2020,
-		'max':  2100
-	}
-});
-slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
-</script>
-
-<table class="fixed"><tr style="padding-bottom: 0;padding-top: 0;">
-<td>
-		<div class="dropdown-dates">
- 		<button class="dropbtn-dates sd">2020</button>
-		  <div class="dropdown-content-dates">
-			<a href="#" class='dateChoiceLink' data-datechoice='2020' data-choicenumber='<%= choice.number %>'>2020</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2025' data-choicenumber='<%= choice.number %>'>2025</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2035' data-choicenumber='<%= choice.number %>'>2035</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2040' data-choicenumber='<%= choice.number %>'>2040</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2045' data-choicenumber='<%= choice.number %>'>2045</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2055' data-choicenumber='<%= choice.number %>'>2055</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2060' data-choicenumber='<%= choice.number %>'>2060</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2065' data-choicenumber='<%= choice.number %>'>2065</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2070' data-choicenumber='<%= choice.number %>'>2070</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2075' data-choicenumber='<%= choice.number %>'>2075</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2085' data-choicenumber='<%= choice.number %>'>2085</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2090' data-choicenumber='<%= choice.number %>'>2090</a>
-		  </div>
-		</div>
-</td>
-<td>		<div id="slider<%= choice.number %>" style="width:150px; padding: 0px 10px;"></div></td>
-<td>		<div class="dropdown-dates">
- 		<button class="dropbtn-dates ed">2050</button>
-		  <div class="dropdown-content-dates">
-			<a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2035' data-choicenumber='<%= choice.number %>'>2035</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2040' data-choicenumber='<%= choice.number %>'>2040</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2045' data-choicenumber='<%= choice.number %>'>2045</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2055' data-choicenumber='<%= choice.number %>'>2055</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2060' data-choicenumber='<%= choice.number %>'>2060</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2065' data-choicenumber='<%= choice.number %>'>2065</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2070' data-choicenumber='<%= choice.number %>'>2070</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2075' data-choicenumber='<%= choice.number %>'>2075</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2085' data-choicenumber='<%= choice.number %>'>2085</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2090' data-choicenumber='<%= choice.number %>'>2090</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2095' data-choicenumber='<%= choice.number %>'>2095</a>
-			<a href="#" class='dateChoiceLink' data-datechoice='2100' data-choicenumber='<%= choice.number %>'>2100</a>
-		  </div>
-		</div>
-		</div>
-
-
-</td></tr></table>
- 	      </td>
-		<% end %>
-	      <% end %>
-            </tr>
-            <% end %>
-
-        </table>
-	</div>
--->
       </div>
 
 
@@ -537,9 +432,9 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 	      <td class='date-choice-mode-2100-wrapper'>
 		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
 <script>
-var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
-slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
+//var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+//noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+//slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
 </script>
 
 <div class="dates-column">
@@ -664,7 +559,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 	  </tr>
 
 	      <!-- this should actually go up to choice 42, but that isn't ready for prime time yet -->
-          <% structure.choices[40..41].each do |choice| %>
+          <% structure.choices[40..44].each do |choice| %>
 
 
 
@@ -689,9 +584,9 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 	      <td class='date-choice-mode-2100-wrapper'>
 		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
 <script>
-var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
-slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
+//var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+//noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+//slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
 </script>
 
 <div class="dates-column">

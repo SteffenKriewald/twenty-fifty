@@ -53,7 +53,7 @@
 	"Biomethane share of gas grid"						:"Gas Grid Source",
 	"Hydrogen Produced form Bio Gasification CCS"				:"Hydrogen Production",
 	"Hydrogen Produced form SMR CCS"					:"Hydrogen Production",
-	"Hydrogen form Zero Carbon Imports"					:"Hydrogen Production",
+	"Hydrogen from Zero Carbon Imports"					:"Hydrogen Production",
 	"Emissions Removal from Other GGR"					:"Greenhouse Gas Removal (GGR)",
 	"Bio Transformation with CCS share"					:"Greenhouse Gas Removal (GGR)",
 	"CCS Capture rate development"						:"Greenhouse Gas Removal (GGR)",
@@ -385,7 +385,8 @@
       }
       old_startdatechoices = startdatechoices.slice(0);
       old_enddatechoices = enddatechoices.slice(0);
-      view = url_elements[3] || "primary_energy_chart";
+      //      view = url_elements[3] || "primary_energy_chart";
+      view = url_elements[3] || "overview";
       if (view === 'costs_compared_within_sector') {
 	  sector = url_elements[4];
       }

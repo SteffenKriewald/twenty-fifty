@@ -111,7 +111,7 @@ window.twentyfifty.views.electricity = function() {
   this.teardown = function() {
     $('#results').empty();
     this.final_energy_chart = null;
-    this.primary_energy_chart = null;
+//    this.primary_energy_chart = null;
     this.emissions_chart = null;
   };
 
