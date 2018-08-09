@@ -1,7 +1,7 @@
-// /Users/alexfinck/Documents/CMF/WorkspaceUK/twenty-fifty-alf/twenty-fifty/model/model_2018_Jul_30_15H30.xlsm approximately translated into C
+// /home/kriewald/cmf_twenty-fifty/twenty-fifty/model/model.xlsm approximately translated into C
 // definitions
 #define NUMBER_OF_REFS 3482
-#define EXCEL_FILENAME  "/Users/alexfinck/Documents/CMF/WorkspaceUK/twenty-fifty-alf/twenty-fifty/model/model_2018_Jul_30_15H30.xlsm"
+#define EXCEL_FILENAME  "/home/kriewald/cmf_twenty-fifty/twenty-fifty/model/model.xlsm"
 // end of definitions
 
 // First we have c versions of all the excel functions that we know

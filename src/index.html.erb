@@ -60,7 +60,7 @@
       <!-- To add or remove views from the web tool, alter the following section -->
       <div id='views'>
 	<a class='view' data-view='overview' href='#'>Overview</a>
-	<!-- 
+	<!--
         <a class='view' data-view='primary_energy_chart' href='#'>Overview</a>
         <a class='view' data-view='electricity' href='#'>Buildings</a>
         <a class='view' data-view='energy_security' href='#'>Transport</a>
@@ -68,7 +68,7 @@
         <a class='view' data-view='map' href='#'>Conversions & GHG</a>
         <a class='view' data-view='story' href='#'>Electricity</a>
         <a class='view' data-view='air_quality' href='#'>Land use & Biofuels</a>
-        <a class='view' data-view='share' href='#'>Flows, Map & Imports</a> 
+        <a class='view' data-view='share' href='#'>Flows, Map & Imports</a>
 	-->
         <a class='view' data-view='buildings' href='#'>Buildings</a>
         <a class='view' data-view='transport' href='#'>Transport</a>
@@ -78,7 +78,7 @@
         <a class='view' data-view='land_use' href='#'>Land use & Biofuels</a>
         <a class='view' data-view='flows_map_imports' href='#'>Flows, Map & Imports</a>
 
-        <!-- Change this to link to your own country website documentation 
+        <!-- Change this to link to your own country website documentation
         <a href='http://2050-calculator-tool-wiki.decc.gov.uk'>Docs</a>
 	-->
       </div>
@@ -91,7 +91,7 @@
     </div>
 
     <div class='dropdown' id='savedpathway_choices'>
-      <!-- These are taken from the underlying spreadsheet 
+      <!-- These are taken from the underlying spreadsheet
       <% structure.example_pathways.each do |pathway| %>
         <a href='#' onclick="twentyfifty.switchPathway('<%= pathway[:code] %>');$('ul#savedpathway_choices').toggle()"><%= pathway[:name] %></a>
       <% end %>
@@ -112,71 +112,71 @@
     <script>
       var verticalSlider = document.getElementById('slider-vertical');
 
-//      noUiSlider.create(verticalSlider, {
-//        connect: [false, true],
-//        tooltips: [wNumb({
-//            decimals: 0,
-//            suffix: '%'
-//          })
-//        ],
-//        pips: {
-//      		mode: 'values',
-//          values: [0,-80,-90],
-//      		density: 10,
-//          format: wNumb({
-//      			decimals: 0,
-//      			suffix: '%'
-//      		})
-//      	},
-//      	start: -40,
-//        direction: 'rtl',
-//      	orientation: 'vertical',
-//      	range: {
-//      		'min': -100,
-//      		'max': 0
-//      	},
-//        cssPrefix: 'noUi-', // defaults to 'noUi-',
-//    		cssClasses: {
-//    			// Full list of classnames to override.
-//    			// Does NOT extend the default classes.
-//    			// Have a look at the source for the full, current list:
-//    			// https://github.com/leongersen/noUiSlider/blob/master/src/js/options.js#L398
-//    				target: 'target',
-//    				base: 'Gbase',
-//    				origin: 'origin',
-//    				handle: 'Ghandle',
-//    				handleLower: 'handle-lower',
-//    				handleUpper: 'handle-upper',
-//    				horizontal: 'horizontal',
-//    				vertical: 'vertical',
-//    				background: 'background',
-//    				connect: 'Gconnect',
-//    				connects: 'connects',
-//    				ltr: 'ltr',
-//    				rtl: 'rtl',
-//    				draggable: 'draggable',
-//    				drag: 'state-drag',
-//    				tap: 'state-tap',
-//    				active: 'active',
-//    				tooltip: 'Gtooltip',
-//    				pips: 'pips',
-//    				pipsHorizontal: 'pips-horizontal',
-//    				pipsVertical: 'pips-vertical',
-//    				marker: 'marker',
-//    				markerHorizontal: 'marker-horizontal',
-//    				markerVertical: 'marker-vertical',
-//    				markerNormal: 'marker-normal',
-//    				markerLarge: 'marker-large',
-//    				markerSub: 'marker-sub',
-//    				value: 'value',
-//    				valueHorizontal: 'value-horizontal',
-//    				valueVertical: 'value-vertical',
-//    				valueNormal: 'value-normal',
-//    				valueLarge: 'value-large',
-//    				valueSub: 'value-sub'
-//    		}
-//      });
-//
+     noUiSlider.create(verticalSlider, {
+       connect: [false, true],
+       tooltips: [wNumb({
+           decimals: 0,
+           suffix: '%'
+         })
+       ],
+       pips: {
+     		mode: 'values',
+         values: [0,-80,-90],
+     		density: 10,
+         format: wNumb({
+     			decimals: 0,
+     			suffix: '%'
+     		})
+     	},
+     	start: -40,
+       direction: 'rtl',
+     	orientation: 'vertical',
+     	range: {
+     		'min': -100,
+     		'max': 0
+     	},
+       cssPrefix: 'noUi-', // defaults to 'noUi-',
+   		cssClasses: {
+   			// Full list of classnames to override.
+   			// Does NOT extend the default classes.
+   			// Have a look at the source for the full, current list:
+   			// https://github.com/leongersen/noUiSlider/blob/master/src/js/options.js#L398
+   				target: 'target',
+   				base: 'Gbase',
+   				origin: 'origin',
+   				handle: 'Ghandle',
+   				handleLower: 'handle-lower',
+   				handleUpper: 'handle-upper',
+   				horizontal: 'horizontal',
+   				vertical: 'vertical',
+   				background: 'background',
+   				connect: 'Gconnect',
+   				connects: 'connects',
+   				ltr: 'ltr',
+   				rtl: 'rtl',
+   				draggable: 'draggable',
+   				drag: 'state-drag',
+   				tap: 'state-tap',
+   				active: 'active',
+   				tooltip: 'Gtooltip',
+   				pips: 'pips',
+   				pipsHorizontal: 'pips-horizontal',
+   				pipsVertical: 'pips-vertical',
+   				marker: 'marker',
+   				markerHorizontal: 'marker-horizontal',
+   				markerVertical: 'marker-vertical',
+   				markerNormal: 'marker-normal',
+   				markerLarge: 'marker-large',
+   				markerSub: 'marker-sub',
+   				value: 'value',
+   				valueHorizontal: 'value-horizontal',
+   				valueVertical: 'value-vertical',
+   				valueNormal: 'value-normal',
+   				valueLarge: 'value-large',
+   				valueSub: 'value-sub'
+   		}
+     });
+     verticalSlider.setAttribute('disabled', true);
       </script>
     </div>
 
@@ -279,11 +279,7 @@
 		<% if i == 3 %>
 	      <td class='date-choice-mode-2100-wrapper' style="width:150px;">
 		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
-<script>
-//var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-//noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
-//slider<%= choice.number %>.setAttribute('disabled', true);
-</script>
+
 
 <div class="dates-column">
 <div class="dates-column-left">
@@ -334,6 +330,11 @@
 <div class="dates-column-center">&nbsp<div id="slider<%= choice.number %>"></div>
 </div>
 
+<script>
+var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+slider<%= choice.number %>.setAttribute('disabled', true);
+</script>
 
 </div> <!-- dates column-->
 </div>
@@ -431,11 +432,7 @@
 		<% if i == 3 %>
 	      <td class='date-choice-mode-2100-wrapper'>
 		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
-<script>
-//var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-//noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
-//slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
-</script>
+
 
 <div class="dates-column">
 <div class="dates-column-left">
@@ -486,6 +483,11 @@
 <div class="dates-column-center">&nbsp<div id="slider<%= choice.number %>"></div>
 </div>
 
+<script>
+var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
+</script>
 
 </div> <!-- dates column-->
 </div>
@@ -583,11 +585,7 @@
 		<% if i == 3 %>
 	      <td class='date-choice-mode-2100-wrapper'>
 		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
-<script>
-//var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-//noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
-//slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
-</script>
+
 
 <div class="dates-column">
 <div class="dates-column-left">
@@ -638,6 +636,11 @@
 <div class="dates-column-center">&nbsp<div id="slider<%= choice.number %>"></div>
 </div>
 
+<script>
+var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
+</script>
 
 </div> <!-- dates column-->
 </div>
