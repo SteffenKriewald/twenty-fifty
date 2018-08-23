@@ -3105,12 +3105,6 @@ class Model
     attach_function 'set_control_d59', [ExcelValue.by_value], :void
     attach_function 'set_control_d60', [ExcelValue.by_value], :void
     attach_function 'set_control_d61', [ExcelValue.by_value], :void
-    attach_function 'set_control_d62', [ExcelValue.by_value], :void
-    attach_function 'set_control_d63', [ExcelValue.by_value], :void
-    attach_function 'set_control_d64', [ExcelValue.by_value], :void
-    attach_function 'set_control_d65', [ExcelValue.by_value], :void
-    attach_function 'set_control_d66', [ExcelValue.by_value], :void
-    attach_function 'set_control_d67', [ExcelValue.by_value], :void
     attach_function 'set_control_g17', [ExcelValue.by_value], :void
     attach_function 'set_control_g18', [ExcelValue.by_value], :void
     attach_function 'set_control_g19', [ExcelValue.by_value], :void
@@ -3156,12 +3150,6 @@ class Model
     attach_function 'set_control_g59', [ExcelValue.by_value], :void
     attach_function 'set_control_g60', [ExcelValue.by_value], :void
     attach_function 'set_control_g61', [ExcelValue.by_value], :void
-    attach_function 'set_control_g62', [ExcelValue.by_value], :void
-    attach_function 'set_control_g63', [ExcelValue.by_value], :void
-    attach_function 'set_control_g64', [ExcelValue.by_value], :void
-    attach_function 'set_control_g65', [ExcelValue.by_value], :void
-    attach_function 'set_control_g66', [ExcelValue.by_value], :void
-    attach_function 'set_control_g67', [ExcelValue.by_value], :void
     attach_function 'set_control_e17', [ExcelValue.by_value], :void
     attach_function 'set_control_e18', [ExcelValue.by_value], :void
     attach_function 'set_control_e19', [ExcelValue.by_value], :void
@@ -3208,11 +3196,6 @@ class Model
     attach_function 'set_control_e60', [ExcelValue.by_value], :void
     attach_function 'set_control_e61', [ExcelValue.by_value], :void
     attach_function 'set_control_e62', [ExcelValue.by_value], :void
-    attach_function 'set_control_e63', [ExcelValue.by_value], :void
-    attach_function 'set_control_e64', [ExcelValue.by_value], :void
-    attach_function 'set_control_e65', [ExcelValue.by_value], :void
-    attach_function 'set_control_e66', [ExcelValue.by_value], :void
-    attach_function 'set_control_e67', [ExcelValue.by_value], :void
     attach_function 'control_i16', [], ExcelValue.by_value
     attach_function 'control_i17', [], ExcelValue.by_value
     attach_function 'control_i18', [], ExcelValue.by_value
@@ -3262,11 +3245,6 @@ class Model
     attach_function 'control_i62', [], ExcelValue.by_value
     attach_function 'control_i63', [], ExcelValue.by_value
     attach_function 'control_i64', [], ExcelValue.by_value
-    attach_function 'control_i65', [], ExcelValue.by_value
-    attach_function 'control_i66', [], ExcelValue.by_value
-    attach_function 'control_i67', [], ExcelValue.by_value
-    attach_function 'control_i68', [], ExcelValue.by_value
-    attach_function 'control_i69', [], ExcelValue.by_value
     attach_function 'control_d17', [], ExcelValue.by_value
     attach_function 'control_d18', [], ExcelValue.by_value
     attach_function 'control_d19', [], ExcelValue.by_value
@@ -3312,12 +3290,6 @@ class Model
     attach_function 'control_d59', [], ExcelValue.by_value
     attach_function 'control_d60', [], ExcelValue.by_value
     attach_function 'control_d61', [], ExcelValue.by_value
-    attach_function 'control_d62', [], ExcelValue.by_value
-    attach_function 'control_d63', [], ExcelValue.by_value
-    attach_function 'control_d64', [], ExcelValue.by_value
-    attach_function 'control_d65', [], ExcelValue.by_value
-    attach_function 'control_d66', [], ExcelValue.by_value
-    attach_function 'control_d67', [], ExcelValue.by_value
     attach_function 'control_g17', [], ExcelValue.by_value
     attach_function 'control_g18', [], ExcelValue.by_value
     attach_function 'control_g19', [], ExcelValue.by_value
@@ -3363,12 +3335,6 @@ class Model
     attach_function 'control_g59', [], ExcelValue.by_value
     attach_function 'control_g60', [], ExcelValue.by_value
     attach_function 'control_g61', [], ExcelValue.by_value
-    attach_function 'control_g62', [], ExcelValue.by_value
-    attach_function 'control_g63', [], ExcelValue.by_value
-    attach_function 'control_g64', [], ExcelValue.by_value
-    attach_function 'control_g65', [], ExcelValue.by_value
-    attach_function 'control_g66', [], ExcelValue.by_value
-    attach_function 'control_g67', [], ExcelValue.by_value
     attach_function 'control_e17', [], ExcelValue.by_value
     attach_function 'control_e18', [], ExcelValue.by_value
     attach_function 'control_e19', [], ExcelValue.by_value
@@ -3415,11 +3381,6 @@ class Model
     attach_function 'control_e60', [], ExcelValue.by_value
     attach_function 'control_e61', [], ExcelValue.by_value
     attach_function 'control_e62', [], ExcelValue.by_value
-    attach_function 'control_e63', [], ExcelValue.by_value
-    attach_function 'control_e64', [], ExcelValue.by_value
-    attach_function 'control_e65', [], ExcelValue.by_value
-    attach_function 'control_e66', [], ExcelValue.by_value
-    attach_function 'control_e67', [], ExcelValue.by_value
     attach_function 'control_ef17', [], ExcelValue.by_value
     attach_function 'control_eg17', [], ExcelValue.by_value
     attach_function 'control_eh17', [], ExcelValue.by_value
@@ -3604,26 +3565,6 @@ class Model
     attach_function 'control_eg62', [], ExcelValue.by_value
     attach_function 'control_eh62', [], ExcelValue.by_value
     attach_function 'control_ei62', [], ExcelValue.by_value
-    attach_function 'control_ef63', [], ExcelValue.by_value
-    attach_function 'control_eg63', [], ExcelValue.by_value
-    attach_function 'control_eh63', [], ExcelValue.by_value
-    attach_function 'control_ei63', [], ExcelValue.by_value
-    attach_function 'control_ef64', [], ExcelValue.by_value
-    attach_function 'control_eg64', [], ExcelValue.by_value
-    attach_function 'control_eh64', [], ExcelValue.by_value
-    attach_function 'control_ei64', [], ExcelValue.by_value
-    attach_function 'control_ef65', [], ExcelValue.by_value
-    attach_function 'control_eg65', [], ExcelValue.by_value
-    attach_function 'control_eh65', [], ExcelValue.by_value
-    attach_function 'control_ei65', [], ExcelValue.by_value
-    attach_function 'control_ef66', [], ExcelValue.by_value
-    attach_function 'control_eg66', [], ExcelValue.by_value
-    attach_function 'control_eh66', [], ExcelValue.by_value
-    attach_function 'control_ei66', [], ExcelValue.by_value
-    attach_function 'control_ef67', [], ExcelValue.by_value
-    attach_function 'control_eg67', [], ExcelValue.by_value
-    attach_function 'control_eh67', [], ExcelValue.by_value
-    attach_function 'control_ei67', [], ExcelValue.by_value
     attach_function 'control_c17', [], ExcelValue.by_value
     attach_function 'control_c18', [], ExcelValue.by_value
     attach_function 'control_c19', [], ExcelValue.by_value
@@ -3670,11 +3611,6 @@ class Model
     attach_function 'control_c60', [], ExcelValue.by_value
     attach_function 'control_c61', [], ExcelValue.by_value
     attach_function 'control_c62', [], ExcelValue.by_value
-    attach_function 'control_c63', [], ExcelValue.by_value
-    attach_function 'control_c64', [], ExcelValue.by_value
-    attach_function 'control_c65', [], ExcelValue.by_value
-    attach_function 'control_c66', [], ExcelValue.by_value
-    attach_function 'control_c67', [], ExcelValue.by_value
     attach_function 'control_h17', [], ExcelValue.by_value
     attach_function 'control_h18', [], ExcelValue.by_value
     attach_function 'control_h19', [], ExcelValue.by_value
@@ -3721,11 +3657,6 @@ class Model
     attach_function 'control_h60', [], ExcelValue.by_value
     attach_function 'control_h61', [], ExcelValue.by_value
     attach_function 'control_h62', [], ExcelValue.by_value
-    attach_function 'control_h63', [], ExcelValue.by_value
-    attach_function 'control_h64', [], ExcelValue.by_value
-    attach_function 'control_h65', [], ExcelValue.by_value
-    attach_function 'control_h66', [], ExcelValue.by_value
-    attach_function 'control_h67', [], ExcelValue.by_value
     # end of Control
     # end of Webtool References
     # end of Sheet1

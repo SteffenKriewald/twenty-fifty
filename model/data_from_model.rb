@@ -30,15 +30,32 @@ class DataFromModel
     excel.reset
     # Turn the i0g2dd2pp1121f1i032211p004314110433304202304320420121 into something like
     # [1.8,0.0,1.6,2.0,1.3,1.3,..]
-    choices = convert_letters_to_float(code.split(''))
+    number_of_non_empty_levers = code.length / 3
+
+    choices = convert_letters_to_float(code[0..number_of_non_empty_levers -1].split(''))
+    starts = convert_letters_to_dates(code[number_of_non_empty_levers..(2 * number_of_non_empty_levers) -1].split(''))
+    ends = convert_letters_to_dates(code[(2 * number_of_non_empty_levers)..(3 * number_of_non_empty_levers) -1].split('')) 
+    puts "\n================================================================================\n" +
+         code[0..number_of_non_empty_levers -1]
+         "\n================================================================================\n"
+    puts "\n================================================================================\n" +
+         code[number_of_non_empty_levers..(2 * number_of_non_empty_levers) -1]
+         "\n================================================================================\n"
+    puts "\n================================================================================\n" +
+         code[2 * number_of_non_empty_levers..(3 * number_of_non_empty_levers) -1]
+         "\n================================================================================\n"
+    
     # Set the spreadsheet controls (input.choices is a named reference in the Excel)
-    ## deactivate dynamics (model calculations)
-    ##excel.input_choices = choices
+    ## deactivatety dynamics (model calculations)
+         excel.input_lever_ambition = choices
+         excel.input_lever_start = starts
+         excel.input_lever_end = ends
     # Read out the results, where each of these refers to a named reference in the Excel
     # (e.g. excel.output_impots_quantity refers to the output.imports.quantity named reference)
     { 
       '_id' => code, 
       'choices' => choices,
+#      'warnings' => excel.output_warnings,
       'sankey' => excel.output_flows, # output.flows in the Excel
       'ghg' => excel.output_emissions_by_sector, # output.emissions.by.sector in Excel
       'electricity' => {
@@ -80,6 +97,7 @@ class DataFromModel
   def types
     @types ||= excel.input_types.flatten
   end
+
   
   def choice_sizes
     sizes = {}
@@ -155,6 +173,28 @@ class DataFromModel
   FLOAT_TO_LETTER_MAP[4.0] = '4'
   
   LETTER_TO_FLOAT_MAP = FLOAT_TO_LETTER_MAP.invert
+
+
+  DATES_TO_LETTER_MAP = Hash[]
+  DATES_TO_LETTER_MAP[2020] = '2020'
+  DATES_TO_LETTER_MAP[2025] = '2025'
+  DATES_TO_LETTER_MAP[2030] = '2030'
+  DATES_TO_LETTER_MAP[2035] = '2035'
+  DATES_TO_LETTER_MAP[2040] = '2040'
+  DATES_TO_LETTER_MAP[2045] = '2045'
+  DATES_TO_LETTER_MAP[2050] = '2050'
+  DATES_TO_LETTER_MAP[2055] = '2055'
+  DATES_TO_LETTER_MAP[2060] = '2060'
+  DATES_TO_LETTER_MAP[2065] = '2065'
+  DATES_TO_LETTER_MAP[2070] = '2070'
+  DATES_TO_LETTER_MAP[2075] = '2075'
+  DATES_TO_LETTER_MAP[2080] = '2080'
+  DATES_TO_LETTER_MAP[2085] = '2085'
+  DATES_TO_LETTER_MAP[2090] = '2090'
+  DATES_TO_LETTER_MAP[2095] = '2095'
+  DATES_TO_LETTER_MAP[2100] = '2100'
+
+  LETTER_TO_DATES_MAP = DATES_TO_LETTER_MAP.invert  
   
   def convert_float_to_letters(array)
     array.map do |entry|
@@ -171,6 +211,13 @@ class DataFromModel
       LETTER_TO_FLOAT_MAP[entry].to_f || entry.to_f
     end
   end
+ 
+  def convert_letters_to_dates(array)
+    array.map do |entry|
+      LETTER_TO_DATES_MAP[entry].to_i || entry.to_i
+    end
+  end
+
   
 end
 

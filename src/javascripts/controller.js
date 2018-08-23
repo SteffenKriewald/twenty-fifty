@@ -147,33 +147,33 @@
   // The controls are a series of tables in src/index.html.erb in the #classic_controls block
   // This method attaches javascript function to those tables to trigger other jascript
   // methods in this file when they are clicked.
-  setUpControls = function() {
+    setUpControls = function() {
     // All links with titles have the title turned into a tooltip. The tooltip is styled
     // in src/stylesheets/tooltip.css
-      $("a[title]").tooltip({ delay: 0, trigger : 'hover', position: 'top left', offset: [3, 3], tip: '#tooltip' });
+	$("a[title]").tooltip({ delay: 0, trigger : 'hover', position: 'top left', offset: [3, 3], tip: '#tooltip' });
 
     // This turns the cells that are labeled '1' '2' '3' '4' into controls that select
     // a new pathway. The cell is expected to have a data-choicenumber attribute that
     // indicates whether it is nuclear, CCS, home heating etc and a data-choicelevel
     // attribute that indicates whether it
-    $("a.choiceLink").on('click touchend', function(event) {
-      event.preventDefault();
-      t = $(event.target);
-      c = t.data().choicenumber;
-      l = t.data().choicelevel;
-      go(c, l);
-	g = t.data().group;
+	$("a.choiceLink").on('click touchend', function(event) {
+	    event.preventDefault();
+	    t = $(event.target);
+	    c = t.data().choicenumber;
+	    l = t.data().choicelevel;
+	    go(c, l);
+	    g = t.data().group;
 	// create (FIXME) - Update spark plot depending on group
-	if ( g == 'demand') { var levelData = choices.slice(25, 30).concat(choices.slice(32, 35),choices.slice(37, 38),choices.slice(40, 41));}
-	if ( g == 'supply') { var levelData = choices.slice(0, 0).concat(choices.slice(2, 15),choices.slice(17, 22));}
-	if ( g == 'other') { var levelData = choices.slice(50, 52);}
-	$("."+g+"db").sparkline(levelData, {
+	    if ( g == 'demand') { var levelData = choices.slice(25, 30).concat(choices.slice(32, 35),choices.slice(37, 38),choices.slice(40, 41));}
+	    if ( g == 'supply') { var levelData = choices.slice(0, 0).concat(choices.slice(2, 15),choices.slice(17, 22));}
+	    if ( g == 'other') { var levelData = choices.slice(50, 52);}
+	    $("."+g+"db").sparkline(levelData, {
 		type: 'bar', barColor: '#7f99b2', disableInteraction: true,
 		barWidth:'2px', height:'75px', barSpacing:'0px',
 		chartRangeMin: 0, chartRangeMax: 4}
-	);
-	document.getElementById(g+'db').style.visibility="hidden";
-    });
+				   );
+	    document.getElementById(g+'db').style.visibility="hidden";
+	});
 
       $("a.leverNameLink").html(function(index, leverName) {
 	  truncated = leverName.trim().substring(0, 25);
@@ -197,27 +197,26 @@
 	  if (t.parent().parent().find("button").hasClass("sd")) {
 	      old_startdatechoices = startdatechoices.slice(0);
 	      startdatechoices[c] = d;
-        if (startdatechoices[c] > enddatechoices[c]-10) {
-          old_enddatechoices = enddatechoices.slice(0);
+              if (startdatechoices[c] > enddatechoices[c]-10) {
+		  old_enddatechoices = enddatechoices.slice(0);
           //enddatechoices[c] = d;
           /* minimal implementation time */
           // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
-          enddatechoices[c] = d + 10;
-        }
-
+		  enddatechoices[c] = d + 10;
+              }
+	      goWithDates(c, d, true);
 	  }
 	  else {
 	      old_enddatechoices = enddatechoices.slice(0);
 	      enddatechoices[c] = d;
-        if (enddatechoices[c] < startdatechoices[c]+10) {
-          old_startdatechoices = startdatechoices.slice(0);
-          //startdatechoices[c] = d;
-          /* minimal implementation time */
-          // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
-          startdatechoices[c] = d - 10;
-        }
-
-
+              if (enddatechoices[c] < startdatechoices[c]+10) {
+		  old_startdatechoices = startdatechoices.slice(0);
+		  //startdatechoices[c] = d;
+		  /* minimal implementation time */
+		  // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
+		  startdatechoices[c] = d - 10;
+              }
+	      goWithDates(c, d, false);
 	  }
 
 
@@ -374,17 +373,12 @@
       var url_elements;
       url_elements = window.location.pathname.split('/');
       controller = url_elements[1] || "pathways";
-      choices = choicesForCode(url_elements[2] || twentyfifty.default_pathway);
-      startdatechoices = [];
-      for (i=1; i <=53; i++) {
-	  startdatechoices.push(2020);
-      }
-      enddatechoices = [];
-      for (i=1; i <=53; i++) {
-	  enddatechoices.push(2050);
-      }
+      alert(twentyfifty.default_pathway.length);
+      [startdatechoices, enddatechoices] = datesForCode(url_elements[2]);
+      choices = choicesForCode(url_elements[2]);
       old_startdatechoices = startdatechoices.slice(0);
       old_enddatechoices = enddatechoices.slice(0);
+      
       //      view = url_elements[3] || "primary_energy_chart";
       view = url_elements[3] || "overview";
       if (view === 'costs_compared_within_sector') {
@@ -395,6 +389,27 @@
       }
   };
 
+    date_to_letter_map = {
+	"": "0",
+	2020: "a",
+	2025: "b",
+	2030: "c",
+	2035: "d",
+	2040: "e",
+	2045: "f",
+	2050: "g",
+	2055: "h",
+	2060: "i",
+	2065: "j",
+	2070: "k",
+	2075: "l",
+	2080: "m",
+	2085: "n",
+	2090: "o",
+	2095: "p",
+	2100: "q"
+    };
+    
   float_to_letter_map = {
     "": "0",
     1.0: "1",
@@ -431,23 +446,32 @@
     4.0: "4"
   };
 
-  codeForChoices = function(c) {
-    var cd, choice;
-    if (c == null) {
-      c = choices;
-    }
-    cd = (function() {
-      var _i, _len, _results;
-      _results = [];
-      for (_i = 0, _len = c.length; _i < _len; _i++) {
-        choice = c[_i];
-        _results.push(float_to_letter_map[choice]);
-      }
-      return _results;
-    })();
-    return cd.join('');
-  };
-
+    codeForChoices = function(c) {
+	var cd, choice;
+	if (c == null) {
+	    c = [choices, startdatechoices, enddatechoices];
+	}
+	cd = (function() {
+	    var _i, _len, _results;
+	    _results = [];
+	    for (_i = 0, _len = c[0].length; _i < _len; _i++) {
+		choice = c[0][_i];
+		_results.push(float_to_letter_map[choice]);
+	    }
+	    for (_i = 0, _len = c[1].length; _i < _len; _i++) {
+		choice = c[1][_i];
+		_results.push(date_to_letter_map[choice]);
+	    }
+	    for (_i = 0, _len = c[2].length; _i < _len; _i++) {
+		choice = c[2][_i];
+		_results.push(date_to_letter_map[choice]);
+	    }
+	    
+	    return _results;
+	})();
+	return cd.join('');
+    };
+  
   letter_to_float_map = {
     "1": 1.0,
     "b": 1.1,
@@ -483,17 +507,59 @@
     "4": 4.0
   };
 
-  choicesForCode = function(newCode) {
-    var choice, _i, _len, _ref, _results;
-    _ref = newCode.split('');
-    _results = [];
-    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-      choice = _ref[_i];
-      _results.push(letter_to_float_map[choice]);
-    }
-    return _results;
-  };
 
+letter_to_date_map = {
+	"0": "",
+	"a": 2020,
+	"b": 2025,
+	"c": 2030,
+	"d": 2035,
+	"e": 2040,
+	"f": 2045,
+	"g": 2050,
+	"h": 2055,
+	"i": 2060,
+	"j": 2065,
+	"k": 2070,
+	"l": 2075,
+	"m": 2080,
+	"n": 2085,
+	"o": 2090,
+	"p": 2095,
+	"q": 2100
+    };
+    
+    mapCode = function(code, mapping) {
+	var _ref;
+	_ref = code.split('');
+	return _ref.map(letter => mapping[letter]);
+    }
+    
+  choicesForCode = function(newCode) {
+      var choice, _i, _len, _results, _number_of_levers, _choiceCode;
+      if (newCode == null) {
+	  newCode = twentyfifty.default_pathway;
+      }
+      _number_of_levers = newCode.length/3;
+      _choiceCode = newCode.slice(0, _number_of_levers);
+      return mapCode(_choiceCode, letter_to_float_map);
+  };
+     
+  datesForCode = function(newCode) {
+      var _number_of_levers, _startCode, _endCode, _datechoices, _i, _len, _ref, _results;
+      if (newCode == null) {
+	  newCode = twentyfifty.default_pathway;
+      }
+      _datechoices = [];
+      _number_of_levers = newCode.length/3;
+      _startCode = newCode.slice(_number_of_levers, 2 * _number_of_levers);
+      _endCode = newCode.slice(2 * _number_of_levers, 3 * _number_of_levers);
+
+      _datechoices.push(mapCode(_startCode, letter_to_date_map));
+      _datechoices.push(mapCode(_endCode, letter_to_date_map));
+      return _datechoices;
+  };
+    
   url = function(options) {
     var s;
     if (options == null) {
@@ -515,25 +581,37 @@
     }
   };
 
-  go = function(index, level) {
-    old_choices = choices.slice(0);
-    if (index <= 15 && index !== 3 && level > 1 && Math.ceil(choices[index]) === level) {
-      choices[index] = Math.round((choices[index] - 0.1) * 10) / 10;
-    } else {
-      choices[index] = level;
-    }
-    return loadMainPathway();
-  };
+    go = function(index, level) {
+	old_choices = choices.slice(0);
 
-//    goWithDates = function(index, date, ) {
-//      old_startdatechoices = startdatechoices.slice(0);
-//      startdatechoices[index] = date;
-//      old_enddatechoices = enddatechoices.slice(0);
-//      enddatechoices[index] = date;
-////      alert("date choice is: " + startdatechoices[index]);
-//      return loadMainPathway();
-//  };
-//
+	console.log("Math.ceil(choices[index])" + Math.ceil(choices[index]));
+	console.log("level" + level);
+	
+	//    if (index <= 15 && index !== 3 && level > 1 && Math.ceil(choices[index]) === level) {
+
+	
+	// if the new integer level remains the same as the deprecated
+	// choice[index] then one has decimal ambition levels
+	if (level > 1 && Math.ceil(choices[index]) === level) {
+	    choices[index] = Math.round((choices[index] - 0.1) * 10) / 10;
+	} else {
+	    choices[index] = level;
+	}
+	return loadMainPathway();
+    };
+
+    goWithDates = function(index, date, start) {
+	if (start) {
+	    old_startdatechoices = startdatechoices.slice(0);
+	    startdatechoices[index] = date;
+	} else {
+	    old_enddatechoices = enddatechoices.slice(0);
+	    enddatechoices[index] = date;
+	}
+//      alert("date choice is: " + startdatechoices[index]);
+      return loadMainPathway();
+    };
+
 
   demoTimer = null;
 
