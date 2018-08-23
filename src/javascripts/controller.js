@@ -164,10 +164,15 @@
 	    go(c, l);
 	    g = t.data().group;
 	// create (FIXME) - Update spark plot depending on group
-	    if ( g == 'demand') { var levelData = choices.slice(25, 30).concat(choices.slice(32, 35),choices.slice(37, 38),choices.slice(40, 41));}
-	    if ( g == 'supply') { var levelData = choices.slice(0, 0).concat(choices.slice(2, 15),choices.slice(17, 22));}
-	    if ( g == 'other') { var levelData = choices.slice(50, 52);}
+
+	    if ( g == 'buildings') { var levelData = choices.slice(0,8);}
+	    if ( g == 'transport') { var levelData = choices.slice(9,21);}
+	    if ( g == 'industry') { var levelData = choices.slice(22,27);}
+	    if ( g == 'energy') { var levelData = choices.slice(28,36);}
+	    if ( g == 'electricity') { var levelData = choices.slice(37,45);}
+	    if ( g == 'land') { var levelData = choices.slice(46, 50);}
 	    $("."+g+"db").sparkline(levelData, {
+
 		type: 'bar', barColor: '#7f99b2', disableInteraction: true,
 		barWidth:'2px', height:'75px', barSpacing:'0px',
 		chartRangeMin: 0, chartRangeMax: 4}
@@ -181,7 +186,7 @@
 	      truncated += "..."
 	  }
 	  return truncated;
-    });
+      });
 
       // This turns links containing dates '2010' .. '2100' into
       // controls that select new pathways. The link is expected to have
@@ -373,7 +378,7 @@
       var url_elements;
       url_elements = window.location.pathname.split('/');
       controller = url_elements[1] || "pathways";
-      alert(twentyfifty.default_pathway.length);
+      //alert(twentyfifty.default_pathway.length);
       [startdatechoices, enddatechoices] = datesForCode(url_elements[2]);
       choices = choicesForCode(url_elements[2]);
       old_startdatechoices = startdatechoices.slice(0);
@@ -938,7 +943,7 @@ function timeMode(){
       var change = 'visible';
       document.getElementById("modeSwitchID").value = mode2050;
     } else {
-        var conf = confirm("Are you sure you want to go back to 2050 mode, all timing information will be lost.");
+        var conf = confirm("Are you sure you want to go back to 2050 mode, data will be lost unless bookmarked");
         if (conf==true) {
           var change = 'hidden';
           document.getElementById("modeSwitchID").value = mode2010;
@@ -950,12 +955,15 @@ function timeMode(){
 }
 
 function loadSparkLines() {
-  var groupArray = ["demand","supply","other"];
+  var groupArray = ["buildings","transport","industry","energy","electricity","land","other"];
     for (var i = 0; i <groupArray.length; i++) {
       var g = groupArray[i];
-      if ( g == 'demand') { var levelData = choices.slice(25, 30).concat(choices.slice(32, 35),choices.slice(37, 38),choices.slice(40, 41));}
-      if ( g == 'supply') { var levelData = choices.slice(0, 0).concat(choices.slice(2, 15),choices.slice(17, 22));}
-      if ( g == 'other') { var levelData = choices.slice(50, 52);}
+      if ( g == 'buildings') { var levelData = choices.slice(0,8);}
+      if ( g == 'transport') { var levelData = choices.slice(9,21);}
+      if ( g == 'industry') { var levelData = choices.slice(22,27);}
+      if ( g == 'energy') { var levelData = choices.slice(28,36);}
+      if ( g == 'electricity') { var levelData = choices.slice(37,45);}
+      if ( g == 'land') { var levelData = choices.slice(46, 50);}
       $("."+g+"db").sparkline(levelData, {
         type: 'bar', barColor: '#7f99b2', disableInteraction: true,
         barWidth:'2px', height:'75px', barSpacing:'0px',
@@ -966,3 +974,62 @@ function loadSparkLines() {
 }
 
 window.onload = loadSparkLines;
+
+function bookmark(){
+  var textArea = document.createElement("textarea");
+
+  //
+  // *** This styling is an extra step which is likely not required. ***
+  //
+  // Why is it here? To ensure:
+  // 1. the element is able to have focus and selection.
+  // 2. if element was to flash render it has minimal visual impact.
+  // 3. less flakyness with selection and copying which **might** occur if
+  //    the textarea element is not visible.
+  //
+  // The likelihood is the element won't even render, not even a flash,
+  // so some of these are just precautions. However in IE the element
+  // is visible whilst the popup box asking the user for permission for
+  // the web page to copy to the clipboard.
+  //
+
+  // Place in top-left corner of screen regardless of scroll position.
+  textArea.style.position = 'fixed';
+  textArea.style.top = 0;
+  textArea.style.left = 0;
+
+  // Ensure it has a small width and height. Setting to 1px / 1em
+  // doesn't work as this gives a negative w/h on some browsers.
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+
+  // We don't need padding, reducing the size if it does flash render.
+  textArea.style.padding = 0;
+
+  // Clean up any borders.
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+
+  // Avoid flash of white box if rendered for any reason.
+  textArea.style.background = 'transparent';
+
+
+  textArea.value = window.location.href;
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+
+  document.body.removeChild(textArea);
+
+  alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page or copy the link \n\n'+ window.location.href  + ' \n\n(already in your clipboard)');
+}

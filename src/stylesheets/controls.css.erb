@@ -29,8 +29,13 @@
 }
 
 .dynamicbar canvas,
-.demanddb canvas,
-.supplydb canvas,
+.buildingsdb canvas,
+.transportdb canvas,
+.industrydb canvas,
+.energydb canvas,
+.electricitydb canvas,
+.landdb canvas,
+.templatedb canvas,
 .otherdb canvas    {
 	margin-top:-53px;
 }
@@ -61,7 +66,7 @@ select{
   width:600px;
   padding:20px;
 }
-#classic_controls #demand, #classic_controls #supply, #classic_controls #other {
+#classic_controls #buildings, #classic_controls #transport,  #industry, #energy, #electricity, #land, #template, #classic_controls #other {
   padding: 0;
   border: 0;
   margin: 0;
@@ -169,25 +174,34 @@ select{
   color: #000;
 }
 
-
+#classic_controls table td.nameL2,
+#classic_controls table td.name.lever-grey,
 #classic_controls table td.name {
     /*
   background-image: url("/assets/images/onegreypixel.png");
-*/
   background-position: left center;
   background-repeat: repeat-x;
-  width:200px;
+  */
+  width: 200px;
   padding-left:var(--indent_name);
+  /* truncate text 'name'*/
+  /*white-space: nowrap;*/
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+
 #classic_controls table td.nameL2 {
-    /*
-      background-image: url("/assets/images/onegreypixel.png");
-   */
+  /*
+  background-image: url("/assets/images/onegreypixel.png");
+  */
+   /*
   background-position: left center;
   background-repeat: repeat-x;
   width:150px !important;
+  */
 }
+
 
 #classic_controls table td.name a {
 /*
@@ -201,12 +215,12 @@ select{
 
 
 .accordion-toggle table tr.menuWidth {
-		  width:260px;
+		  width:200px;
 		  height:0px;
 }
 
 .accordion-toggle table tr.menuWidthL2 {
-		  width:250px;
+		  width:200px;
 		  height:0px;
 }
 
@@ -217,12 +231,12 @@ select{
 }
 
 #classic_controls table tr.menuWidth {
-		  width:260px;
+		  width:200px;
 		  height:0px;
 }
 
 #classic_controls table tr.menuWidthL2 {
-		  width:250px;
+		  width:200px;
 		  height:0px;
 }
 
@@ -370,8 +384,8 @@ text-decoration: none;
 	}
 
 
-.accordion-toggle:hover {color:#000; text-decoration: none; cursor: pointer;}
-.accordion-toggle {color:#000; text-decoration: none; cursor: pointer;}
+.accordion-toggle:hover {color:white; text-decoration: none; cursor: pointer;border: 0px solid white;}
+.accordion-toggle {color:#000; text-decoration: none; cursor: pointer;margin-top: 1px;}
 .accordion-content {display: none;}
 .accordion-content.default {display: block;}
 
@@ -399,7 +413,7 @@ text-decoration: none;
 .dates-column{width:150px;height:100%;}
 .dates-column-left{float:left;width:25px;margin-left: 10px;}
 .dates-column-right{float:right;width:45px;}
-/* .dates-column-center{height:100%;margin:0 auto;width:50px;color:transparent;background-image:url('http://www.pik-potsdam.de/~kriewald/js/test.png');background-repeat: no-repeat;background-size: cover;}*/
+.dates-column-center{height:100%;margin:0 auto;width:50px;color:transparent;background-image:url('/assets/images/date_background.png');background-repeat: no-repeat;background-size: cover;}*/
 .dates-column-center{height:100%;margin:0 auto;width:50px;color:transparent;background-repeat: no-repeat;background-size: cover;}
 
 #classic_controls table tr.incremental a {
@@ -413,6 +427,7 @@ text-decoration: none;
     #classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/level<%= c %>_<%= i %>.png')}
 */
 #classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/levelgrey_<%= i %>.png')}
+#classic_controls table tr.incremental:hover a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/levelgrey_hover_<%= i %>.png')}
   <% end %>
 <% end %>
 
