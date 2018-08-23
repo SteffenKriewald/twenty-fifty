@@ -1,0 +1,188 @@
+<!--
+
+change   <% structure.choices[8..19].each do |choice| %>
+
+FURTHER TODOS
+
+IN controller.js
+
+function loadSparkLines()
+add to:   var groupArray = ["buildings","template","industry","other"];
+create new line: if ( g == 'template') { var levelData = choices.slice(9,21);}
+add this line also to setUpControls = function() {
+
+IN controls.css.erb
+
+add gropu to
+
+#classic_controls #buildings, #classic_controls #template, #classic_controls #other {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  float: left;
+}
+
+and to
+
+.dynamicbar canvas,
+.buildingsdb canvas,
+.templatedb canvas,
+.otherdb canvas    {
+	margin-top:-53px;
+}
+
+-->
+
+
+
+
+<!-- template header table -->
+
+<div class= "accordion-toggle">
+
+<table class="fixed">
+
+	  	  <tr class='menuWidth' style="height:0;">
+	    <td class='name' style="height:0;"></td>
+	    <td class='gap'></td>
+	    <td class='menuLevelWidth'></td>
+	    <td class='menuLevelWidth'></td>
+	    <td class='menuLevelWidth'></td>
+	    <td class='menuLevelWidth'></td>
+	    <td class='date-choice-mode-2100-wrapper' style="height:0;font-size:x-small;color:#ccd6e0;padding-left:44px;"></td>
+	  </tr>
+
+<tr>
+<td style="margin:0;background-color:#7f99b2;padding:4px">
+      <!-- The left column  &<br>GHG reduction-->
+      <!--<h5 style="font-family: Arial Narrow;">Energy conversion & GHG reduction</h5>-->
+      <h5>template</h5>
+</td>
+<td class='gap'></td>
+<td colspan=4>
+
+     <div class="rotate"><div id="templatedb" class="templatedb">⌚</div></div>
+
+</td>
+
+	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+		<div id='template-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
+			<div class="dates-column">
+				<div class="dates-column-left"></div>
+				<div class="dates-column-right"></div>
+				<div class="dates-column-center">&nbsp</div>
+			</div>
+		</div>
+	    </td>
+
+</tr></table>
+
+</div>
+
+<!-- End of template header table -->
+
+      <div id='template' class="accordion-content default" style="display: none">
+        <table class="fixed">
+
+		<tr class='menuWidth'>
+		    <td class='name'></td>
+		    <td class='gap'></td>
+		    <td class='menuLevelWidth'></td>
+		    <td class='menuLevelWidth'></td>
+		    <td class='menuLevelWidth'></td>
+		    <td class='menuLevelWidth'></td>
+		    <td style="width:150px;text-align: center;"></td>
+	  	</tr>
+
+
+          <% structure.choices[8..19].each do |choice| %>
+
+
+            <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
+              <td class='name lever-grey'>
+				<!--
+                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+-->
+                  <%= choice.name %>
+                </a>
+              </td>
+<td class='gap'></td>
+              <!-- One cell per level for that choice -->
+              <% choice.levels.each.with_index do |level,i| %>
+                <td class='choice'>
+                  <a href='#' data-choicenumber='<%= choice.number %>' data-choicelevel='<%= i+1 %>' id='c<%= choice.number %>l<%= i+1%>' title='<%= choice.descriptions[i] %>' class='choiceLink' data-group='template'>
+                    <%= level %>
+                </a>
+              </td>
+		<% if i == 3 %>
+	      <td class='date-choice-mode-2100-wrapper'>
+		<div id='cd<%= choice.number %>' class="date-choice-mode-2100-default" style="width:150px;">
+
+
+<div class="dates-column">
+<div class="dates-column-left">
+		<div class="dropdown-dates">
+ 		<button class="dropbtn-dates sd">2020</button>
+		  <div class="dropdown-content-dates">
+			<a href="#" class='dateChoiceLink' data-datechoice='2020' data-choicenumber='<%= choice.number %>'>2020</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2025' data-choicenumber='<%= choice.number %>'>2025</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2035' data-choicenumber='<%= choice.number %>'>2035</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2040' data-choicenumber='<%= choice.number %>'>2040</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2045' data-choicenumber='<%= choice.number %>'>2045</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2055' data-choicenumber='<%= choice.number %>'>2055</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2060' data-choicenumber='<%= choice.number %>'>2060</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2065' data-choicenumber='<%= choice.number %>'>2065</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2070' data-choicenumber='<%= choice.number %>'>2070</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2075' data-choicenumber='<%= choice.number %>'>2075</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2085' data-choicenumber='<%= choice.number %>'>2085</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2090' data-choicenumber='<%= choice.number %>'>2090</a>
+		  </div>
+		</div>
+</div>
+<div class="dates-column-right">
+		<div class="dropdown-dates">
+ 		<button class="dropbtn-dates ed">2050</button>
+		  <div class="dropdown-content-dates">
+			<a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2035' data-choicenumber='<%= choice.number %>'>2035</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2040' data-choicenumber='<%= choice.number %>'>2040</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2045' data-choicenumber='<%= choice.number %>'>2045</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2050' data-choicenumber='<%= choice.number %>'>2050</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2055' data-choicenumber='<%= choice.number %>'>2055</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2060' data-choicenumber='<%= choice.number %>'>2060</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2065' data-choicenumber='<%= choice.number %>'>2065</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2070' data-choicenumber='<%= choice.number %>'>2070</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2075' data-choicenumber='<%= choice.number %>'>2075</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2080' data-choicenumber='<%= choice.number %>'>2080</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2085' data-choicenumber='<%= choice.number %>'>2085</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2090' data-choicenumber='<%= choice.number %>'>2090</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2095' data-choicenumber='<%= choice.number %>'>2095</a>
+			<a href="#" class='dateChoiceLink' data-datechoice='2100' data-choicenumber='<%= choice.number %>'>2100</a>
+		  </div>
+		</div>
+		</div>
+</div>
+<div class="dates-column-center">&nbsp<div id="slider<%= choice.number %>"></div>
+</div>
+
+<script>
+var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
+noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
+</script>
+
+</div> <!-- dates column-->
+</div>
+ 	      </td>
+
+		  <% end %>
+		  <% end %>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+
+<!-- End of template -->
