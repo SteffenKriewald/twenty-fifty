@@ -66,7 +66,7 @@ select{
   width:600px;
   padding:20px;
 }
-#classic_controls #buildings, #classic_controls #transport,  #industry, #energy, #electricity, #land, #template, #classic_controls #other {
+#classic_controls #buildings, #classic_controls #transport,  #industryLever, #energy, #electricity, #land, #template, #classic_controls #other {
   padding: 0;
   border: 0;
   margin: 0;
@@ -384,24 +384,26 @@ text-decoration: none;
 	}
 
 
-.accordion-toggle:hover {color:white; text-decoration: none; cursor: pointer;border: 0px solid white;}
-.accordion-toggle {color:#000; text-decoration: none; cursor: pointer;margin-top: 1px;}
+.accordion-toggle:hover {color:white; text-decoration: none; cursor: pointer;border: 0px solid white;text-decoration:underline}
+.accordion-toggle {color:#000; text-decoration: none; cursor: pointer;}
 .accordion-content {display: none;}
 .accordion-content.default {display: block;}
 
 /*
 .accordion-toggle:after {
     /*content: '\02795'; /* Unicode character for "plus" sign (+) */
-    content: '\02191';
+/*    content: '\02191';
     font-size: 13px;
     color: #777;
     float: right;
     margin-left: 5px;
 }
+*/
 
+/*
 .active:after {
     /*content: "\2796"; /* Unicode character for "minus" sign (-) */
-    content: '\02193';
+/*    content: '\02193';
 }
 */
 
