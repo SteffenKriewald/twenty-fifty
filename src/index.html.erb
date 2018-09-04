@@ -547,12 +547,12 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
       <td style="margin:0;background-color:#7f99b2;padding:4px">
             <!-- The left column  &<br>GHG reduction-->
             <!--<h5 style="font-family: Arial Narrow;">Energy conversion & GHG reduction</h5>-->
-            <h5>industry</h5>
+            <h5>Industry</h5>
       </td>
       <td class='gap'></td>
       <td colspan=4>
 
-           <div class="rotate"><div id="industrydb" class="industrydb">⌚</div></div>
+           <div class="rotate"><div id="industryLeverdb" class="industryLeverdb">⌚</div></div>
 
       </td>
 
@@ -601,7 +601,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
                     <!-- One cell per level for that choice -->
                     <% choice.levels.each.with_index do |level,i| %>
                       <td class='choice'>
-                        <a href='#' data-choicenumber='<%= choice.number %>' data-choicelevel='<%= i+1 %>' id='c<%= choice.number %>l<%= i+1%>' title='<%= choice.descriptions[i] %>' class='choiceLink' data-group='industry'>
+                        <a href='#' data-choicenumber='<%= choice.number %>' data-choicelevel='<%= i+1 %>' id='c<%= choice.number %>l<%= i+1%>' title='<%= choice.descriptions[i] %>' class='choiceLink' data-group='industryLever'>
                           <%= level %>
                       </a>
                     </td>

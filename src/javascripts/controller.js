@@ -163,21 +163,24 @@
 	    l = t.data().choicelevel;
 	    go(c, l);
 	    g = t.data().group;
+      console.log("gruppe" + g);
 	// create (FIXME) - Update spark plot depending on group
 
 	    if ( g == 'buildings') { var levelData = choices.slice(0,8);}
 	    if ( g == 'transport') { var levelData = choices.slice(9,21);}
-	    if ( g == 'industry') { var levelData = choices.slice(22,27);}
+	    if ( g == 'industryLever') { var levelData = choices.slice(22,27);}
 	    if ( g == 'energy') { var levelData = choices.slice(28,36);}
 	    if ( g == 'electricity') { var levelData = choices.slice(37,45);}
 	    if ( g == 'land') { var levelData = choices.slice(46, 50);}
-	    $("."+g+"db").sparkline(levelData, {
-
-		type: 'bar', barColor: '#7f99b2', disableInteraction: true,
-		barWidth:'2px', height:'75px', barSpacing:'0px',
-		chartRangeMin: 0, chartRangeMax: 4}
-				   );
-	    document.getElementById(g+'db').style.visibility="hidden";
+      console.log("gruppe" + g);
+      $("."+g+"db").sparkline(levelData, {
+        type: 'bar', barColor: '#7f99b2', disableInteraction: true,
+        barWidth:'2px', height:'75px', barSpacing:'0px',
+        chartRangeMin: 0, chartRangeMax: 4}
+      );
+      console.log("."+g+"db");
+      console.log(document.getElementById(g+'db'));
+      document.getElementById(g+'db').style.visibility="hidden";
 	});
 
       $("a.leverNameLink").html(function(index, leverName) {
@@ -383,7 +386,7 @@
       choices = choicesForCode(url_elements[2]);
       old_startdatechoices = startdatechoices.slice(0);
       old_enddatechoices = enddatechoices.slice(0);
-      
+
       //      view = url_elements[3] || "primary_energy_chart";
       view = url_elements[3] || "overview";
       if (view === 'costs_compared_within_sector') {
@@ -414,7 +417,7 @@
 	2095: "p",
 	2100: "q"
     };
-    
+
   float_to_letter_map = {
     "": "0",
     1.0: "1",
@@ -471,12 +474,12 @@
 		choice = c[2][_i];
 		_results.push(date_to_letter_map[choice]);
 	    }
-	    
+
 	    return _results;
 	})();
 	return cd.join('');
     };
-  
+
   letter_to_float_map = {
     "1": 1.0,
     "b": 1.1,
@@ -533,13 +536,13 @@ letter_to_date_map = {
 	"p": 2095,
 	"q": 2100
     };
-    
+
     mapCode = function(code, mapping) {
 	var _ref;
 	_ref = code.split('');
 	return _ref.map(letter => mapping[letter]);
     }
-    
+
   choicesForCode = function(newCode) {
       var choice, _i, _len, _results, _number_of_levers, _choiceCode;
       if (newCode == null) {
@@ -549,7 +552,7 @@ letter_to_date_map = {
       _choiceCode = newCode.slice(0, _number_of_levers);
       return mapCode(_choiceCode, letter_to_float_map);
   };
-     
+
   datesForCode = function(newCode) {
       var _number_of_levers, _startCode, _endCode, _datechoices, _i, _len, _ref, _results;
       if (newCode == null) {
@@ -564,7 +567,7 @@ letter_to_date_map = {
       _datechoices.push(mapCode(_endCode, letter_to_date_map));
       return _datechoices;
   };
-    
+
   url = function(options) {
     var s;
     if (options == null) {
@@ -591,10 +594,10 @@ letter_to_date_map = {
 
 	console.log("Math.ceil(choices[index])" + Math.ceil(choices[index]));
 	console.log("level" + level);
-	
+
 	//    if (index <= 15 && index !== 3 && level > 1 && Math.ceil(choices[index]) === level) {
 
-	
+
 	// if the new integer level remains the same as the deprecated
 	// choice[index] then one has decimal ambition levels
 	if (level > 1 && Math.ceil(choices[index]) === level) {
@@ -955,12 +958,12 @@ function timeMode(){
 }
 
 function loadSparkLines() {
-  var groupArray = ["buildings","transport","industry","energy","electricity","land","other"];
+  var groupArray = ["buildings","transport","industryLever","energy","electricity","land"];
     for (var i = 0; i <groupArray.length; i++) {
       var g = groupArray[i];
       if ( g == 'buildings') { var levelData = choices.slice(0,8);}
       if ( g == 'transport') { var levelData = choices.slice(9,21);}
-      if ( g == 'industry') { var levelData = choices.slice(22,27);}
+      if ( g == 'industryLever') { var levelData = choices.slice(22,27);}
       if ( g == 'energy') { var levelData = choices.slice(28,36);}
       if ( g == 'electricity') { var levelData = choices.slice(37,45);}
       if ( g == 'land') { var levelData = choices.slice(46, 50);}
