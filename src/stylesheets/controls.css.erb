@@ -184,11 +184,13 @@ select{
   */
   width: 200px;
   padding-left:var(--indent_name);
+  /*padding-left: 0px;*/
   /* truncate text 'name'*/
   /*white-space: nowrap;*/
-  overflow: hidden;
-  text-overflow: ellipsis;
+  /*overflow: hidden;*/
+  /*text-overflow: ellipsis;*/
 }
+
 
 
 #classic_controls table td.nameL2 {
@@ -415,8 +417,7 @@ text-decoration: none;
 .dates-column{width:150px;height:100%;}
 .dates-column-left{float:left;width:25px;margin-left: 10px;}
 .dates-column-right{float:right;width:45px;}
-.dates-column-center{height:100%;margin:0 auto;width:50px;color:transparent;background-image:url('/assets/images/date_background.png');background-repeat: no-repeat;background-size: cover;}*/
-.dates-column-center{height:100%;margin:0 auto;width:50px;color:transparent;background-repeat: no-repeat;background-size: cover;}
+.dates-column-center{height:110%;margin:0 auto;width:50px;color:transparent;background-image:url('/assets/images/date_background.png');background-repeat: no-repeat;background-size: cover;}
 
 #classic_controls table tr.incremental a {
   background-position: left center;
@@ -440,16 +441,16 @@ table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:cen
 */
 
 .buttonMode {
-  float: right;
+/*  float: right;*/
   margin: 4px 8px;
   height: 21px;
   width: 155px;
-  text-align: center;
+/*text-align: center;*/
   cursor: pointer;
   outline: none;
   color: black;
   background-color: #ccd6e0;
-  border: none;
+  border: 1px #003366 solid;
   border-radius: 1px;
   /*box-shadow: 0 4px #999;*/
 }
