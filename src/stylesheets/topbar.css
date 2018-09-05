@@ -1,35 +1,38 @@
-#topbar {
+.topbar {
   font-weight: bold;
   position: relative;
   overflow: hidden;
-/*  width: 100%;
-*/
-  margin: 0 0 10px 0;
+/*  width: 100%; */
+/*  margin: 0 0 10px 0;*/
   background-color: #003366;
   color: white;
   padding-top: 10px;
   padding-bottom: 5px;
 /*border-bottom: solid #ccd6e0 0px; */}
-  #topbar a {
+  .topbar a {
     color: white;
     text-decoration: none; }
-  #topbar .selectedView {
+  .topbar .selectedView {
     color: #ccd6e0; }
-  #topbar a:hover {
+  .topbar a:hover {
     text-decoration: underline; }
-  #topbar #name {
-    float: left;
+  .topbar #name {
+    margin-left: 5px;
+/*    float: left;
     margin-left: 2.4%;
-    width: 180px; }
-  #topbar #examples {
-    text-align: right;
+    width: 180px;
+  */
+ }
+
+  .topbar #examples {
+    text-align: center;
     float: right;
     margin-right: 2.4%;
     width: 180px; }
-  #topbar #views {
+  .topbar #views {
     margin: 0 50px;
     text-align: right; }
-    #topbar #views a {
+    .topbar #views a {
       padding-right: 10px; }
 
 .dropdown {

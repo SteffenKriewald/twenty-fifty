@@ -121,7 +121,7 @@
     setupBootSideMenu = function() {
 	$('#lever_nav_panel').BootSideMenu({
 	    side: "left",
-	    width: "465px",
+	    width: "460px",
 	    closeOnClick: false,
 //    pushBody: true,
 	    icons: {

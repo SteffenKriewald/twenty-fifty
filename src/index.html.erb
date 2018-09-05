@@ -50,13 +50,11 @@
       </p>
     </div>
 
+<!-- single topbar
     <div id='topbar' style="margin-left:-465px;position:fixed;width:100%;margin-top: -30px;">
+-->
 
-      <div id='name'>
-        <!-- Change this to link to your country website -->
-        <a href='' style="font-weight: bold;">The UK 2050 Calculator</a>
-      </div>
-
+    <div id='topbar' class="topbar" style="position:fixed;z-index:1000;">
       <!-- To add or remove views from the web tool, alter the following section -->
       <div id='views'>
 	<a class='view' data-view='overview' href='#'>Overview</a>
@@ -104,7 +102,7 @@
       <span>Calculating</span>
     </div>
     <!-- / The charts will be drawn in this block -->
-    <div id='results' style="margin-top:30px;"></div>
+    <div id='results'></div>
     <!-- / bof navpanel -->
     <div id='gauge'  style="position:fixed;top:100px;right:20px;">
     <div id="slider-vertical" style="height: 80vh;"></div>
@@ -194,10 +192,17 @@
     </div>
 
 
-    <div id='lever_nav_panel'  style="margin-top:35px;">
+          <div id='topbar_nav' class="topbar" style="position: fixed;top:0; left:0;width:100%;z-index:100;">
+            <div id='name'>
+              <!-- Change this to link to your country website -->
+              <a href=''>The UK 2050 Calculator</a>
+            </div>
+          </div>
+
+    <div id='lever_nav_panel' style="margin-top:36px;">
 
       <div id='examples'>
-        <a class='buttonMode newdropdown' style="position: absolute; top:10px; left:-5px;" data-dropdown='#savedpathway_choices' href='#'>Example Pathways</a>
+        <a class='buttonMode newdropdown' style="position: absolute; top:12px;left:-5px;" data-dropdown='#savedpathway_choices' href='#'>Example Pathways</a>
         <!-- the contents of this dropdown is defined in the #savedpathway_choices div below -->
       </div>
 
@@ -243,7 +248,7 @@
 
 <tr>
 <td style="margin:0;background-color:#7f99b2;padding:4px">
-      <!-- The left column -->
+
       <h5>Buildings</h5>
 </td>
 <td class='gap'></td>
@@ -1243,7 +1248,7 @@ toggleSlider.noUiSlider.on('update', function( values, handle ){
     </div>
     <!-- This is needed to show the tooltips, don't remove -->
     <div id='tooltip'></div>
-    <div id='footer'>
+    <div id='footer' style="width:85%">
       <!-- Change this to link to your country's website -->
       All the assumptions and calculations are available in a spreadsheet. Download <a href='/model.xlsx'>Excel <%= structure.reported_calculator_version %> <%= %></a> (<a href='http://2050-calculator-tool-wiki.decc.gov.uk/pages/140'>Version history</a>). The source code for this site is available under an open source licence from <a href='http://github.com/decc/twenty-fifty'>http://github.com/decc/twenty-fifty</a>
     </div>
