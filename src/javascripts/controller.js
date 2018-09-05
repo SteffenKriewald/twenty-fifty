@@ -209,10 +209,9 @@
 		  old_enddatechoices = enddatechoices.slice(0);
           //enddatechoices[c] = d;
           /* minimal implementation time */
-          // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
-		  enddatechoices[c] = d + 10;
+          enddatechoices[c] = d + 10;
               }
-	      goWithDates(c, d, true);
+	      //goWithDates(c, d, true);
 	  }
 	  else {
 	      old_enddatechoices = enddatechoices.slice(0);
@@ -221,10 +220,9 @@
 		  old_startdatechoices = startdatechoices.slice(0);
 		  //startdatechoices[c] = d;
 		  /* minimal implementation time */
-		  // What happens with border-limitation (2025-10 < min 2020; 2095 +10 > max 2100)
 		  startdatechoices[c] = d - 10;
               }
-	      goWithDates(c, d, false);
+	      //goWithDates(c, d, false);
 	  }
 
 
@@ -608,7 +606,7 @@ letter_to_date_map = {
 	return loadMainPathway();
     };
 
-    goWithDates = function(index, date, start) {
+/*    goWithDates = function(index, date, start) {
 	if (start) {
 	    old_startdatechoices = startdatechoices.slice(0);
 	    startdatechoices[index] = date;
@@ -616,10 +614,10 @@ letter_to_date_map = {
 	    old_enddatechoices = enddatechoices.slice(0);
 	    enddatechoices[index] = date;
 	}
-//      alert("date choice is: " + startdatechoices[index]);
+      console.log("date choice is: " + startdatechoices[index]);
       return loadMainPathway();
     };
-
+*/
 
   demoTimer = null;
 
