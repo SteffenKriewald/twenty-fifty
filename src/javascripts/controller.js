@@ -795,7 +795,7 @@ letter_to_date_map = {
 		choice_frview = parseInt((choice % 1) * 10);
 		row = controls.find("tr#r" + i);
 		_color_intermediate_category = $("#classic_controls tr#r" + i + " td.name").hasClass("lever-grey")?"lever-grey":"lever-lightgrey";
-		row.find(".selected, .level" + old_choice_whole + ", .level" + old_choice_whole + "_" + old_choice_frview).removeClass("selected level" + old_choice_whole + " level" + old_choice_whole + "_" + old_choice_frview + " " + _color_intermediate_category);
+    row.find(".selected, .level" + old_choice_whole + ", .level" + old_choice_whole + "_" + old_choice_frview).removeClass("selected level" + old_choice_whole + " level" + old_choice_whole + "_" + old_choice_frview + " " + _color_intermediate_category);
 
 		if (old_choice_frview !== 0) {
 		    controls.find("#c" + i + "l" + old_choice_whole).text(old_choice_whole);
@@ -806,7 +806,7 @@ letter_to_date_map = {
 		}
 		if (choice_frview !== 0) {
 		    controls.find("#c" + i + "l" + choice_whole).text(choice);
-		    _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole + "_" + choice_frview));
+		    _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole + "_" + choice_frview + " " + _color_intermediate_category));
 		} else {
 		    _results.push(controls.find("#c" + i + "l" + choice_whole).addClass("level" + choice_whole + " " +  _color_intermediate_category));
 		}

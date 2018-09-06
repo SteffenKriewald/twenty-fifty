@@ -21,7 +21,7 @@
 
 #classic_controls table tr.incremental a.lever-lightgrey {
     background-color:#ccd6e0;
-    color:darkgrey;
+    color:transparent;
 }
 
 #classic_controls table tr:hover.incremental a.lever-lightgrey {
@@ -429,7 +429,11 @@ text-decoration: none;
 /*
     #classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/level<%= c %>_<%= i %>.png')}
 */
-#classic_controls table tr.incremental a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/levelgrey_<%= i %>.png')}
+
+
+
+#classic_controls table tr.incremental a.lever-lightgrey.level<%= c %>_<%= i %> {background-color: transparent; background-image: url('/assets/images/fractions/levellightgrey_<%= i %>.png')}
+#classic_controls table tr.incremental a.lever-grey.level<%= c %>_<%= i %> {background-color: transparent; background-image: url('/assets/images/fractions/levelgrey_<%= i %>.png')}
 #classic_controls table tr.incremental:hover a.level<%= c %>_<%= i %> { background-image: url('/assets/images/fractions/levelgrey_hover_<%= i %>.png')}
   <% end %>
 <% end %>
