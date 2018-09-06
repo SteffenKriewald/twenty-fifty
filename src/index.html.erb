@@ -106,13 +106,13 @@
     <!-- / bof navpanel -->
     <div id='gauge'  style="position:fixed;top:100px;right:20px;height: 80vh;">
 
-    <div style="font-size:x-small;color:#ccd6e0;margin: -50px 0px 20px -25px;text-align: center;">
+    <div class="additional_text" style="margin: -50px 0px 20px -25px;">
       CO2e<br>Reduction<br>in 2050
     </div>
 
     <div id="slider-vertical" style="height: 60vh;"></div>
 
-    <div class="date-choice-mode-2100-wrapper" style="width: 70px;font-size:x-small;color:#ccd6e0;margin: 20px 0 0 -50px;text-align: center;">
+    <div class="date-choice-mode-2100-wrapper additional_text" style="width: 70px;margin: 20px 0 0 -50px;">
       Your pathway<br>will reach<br>zero carbon<br>around 2060
     </div>
 
@@ -208,7 +208,7 @@
             </div>
           </div>
 
-    <div id='lever_nav_panel' style="margin-top:36px;">
+    <div id='lever_nav_panel' style="margin-top:35px;">
 
       <div id='examples'>
         <a class='buttonMode newdropdown' style="position: absolute; top: 10px; left:0; margin-left: 0; padding-left: 5px; width:200px;" data-dropdown='#savedpathway_choices' href='#'>Example Pathways</a>
@@ -219,27 +219,30 @@
           style="position: absolute; top: 10px; left:290px;">
 
     <!-- / These are the controls -->
-    <div id='classic_controls'>
+    <div id='classic_controls' style="margin-top: 40px;">
+
+<div class="additional_text" style="white-space: nowrap;left: 206px;position: absolute;top: 40px;"> level of ambition</div>
 
       <table class="fixed">
-        <tr class='menuWidth'>
+<!--        <tr class='menuWidth'>
       <td class='name'></td>
       <td class='gap'></td>
-      <td colspan=4 style="font-size:small;color:#ccd6e0;text-align: center;">
+      <td colspan=4 class="additional_text" style="white-space: nowrap;">
 
           level of ambition
 
       </td>
-      <td class='date-choice-mode-2100-wrapper' style="font-size:x-small;color:#ccd6e0;padding-left:38px;"></td>
+      <td class='date-choice-mode-2100-wrapper' style="padding-left:38px;"></td>
       </tr>
+    -->
       	  	  <tr class='menuWidth'>
       	    <td class='name'></td>
       	    <td class='gap'></td>
-      	    <td class='menuLevelWidth' style="font-size: small;color: #ccd6e0;text-align: center;">1</td>
-      	    <td class='menuLevelWidth' style="font-size: small;color: #ccd6e0;text-align: center;">2</td>
-      	    <td class='menuLevelWidth' style="font-size: small;color: #ccd6e0;text-align: center;">3</td>
-      	    <td class='menuLevelWidth' style="font-size: small;color: #ccd6e0;text-align: center;">4</td>
-      	    <td class='date-choice-mode-2100-wrapper' style="font-size:x-small;color:#ccd6e0;padding-left:44px;">start and end year<br>2020 2050 2100</td>
+      	    <td class='menuLevelWidth additional_text under'>1</td>
+      	    <td class='menuLevelWidth additional_text under'>2</td>
+      	    <td class='menuLevelWidth additional_text under'>3</td>
+      	    <td class='menuLevelWidth additional_text under'>4</td>
+      	    <td class='date-choice-mode-2100-wrapper additional_text' style="padding-left:10px;">start and end year<br>2020 2050 2100</td>
       	  </tr>
       </table>
 
@@ -392,7 +395,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
       </div>
 
 
-      <!-- Begin of buildings -->
+      <!-- building header table -->
 
       <div class= "accordion-toggle">
 
@@ -450,7 +453,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
                 <!-- One row per choice -->
                 <% structure.choices[0..7].each do |choice| %>
                   <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>'>
-                    <td class='name'>
+                      <td class='name lever-lightgrey'>
                         <a href='/assets/onepage/<%= choice.doc %>' target='_new' -data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
                           <%= choice.name %>
                         </a>
