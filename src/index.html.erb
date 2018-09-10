@@ -846,7 +846,9 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 var rLGs = [0,1,2,3,4,7,8,9,10,15,16,17,18,26,27,28,29,33,34,35,37,38,41,42,43,44,46,47];
 //var rLGs = [0,1,2,3];
 for (let i of rLGs) {
-  $('#r'+i+' td:first').removeClass("lever-grey").addClass('lever-lightgrey');
+  $('#r'+i+' td').removeClass("lever-grey").addClass('meinTest');
+  $('#r'+i+' td:first').addClass('lever-lightgrey');
+  //$('#r'+i+' td:first').removeClass("lever-grey").addClass('lever-lightgrey');
 }
 </script>
 

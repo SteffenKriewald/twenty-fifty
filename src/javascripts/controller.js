@@ -351,7 +351,9 @@
       _demandIterator = [];
       //      for (i=25; i<42; i == 31 ? i+=2 : i++) _demandIterator.push(i);
       //      for (i in _demandIterator) {
-      for (i=25; i<42; (i == 30||i == 35||i == 38) ? i+=2 : i++) {
+      //for (i=25; i<42; (i == 30||i == 35||i == 38) ? i+=2 : i++) {
+//TODO waht was the purpose of this loop??
+      for (i=0; i<0; i++) {
 //	  alert("i is '" + i + "'");
 	  row = controls.find("tr#r" + i);
 	  _original_title = row.find("a.leverNameLink").attr("data-original-title");
