@@ -102,13 +102,13 @@ class DataFromModel
   end
 
   def example_pathways
-        @example_pathways ||= generate_example_pathways
+       @example_pathways ||= generate_example_pathways
 #        @example_pathways = []
   end
 
   def one_page_note_filenames
-#    @one_page_note_filenames ||= excel.input_onepagenotes.flatten
-        @one_page_note_filenames = []
+    @one_page_note_filenames ||= excel.input_onepagenotes.flatten
+#        @one_page_note_filenames = []
   end
 
   def generate_example_pathways

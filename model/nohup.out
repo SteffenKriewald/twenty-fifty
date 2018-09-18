@@ -1,0 +1,434 @@
+input is 'model.xlsm'
+[34m12:04	Excel to Code version 0.3.18
+
+[0m
+[34m12:04	Removing old folders[0m
+[34m12:04	Unzipping the spreadsheet[0m
+[34m12:04	Extracting shared strings[0m
+[34m12:04	Extracting named references[0m
+[34m12:04	Extracting worksheet names[0m
+[34m12:04	Extracting data from checks[0m
+[34m12:04	Extracting data from Version_Log[0m
+[34m12:04	Extracting data from Guide[0m
+[34m12:04	Extracting data from Webtool References[0m
+[34m12:04	Extracting data from Control[0m
+[34m12:04	Extracting data from Results[0m
+[34m12:04	Extracting data from EnergyBalance[0m
+[34m12:05	Extracting data from Method[0m
+[34m12:05	Extracting data from Model[0m
+[34m12:06	Extracting data from FullTimeSeries[0m
+[34m12:07	Extracting data from NameConv[0m
+[34m12:07	Extracting data from Name_Count_Log[0m
+[34m12:07	Extracting data from Named_Range_List[0m
+[34m12:07	Extracting data from Column Assessment[0m
+[34m12:07	Extracting Tables[0m
+[34m12:07	Transfering named references to keep into cells to keep[0m
+[34m12:07	Making sure there are setter methods for named references that can be set[0m
+[34m12:07	Rewriting values[0m
+[34m12:07	Rewriting row and column references[0m
+[34m12:07	Rewriting shared formulae[0m
+[34m12:08	Expanding 0 array formulae[0m
+[34m12:08	Rewriting array formulae into conventional formulae[0m
+[34m12:08	Combining formulae types[0m
+[34m12:08	Checking required references[0m
+[34m12:08	Sheet contains 1535563 cells[0m
+[34m12:08	Simplifying arithmetic[0m
+[34m12:09	Simplifying cells[0m
+[34m13:00	Working out which named references can be set at runtime[0m
+[34m13:00	Filtering named references to keep[0m
+[34m13:00	Starting pass 1 on 570866 cells[0m
+[34m13:57	Simplifying cells[0m
+[34m13:57	Pass 1: Made 2766814 replacements[0m
+[34m13:57	Starting pass 2 on 400080 cells[0m
+[34m14:50	Simplifying cells[0m
+[34m14:50	Pass 2: Made 59215 replacements[0m
+[34m14:50	Starting pass 3 on 392524 cells[0m
+[34m15:42	Simplifying cells[0m
+[34m15:42	Pass 3: Made 143168 replacements[0m
+[34m15:42	Starting pass 4 on 317477 cells[0m
+[34m16:25	Simplifying cells[0m
+[34m16:25	Pass 4: Made 91590 replacements[0m
+[34m16:25	Starting pass 5 on 289437 cells[0m
+[34m17:11	Simplifying cells[0m
+[34m17:11	Pass 5: Made 6816 replacements[0m
+[34m17:11	Starting pass 6 on 282368 cells[0m
+[34m17:44	Simplifying cells[0m
+[34m17:44	Pass 6: Made 14349 replacements[0m
+[34m17:44	Starting pass 7 on 274647 cells[0m
+[34m17:44	Simplifying cells[0m
+[34m17:44	Pass 7: Made 7679 replacements[0m
+[34m17:44	Starting pass 8 on 274646 cells[0m
+[34m17:45	Simplifying cells[0m
+[34m17:45	Pass 8: Made 1 replacements[0m
+[34m17:45	Starting pass 9 on 274645 cells[0m
+[34m17:45	Simplifying cells[0m
+[34m17:45	Pass 9: Made 0 replacements[0m
+[34m17:45	Inlining formulae[0m
+[34m17:46	Removing cells not needed for outputs[0m
+[:'FullTimeSeries', :K3490] => [:function, :MAX, [:number, 0.0], [:number, 0.0], [:arithmetic, [:arithmetic, [:prefix, "+", [:sheet_reference, :FullTimeSeries, [:cell, :K3424]]], [:operator, :-], [:number, 16.4]], [:operator, :-], [:function, :SUMIFS, [:function, :OFFSET, [:array, [:row, [:number, 0.0], [:sheet_reference, :FullTimeSeries, [:cell, :K3490]], [:sheet_reference, :FullTimeSeries, [:cell, :L3490]], [:sheet_reference, :FullTimeSeries, [:cell, :M3490]], [:sheet_reference, :FullTimeSeries, [:cell, :N3490]], [:sheet_reference, :FullTimeSeries, [:cell, :O3490]], [:sheet_reference, :FullTimeSeries, [:cell, :P3490]], [:sheet_reference, :FullTimeSeries, [:cell, :Q3490]], [:sheet_reference, :FullTimeSeries, [:cell, :R3490]], [:sheet_reference, :FullTimeSeries, [:cell, :S3490]], [:sheet_reference, :FullTimeSeries, [:cell, :T3490]], [:sheet_reference, :FullTimeSeries, [:cell, :U3490]], [:sheet_reference, :FullTimeSeries, [:cell, :V3490]], [:sheet_reference, :FullTimeSeries, [:cell, :W3490]], [:sheet_reference, :FullTimeSeries, [:cell, :X3490]], [:sheet_reference, :FullTimeSeries, [:cell, :Y3490]], [:sheet_reference, :FullTimeSeries, [:cell, :Z3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AA3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AB3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AC3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AD3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AE3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AF3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AG3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AH3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AI3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AJ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AK3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AL3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AM3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AN3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AO3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AP3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AQ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AR3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AS3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AT3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AU3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AV3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AW3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AX3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AY3490]], [:sheet_reference, :FullTimeSeries, [:cell, :AZ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BA3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BB3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BC3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BD3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BE3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BF3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BG3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BH3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BI3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BJ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BK3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BL3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BM3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BN3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BO3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BP3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BQ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BR3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BS3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BT3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BU3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BV3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BW3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BX3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BY3490]], [:sheet_reference, :FullTimeSeries, [:cell, :BZ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CA3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CB3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CC3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CD3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CE3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CF3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CG3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CH3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CI3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CJ3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CK3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CL3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CM3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CN3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CO3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CP3490]], [:sheet_reference, :FullTimeSeries, [:cell, :CQ3490]]]], [:number, 0.0], [:number, 0.0], [:number, 1.0], [:array, [:row, [:number, 0.0], [:number, 1.0], [:number, 2.0], [:number, 3.0], [:number, 4.0], [:number, 5.0], [:number, 6.0], [:number, 7.0], [:number, 8.0], [:number, 9.0], [:number, 10.0], [:number, 11.0], [:number, 12.0], [:number, 13.0], [:number, 14.0], [:number, 15.0], [:number, 16.0], [:number, 17.0], [:number, 18.0], [:number, 19.0], [:number, 20.0], [:number, 21.0], [:number, 22.0], [:number, 23.0], [:number, 24.0], [:number, 25.0], [:number, 26.0], [:number, 27.0], [:number, 28.0], [:number, 29.0], [:number, 30.0], [:number, 31.0], [:number, 32.0], [:number, 33.0], [:number, 34.0], [:number, 35.0], [:number, 36.0], [:number, 37.0], [:number, 38.0], [:number, 39.0], [:number, 40.0], [:number, 41.0], [:number, 42.0], [:number, 43.0], [:number, 44.0], [:number, 45.0], [:number, 46.0], [:number, 47.0], [:number, 48.0], [:number, 49.0], [:number, 50.0], [:number, 51.0], [:number, 52.0], [:number, 53.0], [:number, 54.0], [:number, 55.0], [:number, 56.0], [:number, 57.0], [:number, 58.0], [:number, 59.0], [:number, 60.0], [:number, 61.0], [:number, 62.0], [:number, 63.0], [:number, 64.0], [:number, 65.0], [:number, 66.0], [:number, 67.0], [:number, 68.0], [:number, 69.0], [:number, 70.0], [:number, 71.0], [:number, 72.0], [:number, 73.0], [:number, 74.0], [:number, 75.0], [:number, 76.0], [:number, 77.0], [:number, 78.0], [:number, 79.0], [:number, 80.0], [:number, 81.0], [:number, 82.0], [:number, 83.0], [:number, 84.0], [:number, 85.0]]]], [:function, :OFFSET, [:array, [:row, [:number, 2015.0], [:number, 2016.0], [:number, 2017.0], [:number, 2018.0], [:number, 2019.0], [:number, 2020.0], [:number, 2021.0], [:number, 2022.0], [:number, 2023.0], [:number, 2024.0], [:number, 2025.0], [:number, 2026.0], [:number, 2027.0], [:number, 2028.0], [:number, 2029.0], [:number, 2030.0], [:number, 2031.0], [:number, 2032.0], [:number, 2033.0], [:number, 2034.0], [:number, 2035.0], [:number, 2036.0], [:number, 2037.0], [:number, 2038.0], [:number, 2039.0], [:number, 2040.0], [:number, 2041.0], [:number, 2042.0], [:number, 2043.0], [:number, 2044.0], [:number, 2045.0], [:number, 2046.0], [:number, 2047.0], [:number, 2048.0], [:number, 2049.0], [:number, 2050.0], [:number, 2051.0], [:number, 2052.0], [:number, 2053.0], [:number, 2054.0], [:number, 2055.0], [:number, 2056.0], [:number, 2057.0], [:number, 2058.0], [:number, 2059.0], [:number, 2060.0], [:number, 2061.0], [:number, 2062.0], [:number, 2063.0], [:number, 2064.0], [:number, 2065.0], [:number, 2066.0], [:number, 2067.0], [:number, 2068.0], [:number, 2069.0], [:number, 2070.0], [:number, 2071.0], [:number, 2072.0], [:number, 2073.0], [:number, 2074.0], [:number, 2075.0], [:number, 2076.0], [:number, 2077.0], [:number, 2078.0], [:number, 2079.0], [:number, 2080.0], [:number, 2081.0], [:number, 2082.0], [:number, 2083.0], [:number, 2084.0], [:number, 2085.0], [:number, 2086.0], [:number, 2087.0], [:number, 2088.0], [:number, 2089.0], [:number, 2090.0], [:number, 2091.0], [:number, 2092.0], [:number, 2093.0], [:number, 2094.0], [:number, 2095.0], [:number, 2096.0], [:number, 2097.0], [:number, 2098.0], [:number, 2099.0], [:number, 2100.0]]], [:number, 0.0], [:number, 0.0], [:number, 1.0], [:array, [:row, [:number, 0.0], [:number, 1.0], [:number, 2.0], [:number, 3.0], [:number, 4.0], [:number, 5.0], [:number, 6.0], [:number, 7.0], [:number, 8.0], [:number, 9.0], [:number, 10.0], [:number, 11.0], [:number, 12.0], [:number, 13.0], [:number, 14.0], [:number, 15.0], [:number, 16.0], [:number, 17.0], [:number, 18.0], [:number, 19.0], [:number, 20.0], [:number, 21.0], [:number, 22.0], [:number, 23.0], [:number, 24.0], [:number, 25.0], [:number, 26.0], [:number, 27.0], [:number, 28.0], [:number, 29.0], [:number, 30.0], [:number, 31.0], [:number, 32.0], [:number, 33.0], [:number, 34.0], [:number, 35.0], [:number, 36.0], [:number, 37.0], [:number, 38.0], [:number, 39.0], [:number, 40.0], [:number, 41.0], [:number, 42.0], [:number, 43.0], [:number, 44.0], [:number, 45.0], [:number, 46.0], [:number, 47.0], [:number, 48.0], [:number, 49.0], [:number, 50.0], [:number, 51.0], [:number, 52.0], [:number, 53.0], [:number, 54.0], [:number, 55.0], [:number, 56.0], [:number, 57.0], [:number, 58.0], [:number, 59.0], [:number, 60.0], [:number, 61.0], [:number, 62.0], [:number, 63.0], [:number, 64.0], [:number, 65.0], [:number, 66.0], [:number, 67.0], [:number, 68.0], [:number, 69.0], [:number, 70.0], [:number, 71.0], [:number, 72.0], [:number, 73.0], [:number, 74.0], [:number, 75.0], [:number, 76.0], [:number, 77.0], [:number, 78.0], [:number, 79.0], [:number, 80.0], [:number, 81.0], [:number, 82.0], [:number, 83.0], [:number, 84.0], [:number, 85.0]]]], [:string, ">1986"]]]]/home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:52:in `circular_reference?': Possible circular reference in [[:Results, :G583], [:Model, :K11056], [:FullTimeSeries, :K3490]] [:FullTimeSeries, :K3490] (ExcelToCodeException)
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:32:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:27:in `add_depedencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1158:in `block (2 levels) in remove_any_cells_not_needed_for_outputs'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1157:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1157:in `block in remove_any_cells_not_needed_for_outputs'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1153:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1153:in `remove_any_cells_not_needed_for_outputs'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:212:in `go!'
+	from translate_excel_into_c.rb:41:in `<main>'
+
+[:'Model', :K11056] => [:function, :NUMBER_OR_ZERO, [:arithmetic, [:number, 10.0], [:operator, :+], [:prefix, "+", [:function, :SUM, [:sheet_reference, :FullTimeSeries, [:cell, :K3490]], [:sheet_reference, :FullTimeSeries, [:cell, :L3490]], [:sheet_reference, :FullTimeSeries, [:cell, :M3490]], [:sheet_reference, :FullTimeSeries, [:cell, :N3490]], [:sheet_reference, :FullTimeSeries, [:cell, :O3490]]]]]]
+[:'Results', :G583] => [:arithmetic, [:arithmetic, [:prefix, "+", [:prefix, "+", [:function, :NUMBER_OR_ZERO, [:sheet_reference, :Model, [:cell, :K11056]]]]], [:operator, :+], [:prefix, "+", [:function, :NUMBER_OR_ZERO, [:sheet_reference, :Model, [:cell, :K11057]]]]], [:operator, :+], [:prefix, "+", [:function, :NUMBER_OR_ZERO, [:sheet_reference, :Model, [:cell, :K11058]]]]]
+input is 'model.xlsm'
+[34m17:16	Excel to Code version 0.3.18
+
+[0m
+[34m17:16	Removing old folders[0m
+[34m17:16	Unzipping the spreadsheet[0m
+ruby: No such file or directory -- translate_excel_into_ruby.rb (LoadError)
+input is 'model.xlsm'
+[34m21:13	Excel to Code version 0.3.18
+
+[0m
+[34m21:13	Removing old folders[0m
+[34m21:13	Unzipping the spreadsheet[0m
+[34m21:13	Extracting shared strings[0m
+[34m21:13	Extracting named references[0m
+[34m21:13	Extracting worksheet names[0m
+[34m21:13	Extracting data from checks[0m
+[34m21:13	Extracting data from Checks_in_Progress[0m
+[34m21:13	Extracting data from Version_Log[0m
+[34m21:13	Extracting data from Guide[0m
+[34m21:13	Extracting data from Webtool References[0m
+[34m21:13	Extracting data from Control[0m
+[34m21:13	Extracting data from Results[0m
+[34m21:13	Extracting data from OutputTemplate[0m
+[34m21:13	Extracting data from EnergyBalance[0m
+[34m21:13	Extracting data from Method[0m
+[34m21:13	Extracting data from Model[0m
+[34m21:14	Extracting data from FullTimeSeries[0m
+[34m21:15	Extracting data from NameConv[0m
+[34m21:15	Extracting data from Name_Count_Log[0m
+[34m21:15	Extracting data from V102.0_Named_Range_List[0m
+[34m21:15	Extracting data from Column Assessment[0m
+[34m21:15	Extracting Tables[0m
+[34m21:16	Transfering named references to keep into cells to keep[0m
+[34m21:16	Making sure there are setter methods for named references that can be set[0m
+[34m21:16	Rewriting values[0m
+[34m21:16	Rewriting row and column references[0m
+[34m21:16	Rewriting shared formulae[0m
+[34m21:16	Expanding 0 array formulae[0m
+[34m21:16	Rewriting array formulae into conventional formulae[0m
+[34m21:16	Combining formulae types[0m
+[34m21:16	Checking required references[0m
+[34m21:16	Sheet contains 1602724 cells[0m
+[34m21:16	Simplifying arithmetic[0m
+[34m21:16	Simplifying cells[0m
+[34m21:57	Working out which named references can be set at runtime[0m
+[34m21:57	Filtering named references to keep[0m
+[34m21:57	Starting pass 1 on 545344 cells[0m
+[34m22:41	Simplifying cells[0m
+[34m22:41	Pass 1: Made 2899668 replacements[0m
+[34m22:41	Starting pass 2 on 364449 cells[0m
+[34m23:18	Simplifying cells[0m
+[34m23:18	Pass 2: Made 64330 replacements[0m
+[34m23:18	Starting pass 3 on 355624 cells[0m
+[34m23:54	Simplifying cells[0m
+[34m23:54	Pass 3: Made 94219 replacements[0m
+[34m23:54	Starting pass 4 on 306162 cells[0m
+[34m00:28	Simplifying cells[0m
+[34m00:28	Pass 4: Made 50670 replacements[0m
+[34m00:28	Starting pass 5 on 290610 cells[0m
+[34m01:19	Simplifying cells[0m
+[34m01:19	Pass 5: Made 15225 replacements[0m
+[34m01:19	Starting pass 6 on 275543 cells[0m
+[34m01:20	Simplifying cells[0m
+[34m01:20	Pass 6: Made 14866 replacements[0m
+[34m01:20	Starting pass 7 on 275542 cells[0m
+[34m01:20	Simplifying cells[0m
+[34m01:20	Pass 7: Made 1 replacements[0m
+[34m01:20	Starting pass 8 on 275541 cells[0m
+[34m01:21	Simplifying cells[0m
+[34m01:21	Pass 8: Made 0 replacements[0m
+[34m01:21	Inlining formulae[0m
+[34m01:21	Removing cells not needed for outputs[0m
+[:'FullTimeSeries', :K3479] => [:function, :MAX, [:number, 0.0], [:number, 0.0], [:arithmetic, [:function, :ENSURE_IS_NUMBER, [:prefix, "+", [:sheet_reference, :FullTimeSeries, [:cell, :K3413]]]], [:operator, :-], [:function, :SUMIFS, [:function, :OFFSET, [:array, [:row, [:number, 0.0], [:sheet_reference, :FullTimeSeries, [:cell, :K3479]], [:sheet_reference, :FullTimeSeries, [:cell, :L3479]], [:sheet_reference, :FullTimeSeries, [:cell, :M3479]], [:sheet_reference, :FullTimeSeries, [:cell, :N3479]], [:sheet_reference, :FullTimeSeries, [:cell, :O3479]], [:sheet_reference, :FullTimeSeries, [:cell, :P3479]], [:sheet_reference, :FullTimeSeries, [:cell, :Q3479]], [:sheet_reference, :FullTimeSeries, [:cell, :R3479]], [:sheet_reference, :FullTimeSeries, [:cell, :S3479]], [:sheet_reference, :FullTimeSeries, [:cell, :T3479]], [:sheet_reference, :FullTimeSeries, [:cell, :U3479]], [:sheet_reference, :FullTimeSeries, [:cell, :V3479]], [:sheet_reference, :FullTimeSeries, [:cell, :W3479]], [:sheet_reference, :FullTimeSeries, [:cell, :X3479]], [:sheet_reference, :FullTimeSeries, [:cell, :Y3479]], [:sheet_reference, :FullTimeSeries, [:cell, :Z3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AA3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AB3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AC3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AD3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AE3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AF3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AG3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AH3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AI3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AJ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AK3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AL3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AM3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AN3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AO3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AP3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AQ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AR3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AS3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AT3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AU3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AV3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AW3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AX3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AY3479]], [:sheet_reference, :FullTimeSeries, [:cell, :AZ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BA3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BB3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BC3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BD3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BE3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BF3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BG3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BH3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BI3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BJ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BK3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BL3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BM3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BN3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BO3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BP3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BQ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BR3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BS3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BT3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BU3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BV3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BW3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BX3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BY3479]], [:sheet_reference, :FullTimeSeries, [:cell, :BZ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CA3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CB3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CC3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CD3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CE3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CF3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CG3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CH3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CI3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CJ3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CK3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CL3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CM3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CN3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CO3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CP3479]], [:sheet_reference, :FullTimeSeries, [:cell, :CQ3479]]]], [:number, 0.0], [:number, 0.0], [:number, 1.0], [:array, [:row, [:number, 0.0], [:number, 1.0], [:number, 2.0], [:number, 3.0], [:number, 4.0], [:number, 5.0], [:number, 6.0], [:number, 7.0], [:number, 8.0], [:number, 9.0], [:number, 10.0], [:number, 11.0], [:number, 12.0], [:number, 13.0], [:number, 14.0], [:number, 15.0], [:number, 16.0], [:number, 17.0], [:number, 18.0], [:number, 19.0], [:number, 20.0], [:number, 21.0], [:number, 22.0], [:number, 23.0], [:number, 24.0], [:number, 25.0], [:number, 26.0], [:number, 27.0], [:number, 28.0], [:number, 29.0], [:number, 30.0], [:number, 31.0], [:number, 32.0], [:number, 33.0], [:number, 34.0], [:number, 35.0], [:number, 36.0], [:number, 37.0], [:number, 38.0], [:number, 39.0], [:number, 40.0], [:number, 41.0], [:number, 42.0], [:number, 43.0], [:number, 44.0], [:number, 45.0], [:number, 46.0], [:number, 47.0], [:number, 48.0], [:number, 49.0], [:number, 50.0], [:number, 51.0], [:number, 52.0], [:number, 53.0], [:number, 54.0], [:number, 55.0], [:number, 56.0], [:number, 57.0], [:number, 58.0], [:number, 59.0], [:number, 60.0], [:number, 61.0], [:number, 62.0], [:number, 63.0], [:number, 64.0], [:number, 65.0], [:number, 66.0], [:number, 67.0], [:number, 68.0], [:number, 69.0], [:number, 70.0], [:number, 71.0], [:number, 72.0], [:number, 73.0], [:number, 74.0], [:number, 75.0], [:number, 76.0], [:number, 77.0], [:number, 78.0], [:number, 79.0], [:number, 80.0], [:number, 81.0], [:number, 82.0], [:number, 83.0], [:number, 84.0], [:number, 85.0]]]], [:function, :OFFSET, [:array, [:row, [:number, 2015.0], [:number, 2016.0], [:number, 2017.0], [:number, 2018.0], [:number, 2019.0], [:number, 2020.0], [:number, 2021.0], [:number, 2022.0], [:number, 2023.0], [:number, 2024.0], [:number, 2025.0], [:number, 2026.0], [:number, 2027.0], [:number, 2028.0], [:number, 2029.0], [:number, 2030.0], [:number, 2031.0], [:number, 2032.0], [:number, 2033.0], [:number, 2034.0], [:number, 2035.0], [:number, 2036.0], [:number, 2037.0], [:number, 2038.0], [:number, 2039.0], [:number, 2040.0], [:number, 2041.0], [:number, 2042.0], [:number, 2043.0], [:number, 2044.0], [:number, 2045.0], [:number, 2046.0], [:number, 2047.0], [:number, 2048.0], [:number, 2049.0], [:number, 2050.0], [:number, 2051.0], [:number, 2052.0], [:number, 2053.0], [:number, 2054.0], [:number, 2055.0], [:number, 2056.0], [:number, 2057.0], [:number, 2058.0], [:number, 2059.0], [:number, 2060.0], [:number, 2061.0], [:number, 2062.0], [:number, 2063.0], [:number, 2064.0], [:number, 2065.0], [:number, 2066.0], [:number, 2067.0], [:number, 2068.0], [:number, 2069.0], [:number, 2070.0], [:number, 2071.0], [:number, 2072.0], [:number, 2073.0], [:number, 2074.0], [:number, 2075.0], [:number, 2076.0], [:number, 2077.0], [:number, 2078.0], [:number, 2079.0], [:number, 2080.0], [:number, 2081.0], [:number, 2082.0], [:number, 2083.0], [:number, 2084.0], [:number, 2085.0], [:number, 2086.0], [:number, 2087.0], [:number, 2088.0], [:number, 2089.0], [:number, 2090.0], [:number, 2091.0], [:number, 2092.0], [:number, 2093.0], [:number, 2094.0], [:number, 2095.0], [:number, 2096.0], [:number, 2097.0], [:number, 2098.0], [:number, 2099.0], [:number, 2100.0]]], [:number, 0.0], [:number, 0.0], [:number, 1.0], [:array, [:row, [:number, 0.0], [:number, 1.0], [:number, 2.0], [:number, 3.0], [:number, 4.0], [:number, 5.0], [:number, 6.0], [:number, 7.0], [:number, 8.0], [:number, 9.0], [:number, 10.0], [:number, 11.0], [:number, 12.0], [:number, 13.0], [:number, 14.0], [:number, 15.0], [:number, 16.0], [:number, 17.0], [:number, 18.0], [:number, 19.0], [:number, 20.0], [:number, 21.0], [:number, 22.0], [:number, 23.0], [:number, 24.0], [:number, 25.0], [:number, 26.0], [:number, 27.0], [:number, 28.0], [:number, 29.0], [:number, 30.0], [:number, 31.0], [:number, 32.0], [:number, 33.0], [:number, 34.0], [:number, 35.0], [:number, 36.0], [:number, 37.0], [:number, 38.0], [:number, 39.0], [:number, 40.0], [:number, 41.0], [:number, 42.0], [:number, 43.0], [:number, 44.0], [:number, 45.0], [:number, 46.0], [:number, 47.0], [:number, 48.0], [:number, 49.0], [:number, 50.0], [:number, 51.0], [:number, 52.0], [:number, 53.0], [:number, 54.0], [:number, 55.0], [:number, 56.0], [:number, 57.0], [:number, 58.0], [:number, 59.0], [:number, 60.0], [:number, 61.0], [:number, 62.0], [:number, 63.0], [:number, 64.0], [:number, 65.0], [:number, 66.0], [:number, 67.0], [:number, 68.0], [:number, 69.0], [:number, 70.0], [:number, 71.0], [:number, 72.0], [:number, 73.0], [:number, 74.0], [:number, 75.0], [:number, 76.0], [:number, 77.0], [:number, 78.0], [:number, 79.0], [:number, 80.0], [:number, 81.0], [:number, 82.0], [:number, 83.0], [:number, 84.0], [:number, 85.0]]]], [:string, ">1986"]]]]/home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:52:in `circular_reference?': Possible circular reference in [[:OutputTemplate, :G367], [:Results, :G66], [:Model, :K4904], [:Model, :K4901], [:Model, :K4892], [:Model, :K11847], [:Model, :K11751], [:Model, :K11739], [:Model, :K11738], [:Model, :K11734], [:Model, :K11709], [:Model, :K11653], [:FullTimeSeries, :K3479]] [:FullTimeSeries, :K3479] (ExcelToCodeException)
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:32:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:70:in `sheet_reference'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:63:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `block in map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:65:in `map'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:39:in `recursively_add_dependencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/simplify/identify_dependencies.rb:27:in `add_depedencies_for'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1158:in `block (2 levels) in remove_any_cells_not_needed_for_outputs'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1157:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1157:in `block in remove_any_cells_not_needed_for_outputs'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1153:in `each'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:1153:in `remove_any_cells_not_needed_for_outputs'
+	from /home/alex/MacKayJuniWithDynModel/twenty-fifty/vendor/bundle/ruby/2.5.0/bundler/gems/excel_to_code-1aa4bcb76fed/src/commands/excel_to_x.rb:212:in `go!'
+	from translate_excel_into_c.rb:41:in `<main>'
+
+[:'Model', :K11653] => [:function, :NUMBER_OR_ZERO, [:function, :ENSURE_IS_NUMBER, [:prefix, "+", [:function, :SUM, [:sheet_reference, :FullTimeSeries, [:cell, :K3479]], [:sheet_reference, :FullTimeSeries, [:cell, :L3479]], [:sheet_reference, :FullTimeSeries, [:cell, :M3479]], [:sheet_reference, :FullTimeSeries, [:cell, :N3479]], [:sheet_reference, :FullTimeSeries, [:cell, :O3479]]]]]]
+[:'Model', :K11709] => [:arithmetic, [:sheet_reference, :Model, [:cell, :K11653]], [:operator, :*], [:number, 0.8786]]
+[:'Model', :K11734] => [:arithmetic, [:function, :MAX, [:number, 0.0], [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:function, :ENSURE_IS_NUMBER, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:function, :ENSURE_IS_NUMBER, [:sheet_reference, :Model, [:cell, :K11074]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11709]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11710]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11711]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11712]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11713]]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11715]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11716]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11717]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11718]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11719]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11720]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11721]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11722]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11723]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11724]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11725]]], [:operator, :-], [:arithmetic, [:sheet_reference, :Model, [:cell, :K11671]], [:operator, :*], [:number, 0.9663]]]], [:operator, :/], [:number, 0.9454]]
+[:'Model', :K11738] => [:arithmetic, [:arithmetic, [:sheet_reference, :Model, [:cell, :K11734]], [:operator, :*], [:number, 8.766]], [:operator, :*], [:number, 0.05]]
+[:'Model', :K11739] => [:arithmetic, [:sheet_reference, :Model, [:cell, :K11738]], [:operator, :/], [:sheet_reference, :Model, [:cell, :K11456]]]
+[:'Model', :K11751] => [:arithmetic, [:prefix, "+", [:arithmetic, [:sheet_reference, :Model, [:cell, :K11469]], [:operator, :*], [:arithmetic, [:number, 1.0], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11739]]]]], [:operator, :+], [:sheet_reference, :Model, [:cell, :K11484]]]
+[:'Model', :K11847] => [:arithmetic, [:prefix, "-", [:sheet_reference, :Model, [:cell, :K11751]]], [:operator, :/], [:sheet_reference, :Model, [:cell, :K11796]]]
+[:'Model', :K4892] => [:arithmetic, [:arithmetic, [:arithmetic, [:arithmetic, [:prefix, "+", [:sheet_reference, :Model, [:cell, :K4880]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K10581]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11847]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11855]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K11859]]]
+[:'Model', :K4901] => [:arithmetic, [:prefix, "+", [:sheet_reference, :Model, [:cell, :K4892]]], [:operator, :-], [:sheet_reference, :Model, [:cell, :K4897]]]
+[:'Model', :K4904] => [:prefix, "-", [:sheet_reference, :Model, [:cell, :K4901]]]
+[:'Results', :G66] => [:prefix, "+", [:function, :NUMBER_OR_ZERO, [:function, :ENSURE_IS_NUMBER, [:arithmetic, [:function, :ENSURE_IS_NUMBER, [:arithmetic, [:sheet_reference, :Model, [:cell, :K4903]], [:operator, :*], [:number, 1.6361360960580147]]], [:operator, :+], [:arithmetic, [:sheet_reference, :Model, [:cell, :K4904]], [:operator, :*], [:number, 1.6361360960580147]]]]]]
+[:'OutputTemplate', :G367] => [:function, :ENSURE_IS_NUMBER, [:arithmetic, [:function, :ENSURE_IS_NUMBER, [:function, :SUM, [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:sheet_reference, :Results, [:cell, :G65]], [:sheet_reference, :Results, [:cell, :G66]], [:sheet_reference, :Results, [:cell, :G69]], [:sheet_reference, :Results, [:cell, :G70]], [:sheet_reference, :Results, [:cell, :G73]], [:sheet_reference, :Results, [:cell, :G74]], [:sheet_reference, :Results, [:cell, :G77]], [:sheet_reference, :Results, [:cell, :G78]], [:sheet_reference, :Results, [:cell, :G81]], [:sheet_reference, :Results, [:cell, :G82]], [:sheet_reference, :Results, [:cell, :G85]], [:sheet_reference, :Results, [:cell, :G86]], [:sheet_reference, :Results, [:cell, :G88]], [:sheet_reference, :Results, [:cell, :G90]], [:sheet_reference, :Results, [:cell, :G91]], [:sheet_reference, :Results, [:cell, :G92]], [:sheet_reference, :Results, [:cell, :G93]], [:sheet_reference, :Results, [:cell, :G104]], [:sheet_reference, :Results, [:cell, :G106]], [:sheet_reference, :Results, [:cell, :G137]], [:sheet_reference, :Results, [:cell, :G146]], [:sheet_reference, :Results, [:cell, :G147]], [:sheet_reference, :Results, [:cell, :G148]], [:sheet_reference, :Results, [:cell, :G149]], [:sheet_reference, :Results, [:cell, :G150]], [:sheet_reference, :Results, [:cell, :G157]], [:sheet_reference, :Results, [:cell, :G158]], [:sheet_reference, :Results, [:cell, :G159]], [:sheet_reference, :Results, [:cell, :G160]], [:sheet_reference, :Results, [:cell, :G161]], [:sheet_reference, :Results, [:cell, :G162]], [:sheet_reference, :Results, [:cell, :G163]], [:sheet_reference, :Results, [:cell, :G164]], [:number, 4040.0]]], [:operator, :+], [:function, :SUM, [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:inlined_blank], [:sheet_reference, :Results, [:cell, :G65]], [:sheet_reference, :Results, [:cell, :G66]], [:sheet_reference, :Results, [:cell, :G69]], [:sheet_reference, :Results, [:cell, :G70]], [:sheet_reference, :Results, [:cell, :G73]], [:sheet_reference, :Results, [:cell, :G74]], [:sheet_reference, :Results, [:cell, :G77]], [:sheet_reference, :Results, [:cell, :G78]], [:sheet_reference, :Results, [:cell, :G81]], [:sheet_reference, :Results, [:cell, :G82]], [:sheet_reference, :Results, [:cell, :G85]], [:sheet_reference, :Results, [:cell, :G86]], [:sheet_reference, :Results, [:cell, :G88]], [:sheet_reference, :Results, [:cell, :G90]], [:sheet_reference, :Results, [:cell, :G91]], [:sheet_reference, :Results, [:cell, :G92]], [:sheet_reference, :Results, [:cell, :G93]], [:sheet_reference, :Results, [:cell, :G104]], [:sheet_reference, :Results, [:cell, :G106]], [:sheet_reference, :Results, [:cell, :G137]], [:sheet_reference, :Results, [:cell, :G146]], [:sheet_reference, :Results, [:cell, :G147]], [:sheet_reference, :Results, [:cell, :G148]], [:sheet_reference, :Results, [:cell, :G149]], [:sheet_reference, :Results, [:cell, :G150]], [:sheet_reference, :Results, [:cell, :G157]], [:sheet_reference, :Results, [:cell, :G158]], [:sheet_reference, :Results, [:cell, :G159]], [:sheet_reference, :Results, [:cell, :G160]], [:sheet_reference, :Results, [:cell, :G161]], [:sheet_reference, :Results, [:cell, :G162]], [:sheet_reference, :Results, [:cell, :G163]], [:sheet_reference, :Results, [:cell, :G164]], [:number, 4040.0]]]]

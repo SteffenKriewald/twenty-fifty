@@ -31,7 +31,7 @@ end
 command.create_makefile = false
 command.create_rakefile = true
 # Trying to track down a bug
-command.dump_steps ||= {[:'Power_DRIVERS', :U444] => true}
+# command.dump_steps ||= {[:'Power_DRIVERS', :U444] => true}
 
 command.actually_compile_code = true
 command.actually_run_tests = true
