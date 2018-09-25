@@ -62,7 +62,10 @@ window.twentyfifty.views.overview = function() {
     // Do not Skip any header row, and put the table into
     // a Hash table with the key being the first column and the
     // value being the rest
-	((table.slice(79,87)).concat(table.slice(124,128))).forEach(function(row) {
+
+	console.log(table);
+	//((table.slice(79,87)).concat(table.slice(124,128))).forEach(function(row) {
+	((table.slice(0,12))).forEach(function(row) {
 	    hash.set(row[0], row.slice(1));
 	});
 	return hash;
@@ -85,6 +88,8 @@ window.twentyfifty.views.overview = function() {
     
   this.updateResults = function(pathway) {
       this.pathway = pathway;
+      console.log("updateResults:");
+      console.log(pathway);
       this.choices = twentyfifty.choices;
       // construct the data      
       // connect the containers with charts and data

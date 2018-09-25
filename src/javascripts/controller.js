@@ -166,12 +166,13 @@
       console.log("gruppe" + g);
 	// create (FIXME) - Update spark plot depending on group
 
-	    if ( g == 'buildings') { var levelData = choices.slice(0,8);}
-	    if ( g == 'transport') { var levelData = choices.slice(9,21);}
-	    if ( g == 'industryLever') { var levelData = choices.slice(22,27);}
-	    if ( g == 'energy') { var levelData = choices.slice(28,36);}
-	    if ( g == 'electricity') { var levelData = choices.slice(37,45);}
-	    if ( g == 'land') { var levelData = choices.slice(46, 50);}
+	    if ( g == 'transport') { var levelData = choices.slice(0,12);}
+	    if ( g == 'buildings') { var levelData = choices.slice(12,20);}
+	    if ( g == 'industryLever') { var levelData = choices.slice(20,25);}
+	    if ( g == 'energy') { var levelData = choices.slice(25,33);}
+	    if ( g == 'electricity') { var levelData = choices.slice(33,41);}
+	    if ( g == 'land') { var levelData = choices.slice(41,45);}
+
       console.log("gruppe" + g);
       $("."+g+"db").sparkline(levelData, {
         type: 'bar', barColor: '#7f99b2', disableInteraction: true,
@@ -179,6 +180,8 @@
         chartRangeMin: 0, chartRangeMax: 4}
       );
       console.log("."+g+"db");
+console.log("tabelle");
+console.log(cache);
       console.log(document.getElementById(g+'db'));
       document.getElementById(g+'db').style.visibility="hidden";
 	});
@@ -709,6 +712,15 @@ letter_to_date_map = {
     }
     updateControls(old_choices, choices);
     main_code = codeForChoices();
+	var _part1 = main_code.substring(0,(main_code.length/3));
+	var _part2 = main_code.substring((main_code.length/3),2*(main_code.length/3));
+	var _part3 = main_code.substring((2*main_code.length/3),3*(main_code.length/3));
+
+console.log("main_code ",_part1, _part1.length );
+console.log("main_code ",_part2, _part2.length );
+console.log("main_code ",_part3, _part3.length );
+
+
     if (history['pushState'] != null) {
       history.pushState(choices, main_code, url());
     }
@@ -961,12 +973,14 @@ function loadSparkLines() {
   var groupArray = ["buildings","transport","industryLever","energy","electricity","land"];
     for (var i = 0; i <groupArray.length; i++) {
       var g = groupArray[i];
-      if ( g == 'buildings') { var levelData = choices.slice(0,8);}
-      if ( g == 'transport') { var levelData = choices.slice(9,21);}
-      if ( g == 'industryLever') { var levelData = choices.slice(22,27);}
-      if ( g == 'energy') { var levelData = choices.slice(28,36);}
-      if ( g == 'electricity') { var levelData = choices.slice(37,45);}
-      if ( g == 'land') { var levelData = choices.slice(46, 50);}
+
+	    if ( g == 'transport') { var levelData = choices.slice(0,12);}
+	    if ( g == 'buildings') { var levelData = choices.slice(12,20);}
+	    if ( g == 'industryLever') { var levelData = choices.slice(20,25);}
+	    if ( g == 'energy') { var levelData = choices.slice(25,33);}
+	    if ( g == 'electricity') { var levelData = choices.slice(33,41);}
+	    if ( g == 'land') { var levelData = choices.slice(41,45);}
+
       $("."+g+"db").sparkline(levelData, {
         type: 'bar', barColor: '#7f99b2', disableInteraction: true,
         barWidth:'2px', height:'75px', barSpacing:'0px',

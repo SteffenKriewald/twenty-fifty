@@ -145,96 +145,460 @@ class TestModel < Minitest::Unit::TestCase
   def test_control_e59; assert_in_epsilon(2020.0, worksheet.control_e59, 0.002); end
   def test_control_e60; assert_in_epsilon(2020.0, worksheet.control_e60, 0.002); end
   def test_control_e61; assert_in_epsilon(2020.0, worksheet.control_e61, 0.002); end
-  def test_control_l17; assert_in_epsilon(2050.0, worksheet.control_l17, 0.002); end
-  def test_control_l18; assert_in_epsilon(2050.0, worksheet.control_l18, 0.002); end
-  def test_control_l19; assert_in_epsilon(2040.0, worksheet.control_l19, 0.002); end
-  def test_control_l20; assert_in_epsilon(2050.0, worksheet.control_l20, 0.002); end
-  def test_control_l21; assert_in_epsilon(2040.0, worksheet.control_l21, 0.002); end
-  def test_control_l22; assert_in_epsilon(2050.0, worksheet.control_l22, 0.002); end
-  def test_control_l23; assert_in_epsilon(2050.0, worksheet.control_l23, 0.002); end
-  def test_control_l24; assert_in_epsilon(2050.0, worksheet.control_l24, 0.002); end
-  def test_control_l25; assert_in_epsilon(2050.0, worksheet.control_l25, 0.002); end
-  def test_control_l26; assert_in_epsilon(2050.0, worksheet.control_l26, 0.002); end
-  def test_control_l27; assert_in_epsilon(2050.0, worksheet.control_l27, 0.002); end
-  def test_control_l28; assert_in_epsilon(2050.0, worksheet.control_l28, 0.002); end
-  def test_control_l29; assert_in_epsilon(2050.0, worksheet.control_l29, 0.002); end
-  def test_control_l30; assert_in_epsilon(2040.0, worksheet.control_l30, 0.002); end
-  def test_control_l31; assert_in_epsilon(2050.0, worksheet.control_l31, 0.002); end
-  def test_control_l32; assert_in_epsilon(2050.0, worksheet.control_l32, 0.002); end
-  def test_control_l33; assert_in_epsilon(2050.0, worksheet.control_l33, 0.002); end
-  def test_control_l34; assert_in_epsilon(2050.0, worksheet.control_l34, 0.002); end
-  def test_control_l35; assert_in_epsilon(2050.0, worksheet.control_l35, 0.002); end
-  def test_control_l36; assert_in_epsilon(2050.0, worksheet.control_l36, 0.002); end
-  def test_control_l37; assert_in_epsilon(2050.0, worksheet.control_l37, 0.002); end
-  def test_control_l38; assert_in_epsilon(2050.0, worksheet.control_l38, 0.002); end
-  def test_control_l39; assert_in_epsilon(2050.0, worksheet.control_l39, 0.002); end
-  def test_control_l40; assert_in_epsilon(2050.0, worksheet.control_l40, 0.002); end
-  def test_control_l41; assert_in_epsilon(2060.0, worksheet.control_l41, 0.002); end
-  def test_control_l42; assert_in_epsilon(2070.0, worksheet.control_l42, 0.002); end
-  def test_control_l43; assert_in_epsilon(2030.0, worksheet.control_l43, 0.002); end
-  def test_control_l44; assert_in_epsilon(2060.0, worksheet.control_l44, 0.002); end
-  def test_control_l45; assert_in_epsilon(2060.0, worksheet.control_l45, 0.002); end
-  def test_control_l46; assert_in_epsilon(2060.0, worksheet.control_l46, 0.002); end
-  def test_control_l47; assert_in_epsilon(2100.0, worksheet.control_l47, 0.002); end
-  def test_control_l48; assert_in_epsilon(2050.0, worksheet.control_l48, 0.002); end
-  def test_control_l49; assert_in_epsilon(2030.0, worksheet.control_l49, 0.002); end
-  def test_control_l50; assert_in_epsilon(2050.0, worksheet.control_l50, 0.002); end
-  def test_control_l51; assert_in_epsilon(2050.0, worksheet.control_l51, 0.002); end
-  def test_control_l52; assert_in_epsilon(2050.0, worksheet.control_l52, 0.002); end
-  def test_control_l53; assert_in_epsilon(2050.0, worksheet.control_l53, 0.002); end
-  def test_control_l54; assert_in_epsilon(2050.0, worksheet.control_l54, 0.002); end
-  def test_control_l55; assert_in_epsilon(2050.0, worksheet.control_l55, 0.002); end
-  def test_control_l56; assert_in_epsilon(2050.0, worksheet.control_l56, 0.002); end
-  def test_control_l57; assert_in_epsilon(2050.0, worksheet.control_l57, 0.002); end
-  def test_control_l58; assert_in_epsilon(2100.0, worksheet.control_l58, 0.002); end
-  def test_control_l59; assert_in_epsilon(2100.0, worksheet.control_l59, 0.002); end
-  def test_control_l60; assert_in_epsilon(2100.0, worksheet.control_l60, 0.002); end
-  def test_control_l61; assert_in_epsilon(2050.0, worksheet.control_l61, 0.002); end
-  def test_control_k17; assert_in_epsilon(2020.0, worksheet.control_k17, 0.002); end
-  def test_control_k18; assert_in_epsilon(2020.0, worksheet.control_k18, 0.002); end
-  def test_control_k19; assert_in_epsilon(2020.0, worksheet.control_k19, 0.002); end
-  def test_control_k20; assert_in_epsilon(2020.0, worksheet.control_k20, 0.002); end
-  def test_control_k21; assert_in_epsilon(2020.0, worksheet.control_k21, 0.002); end
-  def test_control_k22; assert_in_epsilon(2020.0, worksheet.control_k22, 0.002); end
-  def test_control_k23; assert_in_epsilon(2020.0, worksheet.control_k23, 0.002); end
-  def test_control_k24; assert_in_epsilon(2020.0, worksheet.control_k24, 0.002); end
-  def test_control_k25; assert_in_epsilon(2020.0, worksheet.control_k25, 0.002); end
-  def test_control_k26; assert_in_epsilon(2020.0, worksheet.control_k26, 0.002); end
-  def test_control_k27; assert_in_epsilon(2020.0, worksheet.control_k27, 0.002); end
-  def test_control_k28; assert_in_epsilon(2025.0, worksheet.control_k28, 0.002); end
-  def test_control_k29; assert_in_epsilon(2020.0, worksheet.control_k29, 0.002); end
-  def test_control_k30; assert_in_epsilon(2020.0, worksheet.control_k30, 0.002); end
-  def test_control_k31; assert_in_epsilon(2020.0, worksheet.control_k31, 0.002); end
-  def test_control_k32; assert_in_epsilon(2020.0, worksheet.control_k32, 0.002); end
-  def test_control_k33; assert_in_epsilon(2020.0, worksheet.control_k33, 0.002); end
-  def test_control_k34; assert_in_epsilon(2020.0, worksheet.control_k34, 0.002); end
-  def test_control_k35; assert_in_epsilon(2020.0, worksheet.control_k35, 0.002); end
-  def test_control_k36; assert_in_epsilon(2020.0, worksheet.control_k36, 0.002); end
-  def test_control_k37; assert_in_epsilon(2020.0, worksheet.control_k37, 0.002); end
-  def test_control_k38; assert_in_epsilon(2020.0, worksheet.control_k38, 0.002); end
-  def test_control_k39; assert_in_epsilon(2020.0, worksheet.control_k39, 0.002); end
-  def test_control_k40; assert_in_epsilon(2020.0, worksheet.control_k40, 0.002); end
-  def test_control_k41; assert_in_epsilon(2030.0, worksheet.control_k41, 0.002); end
-  def test_control_k42; assert_in_epsilon(2020.0, worksheet.control_k42, 0.002); end
-  def test_control_k43; assert_in_epsilon(2020.0, worksheet.control_k43, 0.002); end
-  def test_control_k44; assert_in_epsilon(2030.0, worksheet.control_k44, 0.002); end
-  def test_control_k45; assert_in_epsilon(2030.0, worksheet.control_k45, 0.002); end
-  def test_control_k46; assert_in_epsilon(2030.0, worksheet.control_k46, 0.002); end
-  def test_control_k47; assert_in_epsilon(2030.0, worksheet.control_k47, 0.002); end
-  def test_control_k48; assert_in_epsilon(2030.0, worksheet.control_k48, 0.002); end
-  def test_control_k49; assert_in_epsilon(2020.0, worksheet.control_k49, 0.002); end
-  def test_control_k50; assert_in_epsilon(2020.0, worksheet.control_k50, 0.002); end
-  def test_control_k51; assert_in_epsilon(2020.0, worksheet.control_k51, 0.002); end
-  def test_control_k52; assert_in_epsilon(2030.0, worksheet.control_k52, 0.002); end
-  def test_control_k53; assert_in_epsilon(2030.0, worksheet.control_k53, 0.002); end
-  def test_control_k54; assert_in_epsilon(2020.0, worksheet.control_k54, 0.002); end
-  def test_control_k55; assert_in_epsilon(2020.0, worksheet.control_k55, 0.002); end
-  def test_control_k56; assert_in_epsilon(2025.0, worksheet.control_k56, 0.002); end
-  def test_control_k57; assert_in_epsilon(2030.0, worksheet.control_k57, 0.002); end
-  def test_control_k58; assert_in_epsilon(2020.0, worksheet.control_k58, 0.002); end
-  def test_control_k59; assert_in_epsilon(2020.0, worksheet.control_k59, 0.002); end
-  def test_control_k60; assert_in_epsilon(2020.0, worksheet.control_k60, 0.002); end
-  def test_control_k61; assert_in_epsilon(2020.0, worksheet.control_k61, 0.002); end
+  def test_control_k16; assert_equal("ExPathway", worksheet.control_k16.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_k17; assert_in_delta(1.0, worksheet.control_k17, 0.002); end
+  def test_control_k18; assert_in_delta(1.0, worksheet.control_k18, 0.002); end
+  def test_control_k19; assert_in_delta(1.0, worksheet.control_k19, 0.002); end
+  def test_control_k20; assert_in_delta(1.0, worksheet.control_k20, 0.002); end
+  def test_control_k21; assert_in_delta(1.0, worksheet.control_k21, 0.002); end
+  def test_control_k22; assert_in_delta(1.0, worksheet.control_k22, 0.002); end
+  def test_control_k23; assert_in_delta(1.0, worksheet.control_k23, 0.002); end
+  def test_control_k24; assert_in_delta(1.0, worksheet.control_k24, 0.002); end
+  def test_control_k25; assert_in_delta(1.0, worksheet.control_k25, 0.002); end
+  def test_control_k26; assert_in_delta(1.0, worksheet.control_k26, 0.002); end
+  def test_control_k27; assert_in_delta(1.0, worksheet.control_k27, 0.002); end
+  def test_control_k28; assert_in_delta(1.0, worksheet.control_k28, 0.002); end
+  def test_control_k29; assert_in_delta(1.0, worksheet.control_k29, 0.002); end
+  def test_control_k30; assert_in_delta(1.0, worksheet.control_k30, 0.002); end
+  def test_control_k31; assert_in_delta(1.0, worksheet.control_k31, 0.002); end
+  def test_control_k32; assert_in_delta(1.0, worksheet.control_k32, 0.002); end
+  def test_control_k33; assert_in_delta(1.0, worksheet.control_k33, 0.002); end
+  def test_control_k34; assert_in_delta(1.0, worksheet.control_k34, 0.002); end
+  def test_control_k35; assert_in_delta(1.0, worksheet.control_k35, 0.002); end
+  def test_control_k36; assert_in_delta(1.0, worksheet.control_k36, 0.002); end
+  def test_control_k37; assert_in_delta(1.0, worksheet.control_k37, 0.002); end
+  def test_control_k38; assert_in_delta(1.0, worksheet.control_k38, 0.002); end
+  def test_control_k39; assert_in_delta(1.0, worksheet.control_k39, 0.002); end
+  def test_control_k40; assert_in_delta(1.0, worksheet.control_k40, 0.002); end
+  def test_control_k41; assert_in_delta(1.0, worksheet.control_k41, 0.002); end
+  def test_control_k42; assert_in_delta(1.0, worksheet.control_k42, 0.002); end
+  def test_control_k43; assert_in_delta(1.0, worksheet.control_k43, 0.002); end
+  def test_control_k44; assert_in_delta(1.0, worksheet.control_k44, 0.002); end
+  def test_control_k45; assert_in_delta(1.0, worksheet.control_k45, 0.002); end
+  def test_control_k46; assert_in_delta(1.0, worksheet.control_k46, 0.002); end
+  def test_control_k47; assert_in_delta(1.0, worksheet.control_k47, 0.002); end
+  def test_control_k48; assert_in_delta(1.0, worksheet.control_k48, 0.002); end
+  def test_control_k49; assert_in_delta(1.0, worksheet.control_k49, 0.002); end
+  def test_control_k50; assert_in_delta(1.0, worksheet.control_k50, 0.002); end
+  def test_control_k51; assert_in_delta(1.0, worksheet.control_k51, 0.002); end
+  def test_control_k52; assert_in_delta(1.0, worksheet.control_k52, 0.002); end
+  def test_control_k53; assert_in_delta(1.0, worksheet.control_k53, 0.002); end
+  def test_control_k54; assert_in_delta(1.0, worksheet.control_k54, 0.002); end
+  def test_control_k55; assert_in_delta(1.0, worksheet.control_k55, 0.002); end
+  def test_control_k56; assert_in_delta(1.0, worksheet.control_k56, 0.002); end
+  def test_control_k57; assert_in_delta(1.0, worksheet.control_k57, 0.002); end
+  def test_control_k58; assert_in_delta(1.0, worksheet.control_k58, 0.002); end
+  def test_control_k59; assert_in_delta(1.0, worksheet.control_k59, 0.002); end
+  def test_control_k60; assert_in_delta(1.0, worksheet.control_k60, 0.002); end
+  def test_control_k61; assert_in_delta(1.0, worksheet.control_k61, 0.002); end
+  def test_control_k62; assert_equal("sk", worksheet.control_k62.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_k63; assert_in_epsilon(2.0, worksheet.control_k63, 0.002); end
+  def test_control_k64; assert_in_epsilon(3.0, worksheet.control_k64, 0.002); end
+  def test_control_o17; assert_equal("Placeholder for short description of Lever", worksheet.control_o17.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p17; assert_equal("Placeholder for short description of Level 1", worksheet.control_p17.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q17; assert_equal("Placeholder for short description of Level 2", worksheet.control_q17.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r17; assert_equal("Placeholder for short description of Level 3", worksheet.control_r17.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s17; assert_equal("Placeholder for short description of Level 4", worksheet.control_s17.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o18; assert_equal("Placeholder for short description of Lever", worksheet.control_o18.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p18; assert_equal("Placeholder for short description of Level 1", worksheet.control_p18.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q18; assert_equal("Placeholder for short description of Level 2", worksheet.control_q18.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r18; assert_equal("Placeholder for short description of Level 3", worksheet.control_r18.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s18; assert_equal("Placeholder for short description of Level 4", worksheet.control_s18.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o19; assert_equal("Placeholder for short description of Lever", worksheet.control_o19.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p19; assert_equal("Placeholder for short description of Level 1", worksheet.control_p19.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q19; assert_equal("Placeholder for short description of Level 2", worksheet.control_q19.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r19; assert_equal("Placeholder for short description of Level 3", worksheet.control_r19.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s19; assert_equal("Placeholder for short description of Level 4", worksheet.control_s19.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o20; assert_equal("Placeholder for short description of Lever", worksheet.control_o20.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p20; assert_equal("Placeholder for short description of Level 1", worksheet.control_p20.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q20; assert_equal("Placeholder for short description of Level 2", worksheet.control_q20.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r20; assert_equal("Placeholder for short description of Level 3", worksheet.control_r20.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s20; assert_equal("Placeholder for short description of Level 4", worksheet.control_s20.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o21; assert_equal("Placeholder for short description of Lever", worksheet.control_o21.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p21; assert_equal("Placeholder for short description of Level 1", worksheet.control_p21.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q21; assert_equal("Placeholder for short description of Level 2", worksheet.control_q21.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r21; assert_equal("Placeholder for short description of Level 3", worksheet.control_r21.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s21; assert_equal("Placeholder for short description of Level 4", worksheet.control_s21.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o22; assert_equal("Placeholder for short description of Lever", worksheet.control_o22.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p22; assert_equal("Placeholder for short description of Level 1", worksheet.control_p22.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q22; assert_equal("Placeholder for short description of Level 2", worksheet.control_q22.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r22; assert_equal("Placeholder for short description of Level 3", worksheet.control_r22.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s22; assert_equal("Placeholder for short description of Level 4", worksheet.control_s22.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o23; assert_equal("Placeholder for short description of Lever", worksheet.control_o23.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p23; assert_equal("Placeholder for short description of Level 1", worksheet.control_p23.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q23; assert_equal("Placeholder for short description of Level 2", worksheet.control_q23.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r23; assert_equal("Placeholder for short description of Level 3", worksheet.control_r23.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s23; assert_equal("Placeholder for short description of Level 4", worksheet.control_s23.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o24; assert_equal("Placeholder for short description of Lever", worksheet.control_o24.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p24; assert_equal("Placeholder for short description of Level 1", worksheet.control_p24.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q24; assert_equal("Placeholder for short description of Level 2", worksheet.control_q24.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r24; assert_equal("Placeholder for short description of Level 3", worksheet.control_r24.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s24; assert_equal("Placeholder for short description of Level 4", worksheet.control_s24.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o25; assert_equal("Placeholder for short description of Lever", worksheet.control_o25.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p25; assert_equal("Placeholder for short description of Level 1", worksheet.control_p25.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q25; assert_equal("Placeholder for short description of Level 2", worksheet.control_q25.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r25; assert_equal("Placeholder for short description of Level 3", worksheet.control_r25.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s25; assert_equal("Placeholder for short description of Level 4", worksheet.control_s25.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o26; assert_equal("Placeholder for short description of Lever", worksheet.control_o26.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p26; assert_equal("Placeholder for short description of Level 1", worksheet.control_p26.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q26; assert_equal("Placeholder for short description of Level 2", worksheet.control_q26.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r26; assert_equal("Placeholder for short description of Level 3", worksheet.control_r26.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s26; assert_equal("Placeholder for short description of Level 4", worksheet.control_s26.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o27; assert_equal("Placeholder for short description of Lever", worksheet.control_o27.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p27; assert_equal("Placeholder for short description of Level 1", worksheet.control_p27.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q27; assert_equal("Placeholder for short description of Level 2", worksheet.control_q27.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r27; assert_equal("Placeholder for short description of Level 3", worksheet.control_r27.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s27; assert_equal("Placeholder for short description of Level 4", worksheet.control_s27.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o28; assert_equal("Placeholder for short description of Lever", worksheet.control_o28.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p28; assert_equal("Placeholder for short description of Level 1", worksheet.control_p28.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q28; assert_equal("Placeholder for short description of Level 2", worksheet.control_q28.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r28; assert_equal("Placeholder for short description of Level 3", worksheet.control_r28.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s28; assert_equal("Placeholder for short description of Level 4", worksheet.control_s28.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o29; assert_equal("Placeholder for short description of Lever", worksheet.control_o29.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p29; assert_equal("Placeholder for short description of Level 1", worksheet.control_p29.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q29; assert_equal("Placeholder for short description of Level 2", worksheet.control_q29.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r29; assert_equal("Placeholder for short description of Level 3", worksheet.control_r29.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s29; assert_equal("Placeholder for short description of Level 4", worksheet.control_s29.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o30; assert_equal("Placeholder for short description of Lever", worksheet.control_o30.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p30; assert_equal("Placeholder for short description of Level 1", worksheet.control_p30.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q30; assert_equal("Placeholder for short description of Level 2", worksheet.control_q30.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r30; assert_equal("Placeholder for short description of Level 3", worksheet.control_r30.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s30; assert_equal("Placeholder for short description of Level 4", worksheet.control_s30.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o31; assert_equal("Placeholder for short description of Lever", worksheet.control_o31.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p31; assert_equal("Placeholder for short description of Level 1", worksheet.control_p31.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q31; assert_equal("Placeholder for short description of Level 2", worksheet.control_q31.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r31; assert_equal("Placeholder for short description of Level 3", worksheet.control_r31.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s31; assert_equal("Placeholder for short description of Level 4", worksheet.control_s31.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o32; assert_equal("Placeholder for short description of Lever", worksheet.control_o32.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p32; assert_equal("Placeholder for short description of Level 1", worksheet.control_p32.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q32; assert_equal("Placeholder for short description of Level 2", worksheet.control_q32.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r32; assert_equal("Placeholder for short description of Level 3", worksheet.control_r32.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s32; assert_equal("Placeholder for short description of Level 4", worksheet.control_s32.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o33; assert_equal("Placeholder for short description of Lever", worksheet.control_o33.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p33; assert_equal("Placeholder for short description of Level 1", worksheet.control_p33.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q33; assert_equal("Placeholder for short description of Level 2", worksheet.control_q33.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r33; assert_equal("Placeholder for short description of Level 3", worksheet.control_r33.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s33; assert_equal("Placeholder for short description of Level 4", worksheet.control_s33.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o34; assert_equal("Placeholder for short description of Lever", worksheet.control_o34.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p34; assert_equal("Placeholder for short description of Level 1", worksheet.control_p34.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q34; assert_equal("Placeholder for short description of Level 2", worksheet.control_q34.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r34; assert_equal("Placeholder for short description of Level 3", worksheet.control_r34.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s34; assert_equal("Placeholder for short description of Level 4", worksheet.control_s34.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o35; assert_equal("Placeholder for short description of Lever", worksheet.control_o35.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p35; assert_equal("Placeholder for short description of Level 1", worksheet.control_p35.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q35; assert_equal("Placeholder for short description of Level 2", worksheet.control_q35.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r35; assert_equal("Placeholder for short description of Level 3", worksheet.control_r35.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s35; assert_equal("Placeholder for short description of Level 4", worksheet.control_s35.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o36; assert_equal("Placeholder for short description of Lever", worksheet.control_o36.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p36; assert_equal("Placeholder for short description of Level 1", worksheet.control_p36.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q36; assert_equal("Placeholder for short description of Level 2", worksheet.control_q36.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r36; assert_equal("Placeholder for short description of Level 3", worksheet.control_r36.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s36; assert_equal("Placeholder for short description of Level 4", worksheet.control_s36.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o37; assert_equal("Placeholder for short description of Lever", worksheet.control_o37.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p37; assert_equal("Placeholder for short description of Level 1", worksheet.control_p37.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q37; assert_equal("Placeholder for short description of Level 2", worksheet.control_q37.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r37; assert_equal("Placeholder for short description of Level 3", worksheet.control_r37.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s37; assert_equal("Placeholder for short description of Level 4", worksheet.control_s37.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o38; assert_equal("Placeholder for short description of Lever", worksheet.control_o38.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p38; assert_equal("Placeholder for short description of Level 1", worksheet.control_p38.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q38; assert_equal("Placeholder for short description of Level 2", worksheet.control_q38.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r38; assert_equal("Placeholder for short description of Level 3", worksheet.control_r38.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s38; assert_equal("Placeholder for short description of Level 4", worksheet.control_s38.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o39; assert_equal("Placeholder for short description of Lever", worksheet.control_o39.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p39; assert_equal("Placeholder for short description of Level 1", worksheet.control_p39.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q39; assert_equal("Placeholder for short description of Level 2", worksheet.control_q39.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r39; assert_equal("Placeholder for short description of Level 3", worksheet.control_r39.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s39; assert_equal("Placeholder for short description of Level 4", worksheet.control_s39.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o40; assert_equal("Placeholder for short description of Lever", worksheet.control_o40.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p40; assert_equal("Placeholder for short description of Level 1", worksheet.control_p40.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q40; assert_equal("Placeholder for short description of Level 2", worksheet.control_q40.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r40; assert_equal("Placeholder for short description of Level 3", worksheet.control_r40.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s40; assert_equal("Placeholder for short description of Level 4", worksheet.control_s40.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o41; assert_equal("Placeholder for short description of Lever", worksheet.control_o41.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p41; assert_equal("Placeholder for short description of Level 1", worksheet.control_p41.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q41; assert_equal("Placeholder for short description of Level 2", worksheet.control_q41.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r41; assert_equal("Placeholder for short description of Level 3", worksheet.control_r41.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s41; assert_equal("Placeholder for short description of Level 4", worksheet.control_s41.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o42; assert_equal("Placeholder for short description of Lever", worksheet.control_o42.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p42; assert_equal("Placeholder for short description of Level 1", worksheet.control_p42.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q42; assert_equal("Placeholder for short description of Level 2", worksheet.control_q42.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r42; assert_equal("Placeholder for short description of Level 3", worksheet.control_r42.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s42; assert_equal("Placeholder for short description of Level 4", worksheet.control_s42.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o43; assert_equal("Placeholder for short description of Lever", worksheet.control_o43.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p43; assert_equal("Placeholder for short description of Level 1", worksheet.control_p43.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q43; assert_equal("Placeholder for short description of Level 2", worksheet.control_q43.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r43; assert_equal("Placeholder for short description of Level 3", worksheet.control_r43.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s43; assert_equal("Placeholder for short description of Level 4", worksheet.control_s43.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o44; assert_equal("Placeholder for short description of Lever", worksheet.control_o44.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p44; assert_equal("Placeholder for short description of Level 1", worksheet.control_p44.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q44; assert_equal("Placeholder for short description of Level 2", worksheet.control_q44.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r44; assert_equal("Placeholder for short description of Level 3", worksheet.control_r44.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s44; assert_equal("Placeholder for short description of Level 4", worksheet.control_s44.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o45; assert_equal("Placeholder for short description of Lever", worksheet.control_o45.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p45; assert_equal("Placeholder for short description of Level 1", worksheet.control_p45.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q45; assert_equal("Placeholder for short description of Level 2", worksheet.control_q45.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r45; assert_equal("Placeholder for short description of Level 3", worksheet.control_r45.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s45; assert_equal("Placeholder for short description of Level 4", worksheet.control_s45.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o46; assert_equal("Placeholder for short description of Lever", worksheet.control_o46.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p46; assert_equal("Placeholder for short description of Level 1", worksheet.control_p46.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q46; assert_equal("Placeholder for short description of Level 2", worksheet.control_q46.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r46; assert_equal("Placeholder for short description of Level 3", worksheet.control_r46.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s46; assert_equal("Placeholder for short description of Level 4", worksheet.control_s46.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o47; assert_equal("Placeholder for short description of Lever", worksheet.control_o47.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p47; assert_equal("Placeholder for short description of Level 1", worksheet.control_p47.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q47; assert_equal("Placeholder for short description of Level 2", worksheet.control_q47.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r47; assert_equal("Placeholder for short description of Level 3", worksheet.control_r47.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s47; assert_equal("Placeholder for short description of Level 4", worksheet.control_s47.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o48; assert_equal("Placeholder for short description of Lever", worksheet.control_o48.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p48; assert_equal("Placeholder for short description of Level 1", worksheet.control_p48.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q48; assert_equal("Placeholder for short description of Level 2", worksheet.control_q48.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r48; assert_equal("Placeholder for short description of Level 3", worksheet.control_r48.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s48; assert_equal("Placeholder for short description of Level 4", worksheet.control_s48.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o49; assert_equal("Placeholder for short description of Lever", worksheet.control_o49.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p49; assert_equal("Placeholder for short description of Level 1", worksheet.control_p49.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q49; assert_equal("Placeholder for short description of Level 2", worksheet.control_q49.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r49; assert_equal("Placeholder for short description of Level 3", worksheet.control_r49.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s49; assert_equal("Placeholder for short description of Level 4", worksheet.control_s49.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o50; assert_equal("Placeholder for short description of Lever", worksheet.control_o50.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p50; assert_equal("Placeholder for short description of Level 1", worksheet.control_p50.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q50; assert_equal("Placeholder for short description of Level 2", worksheet.control_q50.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r50; assert_equal("Placeholder for short description of Level 3", worksheet.control_r50.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s50; assert_equal("Placeholder for short description of Level 4", worksheet.control_s50.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o51; assert_equal("Placeholder for short description of Lever", worksheet.control_o51.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p51; assert_equal("Placeholder for short description of Level 1", worksheet.control_p51.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q51; assert_equal("Placeholder for short description of Level 2", worksheet.control_q51.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r51; assert_equal("Placeholder for short description of Level 3", worksheet.control_r51.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s51; assert_equal("Placeholder for short description of Level 4", worksheet.control_s51.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o52; assert_equal("Placeholder for short description of Lever", worksheet.control_o52.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p52; assert_equal("Placeholder for short description of Level 1", worksheet.control_p52.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q52; assert_equal("Placeholder for short description of Level 2", worksheet.control_q52.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r52; assert_equal("Placeholder for short description of Level 3", worksheet.control_r52.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s52; assert_equal("Placeholder for short description of Level 4", worksheet.control_s52.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o53; assert_equal("Placeholder for short description of Lever", worksheet.control_o53.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p53; assert_equal("Placeholder for short description of Level 1", worksheet.control_p53.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q53; assert_equal("Placeholder for short description of Level 2", worksheet.control_q53.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r53; assert_equal("Placeholder for short description of Level 3", worksheet.control_r53.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s53; assert_equal("Placeholder for short description of Level 4", worksheet.control_s53.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o54; assert_equal("Placeholder for short description of Lever", worksheet.control_o54.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p54; assert_equal("Placeholder for short description of Level 1", worksheet.control_p54.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q54; assert_equal("Placeholder for short description of Level 2", worksheet.control_q54.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r54; assert_equal("Placeholder for short description of Level 3", worksheet.control_r54.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s54; assert_equal("Placeholder for short description of Level 4", worksheet.control_s54.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o55; assert_equal("Placeholder for short description of Lever", worksheet.control_o55.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p55; assert_equal("Placeholder for short description of Level 1", worksheet.control_p55.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q55; assert_equal("Placeholder for short description of Level 2", worksheet.control_q55.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r55; assert_equal("Placeholder for short description of Level 3", worksheet.control_r55.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s55; assert_equal("Placeholder for short description of Level 4", worksheet.control_s55.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o56; assert_equal("Placeholder for short description of Lever", worksheet.control_o56.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p56; assert_equal("Placeholder for short description of Level 1", worksheet.control_p56.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q56; assert_equal("Placeholder for short description of Level 2", worksheet.control_q56.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r56; assert_equal("Placeholder for short description of Level 3", worksheet.control_r56.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s56; assert_equal("Placeholder for short description of Level 4", worksheet.control_s56.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o57; assert_equal("Placeholder for short description of Lever", worksheet.control_o57.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p57; assert_equal("Placeholder for short description of Level 1", worksheet.control_p57.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q57; assert_equal("Placeholder for short description of Level 2", worksheet.control_q57.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r57; assert_equal("Placeholder for short description of Level 3", worksheet.control_r57.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s57; assert_equal("Placeholder for short description of Level 4", worksheet.control_s57.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o58; assert_equal("Placeholder for short description of Lever", worksheet.control_o58.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p58; assert_equal("Placeholder for short description of Level 1", worksheet.control_p58.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q58; assert_equal("Placeholder for short description of Level 2", worksheet.control_q58.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r58; assert_equal("Placeholder for short description of Level 3", worksheet.control_r58.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s58; assert_equal("Placeholder for short description of Level 4", worksheet.control_s58.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o59; assert_equal("Placeholder for short description of Lever", worksheet.control_o59.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p59; assert_equal("Placeholder for short description of Level 1", worksheet.control_p59.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q59; assert_equal("Placeholder for short description of Level 2", worksheet.control_q59.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r59; assert_equal("Placeholder for short description of Level 3", worksheet.control_r59.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s59; assert_equal("Placeholder for short description of Level 4", worksheet.control_s59.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o60; assert_equal("Placeholder for short description of Lever", worksheet.control_o60.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p60; assert_equal("Placeholder for short description of Level 1", worksheet.control_p60.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q60; assert_equal("Placeholder for short description of Level 2", worksheet.control_q60.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r60; assert_equal("Placeholder for short description of Level 3", worksheet.control_r60.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s60; assert_equal("Placeholder for short description of Level 4", worksheet.control_s60.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_o61; assert_equal("Placeholder for short description of Lever", worksheet.control_o61.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_p61; assert_equal("Placeholder for short description of Level 1", worksheet.control_p61.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_q61; assert_equal("Placeholder for short description of Level 2", worksheet.control_q61.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_r61; assert_equal("Placeholder for short description of Level 3", worksheet.control_r61.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_s61; assert_equal("Placeholder for short description of Level 4", worksheet.control_s61.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c17; assert_equal("UK Transport Demand", worksheet.control_c17.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c18; assert_equal("International Aviation", worksheet.control_c18.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c19; assert_equal("Light Vehicles - Electric", worksheet.control_c19.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c20; assert_equal("Light Vehicles - Hydrogen", worksheet.control_c20.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c21; assert_equal("Light Vehicles - Hybrid", worksheet.control_c21.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c22; assert_equal("Light Vehicles - Biofuel", worksheet.control_c22.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c23; assert_equal("Heavy Vehicles - Electric", worksheet.control_c23.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c24; assert_equal("Heavy Vehicles - Hydrogen", worksheet.control_c24.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c25; assert_equal("Heavy Vehicles - Hybrid", worksheet.control_c25.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c26; assert_equal("Heavy Vehicles - Biofuel", worksheet.control_c26.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c27; assert_equal("Aviation Efficiency", worksheet.control_c27.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c28; assert_equal("Aviation Biofuel", worksheet.control_c28.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c29; assert_equal("Buildings Temperature", worksheet.control_c29.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c30; assert_equal("Buildings Insulation", worksheet.control_c30.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c31; assert_equal("District Heat Share", worksheet.control_c31.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c32; assert_equal("Heat Pump Share", worksheet.control_c32.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c33; assert_equal("Hybrid Heat Share", worksheet.control_c33.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c34; assert_equal("Heat Network - Heat Pump", worksheet.control_c34.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c35; assert_equal("Heat Network - Biomass CHP", worksheet.control_c35.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c36; assert_equal("Lighting and Applicances", worksheet.control_c36.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c37; assert_equal("Industrial Efficiency", worksheet.control_c37.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c38; assert_equal("Industry Electrification", worksheet.control_c38.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c39; assert_equal("Industry Shift to Biomass", worksheet.control_c39.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c40; assert_equal("Industry Shift to Gas", worksheet.control_c40.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c41; assert_equal("Industry CCS", worksheet.control_c41.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c42; assert_equal("Hydrogen Gas Grid Share", worksheet.control_c42.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c43; assert_equal("Biomethane Gas Grid Share", worksheet.control_c43.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c44; assert_equal("Hydrogen from Biomass CCS", worksheet.control_c44.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c45; assert_equal("Hydrogen from Methane CCS", worksheet.control_c45.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c46; assert_equal("Zero Carbon Hydrogen Imports", worksheet.control_c46.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c47; assert_equal("Greenhouse Gas Removal", worksheet.control_c47.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c48; assert_equal("Bio Transformation with CCS", worksheet.control_c48.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c49; assert_equal("CCS Capture Rate", worksheet.control_c49.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c50; assert_equal("Seasonal Storage", worksheet.control_c50.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c51; assert_equal("DSR, Batteries & Interconnectors", worksheet.control_c51.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c52; assert_equal("Biomass with CCS", worksheet.control_c52.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c53; assert_equal("Nuclear", worksheet.control_c53.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c54; assert_equal("Offshore & Onshore Wind", worksheet.control_c54.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c55; assert_equal("Solar", worksheet.control_c55.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c56; assert_equal("Wave & Tidal", worksheet.control_c56.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c57; assert_equal("Gas with CCS", worksheet.control_c57.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c58; assert_equal("Farming Yield & Efficiency", worksheet.control_c58.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c59; assert_equal("Forestry", worksheet.control_c59.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c60; assert_equal("Land for Bioenergy", worksheet.control_c60.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_c61; assert_equal("Waste Reduction", worksheet.control_c61.to_s.gsub(/[\n\r]+/,'')); end
+  def test_control_i17; assert_in_epsilon(4.0, worksheet.control_i17, 0.002); end
+  def test_control_i18; assert_in_epsilon(4.0, worksheet.control_i18, 0.002); end
+  def test_control_i19; assert_in_epsilon(4.0, worksheet.control_i19, 0.002); end
+  def test_control_i20; assert_in_epsilon(4.0, worksheet.control_i20, 0.002); end
+  def test_control_i21; assert_in_epsilon(4.0, worksheet.control_i21, 0.002); end
+  def test_control_i22; assert_in_epsilon(4.0, worksheet.control_i22, 0.002); end
+  def test_control_i23; assert_in_epsilon(4.0, worksheet.control_i23, 0.002); end
+  def test_control_i24; assert_in_epsilon(4.0, worksheet.control_i24, 0.002); end
+  def test_control_i25; assert_in_epsilon(4.0, worksheet.control_i25, 0.002); end
+  def test_control_i26; assert_in_epsilon(4.0, worksheet.control_i26, 0.002); end
+  def test_control_i27; assert_in_epsilon(4.0, worksheet.control_i27, 0.002); end
+  def test_control_i28; assert_in_epsilon(4.0, worksheet.control_i28, 0.002); end
+  def test_control_i29; assert_in_epsilon(4.0, worksheet.control_i29, 0.002); end
+  def test_control_i30; assert_in_epsilon(4.0, worksheet.control_i30, 0.002); end
+  def test_control_i31; assert_in_epsilon(4.0, worksheet.control_i31, 0.002); end
+  def test_control_i32; assert_in_epsilon(4.0, worksheet.control_i32, 0.002); end
+  def test_control_i33; assert_in_epsilon(4.0, worksheet.control_i33, 0.002); end
+  def test_control_i34; assert_in_epsilon(4.0, worksheet.control_i34, 0.002); end
+  def test_control_i35; assert_in_epsilon(4.0, worksheet.control_i35, 0.002); end
+  def test_control_i36; assert_in_epsilon(4.0, worksheet.control_i36, 0.002); end
+  def test_control_i37; assert_in_epsilon(4.0, worksheet.control_i37, 0.002); end
+  def test_control_i38; assert_in_epsilon(4.0, worksheet.control_i38, 0.002); end
+  def test_control_i39; assert_in_epsilon(4.0, worksheet.control_i39, 0.002); end
+  def test_control_i40; assert_in_epsilon(4.0, worksheet.control_i40, 0.002); end
+  def test_control_i41; assert_in_epsilon(4.0, worksheet.control_i41, 0.002); end
+  def test_control_i42; assert_in_epsilon(4.0, worksheet.control_i42, 0.002); end
+  def test_control_i43; assert_in_epsilon(4.0, worksheet.control_i43, 0.002); end
+  def test_control_i44; assert_in_epsilon(4.0, worksheet.control_i44, 0.002); end
+  def test_control_i45; assert_in_epsilon(4.0, worksheet.control_i45, 0.002); end
+  def test_control_i46; assert_in_epsilon(4.0, worksheet.control_i46, 0.002); end
+  def test_control_i47; assert_in_epsilon(4.0, worksheet.control_i47, 0.002); end
+  def test_control_i48; assert_in_epsilon(4.0, worksheet.control_i48, 0.002); end
+  def test_control_i49; assert_in_epsilon(4.0, worksheet.control_i49, 0.002); end
+  def test_control_i50; assert_in_epsilon(4.0, worksheet.control_i50, 0.002); end
+  def test_control_i51; assert_in_epsilon(4.0, worksheet.control_i51, 0.002); end
+  def test_control_i52; assert_in_epsilon(4.0, worksheet.control_i52, 0.002); end
+  def test_control_i53; assert_in_epsilon(4.0, worksheet.control_i53, 0.002); end
+  def test_control_i54; assert_in_epsilon(4.0, worksheet.control_i54, 0.002); end
+  def test_control_i55; assert_in_epsilon(4.0, worksheet.control_i55, 0.002); end
+  def test_control_i56; assert_in_epsilon(4.0, worksheet.control_i56, 0.002); end
+  def test_control_i57; assert_in_epsilon(4.0, worksheet.control_i57, 0.002); end
+  def test_control_i58; assert_in_epsilon(4.0, worksheet.control_i58, 0.002); end
+  def test_control_i59; assert_in_epsilon(4.0, worksheet.control_i59, 0.002); end
+  def test_control_i60; assert_in_epsilon(4.0, worksheet.control_i60, 0.002); end
+  def test_control_i61; assert_in_epsilon(4.0, worksheet.control_i61, 0.002); end
+  def test_control_m17; assert_in_epsilon(2050.0, worksheet.control_m17, 0.002); end
+  def test_control_m18; assert_in_epsilon(2050.0, worksheet.control_m18, 0.002); end
+  def test_control_m19; assert_in_epsilon(2040.0, worksheet.control_m19, 0.002); end
+  def test_control_m20; assert_in_epsilon(2050.0, worksheet.control_m20, 0.002); end
+  def test_control_m21; assert_in_epsilon(2040.0, worksheet.control_m21, 0.002); end
+  def test_control_m22; assert_in_epsilon(2050.0, worksheet.control_m22, 0.002); end
+  def test_control_m23; assert_in_epsilon(2050.0, worksheet.control_m23, 0.002); end
+  def test_control_m24; assert_in_epsilon(2050.0, worksheet.control_m24, 0.002); end
+  def test_control_m25; assert_in_epsilon(2050.0, worksheet.control_m25, 0.002); end
+  def test_control_m26; assert_in_epsilon(2050.0, worksheet.control_m26, 0.002); end
+  def test_control_m27; assert_in_epsilon(2050.0, worksheet.control_m27, 0.002); end
+  def test_control_m28; assert_in_epsilon(2050.0, worksheet.control_m28, 0.002); end
+  def test_control_m29; assert_in_epsilon(2050.0, worksheet.control_m29, 0.002); end
+  def test_control_m30; assert_in_epsilon(2040.0, worksheet.control_m30, 0.002); end
+  def test_control_m31; assert_in_epsilon(2050.0, worksheet.control_m31, 0.002); end
+  def test_control_m32; assert_in_epsilon(2050.0, worksheet.control_m32, 0.002); end
+  def test_control_m33; assert_in_epsilon(2050.0, worksheet.control_m33, 0.002); end
+  def test_control_m34; assert_in_epsilon(2050.0, worksheet.control_m34, 0.002); end
+  def test_control_m35; assert_in_epsilon(2050.0, worksheet.control_m35, 0.002); end
+  def test_control_m36; assert_in_epsilon(2050.0, worksheet.control_m36, 0.002); end
+  def test_control_m37; assert_in_epsilon(2050.0, worksheet.control_m37, 0.002); end
+  def test_control_m38; assert_in_epsilon(2050.0, worksheet.control_m38, 0.002); end
+  def test_control_m39; assert_in_epsilon(2050.0, worksheet.control_m39, 0.002); end
+  def test_control_m40; assert_in_epsilon(2050.0, worksheet.control_m40, 0.002); end
+  def test_control_m41; assert_in_epsilon(2060.0, worksheet.control_m41, 0.002); end
+  def test_control_m42; assert_in_epsilon(2070.0, worksheet.control_m42, 0.002); end
+  def test_control_m43; assert_in_epsilon(2030.0, worksheet.control_m43, 0.002); end
+  def test_control_m44; assert_in_epsilon(2060.0, worksheet.control_m44, 0.002); end
+  def test_control_m45; assert_in_epsilon(2060.0, worksheet.control_m45, 0.002); end
+  def test_control_m46; assert_in_epsilon(2060.0, worksheet.control_m46, 0.002); end
+  def test_control_m47; assert_in_epsilon(2100.0, worksheet.control_m47, 0.002); end
+  def test_control_m48; assert_in_epsilon(2050.0, worksheet.control_m48, 0.002); end
+  def test_control_m49; assert_in_epsilon(2030.0, worksheet.control_m49, 0.002); end
+  def test_control_m50; assert_in_epsilon(2050.0, worksheet.control_m50, 0.002); end
+  def test_control_m51; assert_in_epsilon(2050.0, worksheet.control_m51, 0.002); end
+  def test_control_m52; assert_in_epsilon(2050.0, worksheet.control_m52, 0.002); end
+  def test_control_m53; assert_in_epsilon(2050.0, worksheet.control_m53, 0.002); end
+  def test_control_m54; assert_in_epsilon(2050.0, worksheet.control_m54, 0.002); end
+  def test_control_m55; assert_in_epsilon(2050.0, worksheet.control_m55, 0.002); end
+  def test_control_m56; assert_in_epsilon(2050.0, worksheet.control_m56, 0.002); end
+  def test_control_m57; assert_in_epsilon(2050.0, worksheet.control_m57, 0.002); end
+  def test_control_m58; assert_in_epsilon(2100.0, worksheet.control_m58, 0.002); end
+  def test_control_m59; assert_in_epsilon(2100.0, worksheet.control_m59, 0.002); end
+  def test_control_m60; assert_in_epsilon(2100.0, worksheet.control_m60, 0.002); end
+  def test_control_m61; assert_in_epsilon(2050.0, worksheet.control_m61, 0.002); end
+  def test_control_l17; assert_in_epsilon(2020.0, worksheet.control_l17, 0.002); end
+  def test_control_l18; assert_in_epsilon(2020.0, worksheet.control_l18, 0.002); end
+  def test_control_l19; assert_in_epsilon(2020.0, worksheet.control_l19, 0.002); end
+  def test_control_l20; assert_in_epsilon(2020.0, worksheet.control_l20, 0.002); end
+  def test_control_l21; assert_in_epsilon(2020.0, worksheet.control_l21, 0.002); end
+  def test_control_l22; assert_in_epsilon(2020.0, worksheet.control_l22, 0.002); end
+  def test_control_l23; assert_in_epsilon(2020.0, worksheet.control_l23, 0.002); end
+  def test_control_l24; assert_in_epsilon(2020.0, worksheet.control_l24, 0.002); end
+  def test_control_l25; assert_in_epsilon(2020.0, worksheet.control_l25, 0.002); end
+  def test_control_l26; assert_in_epsilon(2020.0, worksheet.control_l26, 0.002); end
+  def test_control_l27; assert_in_epsilon(2020.0, worksheet.control_l27, 0.002); end
+  def test_control_l28; assert_in_epsilon(2025.0, worksheet.control_l28, 0.002); end
+  def test_control_l29; assert_in_epsilon(2020.0, worksheet.control_l29, 0.002); end
+  def test_control_l30; assert_in_epsilon(2020.0, worksheet.control_l30, 0.002); end
+  def test_control_l31; assert_in_epsilon(2020.0, worksheet.control_l31, 0.002); end
+  def test_control_l32; assert_in_epsilon(2020.0, worksheet.control_l32, 0.002); end
+  def test_control_l33; assert_in_epsilon(2020.0, worksheet.control_l33, 0.002); end
+  def test_control_l34; assert_in_epsilon(2020.0, worksheet.control_l34, 0.002); end
+  def test_control_l35; assert_in_epsilon(2020.0, worksheet.control_l35, 0.002); end
+  def test_control_l36; assert_in_epsilon(2020.0, worksheet.control_l36, 0.002); end
+  def test_control_l37; assert_in_epsilon(2020.0, worksheet.control_l37, 0.002); end
+  def test_control_l38; assert_in_epsilon(2020.0, worksheet.control_l38, 0.002); end
+  def test_control_l39; assert_in_epsilon(2020.0, worksheet.control_l39, 0.002); end
+  def test_control_l40; assert_in_epsilon(2020.0, worksheet.control_l40, 0.002); end
+  def test_control_l41; assert_in_epsilon(2030.0, worksheet.control_l41, 0.002); end
+  def test_control_l42; assert_in_epsilon(2020.0, worksheet.control_l42, 0.002); end
+  def test_control_l43; assert_in_epsilon(2020.0, worksheet.control_l43, 0.002); end
+  def test_control_l44; assert_in_epsilon(2030.0, worksheet.control_l44, 0.002); end
+  def test_control_l45; assert_in_epsilon(2030.0, worksheet.control_l45, 0.002); end
+  def test_control_l46; assert_in_epsilon(2030.0, worksheet.control_l46, 0.002); end
+  def test_control_l47; assert_in_epsilon(2030.0, worksheet.control_l47, 0.002); end
+  def test_control_l48; assert_in_epsilon(2030.0, worksheet.control_l48, 0.002); end
+  def test_control_l49; assert_in_epsilon(2020.0, worksheet.control_l49, 0.002); end
+  def test_control_l50; assert_in_epsilon(2020.0, worksheet.control_l50, 0.002); end
+  def test_control_l51; assert_in_epsilon(2020.0, worksheet.control_l51, 0.002); end
+  def test_control_l52; assert_in_epsilon(2030.0, worksheet.control_l52, 0.002); end
+  def test_control_l53; assert_in_epsilon(2030.0, worksheet.control_l53, 0.002); end
+  def test_control_l54; assert_in_epsilon(2020.0, worksheet.control_l54, 0.002); end
+  def test_control_l55; assert_in_epsilon(2020.0, worksheet.control_l55, 0.002); end
+  def test_control_l56; assert_in_epsilon(2025.0, worksheet.control_l56, 0.002); end
+  def test_control_l57; assert_in_epsilon(2030.0, worksheet.control_l57, 0.002); end
+  def test_control_l58; assert_in_epsilon(2020.0, worksheet.control_l58, 0.002); end
+  def test_control_l59; assert_in_epsilon(2020.0, worksheet.control_l59, 0.002); end
+  def test_control_l60; assert_in_epsilon(2020.0, worksheet.control_l60, 0.002); end
+  def test_control_l61; assert_in_epsilon(2020.0, worksheet.control_l61, 0.002); end
   def test_weboutputs_g677; assert_equal("Bioenergy Imports", worksheet.weboutputs_g677.to_s.gsub(/[\n\r]+/,'')); end
   def test_weboutputs_h677; assert_in_epsilon(-5192.940646635604, worksheet.weboutputs_h677, 0.002); end
   def test_weboutputs_i677; assert_in_epsilon(-5195.527673178291, worksheet.weboutputs_i677, 0.002); end

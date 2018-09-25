@@ -306,7 +306,7 @@
 	  	</tr>
 
 
-          <% structure.choices[8..19].each do |choice| %>
+          <% structure.choices[0..11].each do |choice| %>
 
 
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
@@ -451,7 +451,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
 
                 <!-- One row per choice -->
-                <% structure.choices[0..7].each do |choice| %>
+                <% structure.choices[12..19].each do |choice| %>
                   <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>'>
                       <td class='name lever-grey'>
                         <a href='/assets/onepage/<%= choice.doc %>' target='_new' -data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
@@ -841,9 +841,9 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
 <!-- End of energy -->
 
-
+<!-- Define subgroups and change class to lever-lightgrey-->
 <script>
-var rLGs = [0,1,2,3,4,7,8,9,10,15,16,17,18,26,27,28,29,33,34,35,37,38,41,42,43,44,46,47];
+var rLGs = [0,1,6,7,8,9,12,13,14,15,16,19,25,26,30,31,32,33,34,41,42,43,];
 //var rLGs = [0,1,2,3];
 for (let i of rLGs) {
   $('#r'+i+' td').removeClass("lever-grey").addClass('meinTest');
