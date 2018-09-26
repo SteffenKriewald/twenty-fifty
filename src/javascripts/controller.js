@@ -180,8 +180,8 @@
         chartRangeMin: 0, chartRangeMax: 4}
       );
       console.log("."+g+"db");
-console.log("tabelle");
-console.log(cache);
+//console.log("tabelle");
+//console.log(cache);
       console.log(document.getElementById(g+'db'));
       document.getElementById(g+'db').style.visibility="hidden";
 	});
@@ -712,14 +712,6 @@ letter_to_date_map = {
     }
     updateControls(old_choices, choices);
     main_code = codeForChoices();
-	var _part1 = main_code.substring(0,(main_code.length/3));
-	var _part2 = main_code.substring((main_code.length/3),2*(main_code.length/3));
-	var _part3 = main_code.substring((2*main_code.length/3),3*(main_code.length/3));
-
-console.log("main_code ",_part1, _part1.length );
-console.log("main_code ",_part2, _part2.length );
-console.log("main_code ",_part3, _part3.length );
-
 
     if (history['pushState'] != null) {
       history.pushState(choices, main_code, url());

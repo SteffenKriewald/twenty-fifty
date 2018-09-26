@@ -18,8 +18,8 @@ window.twentyfifty.views.overview = function() {
 	  .append('div')
 	  .attr('id', Object)
 	  .attr('class', 'chart');
-      
-      
+
+
       this.emissions_by_sector_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions by Sector")
 	  .unit('Mt.CO2e')
@@ -31,7 +31,7 @@ window.twentyfifty.views.overview = function() {
 //	  .unit('');
 //      //      .css_for_label(css_for_labels)
 //      //      .max_value(4000);
-//      
+//
       this.primary_energy_supply_chart = timeSeriesStackedAreaChart()
 	  .title("Primary Energy Supply")
 	  .unit('')
@@ -58,7 +58,7 @@ window.twentyfifty.views.overview = function() {
     // into the format needed to plot a chart
     convert_buggy_emission_table_to_hash = function(table) {
 	hash = d3.map();
-    
+
     // Do not Skip any header row, and put the table into
     // a Hash table with the key being the first column and the
     // value being the rest
@@ -75,7 +75,7 @@ window.twentyfifty.views.overview = function() {
     // into the format needed to plot a chart
     convert_capacity_table_to_hash = function(table) {
 	hash = d3.map();
-    
+
     // Do not Skip any header row, and put the table into
     // a Hash table with the key being the first column and the
     // value being the rest
@@ -85,13 +85,28 @@ window.twentyfifty.views.overview = function() {
 	return hash;
     }
 
-    
+
   this.updateResults = function(pathway) {
       this.pathway = pathway;
       console.log("updateResults:");
       console.log(pathway);
+      // change color of warning icons
+      if(pathway.warningsBio[0][1]==1){
+        $("#wR_div svg path").css("fill", "red");
+      }else {
+        $("#wR_div svg path").css("fill", "#b2c1d1");
+      }
+      // change warning tooltip texts
+      $('#wR_div').attr('data-original-title', pathway.warningsBio[1][1]);
+      // change text below gauge
+      $('#gauge_year_text').text(pathway.mEyrZero[0][1]);
+      // set value of gauge
+      var co2_red = (1-pathway.mEreduction[1][1])*-100;
+      verticalSlider.noUiSlider.set(co2_red);
+      //<div class="noUi-Gtooltip">-25%</div>
+      if(co2_red < -100){$('.noUi-Gtooltip').html(Math.round(co2_red)+"%");}
       this.choices = twentyfifty.choices;
-      // construct the data      
+      // construct the data
       // connect the containers with charts and data
       d3.select('#top_container_1')
 	  .datum(convert_buggy_emission_table_to_hash(pathway.ghg))

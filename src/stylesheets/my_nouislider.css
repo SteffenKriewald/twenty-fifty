@@ -373,6 +373,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle-my {
       }
 
       .noUi-Gtooltip {
+        text-align: center;
         margin-top: 1px;
         background: transparent;
         background-color: transparent;
@@ -387,8 +388,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-handle-my {
       }
 
       .noUi-vertical .noUi-Ghandle {
-        width: 40px;
-        left: -13px;
+        width: 46px;
+        left: -15px;
         top: -14px;
       }
 

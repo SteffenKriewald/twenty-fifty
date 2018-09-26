@@ -104,17 +104,79 @@
     <!-- / The charts will be drawn in this block -->
     <div id='results'></div>
     <!-- / bof navpanel -->
-    <div id='gauge'  style="position:fixed;top:100px;right:20px;height: 80vh;">
+    <div id='gauge'  style="position:fixed;top:100px;right:20px;">
 
     <div class="additional_text" style="margin: -50px 0px 20px -25px;">
       CO2e<br>Reduction<br>in 2050
     </div>
 
-    <div id="slider-vertical" style="height: 60vh;"></div>
+    <div id="slider-vertical" style="height: 30vh;"></div>
 
-    <div class="date-choice-mode-2100-wrapper additional_text" style="width: 70px;margin: 20px 0 0 -50px;">
+    <div id="gauge_year_text" class="date-choice-mode-2100-wrapper additional_text" style="width: 70px;margin: 20px 0 20px -50px;">
       Your pathway<br>will reach<br>zero carbon<br>around 2060
     </div>
+
+
+    <div class="warnings">
+    <img id="w4" class="svg warning" src="/assets/warning_icons/four.svg"/><br>
+      <div id="wR_div" data-original-title="Das ist eine Rakete">
+        <img id="wR" class="svg warning" src="/assets/warning_icons/rocket.svg"/><br>
+      </div>
+      <img id="wL" class="svg warning" src="/assets/warning_icons/leaf.svg"/><br>
+      <img id="wE" class="svg warning" src="/assets/warning_icons/expand-arrows-alt.svg"/><br>
+      <img id="wP" class="svg warning" src="/assets/warning_icons/chart-pie.svg"/><br>
+    </div>
+  <script>
+  /*
+   * Replace all SVG images with inline SVG
+   https://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement
+   */
+   $(document).ready(function(){
+       $('#wR_div').tooltip();
+   });
+
+   jQuery('img.svg').each(function(){
+       var $img = jQuery(this);
+       var imgID = $img.attr('id');
+       var imgClass = $img.attr('class');
+       var imgURL = $img.attr('src');
+
+       jQuery.get(imgURL, function(data) {
+           // Get the SVG tag, ignore the rest
+           var $svg = jQuery(data).find('svg');
+
+           // Add replaced image's ID to the new SVG
+           if(typeof imgID !== 'undefined') {
+               $svg = $svg.attr('id', imgID);
+           }
+           // Add replaced image's classes to the new SVG
+           if(typeof imgClass !== 'undefined') {
+               $svg = $svg.attr('class', imgClass+' replaced-svg');
+           }
+
+           // Remove any invalid XML tags as per http://validator.w3.org
+           $svg = $svg.removeAttr('xmlns:a');
+
+           // Replace image with new SVG
+           $img.replaceWith($svg);
+
+       }, 'xml');
+
+   });
+
+  </script>
+
+  <style>
+  .warning {
+  width: 20px;
+  }
+  .warning path {
+      fill: #b2c1d1;
+  }
+  /*.warning:hover path {
+      fill: red;
+  }*/
+  </style>
 
     <script>
       var verticalSlider = document.getElementById('slider-vertical');
@@ -146,7 +208,7 @@
 				               }
 			            }
 		  },
-     	start: -40,
+     	start: 0,
        direction: 'rtl',
      	orientation: 'vertical',
      	range: {
