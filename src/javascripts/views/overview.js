@@ -3,11 +3,12 @@ window.twentyfifty.views.overview = function() {
   this.setup = function() {
       $("#results").append("<div id='overview'><div id='overview_emissions' class='overview'></div><div id='overview_energy' class='overview'></div><div class='clear'></div></div>");
 
+
       containers_1 = d3.select("#overview_emissions").selectAll(".chart")
 	  .data(['top_container_1', 'bottom_container_1']);
 
       containers_2 = d3.select("#overview_energy").selectAll(".chart")
-	  .data(['top_container_2', 'bottom_container_2']);
+    .data(['top_container_2', 'bottom_container_2']);
 
       containers_1.enter()
 	  .append('div')
@@ -20,11 +21,31 @@ window.twentyfifty.views.overview = function() {
 	  .attr('class', 'chart');
 
 
-      this.emissions_by_sector_chart = timeSeriesStackedAreaChart()
-	  .title("Emissions by Sector")
+    this.emissions_by_sector_chart = lineChart()
+	  .title("Greenhouse Gas Emissions")
+	  .unit('Mt.CO2e/yr')
+    //      .css_for_label(css_for_labels)
+    .max_value(100);
+
+    this.emissions_cumulative = lineChart()
+	  .title("Cumulative UK Greenhouse Gas Emissions")
 	  .unit('Mt.CO2e')
-      //      .css_for_label(css_for_labels)
-          .max_value(200);
+    //      .css_for_label(css_for_labels)
+    .max_value(50000);
+
+/*
+    this.energy_consumption = lineChart()
+	  .title("Primary Energy Consumption")
+	  .unit('TWh/yr')
+    //      .css_for_label(css_for_labels)
+    .max_value(500);
+
+    this.final_energy_consumption = lineChart()
+    .title("Final Energy Consumption")
+    .unit('TWh/yr')
+    //      .css_for_label(css_for_labels)
+    .max_value(500);
+*/
 
 //      this.cumulative_emissions_chart = lineGraphChart()
 //	  .title("Cumulative Emissions")
@@ -32,15 +53,15 @@ window.twentyfifty.views.overview = function() {
 //      //      .css_for_label(css_for_labels)
 //      //      .max_value(4000);
 //
-      this.primary_energy_supply_chart = timeSeriesStackedAreaChart()
-	  .title("Primary Energy Supply")
-	  .unit('')
+//      this.primary_energy_supply_chart = timeSeriesStackedAreaChart()
+//	  .title("Primary Energy Supply")
+//	  .unit('')
 //      .css_for_label(css_for_labels)
 //      .min_value(-500)
-      	  .max_value(200);
-      this.final_energy_demand_chart = timeSeriesStackedAreaChart()
-	  .title("Final Energy Demand")
-	  .unit('');
+//      	  .max_value(200);
+//      this.final_energy_demand_chart = timeSeriesStackedAreaChart()
+//	  .title("Final Energy Demand")
+//	  .unit('');
 //      .css_for_label(css_for_labels)
 //      .min_value(-500)
 //	  .max_value(1000);
@@ -62,12 +83,10 @@ window.twentyfifty.views.overview = function() {
     // Do not Skip any header row, and put the table into
     // a Hash table with the key being the first column and the
     // value being the rest
-
-	console.log(table);
-	//((table.slice(79,87)).concat(table.slice(124,128))).forEach(function(row) {
-	((table.slice(0,12))).forEach(function(row) {
+	((table.slice(79,87)).concat(table.slice(124,128))).forEach(function(row) {
 	    hash.set(row[0], row.slice(1));
 	});
+  //console.log('convert_buggy_emission_table_to_hash ', hash);
 	return hash;
     }
 
@@ -85,39 +104,35 @@ window.twentyfifty.views.overview = function() {
 	return hash;
     }
 
-
-  this.updateResults = function(pathway) {
+this.updateResults = function(pathway) {
       this.pathway = pathway;
-      console.log("updateResults:");
-      console.log(pathway);
-      // change color of warning icons
-      if(pathway.warningsBio[0][1]==1){
-        $("#wR_div svg path").css("fill", "red");
-      }else {
-        $("#wR_div svg path").css("fill", "#b2c1d1");
-      }
-      // change warning tooltip texts
-      $('#wR_div').attr('data-original-title', pathway.warningsBio[1][1]);
-      // change text below gauge
-      $('#gauge_year_text').text(pathway.mEyrZero[0][1]);
-      // set value of gauge
-      var co2_red = (1-pathway.mEreduction[1][1])*-100;
-      verticalSlider.noUiSlider.set(co2_red);
-      //<div class="noUi-Gtooltip">-25%</div>
-      if(co2_red < -100){$('.noUi-Gtooltip').html(Math.round(co2_red)+"%");}
       this.choices = twentyfifty.choices;
+      updateGauge(pathway);
       // construct the data
       // connect the containers with charts and data
-      d3.select('#top_container_1')
-	  .datum(convert_buggy_emission_table_to_hash(pathway.ghg))
+      //console.log('pathway ', pathway.ghg, twentyfifty.choices);
+      //console.log('this.emissions_by_sector_chart ', this.emissions_by_sector_chart, pathway.ghg);
+    d3.select('#top_container_1')
+	  .datum(convert_capacity_table_to_hash(pathway.emissions_sector))
 	  .call(this.emissions_by_sector_chart);
 
-      d3.select('#bottom_container_1')
-	  .datum(convert_capacity_table_to_hash(pathway.electricity.capacity))
-	  .call(this.primary_energy_supply_chart);
+    d3.select('#bottom_container_1')
+	  .datum(convert_capacity_table_to_hash(pathway.emissions_cumulative))
+	  .call(this.emissions_cumulative);
 
+/*
+        d3.select('#top_container_2')
+        .datum(convert_capacity_table_to_hash(pathway.energy_consumption))
+        .call(this.energy_consumption);
+
+        d3.select('#bottom_container_2')
+        .datum(convert_capacity_table_to_hash(pathway.final_energy_consumption))
+        .call(this.final_energy_consumption);
+*/
 
   };
+
+  lineChart();
 
   return this;
 

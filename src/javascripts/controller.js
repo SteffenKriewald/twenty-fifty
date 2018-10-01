@@ -1042,3 +1042,25 @@ function bookmark(){
 
   alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page or copy the link \n\n'+ window.location.href  + ' \n\n(already in your clipboard)');
 }
+
+
+updateGauge = function(pathway) {
+  // find other place
+      console.log("updateResults:");
+      console.log(pathway);
+      // change color of warning icons
+      if(pathway.warningsBio[0][1]==1){
+        $("#wR_div svg path").css("fill", "red");
+      }else {
+        $("#wR_div svg path").css("fill", "#b2c1d1");
+      }
+      // change warning tooltip texts
+      $('#wR_div').attr('data-original-title', pathway.warningsBio[1][1]);
+      // change text below gauge
+      $('#gauge_year_text').text(pathway.mEyrZero[0][1]);
+      // set value of gauge
+      var co2_red = (1-pathway.mEreduction[1][1])*-100;
+      verticalSlider.noUiSlider.set(co2_red);
+      //<div class="noUi-Gtooltip">-25%</div>
+      if(co2_red < -100){$('.noUi-Gtooltip').html(Math.round(co2_red)+"%");}
+};

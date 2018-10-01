@@ -25,6 +25,7 @@
 //= require util/model_structure
 //= require util/costs_common_methods
 //= require util/stacked_area_chart
+//= require util/line_chart
 
 // Now the controller
 //= require controller

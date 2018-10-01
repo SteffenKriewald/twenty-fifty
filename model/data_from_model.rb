@@ -14,14 +14,14 @@ end
 
 class DataFromModel
   attr_accessor :pathway
-  
+
   # This connects to model.rb which
-  # connects to model.c which is a 
+  # connects to model.c which is a
   # translation of model.xlsx
   def excel
     @excel ||= Model.new
   end
-  
+
   # Data that changes as the user makes choices
   # The code should be in the form i0g2dd2pp1121f1i032211p004314110433304202304320420121
   # Where each letter or digit corresponds to a choice to be set in the Excel
@@ -34,7 +34,7 @@ class DataFromModel
 
     choices = convert_letters_to_float(code[0..number_of_non_empty_levers -1].split(''))
     starts = convert_letters_to_dates(code[number_of_non_empty_levers..(2 * number_of_non_empty_levers) -1].split(''))
-    ends = convert_letters_to_dates(code[(2 * number_of_non_empty_levers)..(3 * number_of_non_empty_levers) -1].split('')) 
+    ends = convert_letters_to_dates(code[(2 * number_of_non_empty_levers)..(3 * number_of_non_empty_levers) -1].split(''))
     puts "\n================================================================================\n" +
          code[0..number_of_non_empty_levers -1]
          "\n================================================================================\n"
@@ -44,7 +44,7 @@ class DataFromModel
     puts "\n================================================================================\n" +
          code[2 * number_of_non_empty_levers..(3 * number_of_non_empty_levers) -1]
          "\n================================================================================\n"
-    
+
     # Set the spreadsheet controls (input.choices is a named reference in the Excel)
     ## deactivatety dynamics (model calculations)
          excel.input_lever_ambition = choices
@@ -52,29 +52,33 @@ class DataFromModel
          excel.input_lever_end = ends
     # Read out the results, where each of these refers to a named reference in the Excel
     # (e.g. excel.output_impots_quantity refers to the output.imports.quantity named reference)
-    { 
-      '_id' => code, 
+    {
+      '_id' => code,
       'choices' => choices,
 	# Gauge
 	'mEreduction' => excel.output_metric_emissions_reduction_twentyfifty,
 	'mEyrZero' => excel.output_metric_emissions_yrzero,
 	# Warnings
 	'warningsL4' => excel.output_warning_L4chosen, # ["Icon on?", 1] ["Warning Text", "..."]
-	'warningsBio' => excel.output_warning_bio_imports, 
+	'warningsBio' => excel.output_warning_bio_imports,
 	'warningsEP' => excel.output_warning_elec_peak,
 	'warningsEx' => excel.output_warning_exceedL4_rate,
-	'warningsLand' => excel.output_warning_land,  
+	'warningsLand' => excel.output_warning_land,
       'sankey' => excel.output_flows, # output.flows in the Excel
 #      'ghg' => excel.output_emissions_by_sector, # output.emissions.by.sector in Excel
       'ghg' => excel.output_emissions_sector, # output.emissions.by.sector in Excel
       'electricity' => {
         'capacity' => excel.output_electricity_capacity_type
-      }
+      },
+      'emissions_sector' => excel.output_emissions_sector,
+      'emissions_cumulative' => excel.output_emissions_cumulative,
+      'energy_consumption' => excel.output_primary_energy_consumption,
+      'final_energy_consumption' => excel.output_final_energy_consumption,
     }
   end
 
   # Data that doesn't change with user choices (more structural)
-  
+
   def choices
     @choices ||= generate_choices
   end
@@ -102,12 +106,12 @@ class DataFromModel
   def reported_calculator_version
     excel.output_version
   end
-  
+
   def types
     @types ||= excel.input_types.flatten
   end
 
-  
+
   def choice_sizes
     sizes = {}
     choices.each do |choice|
@@ -127,7 +131,7 @@ class DataFromModel
   def long_descriptions
     @long_descriptions ||= excel.input_long_descriptions
   end
-    
+
   def example_pathways
         @example_pathways ||= generate_example_pathways
 #        @example_pathways = []
@@ -137,7 +141,7 @@ class DataFromModel
 #    @one_page_note_filenames ||= excel.input_onepagenotes.flatten
         @one_page_note_filenames = []
   end
-  
+
   def generate_example_pathways
     # Transpose the data so that every row is an example pathway
     data = excel.input_example_pathways.transpose
@@ -161,14 +165,14 @@ class DataFromModel
       e[:code]
     end
   end
-  
+
   # FIXME: Only wraps one line into two
   def wrap(string, wrap_at_length = 45)
     return "" unless string
     string = string.to_s
     length_so_far = 0
-    string.split.partition do |word| 
-      length_so_far = length_so_far + word.length + 1 # +1 for the trailing space 
+    string.split.partition do |word|
+      length_so_far = length_so_far + word.length + 1 # +1 for the trailing space
       length_so_far > wrap_at_length
     end.reverse.map { |a| a.join(" ") }.join("\n")
   end
@@ -180,7 +184,7 @@ class DataFromModel
   FLOAT_TO_LETTER_MAP[2.0] = '2'
   FLOAT_TO_LETTER_MAP[3.0] = '3'
   FLOAT_TO_LETTER_MAP[4.0] = '4'
-  
+
   LETTER_TO_FLOAT_MAP = FLOAT_TO_LETTER_MAP.invert
 
 
@@ -202,7 +206,7 @@ class DataFromModel
   LETTER_TO_DATES_MAP['o'] = '2090'
   LETTER_TO_DATES_MAP['p'] = '2095'
   LETTER_TO_DATES_MAP['q'] = '2100'
-  
+
   def convert_float_to_letters(array)
     array.map do |entry|
       case entry
@@ -212,20 +216,20 @@ class DataFromModel
       end
     end
   end
-  
+
   def convert_letters_to_float(array)
     array.map do |entry|
       LETTER_TO_FLOAT_MAP[entry].to_f || entry.to_f
     end
   end
- 
+
   def convert_letters_to_dates(array)
     array.map do |entry|
       LETTER_TO_DATES_MAP[entry].to_i || entry.to_i
     end
   end
 
-  
+
 end
 
 if __FILE__ == $0
@@ -244,4 +248,3 @@ if __FILE__ == $0
   puts "#{te/tests} seconds per run"
   puts "#{tests/te} runs per second"
 end
-
