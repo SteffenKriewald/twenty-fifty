@@ -5,7 +5,7 @@
   margin: 0;
   margin-left: 2.5%;
   font-size: 12px;
-  width: 55%;
+  width: 80%;
   margin-bottom: 30px;
   float: left;
 }
@@ -15,7 +15,7 @@
   }
 
   #overview .clear {
-     clear: both; 
+     clear: both;
   }
 
 svg {

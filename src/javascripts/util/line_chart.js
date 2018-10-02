@@ -10,7 +10,10 @@ window.lineChart = function() {
 
   width = 700; // Of svg in pixels
   height = 125; // of svg in pixels
-  margin = { top: 82, right: 216, bottom: 80, left: 66 }; // The margins between the edge of the svg and the main chart area. Needs to be big enough for labels.
+  var maxHeight = 400;
+  var maxWidth = 680;
+
+  margin = { top: 82, right: 225, bottom: 80, left: 66 }; // The margins between the edge of the svg and the main chart area. Needs to be big enough for labels.
   x_center = (width - margin.left - margin.right) / 2;
 
   title = ""; // Default, Can be accessed or set with chart.title("New title")
@@ -158,7 +161,8 @@ window.lineChart = function() {
           // First, we rescale the graph
           // FIXME: JQuery dependency
           width = $(this).width();
-          height = width / 1.2;
+          width = width > maxWidth ? maxWidth : width;
+          height = (width / 1.2) > maxHeight ? maxHeight : width / 1.2;
           x_center = (width - (margin.left * 2)) / 2;
           xScale
             .domain([extent.xmin, extent.xmax])
@@ -198,6 +202,20 @@ window.lineChart = function() {
             total_series.push(series);
             //console.log('series 2 ', series);
           } // Finish looping through the series
+
+          total_series.sort(function (a, b) {
+            var aLast =a.value[a.value.length-1].y;
+            var bLast = b.value[b.value.length-1].y;
+
+            if (aLast < bLast) {
+              return 1;
+            }
+            if (aLast > bLast) {
+              return -1;
+            }
+            // a muss gleich b sein
+            return 0;
+          });
 
           console.log('total_series ', total_series);
           // Now we start the actual drawing
@@ -310,15 +328,14 @@ window.lineChart = function() {
 
           //important, select from g, not from gEnter, otherwise not responsive
           var legend = g.select(".legend")
-            .attr("transform", "translate(" + (width - margin.right - margin.left + 10) + ","+10+")");
-
+            .attr("transform", "translate(" + (width - margin.right - margin.left + 25) + ","+10+")");
 
           var legendItems = legend.selectAll("g").data(total_series);
           var legendItemsEnter = legendItems.enter()
                                   .append("g").attr("class", "legenditem")
                                   .attr("transform", function (d, i)
                                     {
-                                        return "translate(0," + i * 20 + ")"
+                                        return "translate(0," + i * 16 + ")"
                                     });
 
 
@@ -335,8 +352,7 @@ window.lineChart = function() {
               .attr("y", 10)
               .text(function (d) { return d.key; })
               .attr("class", "textselected")
-              .style("text-anchor", "start")
-              .style("font-size", 15);
+              .style("text-anchor", "start");
 
 
           // Now we work through the labels. Only display ones that relate to the larger areas

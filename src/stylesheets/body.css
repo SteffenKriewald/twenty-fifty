@@ -4,7 +4,12 @@ body {
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 465px !important;
-  padding: 0; }
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-height: 600px;
+}
 
 #svgWarn {
   display: none;
