@@ -197,12 +197,15 @@ window.lineChart = function() {
               };
             });
             series.path = line;
+            series.color = getColor(_i);
+            series.dashArray = getDashArray(_i);
             //series.css = seriesClass(series, function() { return "total" });
             //series.css = seriesClass(series, automaticallyAsignCSS);
             total_series.push(series);
             //console.log('series 2 ', series);
           } // Finish looping through the series
 
+          console.log('sorting ...');
           total_series.sort(function (a, b) {
             var aLast =a.value[a.value.length-1].y;
             var bLast = b.value[b.value.length-1].y;
@@ -264,7 +267,6 @@ window.lineChart = function() {
           //console.log('inside ', Object);
           areas = g.select('g.series').selectAll("path")
             .data(total_series, function(d) {
-              //console.log('inside ', Object, d);
               return d.key; }); // Select all the existing series that have been drawn, matching on the series name in case the order changes
 
           areas.enter() // When we have new series, add a new path
@@ -275,8 +277,8 @@ window.lineChart = function() {
           // Oh yeah. Don't forget to actually draw the lines
           areas.transition()
             .attr("d", function(d) { return d.path(d.value); })
-            .attr('stroke', function(d,i) { return getColor(i); })
-            .attr('stroke-dasharray', function(d,i) { return getDashArray(i); });
+            .attr('stroke', function(d) { return d.color; })
+            .attr('stroke-dasharray', function(d) { return d.dashArray; });
 
           // Axis time!
           gEnter.append("g").attr("class", "x axis")
@@ -330,22 +332,20 @@ window.lineChart = function() {
           var legend = g.select(".legend")
             .attr("transform", "translate(" + (width - margin.right - margin.left + 25) + ","+10+")");
 
-          var legendItems = legend.selectAll("g").data(total_series);
-          var legendItemsEnter = legendItems.enter()
-                                  .append("g").attr("class", "legenditem")
-                                  .attr("transform", function (d, i)
-                                    {
-                                        return "translate(0," + i * 16 + ")"
-                                    });
+          var legendItems = legend.selectAll("g").data(total_series,function(d) {return d.key; }); //matching on the series name in case the order changes
+          var legendItemsEnter = legendItems.enter().append("g").attr("class", "legenditem");
 
+          legendItems.attr("transform", function (d, i) {
+            return "translate(0," + i * 16 + ")"
+          });
 
           legendItemsEnter.append('line')
               .attr("x1", 0)
               .attr("y1", 5)
               .attr("x2", 30)
               .attr("y2", 5)
-              .attr('stroke', function(d,i) { return getColor(i); })
-              .attr('stroke-dasharray', function(d,i) { return getDashArray(i); });
+              .attr('stroke', function(d) { return d.color; })
+              .attr('stroke-dasharray', function(d) { return d.dashArray; });
 
           legendItemsEnter.append('text')
               .attr("x", 35)
@@ -353,7 +353,7 @@ window.lineChart = function() {
               .text(function (d) { return d.key; })
               .attr("class", "textselected")
               .style("text-anchor", "start");
-
+/*
 
           // Now we work through the labels. Only display ones that relate to the larger areas
           // Make sure we do them in the right order so that they overlap neatly
@@ -391,7 +391,7 @@ window.lineChart = function() {
               return a_y - b_y;
             }
           });
-
+*/
 /*
 
           // Now we start right at the bottom of the chart
