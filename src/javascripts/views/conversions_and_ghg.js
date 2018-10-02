@@ -1,13 +1,14 @@
 window.twentyfifty.views.conversions_and_ghg = function() {
 
   this.setup = function() {
-      $("#results").append("<div id='conversions_and_ghg'><div id='conversions_and_ghg_emissions' class='conversions_and_ghg'></div><div id='conversions_and_ghg_gas_grid' class='conversions_and_ghg'></div><div class='clear'></div></div>");
+  $("#results").append('<div class="viewToggle"><div id="vT1" class="vT1 vTactive" onclick="showView1()">Emissions Removal</div><div id="vT2" class="vT2" onclick="showView2()">Gas Grid & Hydrogen</div></div>')
+  $("#results").append("<div id='conversions_and_ghg' class='viewContainer'><div id='view1' class='overview visible'></div><div id='view2' class='overview hidden'></div><div class='clear'></div></div>");
 
-      containers_1 = d3.select("#conversions_and_ghg_emissions").selectAll(".chart")
-	  .data(['top_container_1', 'bottom_container_1']);
+    containers_1 = d3.select("#view1").selectAll(".chart")
+    .data(['top_container_1', 'bottom_container_1']);
 
-      containers_2 = d3.select("#conversions_and_ghg_gas_grid").selectAll(".chart")
-	  .data(['top_container_2', 'bottom_container_2']);
+    containers_2 = d3.select("#view2").selectAll(".chart")
+    .data(['top_container_2', 'bottom_container_2']);
 
       containers_1.enter()
 	  .append('div')
@@ -18,32 +19,35 @@ window.twentyfifty.views.conversions_and_ghg = function() {
 	  .append('div')
 	  .attr('id', Object)
 	  .attr('class', 'chart');
-      
-      this.emissions_from_conversions_and_ghg_chart = timeSeriesStackedAreaChart()
-	  .title("Emissions from Energy Conversion & GHG Reduction")
-	  .unit('');
+
+    this.emissions_from_conversions_and_ghg_chart = timeSeriesStackedAreaChart()
+	  .title("Emissions Removal")
+	  .unit('Mt.CO2e/yr')
+    .max_value(50);
       //      .css_for_label(css_for_labels)
       //      .max_value(4000);
 
-      this.total_co2_captured_chart = timeSeriesStackedAreaChart()
-	  .title("Total CO2 captured (CCS & GHG Reduction)")
-	  .unit('');
+    this.total_co2_captured_chart = lineChart()
+	  .title("Cumulative Emissions Stored")
+	  .unit('Mt.CO2e');
       //      .css_for_label(css_for_labels)
       //      .max_value(4000);
-      
-      this.gas_grid_fuel_share_chart = timeSeriesStackedAreaChart()
-	  .title("Gas Grid fuel Share")
-	  .unit('');
+
+    this.gas_grid_fuel_share_chart = timeSeriesStackedAreaChart()
+	  .title("Gas Distribution Grid Energy Supplied")
+	  .unit('TWh/yr')
+    .max_value(1000);
 //      .css_for_label(css_for_labels)
 //      .min_value(-500)
       //	  .max_value(1000);
-      this.hydrogen_production_by_technology_chart = timeSeriesStackedAreaChart()
-	  .title("Hydrogen Production by Technology")
-	  .unit('');
+    this.hydrogen_production_by_technology_chart = timeSeriesStackedAreaChart()
+	  .title("Hydrogen Supply")
+	  .unit('TWh/yr')
+    .max_value(.1);
 //      .css_for_label(css_for_labels)
 //      .min_value(-500)
 //	  .max_value(1000);
-      
+
   };
 
   this.teardown = function() {
@@ -55,12 +59,38 @@ window.twentyfifty.views.conversions_and_ghg = function() {
   };
 
   this.updateResults = function(pathway) {
-    this.pathway = pathway;
-    this.choices = twentyfifty.choices;
+      this.pathway = pathway;
+      this.choices = twentyfifty.choices;
+      updateGauge(pathway);
 
-  };
+      classView1 = document.getElementById("view1").getAttribute('class');
+      classView2 = document.getElementById('view2').getAttribute('class');
+      document.getElementById('view1').setAttribute('class', 'overview visible');
+      document.getElementById('view2').setAttribute('class', 'overview visible');
 
+      d3.select('#top_container_1')
+  	  .datum(convert_capacity_table_to_hash(pathway.emissions_removal))
+  	  .call(this.emissions_from_conversions_and_ghg_chart);
 
-  return this;
+      d3.select('#bottom_container_1')
+  	  .datum(convert_capacity_table_to_hash(pathway.emissions_stored))
+  	  .call(this.total_co2_captured_chart);
+
+      d3.select('#top_container_2')
+      .datum(convert_capacity_table_to_hash(pathway.gas_grid))
+      .call(this.gas_grid_fuel_share_chart);
+
+      d3.select('#bottom_container_2')
+      .datum(convert_capacity_table_to_hash(pathway.hydrogen_production))
+      .call(this.hydrogen_production_by_technology_chart);
+
+      document.getElementById('view1').setAttribute('class', classView1);
+      document.getElementById('view2').setAttribute('class', classView2);
+
+    };
+
+    lineChart();
+
+    return this;
 
 }.call({});

@@ -148,12 +148,12 @@ window.twentyfifty.views.electricity = function() {
       .datum(convert_table_to_hash(pathway.electricity.ghg))
       .call(this.emissions_chart);
   };
-  
+
   // This is used to convert the table from how it looks in Excel
   // into the format needed to plot a chart
   convert_table_to_hash = function(table) {
     hash = d3.map();
-    
+
     // Skip the header row, and put the rest of the table into
     // a Hash table with the key being the first column and the
     // value being the rest

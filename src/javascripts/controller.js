@@ -1056,6 +1056,25 @@ function showView2() {
   document.getElementById("view2").setAttribute('class', 'overview visible');
 };
 
+function showViewA() {
+  showView1();
+  document.getElementById("vT3").setAttribute('class', 'vT3');
+  document.getElementById("view3").setAttribute('class', 'overview hidden');
+};
+function showViewB() {
+  showView2();
+  document.getElementById("vT3").setAttribute('class', 'vT3');
+  document.getElementById("view3").setAttribute('class', 'overview hidden');
+};
+function showViewC() {
+  document.getElementById("vT1").setAttribute('class', 'vT1');
+  document.getElementById("view1").setAttribute('class', 'overview hidden');
+  document.getElementById("vT2").setAttribute('class', 'vT2');
+  document.getElementById('view2').setAttribute('class', 'overview hidden');
+  document.getElementById("vT3").setAttribute('class', 'vT3 vTactive');
+  document.getElementById("view3").setAttribute('class', 'overview visible');
+};
+
 updateGauge = function(pathway) {
   // find other place
       console.log("updateResults:");

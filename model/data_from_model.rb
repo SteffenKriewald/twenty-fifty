@@ -85,6 +85,28 @@ class DataFromModel
       'tra_energy' => excel.output_tra_energy_consumption,
       'tra_pass' => excel.output_tra_pass_distance,
       'tra_energy_con' => excel.output_tra_energy_consumption_vehicle,
+      # Industry
+      'ind_emissions' => excel.output_ind_emissions,
+      'ind_energy_consumption' => excel.output_ind_energy_consumption,
+      # co2 Reduction
+      'emissions_removal' => excel.output_emissions_removal,
+      'emissions_stored' => excel.output_emissions_stored_cumulative,
+      'gas_grid' => excel.output_gas_grid_dist_supply,
+      'hydrogen_production' => excel.output_hydrogen_production,
+      # electricity
+      'electricity_emissions' => excel.output_electricity_emissions,
+      'electricity_generation' => excel.output_electricity_generation_type,
+      'electricity_capacity' => excel.output_electricity_capacity_type,
+      'electricity_peak' => excel.output_electricity_peak_demand,
+      # land use
+      'land_emissions' => excel.output_land_bio_emissions,
+      'land_trade_off' => excel.output_land_area_trade_off,
+      'land_bioenergy' => excel.output_land_bioenergy_production,
+      'bioenergy_imports' => excel.output_bioenergy_imports,
+      # import flow map
+      'security_import_energy' => excel.output_security_import_energy,
+      'security_import_fraction' => excel.output_security_import_fraction,
+
     }
   end
 

@@ -495,7 +495,7 @@ table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:cen
   height: 21px;
   width: 155px;
   text-align: center;
-  cursor: pointer;
+/*  cursor: pointer;*/
   outline: none;
   color: black;
   background-color: #ccd6e0;
@@ -505,7 +505,8 @@ table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:cen
 
 .viewToggle:hover {background-color: #b2c1d1}
 
-.vT1 {
+.vT1, .vT1_nohover, .vT2, .vT3 {
+  cursor: pointer;
   position:absolute;
   top:45px;
   left:500px;
@@ -513,31 +514,26 @@ table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:cen
   height: 21px;
   width: 155px;
   text-align: center;
-  cursor: pointer;
   outline: none;
   color: black;
   background-color: #ccd6e0;
   border: 1px #003366 solid;
   border-radius: 1px;
+}
+
+.vT1_nohover {
+cursor: none;
 }
 
 .vT2 {
-  position:absolute;
-  top:45px;
   left:655px;
-  margin: 4px 8px;
-  height: 21px;
-  width: 155px;
-  text-align: center;
-  cursor: pointer;
-  outline: none;
-  color: black;
-  background-color: #ccd6e0;
-  border: 1px #003366 solid;
-  border-radius: 1px;
 }
 
-.vT1:hover, .vT2:hover {background-color: #b2c1d1}
+.vT3 {
+  left:810px;
+}
+
+.vT1:hover, .vT2:hover, .vT3:hover {background-color: #b2c1d1}
 
 
 .vTactive {
