@@ -114,7 +114,8 @@ class DataFromModel
   end
 
   def types
-    @types ||= excel.input_types.flatten
+    # no longer needed (?), no named range in excel
+    @types ||= [4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4]
   end
 
 
