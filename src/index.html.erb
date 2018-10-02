@@ -471,6 +471,15 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
       </div>
 
 
+      <script>
+      // Set defualt start and end Dates
+      sliderSlider1.noUiSlider.set(2030,2060);
+      var targetDiv = document.getElementById("cd1").getElementsByClassName("dropbtn-dates ed")[0];
+      targetDiv.textContent = "2060";
+      var targetDiv = document.getElementById("cd1").getElementsByClassName("dropbtn-dates sd")[0];
+      targetDiv.textContent = "2030";
+      </script>
+
       <!-- building header table -->
 
       <div class= "accordion-toggle">

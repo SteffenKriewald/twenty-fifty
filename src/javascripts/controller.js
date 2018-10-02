@@ -1043,6 +1043,18 @@ function bookmark(){
   alert('Press ' + (navigator.userAgent.toLowerCase().indexOf('mac') != - 1 ? 'Command/Cmd' : 'CTRL') + ' + D to bookmark this page or copy the link \n\n'+ window.location.href  + ' \n\n(already in your clipboard)');
 }
 
+function showView1() {
+  document.getElementById("vT1").setAttribute('class', 'vT1 vTactive');
+  document.getElementById("vT2").setAttribute('class', 'vT2');
+  document.getElementById("view1").setAttribute('class', 'overview visible');
+  document.getElementById('view2').setAttribute('class', 'overview hidden');
+};
+function showView2() {
+  document.getElementById("vT1").setAttribute('class', 'vT1');
+  document.getElementById("vT2").setAttribute('class', 'vT2 vTactive');
+  document.getElementById("view1").setAttribute('class', 'overview hidden');
+  document.getElementById("view2").setAttribute('class', 'overview visible');
+};
 
 updateGauge = function(pathway) {
   // find other place

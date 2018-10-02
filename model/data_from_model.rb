@@ -70,10 +70,16 @@ class DataFromModel
       'electricity' => {
         'capacity' => excel.output_electricity_capacity_type
       },
+      # Overview
       'emissions_sector' => excel.output_emissions_sector,
       'emissions_cumulative' => excel.output_emissions_cumulative,
       'energy_consumption' => excel.output_primary_energy_consumption,
       'final_energy_consumption' => excel.output_final_energy_consumption,
+      # Buildings
+      'buildings_emissions' => excel.output_buildings_emissions,
+      'buildings_energy' => excel.output_buildings_energy_consumption,
+      'buildings_heat_supply' => excel.output_buildings_heat_supply,
+      'buildings_heat_demand' => excel.output_buildings_heat_demand,
     }
   end
 
