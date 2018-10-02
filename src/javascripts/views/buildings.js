@@ -2,7 +2,7 @@ window.twentyfifty.views.buildings = function() {
 
   this.setup = function() {
   $("#results").append('<div class="viewToggle"><div id="vT1" class="vT1 vTactive" onclick="showView1()">Energy & Emissions</div><div id="vT2" class="vT2" onclick="showView2()">Heat</div></div>')
-  $("#results").append("<div id='buildings' class='buildings'><div id='view1' class='overview visible'></div><div id='view2' class='overview hidden'></div><div class='clear'></div></div>");
+  $("#results").append("<div id='buildings' class='viewContainer'><div id='view1' class='overview visible'></div><div id='view2' class='overview hidden'></div><div class='clear'></div></div>");
 
     containers_1 = d3.select("#view1").selectAll(".chart")
     .data(['top_container_1', 'bottom_container_1']);
