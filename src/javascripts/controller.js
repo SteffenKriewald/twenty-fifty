@@ -1049,13 +1049,38 @@ updateGauge = function(pathway) {
       console.log("updateResults:");
       console.log(pathway);
       // change color of warning icons
+      if(pathway.warningsL4[0][1]==1){
+        $("#w4_div svg path").css("fill", "red");
+      }else {
+        $("#w4_div svg path").css("fill", "#b2c1d1");
+      }
       if(pathway.warningsBio[0][1]==1){
+        $("#wL_div svg path").css("fill", "red");
+      }else {
+        $("#wL_div svg path").css("fill", "#b2c1d1");
+      }
+      if(pathway.warningsEx[0][1]==1){
         $("#wR_div svg path").css("fill", "red");
       }else {
         $("#wR_div svg path").css("fill", "#b2c1d1");
       }
+      if(pathway.warningsLand[0][1]==1){
+        $("#wE_div svg path").css("fill", "red");
+      }else {
+        $("#wE_div svg path").css("fill", "#b2c1d1");
+      }
+      if(pathway.warningsEP[0][1]==1){
+        $("#wP_div svg path").css("fill", "red");
+      }else {
+        $("#wP_div svg path").css("fill", "#b2c1d1");
+      }
+
       // change warning tooltip texts
-      $('#wR_div').attr('data-original-title', pathway.warningsBio[1][1]);
+      $('#w4_div').attr('data-original-title', pathway.warningsL4[1][1]);
+      $('#wL_div').attr('data-original-title', pathway.warningsBio[1][1]);
+      $('#wR_div').attr('data-original-title', pathway.warningsEx[1][1]);
+      $('#wE_div').attr('data-original-title', pathway.warningsLand[1][1]);
+      $('#wP_div').attr('data-original-title', pathway.warningsEP[1][1]);
       // change text below gauge
       $('#gauge_year_text').text(pathway.mEyrZero[0][1]);
       // set value of gauge

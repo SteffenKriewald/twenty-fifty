@@ -59,10 +59,10 @@ class DataFromModel
 	'mEreduction' => excel.output_metric_emissions_reduction_twentyfifty,
 	'mEyrZero' => excel.output_metric_emissions_yrzero,
 	# Warnings
-	'warningsL4' => excel.output_warning_L4chosen, # ["Icon on?", 1] ["Warning Text", "..."]
+	'warningsL4' => excel.output_warning_l4chosen, # ["Icon on?", 1] ["Warning Text", "..."]
 	'warningsBio' => excel.output_warning_bio_imports,
 	'warningsEP' => excel.output_warning_elec_peak,
-	'warningsEx' => excel.output_warning_exceedL4_rate,
+	'warningsEx' => excel.output_warning_exceedl4_rate,
 	'warningsLand' => excel.output_warning_land,
       'sankey' => excel.output_flows, # output.flows in the Excel
 #      'ghg' => excel.output_emissions_by_sector, # output.emissions.by.sector in Excel

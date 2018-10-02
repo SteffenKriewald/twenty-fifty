@@ -118,22 +118,36 @@
 
 
     <div class="warnings">
-    <img id="w4" class="svg warning" src="/assets/warning_icons/four.svg"/><br>
-      <div id="wR_div" data-original-title="Das ist eine Rakete">
-        <img id="wR" class="svg warning" src="/assets/warning_icons/rocket.svg"/><br>
-      </div>
-      <img id="wL" class="svg warning" src="/assets/warning_icons/leaf.svg"/><br>
-      <img id="wE" class="svg warning" src="/assets/warning_icons/expand-arrows-alt.svg"/><br>
-      <img id="wP" class="svg warning" src="/assets/warning_icons/chart-pie.svg"/><br>
-    </div>
-  <script>
-  /*
-   * Replace all SVG images with inline SVG
-   https://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement
-   */
-   $(document).ready(function(){
-       $('#wR_div').tooltip();
-   });
+         <div id="w4_div" data-original-title="...">
+           <img id="w4" class="svg warning" src="/assets/warning_icons/four.svg"/><br>
+         </div>
+         <div id="wR_div" data-original-title="...">
+           <img id="wR" class="svg warning" src="/assets/warning_icons/rocket.svg"/><br>
+         </div>
+         <div id="wL_div" data-original-title="...">
+           <img id="wL" class="svg warning" src="/assets/warning_icons/leaf.svg"/><br>
+         </div>
+         <div id="wE_div" data-original-title="...">
+           <img id="wE" class="svg warning" src="/assets/warning_icons/expand-arrows-alt.svg"/><br>
+         </div>
+         <div id="wP_div" data-original-title="...">
+           <img id="wP" class="svg warning" src="/assets/warning_icons/chart-pie.svg"/><br>
+         </div>
+       </div>
+
+     <script>
+     /*
+      * Replace all SVG images with inline SVG
+      https://stackoverflow.com/questions/11978995/how-to-change-color-of-svg-image-using-css-jquery-svg-image-replacement
+      */
+      $(document).ready(function(){
+          $('#w4_div').tooltip();
+          $('#wR_div').tooltip();
+          $('#wL_div').tooltip();
+          $('#wE_div').tooltip();
+          $('#wP_div').tooltip();
+      });
+
 
    jQuery('img.svg').each(function(){
        var $img = jQuery(this);
