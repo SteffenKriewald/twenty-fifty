@@ -80,6 +80,11 @@ class DataFromModel
       'buildings_energy' => excel.output_buildings_energy_consumption,
       'buildings_heat_supply' => excel.output_buildings_heat_supply,
       'buildings_heat_demand' => excel.output_buildings_heat_demand,
+      # Transport
+      'tra_emissions' => excel.output_tra_emissions,
+      'tra_energy' => excel.output_tra_energy_consumption,
+      'tra_pass' => excel.output_tra_pass_distance,
+      'tra_energy_con' => excel.output_tra_energy_consumption_vehicle,
     }
   end
 

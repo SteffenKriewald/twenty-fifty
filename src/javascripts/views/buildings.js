@@ -56,8 +56,8 @@ window.twentyfifty.views.buildings = function() {
       $("#results").empty();
       this.emissions_from_buildings_chart = null;
       this.buildings_energy_consumption_chart = null;
-      this.heat_supplied_by_technology_chart = null;
-//      this.total_heat_demand_chart = null;
+      this.buildings_heat_supply_chart = null;
+      this.buildings_heat_demand_chart = null;
   };
 
   this.updateResults = function(pathway) {
