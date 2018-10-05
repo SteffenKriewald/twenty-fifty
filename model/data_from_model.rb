@@ -4,6 +4,8 @@ require_relative 'model_version'
 class ModelChoice
   attr_accessor :number
   attr_accessor :name
+  attr_accessor :dstartdate
+  attr_accessor :denddate
   attr_accessor :type
   attr_accessor :descriptions
   attr_accessor :long_descriptions
@@ -125,6 +127,8 @@ class DataFromModel
       choice = ModelChoice.new
       choice.number = i
       choice.name = names[i]
+      choice.dstartdate = dstartdates[i].round
+      choice.denddate = denddates[i].round
       choice.type = choice_type
       choice.incremental_or_alternative =  incremental ? 'alternative' : 'incremental'
       choice.descriptions = descriptions[i]
@@ -156,6 +160,22 @@ class DataFromModel
 
   def names
     @names ||= excel.input_names.flatten
+  end
+
+  def dstartdates
+    @dstartdates ||= excel.output_lever_default_start.flatten
+  end
+
+  def denddates
+    @denddates ||= excel.output_lever_default_end.flatten
+  end
+
+  def d_end_dates_letters
+    @d_end_dates_letters ||= convert_dates_to_letters(denddates.map(&:to_i).map(&:to_s))
+  end
+
+  def d_start_dates_letters
+    @d_start_dates_letters ||= convert_dates_to_letters(dstartdates.map(&:to_i).map(&:to_s))
   end
 
   def descriptions
@@ -241,6 +261,8 @@ class DataFromModel
   LETTER_TO_DATES_MAP['p'] = '2095'
   LETTER_TO_DATES_MAP['q'] = '2100'
 
+  DATES_TO_LETTER_MAP = LETTER_TO_DATES_MAP.invert
+
   def convert_float_to_letters(array)
     array.map do |entry|
       case entry
@@ -262,6 +284,13 @@ class DataFromModel
       LETTER_TO_DATES_MAP[entry].to_i || entry.to_i
     end
   end
+
+  def convert_dates_to_letters(array)
+    array.map do |entry|
+      DATES_TO_LETTER_MAP[entry] || entry
+    end
+  end
+
 
 
 end

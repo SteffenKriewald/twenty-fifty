@@ -118,7 +118,7 @@ and to
 <div class="dates-column">
 <div class="dates-column-left">
 		<div class="dropdown-dates">
- 		<button class="dropbtn-dates sd">2020</button>
+ 		<button class="dropbtn-dates sd"><%= choice.dstartdate %></button>
 		  <div class="dropdown-content-dates">
 			<a href="#" class='dateChoiceLink' data-datechoice='2020' data-choicenumber='<%= choice.number %>'>2020</a>
 			<a href="#" class='dateChoiceLink' data-datechoice='2025' data-choicenumber='<%= choice.number %>'>2025</a>
@@ -140,7 +140,7 @@ and to
 </div>
 <div class="dates-column-right">
 		<div class="dropdown-dates">
- 		<button class="dropbtn-dates ed">2050</button>
+ 		<button class="dropbtn-dates ed"><%= choice.denddate %></button>
 		  <div class="dropdown-content-dates">
 			<a href="#" class='dateChoiceLink' data-datechoice='2030' data-choicenumber='<%= choice.number %>'>2030</a>
 			<a href="#" class='dateChoiceLink' data-datechoice='2035' data-choicenumber='<%= choice.number %>'>2035</a>
@@ -166,7 +166,7 @@ and to
 
 <script>
 var sliderSlider<%= choice.number %> = document.getElementById('slider<%= choice.number %>');
-noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ 2020, 2050],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+noUiSlider.create(sliderSlider<%= choice.number %>, {start: [ <%= choice.dstartdate %>, <%= choice.denddate %>],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
 slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
 </script>
 
