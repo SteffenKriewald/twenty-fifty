@@ -19,3 +19,13 @@
   #buildings .clear {
       clear: both;
   }
+
+  /*Overriding stacked-area charts colors example
+    twelve possible graphs,
+    first: q0-q12 last: q11-12
+    default colors in colorbrewer.css
+  */
+  #buildings #view1 #top_container_1 .Paired .q0-12 { fill:blue; }
+  #buildings #view1 #top_container_1 .Paired .q1-12 { fill:red; }
+
+  #buildings #view2 #top_container_2 .Paired .q0-12 { fill:red; }
