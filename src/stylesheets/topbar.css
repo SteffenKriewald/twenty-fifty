@@ -91,3 +91,27 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover {color: black;}
+
+
+#topbar_dd {
+  visibility: hidden;
+}
+
+#dd8, #dd7, #dd6, #dd5, #dd4, #dd3, #dd2, #dd1 {
+  /*visibility: hidden*/
+  display: none;
+
+}
+
+@media only screen and (max-width: 1413px) {
+   #topbar_dd {visibility: visible;}
+   #dd8 {display: inline;}
+}
+
+@media only screen and (max-width: 1413px) {#dd7 {display: inline;}}
+@media only screen and (max-width: 1262px) {#dd6 {display: inline;}}
+@media only screen and (max-width: 1107px) {#dd5 {display: inline;}}
+@media only screen and (max-width: 956px) {#dd4 {display: inline;}}
+@media only screen and (max-width: 805px) {#dd3 {display: inline;}}
+@media only screen and (max-width: 654px) {#dd2 {display: inline;}}
+@media only screen and (max-width: 503px) {#dd1 {display: inline;}}
