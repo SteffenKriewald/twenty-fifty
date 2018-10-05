@@ -50,4 +50,3 @@
 //  we aren't using this: require views/costs_sensitivity
 //= require views/story
 //  we aren't using this: require views/share
-

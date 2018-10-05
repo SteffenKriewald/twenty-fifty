@@ -108,6 +108,9 @@ class DataFromModel
       # import flow map
       'security_import_energy' => excel.output_security_import_energy,
       'security_import_fraction' => excel.output_security_import_fraction,
+      # map
+      'map' => excel.output_landarea_kmsq,
+      'map_units' => excel.output_landarea_numberunits,
 
     }
   end

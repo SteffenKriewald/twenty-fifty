@@ -1,6 +1,6 @@
 window.twentyfifty.views.map = function() {
-  
-  // Define some new Raphael primitives for different types of labelled square 
+
+  // Define some new Raphael primitives for different types of labelled square
   Raphael.fn.upiabeled_square = function(x, y, label, area, colour) {
     var side, sq;
     side = Math.sqrt(area);
@@ -171,7 +171,7 @@ window.twentyfifty.views.map = function() {
     // Draw the half circle with label to indicate land area overseas
     r.path("M244,695 q0,-200 -200,-200").attr({ 'stroke': '#ccc' });
     r.text(44, 510, "Imports").attr({ 'fill': '#ccc', 'font-weight': 'bold', 'text-anchor': 'start' });
-    
+
     // Now draw the land area overseas boxes, starting map bottom-left
     x = map_offset_x - 105;
     y = map_height + map_offset_y - 30;
@@ -222,11 +222,15 @@ window.twentyfifty.views.map = function() {
 
   // Called when new data arrives
   this.updateResults = function(data) {
+console.log("jhds");
+//console.log(pathway);
+console.log(data);
+
     var i, len, map, values, value, x, y, box, side;
 
     map = {};
     // The data is supplied as a table, with values for every year
-    
+
     // The first row is the header, look for the 2050 column
     column_index = data.map[0].indexOf(2050);
     // Then skip the header and loop through the rows
