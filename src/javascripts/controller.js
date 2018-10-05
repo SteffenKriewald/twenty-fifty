@@ -384,7 +384,7 @@
       var url_elements;
       url_elements = window.location.pathname.split('/');
       controller = url_elements[1] || "pathways";
-      //alert(twentyfifty.default_pathway.length);
+      //alert(twentyfifty.u.length);
       [startdatechoices, enddatechoices] = datesForCode(url_elements[2]);
       choices = choicesForCode(url_elements[2]);
       old_startdatechoices = startdatechoices.slice(0);
@@ -559,7 +559,8 @@ letter_to_date_map = {
   datesForCode = function(newCode) {
       var _number_of_levers, _startCode, _endCode, _datechoices, _i, _len, _ref, _results;
       if (newCode == null) {
-	  newCode = twentyfifty.default_pathway;
+	  //newCode = twentyfifty.u;
+    newCode = twentyfifty.default_pathway;
       }
       _datechoices = [];
       _number_of_levers = newCode.length/3;
@@ -827,18 +828,72 @@ letter_to_date_map = {
 	    _enddate = enddatechoices[i];
 	    _old_startdate = old_startdatechoices[i];
 	    _old_enddate = old_enddatechoices[i];
-	    if ((_startdate !== _old_startdate)||(_enddate !== _old_enddate)) {
+//	    if ((_startdate !== _old_startdate)||(_enddate !== _old_enddate)) {
 		_button = controls.find("#cd" + i);
     // show updated years - via class change (years will be shown permanently)
+    window['sliderSlider'+i].noUiSlider.destroy()
+
+    if ((_startdate !== _old_startdate)||(_enddate !== _old_enddate)) {
 		_button.removeClass("update date-choice-mode-2100-default");
 		_button.addClass("update date-choice-mode-2100-edited");
-	    }
-	    if (_startdate !== _old_startdate) {
+    noUiSlider.create(window['sliderSlider'+i], {
+  		start: [_startdate, _enddate],
+  		step: 5,
+  		connect: true,
+  		range: {'min':  2020,'max':  2100},
+  		cssPrefix: 'noUi-', // defaults to 'noUi-',
+  		cssClasses: {
+  			// Full list of classnames to override.
+  			// Does NOT extend the default classes.
+  			// Have a look at the source for the full, current list:
+  			// https://github.com/leongersen/noUiSlider/blob/master/src/js/options.js#L398
+  				target: 'target',
+  				base: 'base',
+  				origin: 'origin',
+  				handle: 'handle-my',
+  				handleLower: 'handle-lower',
+  				handleUpper: 'handle-upper',
+  				horizontal: 'horizontal',
+  				vertical: 'vertical',
+  				background: 'background',
+  				connect: 'connect-my',
+  				connects: 'connects',
+  				ltr: 'ltr',
+  				rtl: 'rtl',
+  				draggable: 'draggable',
+  				drag: 'state-drag',
+  				tap: 'state-tap',
+  				active: 'active',
+  				tooltip: 'tooltip',
+  				pips: 'pips',
+  				pipsHorizontal: 'pips-horizontal',
+  				pipsVertical: 'pips-vertical',
+  				marker: 'marker',
+  				markerHorizontal: 'marker-horizontal',
+  				markerVertical: 'marker-vertical',
+  				markerNormal: 'marker-normal',
+  				markerLarge: 'marker-large',
+  				markerSub: 'marker-sub',
+  				value: 'value',
+  				valueHorizontal: 'value-horizontal',
+  				valueVertical: 'value-vertical',
+  				valueNormal: 'value-normal',
+  				valueLarge: 'value-large',
+  				valueSub: 'value-sub'
+  		}
+  	});
+  	window['sliderSlider'+i].setAttribute('disabled', true);
+  }else{
+    noUiSlider.create(window['sliderSlider'+i], {start: [ _startdate, _enddate],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
+    window['sliderSlider'+i].setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
+  }
+//	    }
+	//    if (_startdate !== _old_startdate) {
 		_button.find(".sd").text(_startdate);
-	    }
-	    if (_enddate !== _old_enddate) {
+	//    }
+	//    if (_enddate !== _old_enddate) {
 		_button.find(".ed").text(_enddate);
-	    }
+	  //  }
 
 	}
 
