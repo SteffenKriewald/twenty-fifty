@@ -10,10 +10,13 @@ window.lineChart = function() {
 
   width = 700; // Of svg in pixels
   height = 125; // of svg in pixels
-  var maxHeight = 400;
-  var maxWidth = 680;
 
-  margin = { top: 82, right: 225, bottom: 80, left: 66 }; // The margins between the edge of the svg and the main chart area. Needs to be big enough for labels.
+  var maxWidth = 950;
+  var minHeight = 300;
+  var maxHeight = 450;
+
+  //margin = { top: 82, right: 225, bottom: 80, left: 66 }; // The margins between the edge of the svg and the main chart area. Needs to be big enough for labels.
+  margin = { top: 60, right: 216, bottom: 60, left: 66 };
   x_center = (width - margin.left - margin.right) / 2;
 
   title = ""; // Default, Can be accessed or set with chart.title("New title")
@@ -162,7 +165,11 @@ window.lineChart = function() {
           // FIXME: JQuery dependency
           width = $(this).width();
           width = width > maxWidth ? maxWidth : width;
-          height = (width / 1.2) > maxHeight ? maxHeight : width / 1.2;
+
+          height = (window.innerHeight-150) / 2;
+          height = height < minHeight ? minHeight : height;
+          height = height > maxHeight ? maxHeight : height;
+
           x_center = (width - (margin.left * 2)) / 2;
           xScale
             .domain([extent.xmin, extent.xmax])

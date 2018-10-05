@@ -33,3 +33,9 @@
   margin-right: 25px;
   align-self: flex-end;
 }
+
+@media screen and (max-height: 850px) {
+  #slider-vertical {
+    height: 300px;
+  }
+}
