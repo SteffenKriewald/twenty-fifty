@@ -164,7 +164,7 @@
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 465px) {
     .bootsidemenu {
-        min-width: 90%;
+        /*min-width: 90%;*/
     }
 }
 

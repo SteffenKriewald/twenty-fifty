@@ -10,6 +10,7 @@ body {
   /*height: 100vh;*/
   min-height: 100vh;
   min-width: 550px;
+  position: relative; /*for gauge, see if it breaks anything*/
 }
 
 #svgWarn {

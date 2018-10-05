@@ -33,7 +33,9 @@
     margin: 0 50px;
     text-align: right; }
     .topbar #views a {
-      padding-right: 10px; }
+      padding-right: 10px;
+      white-space: nowrap;
+    }
 
 .dropdown {
   z-index: 10000;
