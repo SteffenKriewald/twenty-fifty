@@ -50,24 +50,46 @@
       </p>
     </div>
 
-<!-- single topbar
-    <div id='topbar' style="margin-left:-465px;position:fixed;width:100%;margin-top: -30px;">
--->
+    <div id='topbar' class="topbar">
+          <div id='name'>
+            <!-- Change this to link to your country website -->
+            <a href=''>The UK 2050 Calculator</a>
+          </div>
 
-    <div id='topbar' class="topbar" style="position:fixed;z-index: 101;margin-left: -50px;">
-      <!-- To add or remove views from the web tool, alter the following section -->
-      <div id='views'>
-	<a class='view' data-view='overview' href='#'>Overview</a>
-	<!--
-        <a class='view' data-view='primary_energy_chart' href='#'>Overview</a>
-        <a class='view' data-view='electricity' href='#'>Buildings</a>
-        <a class='view' data-view='energy_security' href='#'>Transport</a>
-        <a class='view' data-view='sankey' href='#'>Industry</a>
-        <a class='view' data-view='map' href='#'>Conversions & GHG</a>
-        <a class='view' data-view='story' href='#'>Electricity</a>
-        <a class='view' data-view='air_quality' href='#'>Land use & Biofuels</a>
-        <a class='view' data-view='share' href='#'>Flows, Map & Imports</a>
-	-->
+          <!-- To add or remove views from the web tool, alter the following section -->
+          <div id='views'>
+    	<a class='view' data-view='overview' href='#'>Overview</a>
+    	<!--
+            <a class='view' data-view='primary_energy_chart' href='#'>Overview</a>
+            <a class='view' data-view='electricity' href='#'>Buildings</a>
+            <a class='view' data-view='energy_security' href='#'>Transport</a>
+            <a class='view' data-view='sankey' href='#'>Industry</a>
+            <a class='view' data-view='map' href='#'>Conversions & GHG</a>
+            <a class='view' data-view='story' href='#'>Electricity</a>
+            <a class='view' data-view='air_quality' href='#'>Land use & Biofuels</a>
+            <a class='view' data-view='share' href='#'>Flows, Map & Imports</a>
+    	-->
+            <a class='view' data-view='buildings' href='#'>Buildings</a>
+            <a class='view' data-view='transport' href='#'>Transport</a>
+            <a class='view' data-view='industry' href='#'>Industry</a>
+            <a class='view' data-view='conversions_and_ghg' href='#'>Gases, CCS & GHG Removal</a>
+            <a class='view' data-view='story' href='#'>Electricity Supply</a>
+            <a class='view' data-view='land_use' href='#'>Land Use & Bioenergy</a>
+            <a class='view' data-view='flows_map_imports' href='#'>Imports, Map & Flows</a>
+
+            <!-- Change this to link to your own country website documentation
+            <a href='http://2050-calculator-tool-wiki.decc.gov.uk'>Docs</a>
+    	-->
+          </div>
+        </div>
+
+
+
+    <!--Dropdown navigation menu in top-right corner -->
+      <div id="topbar_dd" class="dropdown">
+           <img id="w4" class="svg warning" src="/assets/warning_icons/bars.svg"/>
+      <div class="dropdown-content">
+        <a class='view' data-view='overview' href='#'>Overview</a>
         <a class='view' data-view='buildings' href='#'>Buildings</a>
         <a class='view' data-view='transport' href='#'>Transport</a>
         <a class='view' data-view='industry' href='#'>Industry</a>
@@ -75,28 +97,9 @@
         <a class='view' data-view='story' href='#'>Electricity Supply</a>
         <a class='view' data-view='land_use' href='#'>Land Use & Bioenergy</a>
         <a class='view' data-view='flows_map_imports' href='#'>Imports, Map & Flows</a>
-
-        <!-- Change this to link to your own country website documentation
-        <a href='http://2050-calculator-tool-wiki.decc.gov.uk'>Docs</a>
-	-->
       </div>
     </div>
 
-    <div class='dropdown' id='cost_choices'>
-      <a class='view' data-view='costs_in_context' href='#'>In context</a>
-      <a class='view' data-view='costs_compared_overview' href='#'>Compared</a>
-      <a class='view' data-view='costs_sensitivity' href='#'>Sensitivity</a>
-    </div>
-
-    <div class='dropdown' id='savedpathway_choices'>
-      <!-- These are taken from the underlying spreadsheet
-      <% structure.example_pathways.each do |pathway| %>
-        <a href='#' onclick="twentyfifty.switchPathway('<%= pathway[:code] %>');$('ul#savedpathway_choices').toggle()"><%= pathway[:name] %></a>
-      <% end %>
--->
-      <!-- Change this to point to your local website -->
-      <a href='http://2050-calculator-tool-wiki.decc.gov.uk/pages/122'>More&hellip;</a>
-    </div>
     <!-- This appears while the tool is waiting for data from the server -->
     <div id='calculating'>
       <span>Calculating</span>
@@ -286,9 +289,17 @@
 
     <div id='lever_nav_panel' style="margin-top:35px;">
 
-      <div id='examples'>
-        <a class='buttonMode newdropdown' style="position: absolute; top: 10px; left:0; margin-left: 0; padding-left: 5px; width:200px;" data-dropdown='#savedpathway_choices' href='#'>Example Pathways</a>
-        <!-- the contents of this dropdown is defined in the #savedpathway_choices div below -->
+      <div id='examples' class='dropdown'>
+        <a class='buttonMode' data-dropdown='#savedpathway_choices' href='#'>Example Pathways</a>
+        <div class='dropdown-content' id='savedpathway_choices'>
+             <!-- These are taken from the underlying spreadsheet
+             <% structure.example_pathways.each do |pathway| %>
+               <a href='#' onclick="twentyfifty.switchPathway('<%= pathway[:code] %>');$('ul#savedpathway_choices').toggle()"><%= pathway[:name] %></a>
+             <% end %>
+       -->
+             <!-- Change this to point to your local website -->
+             <a href='http://2050-calculator-tool-wiki.decc.gov.uk/pages/122'>More&hellip;</a>
+        </div>
       </div>
 
       <input id="modeSwitchID" type="button" class="buttonMode" value="switch to 2100 mode" onclick="timeMode()"
