@@ -1,59 +1,93 @@
 .topbar {
+  text-decoration: none;
   font-weight: bold;
-  position: relative;
+  position:fixed;
+  z-index: 101;
+  margin-left: -465px;
+  height:35px;
   overflow: hidden;
-/*  width: 100%; */
-/*  margin: 0 0 10px 0;*/
+  width: 100%;
   background-color: #003366;
   color: white;
   padding-top: 10px;
   padding-bottom: 5px;
-/*border-bottom: solid #ccd6e0 0px; */}
-  .topbar a {
-    color: white;
-    text-decoration: none; }
-  .topbar .selectedView {
-    color: #ccd6e0; }
-  .topbar a:hover {
-    text-decoration: underline; }
+}
+
+.topbar .selectedView {
+  color: #ccd6e0; }
+.topbar a:hover {
+  text-decoration: underline; }
+
   .topbar #name {
     margin-left: 5px;
-/*    float: left;
-    margin-left: 2.4%;
-    width: 180px;
-  */
  }
 
-  .topbar #examples {
-    text-align: center;
-    float: right;
-    margin-right: 2.4%;
-    width: 180px; }
-  .topbar #views {
-    margin: 0 50px;
-    text-align: right; }
-    .topbar #views a {
-      padding-right: 10px;
-      white-space: nowrap;
-    }
+ .topbar #views {
+   margin: 0 50px;
+   text-align: right; }
+   .topbar #views a {
+     padding-right: 10px; }
+
+.topbar a {
+    color: white;
+    text-decoration: none; }
+
+#name {
+  width: 465px;
+  height: 25px;
+  float: left;
+  color: white;
+  text-decoration: none;
+
+}
+
+#menu_dd {
+  width: 25px;
+  height: 25px;
+  float: right;
+
+}
+
+#views {
+  height: 25px;
+  width: auto;
+}
+
+#views a{
+  float: left;
+  height: 25px;
+}
 
 .dropdown {
-  z-index: 10000;
-  position: absolute;
-  display: none;
-  background: #ccd6e0;
-  border: solid 1px #ccd6e0;
-  box-shadow: 0 0 5px #888; }
-  .dropdown a {
-    padding: 5px;
+    position:fixed;
+    top:5px;
+    right:5px;
+    z-index:200;
+    color:white;
+    display: inline-block;
+}
+
+.dropdown-content {
+    font-weight: bolder;
+    display: none;
+    position: absolute;
+    margin-top: 1px;
+    right: 1px;
+    background-color: #f1f1f1;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.dropdown-content a {
     color: black;
+    padding: 12px 16px;
+    text-decoration: none;
     display: block;
-    text-decoration: none; }
-  .dropdown a:hover {
-    text-decoration: underline; }
+}
 
-#savedpathway_choices {
-  width: 200px; }
+.dropdown-content a:hover {background-color: #ddd;}
 
-.showdropdown {
-  display: block; }
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover {color: black;}
