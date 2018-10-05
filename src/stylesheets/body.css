@@ -7,8 +7,9 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  min-height: 600px;
+  /*height: 100vh;*/
+  min-height: 100vh;
+  min-width: 550px;
 }
 
 #svgWarn {
@@ -30,7 +31,11 @@ body {
     background-color: yellow; }
 
 #results {
-  overflow: hidden; }
+  overflow: hidden;
+  flex-grow: 1;
+  padding-top: 75px;
+  width: 80%;
+}
 
 #snippets {
   display: none;

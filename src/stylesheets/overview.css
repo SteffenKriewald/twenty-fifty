@@ -3,9 +3,9 @@
   padding: 0;
   border: 0;
   margin: 0;
-  margin-left: 2.5%;
+  margin-left: 0.5%;
   font-size: 12px;
-  width: 80%;
+  width: 100%;
   margin-bottom: 30px;
   float: left;
 }
@@ -25,10 +25,10 @@ svg {
 .chart {
   padding: 0;
 /*  border: 2px solid lightgrey;*/
-  margin: 25px;
+/*  margin: 25px;*/
 /*  margin: 0;
   margin-left: 2.4%; */
-  width: 80%; /* 30% for horizontal stacking */
+  width: 100%; /* 30% for horizontal stacking */
 /*  margin-bottom: 0px;*/
 /*float: left; /* comment out for vertical stacking*/ }
 

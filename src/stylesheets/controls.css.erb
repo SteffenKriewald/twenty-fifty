@@ -491,22 +491,36 @@ table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:cen
 /* view toggle*/
 
 .viewToggle {
-  margin: 4px 8px;
+  width: 80%;
   height: 21px;
-  width: 155px;
-  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  margin-left: 10px;
+
+/*  margin: 4px 8px;
+  height: 21px;
+  width: 155px;*/
+/*  text-align: center;*/
 /*  cursor: pointer;*/
-  outline: none;
+/*  outline: none;
   color: black;
   background-color: #ccd6e0;
   border: 1px #003366 solid;
-  border-radius: 1px;
+  border-radius: 1px;*/
 }
 
-.viewToggle:hover {background-color: #b2c1d1}
+/*.viewToggle:hover {background-color: #b2c1d1}*/
 
 .vT1, .vT1_nohover, .vT2, .vT3 {
   cursor: pointer;
+  flex-basis: 155px;
+  text-align: center;
+  padding: 0px 2px;
+  color: black;
+  background-color: #ccd6e0;
+  border: 1px #003366 solid;
+  /*
   position:absolute;
   top:45px;
   left:500px;
@@ -518,7 +532,7 @@ table.fixed td {min-width:20px;max-width:20px; overflow: visible; text-align:cen
   color: black;
   background-color: #ccd6e0;
   border: 1px #003366 solid;
-  border-radius: 1px;
+  border-radius: 1px;*/
 }
 
 .vT1_nohover {
@@ -547,9 +561,9 @@ cursor: none;
     padding: 0;
     border: 0;
     margin: 0;
-    margin-left: 2.5%;
+    margin-left: 0.5%;
     font-size: 12px;
-    width: 80%;
+    width: 100%;
     float: left;
     border-top: silver 1px solid;
     margin-top: 4px;
