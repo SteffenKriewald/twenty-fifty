@@ -15,11 +15,30 @@ window.timeSeriesStackedAreaChart = function() {
   title = ""; // Default, Can be accessed or set with chart.title("New title")
   unit = "TWh/yr"; // Default, Can be accessed or set with chart.unit("PJ")
 
+  var yearForDataModes = {
+    '2050': [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050],
+    '2100': [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060, 2065, 2070, 2075, 2080, 2085, 2090, 2095, 2100]
+  };
+  var yearForTicksModes = {
+    '2050': [2020, 2030, 2040, 2050],
+    '2100': [2020, 2050, 2100]
+  };
+  var minorTicksModes = {
+    '2050': [2025, 2035, 2045],
+    '2100': [2030, 2040, 2060, 2070, 2080, 2090]
+  }
+
+  var mode = 2050; //default value;
+
   // Series are expected to be an array of numbers, this defines which year each number maps onto
-    year_for_data = [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060, 2065, 2070, 2075, 2080, 2085, 2090, 2095, 2100];
+  //year_for_data = [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060, 2065, 2070, 2075, 2080, 2085, 2090, 2095, 2100];
+  year_for_data = yearForDataModes[mode];
 
   // These years will be marked on the axis, and data on those values will be displayed.
-    year_for_ticks = [2015, 2030, 2045, 2060, 2075, 2090];
+  //year_for_ticks = [2015, 2030, 2045, 2060, 2075, 2090];
+  year_for_ticks = yearForTicksModes[mode];
+
+  var minorTicks = minorTicksModes[mode];
 
   min_value = 0; // This is the minimum for the y-axis
   max_value = 4000; // This is the maximum for the y-axis
@@ -43,6 +62,8 @@ window.timeSeriesStackedAreaChart = function() {
   // These are the axes, both are formatted to not show any decimal places. See https://github.com/mbostock/d3/wiki/SVG-Axes
   xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(year_for_ticks).tickFormat(d3.format(".0f"));
   yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(5).tickFormat(d3.format(".0f"));
+
+  var minorTickAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(minorTicks).tickFormat(d3.format(".0f"));
 
   // This is used to 'stack' the values to create area charts. See https://github.com/mbostock/d3/wiki/Stack-Layout
   // What it does is to add a y0 attribute to each data point, which is the total up to that value
@@ -143,6 +164,8 @@ window.timeSeriesStackedAreaChart = function() {
             // series in order to work out whether to show a label
             // or not and whether, overall, the series should be
             // counted as 'positve' or 'negative'
+            series.value = series.value.slice(0,yearForDataModes[mode].length);
+
             series.value = series.value.map(function(p, i) {
               total += p;
               return {
@@ -285,6 +308,10 @@ window.timeSeriesStackedAreaChart = function() {
             .attr("transform", "translate(0," + yScale.range()[0] + ")")
             .call(xAxis); // Hmm. Shouldn't this be called every time, not just on first go?
 
+          gEnter.append("g").attr("class", "x2 axis")
+            .attr("transform", "translate(0," + yScale.range()[0] + ")")
+            .call(minorTickAxis);
+
           gEnter.append("g")
             .attr("class", "y axis");
           gEnter.append("text")
@@ -298,6 +325,10 @@ window.timeSeriesStackedAreaChart = function() {
               .attr("transform", "translate(0," + yScale(0) + ")")
               .call(xAxis);
 
+            g.select(".x2.axis")
+              .attr("transform", "translate(0," + yScale(0) + ")")
+              .call(minorTickAxis);
+
             g.selectAll(".x.axis text")
               .attr("dy", yScale.range()[0] - yScale(0) + 7);
 
@@ -305,6 +336,9 @@ window.timeSeriesStackedAreaChart = function() {
             g.select(".x.axis")
               .attr("transform", "translate(0," + yScale.range()[0] + ")")
               .call(xAxis);
+            g.select(".x2.axis")
+              .attr("transform", "translate(0," + yScale.range()[0] + ")")
+              .call(minorTickAxis);
           }
 
           g.select(".y.axis").transition()
@@ -536,6 +570,15 @@ window.timeSeriesStackedAreaChart = function() {
     return chart;
   };
 
+  chart.setMinorTicksMode = function(m) {
+    if(minorTicksModes[m]) {
+      minorTickAxis.tickValues(minorTicksModes[m]);
+    } else {
+      minorTickAxis.tickValues(minorTicksModes['2050']);
+    }
+    return chart;
+  };
+
   // Used to specify what years appear in the data
   // This will also set min_year, max_year and
   // year_for_ticks as well
@@ -546,6 +589,13 @@ window.timeSeriesStackedAreaChart = function() {
     chart.min_year(year_for_data[0]);
     chart.max_year(year_for_data[year_for_data.length-1]);
     return chart;
+  };
+
+  chart.setMode = function(m) {
+    mode = (m == 2050 || m == 2100) ? m : 2050;
+    this.year_for_data(yearForDataModes[mode]);
+    this.setMinorTicksMode(mode);
+    this.year_for_ticks(yearForTicksModes[mode]);
   };
 
 

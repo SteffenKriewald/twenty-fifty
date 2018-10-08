@@ -70,7 +70,7 @@ window.lineChart = function() {
   xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(year_for_ticks).tickFormat(d3.format(".0f"));
   yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(5).tickFormat(d3.format(".0f"));
 
-  minorTickAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(minorTicks).tickFormat(d3.format(".0f"));
+  var minorTickAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(minorTicks).tickFormat(d3.format(".0f"));
 
   // This is used to draw lines as SVG.
   line = d3.svg.line()
@@ -622,7 +622,6 @@ window.lineChart = function() {
   };
 
   chart.setMinorTicksMode = function(m) {
-    console.log('setMinorTicksMode ', m);
     if(minorTicksModes[m]) {
       minorTickAxis.tickValues(minorTicksModes[m]);
     } else {

@@ -105,6 +105,7 @@ window.twentyfifty.views.overview = function() {
         document.getElementById('view1').setAttribute('class', 'overview visible');
         document.getElementById('view2').setAttribute('class', 'overview visible');
 
+        this.emissions_by_sector_chart.setMode(_mode);
         this.emissions_cumulative_chart.setMode(_mode);
 
         d3.select('#top_container_1')
