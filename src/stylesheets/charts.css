@@ -1,4 +1,8 @@
 .legenditem {
-  font-size: 13px;
+  font-size: 12px;
   transition: all 0.2s ease;
+}
+
+.x2.axis text, .x2.axis path {
+  display: none;
 }

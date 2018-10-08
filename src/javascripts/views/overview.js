@@ -91,19 +91,21 @@ window.twentyfifty.views.overview = function() {
 	return hash;
     }
 
-    this.updateResults = function(pathway) {
-          this.pathway = pathway;
-          this.choices = twentyfifty.choices;
-          updateGauge(pathway);
-          // construct the data
-          // connect the containers with charts and data
-          //console.log('pathway ', pathway.ghg, twentyfifty.choices);
-          //console.log('this.emissions_by_sector_chart ', this.emissions_by_sector_chart, pathway.ghg);
+    this.updateResults = function(pathway, mode) {
+        var _mode = (mode == 2050 || mode == 2100) ? mode : 2100;
+        this.pathway = pathway;
+        this.choices = twentyfifty.choices;
+        updateGauge(pathway);
+        // construct the data
+        // connect the containers with charts and data
+        //console.log('this.emissions_by_sector_chart ', this.emissions_by_sector_chart, pathway.ghg);
 
-          classView1 = document.getElementById("view1").getAttribute('class');
-          classView2 = document.getElementById('view2').getAttribute('class');
-          document.getElementById('view1').setAttribute('class', 'overview visible');
-          document.getElementById('view2').setAttribute('class', 'overview visible');
+        classView1 = document.getElementById("view1").getAttribute('class');
+        classView2 = document.getElementById('view2').getAttribute('class');
+        document.getElementById('view1').setAttribute('class', 'overview visible');
+        document.getElementById('view2').setAttribute('class', 'overview visible');
+
+        this.emissions_cumulative_chart.setMode(_mode);
 
         d3.select('#top_container_1')
     	  .datum(convert_capacity_table_to_hash(pathway.emissions_sector))

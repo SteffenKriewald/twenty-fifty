@@ -22,11 +22,30 @@ window.lineChart = function() {
   title = ""; // Default, Can be accessed or set with chart.title("New title")
   unit = "TWh/yr"; // Default, Can be accessed or set with chart.unit("PJ")
 
+  var yearForDataModes = {
+    '2050': [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050],
+    '2100': [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060, 2065, 2070, 2075, 2080, 2085, 2090, 2095, 2100]
+  };
+  var yearForTicksModes = {
+    '2050': [2020, 2030, 2040, 2050],
+    '2100': [2020, 2050, 2100]
+  };
+  var minorTicksModes = {
+    '2050': [2025, 2035, 2045],
+    '2100': [2030, 2040, 2060, 2070, 2080, 2090]
+  }
+
+  var mode = 2050; //default value;
+
   // Series are expected to be an array of numbers, this defines which year each number maps onto
-  year_for_data = [2015, 2020, 2025, 2030, 2035, 2040, 2045, 2050, 2055, 2060, 2065, 2070, 2075, 2080, 2085, 2090, 2095, 2100];
+  year_for_data = yearForDataModes[mode];
 
   // These years will be marked on the axis, and data on those values will be displayed.
-  year_for_ticks = [2015, 2030, 2045, 2060, 2075, 2090];
+  //year_for_ticks = [2015, 2030, 2045, 2060, 2075, 2090];
+  year_for_ticks = yearForTicksModes[mode];
+
+
+  var minorTicks = minorTicksModes[mode];
 
   min_value = 0; // This is the minimum for the y-axis
   max_value = 4000; // This is the maximum for the y-axis
@@ -51,6 +70,7 @@ window.lineChart = function() {
   xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(year_for_ticks).tickFormat(d3.format(".0f"));
   yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(5).tickFormat(d3.format(".0f"));
 
+  minorTickAxis = d3.svg.axis().scale(xScale).orient("bottom").tickValues(minorTicks).tickFormat(d3.format(".0f"));
 
   // This is used to draw lines as SVG.
   line = d3.svg.line()
@@ -147,7 +167,6 @@ window.lineChart = function() {
   // This is the main function of timeSeriesStackedAreaChart()
   chart = function(selection) {
 
-
     // FIXME: Why did I double wrap this?
     chart.draw = (function(_this) {
       return function() {
@@ -181,8 +200,8 @@ window.lineChart = function() {
           // We divide the data up into stuff that has
           // a postive value, stuff that has a negative
           // value and stuff that is a total line
-          _ref = data.entries();
-          console.log('line _ref ', _ref);
+          _ref = data.entries(); //entries() is a d3 function! Not to be confused with Object.entries() - which doesn't lie on the Object.prototype anyways
+          console.log('line _ref 1 ', _ref);
           total_series = [];
           // Loop through each series in turn
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
@@ -196,13 +215,18 @@ window.lineChart = function() {
             // or not and whether, overall, the series should be
             // counted as 'positve' or 'negative'
             //console.log('series 1 ', series);
-            //console.log('series.value 1 ', series.value);
+            console.log('series.value 1 ', series.value);
+
+            //cut the values if necessary (y-component), so they match the length of the x-component (yearForDataModes[mode])
+            series.value = series.value.slice(0,yearForDataModes[mode].length);
+
             series.value = series.value.map(function(p, i) {
               return {
                 x: year_for_data[i],
                 y: p
               };
             });
+
             series.path = line;
             series.color = getColor(_i);
             series.dashArray = getDashArray(_i);
@@ -212,7 +236,6 @@ window.lineChart = function() {
             //console.log('series 2 ', series);
           } // Finish looping through the series
 
-          console.log('sorting ...');
           total_series.sort(function (a, b) {
             var aLast =a.value[a.value.length-1].y;
             var bLast = b.value[b.value.length-1].y;
@@ -292,6 +315,10 @@ window.lineChart = function() {
             .attr("transform", "translate(0," + yScale.range()[0] + ")")
             .call(xAxis); // Hmm. Shouldn't this be called every time, not just on first go?
 
+          gEnter.append("g").attr("class", "x2 axis")
+            .attr("transform", "translate(0," + yScale.range()[0] + ")")
+            .call(minorTickAxis);
+
           gEnter.append("g")
             .attr("class", "y axis");
           gEnter.append("text")
@@ -307,6 +334,10 @@ window.lineChart = function() {
               .attr("transform", "translate(0," + yScale(0) + ")")
               .call(xAxis); //to actually generate the axis and insert all those little lines and labels into the SVG, we must call the xAxis function
 
+            g.select(".x2.axis")
+              .attr("transform", "translate(0," + yScale(0) + ")")
+              .call(minorTickAxis);
+
             g.selectAll(".x.axis text")
               .attr("dy", yScale.range()[0] - yScale(0) + 7);
 
@@ -314,6 +345,10 @@ window.lineChart = function() {
             g.select(".x.axis")
               .attr("transform", "translate(0," + yScale.range()[0] + ")")
               .call(xAxis);
+
+            g.select(".x2.axis")
+              .attr("transform", "translate(0," + yScale.range()[0] + ")")
+              .call(minorTickAxis);
           }
 
           g.select(".y.axis").transition()
@@ -586,6 +621,16 @@ window.lineChart = function() {
     return chart;
   };
 
+  chart.setMinorTicksMode = function(m) {
+    console.log('setMinorTicksMode ', m);
+    if(minorTicksModes[m]) {
+      minorTickAxis.tickValues(minorTicksModes[m]);
+    } else {
+      minorTickAxis.tickValues(minorTicksModes['2050']);
+    }
+    return chart;
+  };
+
   // Used to specify what years appear in the data
   // This will also set min_year, max_year and
   // year_for_ticks as well
@@ -598,6 +643,12 @@ window.lineChart = function() {
     return chart;
   };
 
+  chart.setMode = function(m) {
+    mode = (m == 2050 || m == 2100) ? m : 2050;
+    this.year_for_data(yearForDataModes[mode]);
+    this.setMinorTicksMode(mode);
+    this.year_for_ticks(yearForTicksModes[mode]);
+  };
 
   // FIXME: Should be behind accessors
   chart.xScale = xScale;
