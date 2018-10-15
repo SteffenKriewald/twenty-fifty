@@ -60,8 +60,8 @@
 
 .dropdown {
     position:fixed;
-    top:5px;
-    right:5px;
+    top:11px;
+    right:10px;
     z-index:200;
     color:white;
     display: inline-block;
@@ -95,6 +95,18 @@
 
 #topbar_dd {
   visibility: hidden;
+}
+
+#bars {
+  width: 15px;
+}
+
+#bars path {
+  fill: white;
+}
+
+#bars:hover path {
+      fill: #b2c1d1;
 }
 
 #dd8, #dd7, #dd6, #dd5, #dd4, #dd3, #dd2, #dd1 {

@@ -97,6 +97,12 @@
 	setVariablesFromURL();
 	switchView(view);
 	loadMainPathway();
+  $('#modeSwitchID').tooltip({
+animated: 'fade',
+placement: 'bottom',
+trigger: 'hover',
+delay: { "show": 200, "hide": 100 }
+});
   window.global_time_mode = document.getElementById("modeSwitchID").getAttribute("data-mode");
   // switch to 2100 mode if date setting is not default
   if(window.location.href.split("/pathways/")[1].slice(45,130)!=window.twentyfifty.default_pathway.slice(45,130)){timeMode(2050);}
@@ -333,7 +339,6 @@
       .datum(function() { return this.dataset })
       .on('mouseover', function(d,i) { startDemo(d.choicenumber); })
       .on('mouseout', function(d,i) { stopDemo(d.choicenumber); });
-
 
     // This forces the view to be redrawn if the user resizes their
     // browser window. It uses a timer to only trigger the redraw
@@ -599,6 +604,7 @@ letter_to_date_map = {
     go = function(index, level) {
 	old_choices = choices.slice(0);
 
+choices[index]
 	console.log("Math.ceil(choices[index])" + Math.ceil(choices[index]));
 	console.log("level" + level);
 
@@ -637,6 +643,8 @@ letter_to_date_map = {
     demoLevel = 1;
     demoOriginalLevel = choices[choice];
     demoMaximum = window.twentyfifty.choice_sizes[choice];
+    console.log("dm "+demoMaximum);
+    console.log("c "+ choice);
     return demoTimer = setInterval((function() {
       go(choice, demoLevel);
       demoLevel = demoLevel + 1;
@@ -1011,6 +1019,7 @@ function timeMode(global_time_mode){
       document.getElementById("modeSwitchID").value = "go back to 2050 mode";
       document.getElementById("modeSwitchID").setAttribute("data-mode",2100)
       window.global_time_mode = 2100;
+      $('#modeSwitchID').tooltip('destroy'); // Disable tooltips
       loadMainPathway();
     } else {
         var conf = confirm("Are you sure you want to go back to 2050 mode, changes to start and end years will be lost unless bookmarked");
@@ -1021,6 +1030,12 @@ function timeMode(global_time_mode){
           window.global_time_mode = 2050;
           startdatechoices = mapCode(window.twentyfifty.default_pathway.slice(45, 90), letter_to_date_map);
           enddatechoices = mapCode(window.twentyfifty.default_pathway.slice(90, 135), letter_to_date_map);
+       $('#modeSwitchID').tooltip({
+   animated: 'fade',
+   placement: 'bottom',
+   trigger: 'hover',
+   delay: { "show": 200, "hide": 100 }
+});
           loadMainPathway();
         }
       }
