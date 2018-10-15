@@ -400,12 +400,13 @@ delay: { "show": 200, "hide": 100 }
 
       //      view = url_elements[3] || "primary_energy_chart";
       view = url_elements[3] || "overview";
-      if (view === 'costs_compared_within_sector') {
+/*      if (view === 'costs_compared_within_sector') {
 	  sector = url_elements[4];
       }
       if (url_elements[4] === 'comparator') {
 	  return comparator = url_elements[5];
       }
+      */
   };
 
     date_to_letter_map = {
@@ -594,9 +595,9 @@ letter_to_date_map = {
     }, options);
     if (s.view === 'costs_compared_within_sector' && (s.sector != null)) {
       return "/" + s.controller + "/" + s.code + "/" + s.view + "/" + s.sector;
-    } else if (s.comparator != null) {
+  /*  } else if (s.comparator != null) {
       return "/" + s.controller + "/" + s.code + "/" + s.view + "/comparator/" + s.comparator;
-    } else {
+*/    } else {
       return "/" + s.controller + "/" + s.code + "/" + s.view;
     }
   };
@@ -785,12 +786,13 @@ choices[index]
     url_elements = window.location.pathname.split('/');
     setChoices(choicesForCode(url_elements[2]));
     switchView(url_elements[3]);
-    if (view === 'costs_compared_within_sector') {
+/*    if (view === 'costs_compared_within_sector') {
       switchSector(url_elements[4]);
     }
     if (url_elements[4] === 'comparator') {
       return switchComparator(url_elements[5]);
     }
+    */
   };
 
     // TODO [2018-06-19 Tue 13:43]: return value respects only the old interface, not the updated one with dates and intermediate categories
