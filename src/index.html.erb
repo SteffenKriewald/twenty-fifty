@@ -53,7 +53,7 @@
     <div id='topbar' class="topbar">
           <div id='name'>
             <!-- Change this to link to your country website -->
-            <a href=''>The UK 2050 Calculator</a>
+            <a href=''>MacKay Carbon Calculator</a>
           </div>
 
           <!-- To add or remove views from the web tool, alter the following section -->
@@ -290,6 +290,17 @@
 
     <div id='lever_nav_panel' style="margin-top:35px;">
 
+<!--
+      <button onclick="myFunction()">Try it</button>
+      <p id="demo"></p>
+      <script>
+      function myFunction() {
+          var w = window.innerWidth;
+          var h = window.innerHeight;
+          document.getElementById("demo").innerHTML = "Width: " + w + "<br>Height: " + h;
+      }
+      </script>
+-->
       <div id='examples' class='dropdown'>
         <a class='buttonMode' style="width:200px;" data-dropdown='#savedpathway_choices' href='#'>Example Pathways</a>
         <div class='dropdown-content' id='savedpathway_choices'>
@@ -303,7 +314,7 @@
         </div>
       </div>
 
-      <input id="modeSwitchID" type="button" class="buttonMode" value="switch to 2100 mode" onclick="timeMode()"
+      <input id="modeSwitchID" type="button" class="buttonMode" data-mode="2050" value="switch to 2100 mode" onclick="timeMode()"
           style="position: absolute; top: 10px; left:290px;">
 
     <!-- / These are the controls -->
@@ -811,7 +822,8 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 <td style="margin:0;background-color:#7f99b2;padding:4px">
       <!-- The left column  &<br>GHG reduction-->
       <!--<h5 style="font-family: Arial Narrow;">Energy conversion & GHG reduction</h5>-->
-      <h5>Energy conversions & <br>greenhouse gas reduction</h5>
+      <!-- <h5>Energy conversions & <br>greenhouse gas reduction</h5>-->
+      <h5>CO2 Removal & Gases</h5>
 </td>
 <td class='gap'></td>
 <td colspan=4>

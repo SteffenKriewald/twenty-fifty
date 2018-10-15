@@ -25,7 +25,9 @@
     first: q0-q12 last: q11-12
     default colors in colorbrewer.css
   */
-  #buildings #view1 #top_container_1 .Paired .q0-12 { fill:blue; }
-  #buildings #view1 #top_container_1 .Paired .q1-12 { fill:red; }
+  #buildings #view1 #top_container_1 .Paired .q0-12 { fill:brown; }
+  #buildings #view1 #top_container_1 .Paired .q1-12 { fill:maroon; }
+  #buildings #view1 #top_container_1 .Paired .q2-12 { fill:silver; }
+  #buildings #view1 #top_container_1 .Paired .total { fill:black; }
 
   #buildings #view2 #top_container_2 .Paired .q0-12 { fill:red; }

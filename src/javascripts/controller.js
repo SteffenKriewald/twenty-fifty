@@ -97,7 +97,10 @@
 	setVariablesFromURL();
 	switchView(view);
 	loadMainPathway();
-    });
+  window.global_time_mode = document.getElementById("modeSwitchID").getAttribute("data-mode");
+  // switch to 2100 mode if date setting is not default
+  if(window.location.href.split("/pathways/")[1].slice(45,130)!=window.twentyfifty.default_pathway.slice(45,130)){timeMode(2050);}
+  });
 
     accordionLeverToggle = function() {
 	$('#accordion').find('.accordion-toggle').click(function(){
@@ -341,7 +344,7 @@
       clearTimeout(windowResizeDebounceTimer);
       windowResizeDebounceTimer = setTimeout(function() {
         // FIXME: Refactor out the cache[codeForChoices()] call
-        active_view.updateResults(cache[codeForChoices()]);
+        active_view.updateResults(cache[codeForChoices()], window.global_time_mode);
       }, 500);
     });
 
@@ -679,7 +682,7 @@ letter_to_date_map = {
     c = codeForChoices();
     data = cache[c];
     if (data != null) {
-      active_view.updateResults(data);
+      active_view.updateResults(data, window.global_time_mode);
     }
 
     if(active_view.updateComparator != undefined) {
@@ -718,7 +721,7 @@ letter_to_date_map = {
       history.pushState(choices, main_code, url());
     }
     if (cache[main_code] != null) {
-      active_view.updateResults(cache[main_code]);
+      active_view.updateResults(cache[main_code], window.global_time_mode);
       return $('#calculating').hide();
     } else {
       $('#calculating').show();
@@ -732,7 +735,7 @@ letter_to_date_map = {
           if (data != null) {
             cache[data._id] = data;
             if (data._id === codeForChoices()) {
-              active_view.updateResults(data);
+              active_view.updateResults(data, window.global_time_mode);
               return $('#calculating').hide();
             }
           }
@@ -826,8 +829,10 @@ letter_to_date_map = {
 	for (i = 0; i < startdatechoices.length; i++) {
 	    _startdate = startdatechoices[i];
 	    _enddate = enddatechoices[i];
-	    _old_startdate = old_startdatechoices[i];
-	    _old_enddate = old_enddatechoices[i];
+	    //_old_startdate = old_startdatechoices[i];
+	    //_old_enddate = old_enddatechoices[i];
+      _old_startdate = mapCode(window.twentyfifty.default_pathway.slice(45, 90), letter_to_date_map)[i];
+	    _old_enddate = mapCode(window.twentyfifty.default_pathway.slice(90, 135), letter_to_date_map)[i];
 //	    if ((_startdate !== _old_startdate)||(_enddate !== _old_enddate)) {
 		_button = controls.find("#cd" + i);
     // show updated years - via class change (years will be shown permanently)
@@ -884,6 +889,8 @@ letter_to_date_map = {
   	});
   	window['sliderSlider'+i].setAttribute('disabled', true);
   }else{
+    _button.removeClass("update date-choice-mode-2100-edited");
+    _button.addClass("update date-choice-mode-2100-default");
     noUiSlider.create(window['sliderSlider'+i], {start: [ _startdate, _enddate],step: 5,connect: true,range: {'min':  2020,'max':  2100}});
     window['sliderSlider'+i].setAttribute('disabled', true); //https://refreshless.com/nouislider/more/#section-styling
   }
@@ -913,7 +920,7 @@ letter_to_date_map = {
     }
     switchView('costs_compared_within_sector');
     active_view.teardown();
-    return active_view.updateResults(cache[codeForChoices()]);
+    return active_view.updateResults(cache[codeForChoices()], window.global_time_mode);
   };
 
   getComparator = function() {
@@ -997,19 +1004,24 @@ letter_to_date_map = {
 
 }).call(this);
 
-var mode2010 = "switch to 2100 mode";
-var mode2050 = "go back to 2050 mode";
-function timeMode(){
-    var mode = document.getElementById("modeSwitchID").value;
-    if ( mode == mode2010 ) {
+function timeMode(global_time_mode){
+  var _mode = (global_time_mode == 2050 || global_time_mode == 2100) ? global_time_mode : document.getElementById("modeSwitchID").getAttribute("data-mode");
+    if ( _mode == 2050 ) {
       var change = 'visible';
-      document.getElementById("modeSwitchID").value = mode2050;
+      document.getElementById("modeSwitchID").value = "go back to 2050 mode";
+      document.getElementById("modeSwitchID").setAttribute("data-mode",2100)
+      window.global_time_mode = 2100;
+      loadMainPathway();
     } else {
-        var conf = confirm("Are you sure you want to go back to 2050 mode, data will be lost unless bookmarked");
+        var conf = confirm("Are you sure you want to go back to 2050 mode, changes to start and end years will be lost unless bookmarked");
         if (conf==true) {
           var change = 'hidden';
-          document.getElementById("modeSwitchID").value = mode2010;
-          location.reload();
+          document.getElementById("modeSwitchID").value = "switch to 2100 mode";
+          document.getElementById("modeSwitchID").setAttribute("data-mode",2050)
+          window.global_time_mode = 2050;
+          startdatechoices = mapCode(window.twentyfifty.default_pathway.slice(45, 90), letter_to_date_map);
+          enddatechoices = mapCode(window.twentyfifty.default_pathway.slice(90, 135), letter_to_date_map);
+          loadMainPathway();
         }
       }
     var good = document.getElementsByClassName('date-choice-mode-2100-wrapper');

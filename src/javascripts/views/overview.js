@@ -92,7 +92,9 @@ window.twentyfifty.views.overview = function() {
     }
 
     this.updateResults = function(pathway, mode) {
-        var _mode = (mode == 2050 || mode == 2100) ? mode : 2100;
+      console.log("mode: "+mode);
+        var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+        console.log("mode: "+_mode);
         this.pathway = pathway;
         this.choices = twentyfifty.choices;
         updateGauge(pathway);
@@ -107,6 +109,8 @@ window.twentyfifty.views.overview = function() {
 
         this.emissions_by_sector_chart.setMode(_mode);
         this.emissions_cumulative_chart.setMode(_mode);
+        this.energy_consumption_chart.setMode(_mode);
+        this.final_energy_consumption_chart.setMode(_mode);
 
         d3.select('#top_container_1')
     	  .datum(convert_capacity_table_to_hash(pathway.emissions_sector))
