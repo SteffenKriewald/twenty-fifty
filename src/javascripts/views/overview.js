@@ -92,9 +92,7 @@ window.twentyfifty.views.overview = function() {
     }
 
     this.updateResults = function(pathway, mode) {
-      console.log("mode: "+mode);
         var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
-        console.log("mode: "+_mode);
         this.pathway = pathway;
         this.choices = twentyfifty.choices;
         updateGauge(pathway);

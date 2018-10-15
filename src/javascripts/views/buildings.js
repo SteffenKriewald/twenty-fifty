@@ -60,7 +60,9 @@ window.twentyfifty.views.buildings = function() {
       this.buildings_heat_demand_chart = null;
   };
 
-  this.updateResults = function(pathway) {
+  this.updateResults = function(pathway, mode) {
+      var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
       this.pathway = pathway;
       this.choices = twentyfifty.choices;
       updateGauge(pathway);
@@ -73,6 +75,11 @@ window.twentyfifty.views.buildings = function() {
       classView2 = document.getElementById('view2').getAttribute('class');
       document.getElementById('view1').setAttribute('class', 'overview visible');
       document.getElementById('view2').setAttribute('class', 'overview visible');
+
+      this.emissions_from_buildings_chart.setMode(_mode);
+      this.buildings_energy_consumption_chart.setMode(_mode);
+      this.buildings_heat_supply_chart.setMode(_mode);
+      this.buildings_heat_demand_chart.setMode(_mode);
 
       d3.select('#top_container_1')
   	  .datum(convert_capacity_table_to_hash(pathway.buildings_emissions))
