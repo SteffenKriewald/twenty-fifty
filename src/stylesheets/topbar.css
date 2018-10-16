@@ -129,15 +129,15 @@
 @media only screen and (max-width: 503px) {#dd1 {display: inline;}}
 */
 
-@media only screen and (max-width: 1560px) {
+@media only screen and (max-width: 1542px) {
    #topbar_dd {visibility: visible;}
    #dd8 {display: inline;}
 }
 
-@media only screen and (max-width: 1384px) {#dd7 {display: inline;}}
-@media only screen and (max-width: 1211px) {#dd6 {display: inline;}}
-@media only screen and (max-width: 1069px) {#dd5 {display: inline;}}
-@media only screen and (max-width: 854px) {#dd4 {display: inline;}}
-@media only screen and (max-width: 779px) {#dd3 {display: inline;}}
-@media only screen and (max-width: 695px) {#dd2 {display: inline;}}
-@media only screen and (max-width: 613px) {#dd1 {display: inline;}}
+@media only screen and (max-width: 1369px) {#dd7 {display: inline;}}
+@media only screen and (max-width: 1193px) {#dd6 {display: inline;}}
+@media only screen and (max-width: 1107px) {#dd5 {display: inline;}}
+@media only screen and (max-width: 933px) {#dd4 {display: inline;}}
+@media only screen and (max-width: 859px) {#dd3 {display: inline;}}
+@media only screen and (max-width: 777px) {#dd2 {display: inline;}}
+@media only screen and (max-width: 692px) {#dd1 {display: inline;}}

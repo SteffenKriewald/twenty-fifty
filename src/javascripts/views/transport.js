@@ -39,7 +39,7 @@ window.twentyfifty.views.transport = function() {
 //      .min_value(-500)
       //	  .max_value(1000);
       this.car_share_of_demand_by_drivetrain_chart = timeSeriesStackedAreaChart()
-	  .title("All Transport Energy Consumption by Vehicle")
+	  .title("Road Transport Energy Consumption by Engine Type")
 	  .unit('TWh/yr');
 //      .css_for_label(css_for_labels)
 //      .min_value(-500)
