@@ -24,6 +24,30 @@
     first: q0-q12 last: q11-12
     default colors in colorbrewer.css
   */
+
+  path.Total-Emissions {
+    /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+
+     /*important if graph goes negative:*/
+    position: relative;
+    z-index: 100;
+  }
+  .Dedicated-GHG-Removal { fill:orange; }
+  .Electricity-Generation { fill:gold; }
+  .Hydrogen-Production { fill:purple; }
+  .Other-Energy-Supply { fill:#ABBFC5; }
+  .Waste-Management { fill:#48711B; }
+  .Agriculture-Land-Use { fill:#ABBFC5; }
+  .Buildings-Residential { fill:#55565A; }
+  .Buildings-Non-Residential { fill:#978463; }
+  .Transport-Domestic { fill:#61553F; }
+  .Transport-International { fill:#0099cc; }
+  .Carbon-Budgets { fill:#003366; }
+
+  /*
   #overview #view1 #top_container_1 .Paired .q0-12 { fill:orange; }
   #overview #view1 #top_container_1 .Paired .q1-12 { fill:gold; }
   #overview #view1 #top_container_1 .Paired .q2-12 { fill:purple; }
@@ -34,8 +58,9 @@
   #overview #view1 #top_container_1 .Paired .q7-12 { fill:#978463; }
   #overview #view1 #top_container_1 .Paired .q8-12 { fill:#61553F; }
   #overview #view1 #top_container_1 .Paired .q9-12 { fill:#0099cc; }
+
   #overview #view1 #top_container_1 .Paired .q10-12 { fill:#003366; }
-  #overview #view1 #top_container_1 .Paired .total { fill:black; }
+  #overview #view1 #top_container_1 .Paired .total { fill:black; }*/
 
   #overview #view2 #top_container_2 .Paired .q0-12 { fill:red; }
 

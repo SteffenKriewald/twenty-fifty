@@ -1,8 +1,8 @@
 window.timeSeriesStackedAreaChart = function() {
   var area, chart, color_class_index, css_for_label, context, dataTableFormat, data_first_year, data_last_year, data_year_interval, extent, height, label_threshold, line, margin, max_value, max_year, min_value, min_year, seriesClass, showLabelFilter, stack, title, total_label, unit, width, xAxis, xScale, x_center, yAxis, yScale, year_for_data, year_for_ticks, _i, _j;
 
-  //width = 375; // Of svg in pixels
-  width = 700; // Of svg in pixels
+    //  width = 375; // Of svg in pixels
+      width = 700; // Of svg in pixels
   height = 125; // of svg in pixels
     //  margin = { top: 41, right: 108, bottom: 40, left: 33 }; // The margins between the edge of the svg and the main chart area. Needs to be big enough for labels.
   var maxWidth = 950;
@@ -39,11 +39,6 @@ window.timeSeriesStackedAreaChart = function() {
   year_for_ticks = yearForTicksModes[mode];
 
   var minorTicks = minorTicksModes[mode];
-
-  title = ""; // Default, Can be accessed or set with chart.title("New title")
-  var subTitle = ""; // Default. Can be accessed or set with chart.subTitle("New Sub Title")
-  unit = "TWh/yr"; // Default, Can be accessed or set with chart.unit("PJ")
-
 
   min_value = 0; // This is the minimum for the y-axis
   max_value = 4000; // This is the maximum for the y-axis
@@ -88,7 +83,6 @@ window.timeSeriesStackedAreaChart = function() {
 
 
   total_label = /^total*/i; // Any data whose label matches this regular expression will be treated as a total line, rather than an area to stack
-  //total_label = /^(reference*)|(total*)/i; // Any data whose label matches this regular expression will be treated as a total line, rather than an area to stack
 
   // This is used to turn a series label into a css class. If first looks for the label in the
   // css_for_label object above, but if it doesn't find it, then it gives the first series label
@@ -117,7 +111,6 @@ window.timeSeriesStackedAreaChart = function() {
   // and the label is within the cahrt area.
   label_threshold = undefined;
   showLabelFilter = function(d) {
-    if(d.label == undefined) { return false; }
     return (Math.abs(d.total) > label_threshold) && d.label_y < extent.ymax && d.label_y > extent.ymin;
   };
 
@@ -138,7 +131,12 @@ window.timeSeriesStackedAreaChart = function() {
           // First, we rescale the graph
           // FIXME: JQuery dependency
           width = $(this).width();
-          height = width / 1.5;
+          width = width > maxWidth ? maxWidth : width;
+
+          height = (window.innerHeight-150) / 2;
+          height = height < minHeight ? minHeight : height;
+          height = height > maxHeight ? maxHeight : height;
+
           x_center = (width - (margin.left * 2)) / 2;
           xScale
             .domain([extent.xmin, extent.xmax])
@@ -158,9 +156,6 @@ window.timeSeriesStackedAreaChart = function() {
           for (_i = 0, _len = _ref.length; _i < _len; _i++) {
             series = _ref[_i];
             total = 0;
-            var has_positives = false;
-            var has_negatives = false;
-
             // Each series is of the form [10, 15, .. 27]
             // This turns it into the form:
             // [{x: 2010, y: 10}, {x:2015, y:15}, .. {x:2050, y:27}]
@@ -169,24 +164,16 @@ window.timeSeriesStackedAreaChart = function() {
             // series in order to work out whether to show a label
             // or not and whether, overall, the series should be
             // counted as 'positve' or 'negative'
-            series.value = series.value.slice(0,yearForDataModes[mode].length); //makes sure the series-length is not longer than the time-axis length
+            series.value = series.value.slice(0,yearForDataModes[mode].length);
 
             series.value = series.value.map(function(p, i) {
-              if(p > 0) {
-                has_positives = true;
-              }
-              if(p < 0) {
-                has_negatives = true;
-              }
               total += p;
               return {
                 x: year_for_data[i],
-                y: +p, // This is used for plotting
-                table: dataTableFormat(p) // This is displayed at the bottom of the chart
+                y: p
               };
             });
             series.total = total;
-            series.label = series.key;
 
             // First we check if the label matches the total_label regular
             // expression defined above (default is to test whether the
@@ -198,60 +185,12 @@ window.timeSeriesStackedAreaChart = function() {
             // If not a total, then put it into either the positive_series
             // or negative_series arrays
             } else {
-              // If goes above and below zero need to split the series into two
-              // series, one for the positive values and one for the negative.
-              if(has_positives && has_negatives) {
-                series.path = area;
-                series.css = seriesClass(series, automaticallyAsignCSS);
-
-                var positive = {
-                  key: series.key+"-positive",
-                  label: series.label,
-                  total: series.total,
-                  path: series.path,
-                  css: series.css,
-                  value: series.value.map(function(p) {
-                    // Remove negative values from this series
-                    if(p.y >= 0.0 ) {
-                      return p;
-                    } else {
-                      return {x: p.x, y: 0.0, table: p.table}
-                    }
-                  })
-                };
-                var negative = {
-                  key: series.key+"-negative",
-                  label: series.label,
-                  total: series.total,
-                  path: series.path,
-                  css: series.css,
-                  value: series.value.map(function(p) {
-                    // Remove positive values from this series
-                    if(p.y < 0.0 ) {
-                      return p;
-                    } else {
-                      return {x: p.x, y: 0.0, table: p.table}
-                    }
-                  })
-                };
-                // Make sure only the label for the series that
-                // is non-zero at the right hand side of the chart
-                // is visible.
-                if(series.value[series.value.length - 1].y >= 0) {
-                  negative.label = undefined;
-                } else {
-                  positive.label = undefined;
-                }
-                positive_series.unshift(positive);
-                negative_series.push(negative);
+              series.path = area;
+              series.css = seriesClass(series, automaticallyAsignCSS);
+              if (total >= 0) {
+                positive_series.push(series);
               } else {
-                series.path = area;
-                series.css = seriesClass(series, automaticallyAsignCSS);
-                if (total >= 0) {
-                  positive_series.push(series);
-                } else {
-                  negative_series.push(series);
-                }
+                negative_series.push(series);
               }
             }
           } // Finish looping through the series
@@ -320,33 +259,27 @@ window.timeSeriesStackedAreaChart = function() {
                 c = d.css;
                 dataTable(d, c); // Show the data table
                 g.selectAll("." + c).classed("hover", true); // Highlight the area and the label
-                  l = g.selectAll("." + c + ".linelabel.notShown").attr("display", "inline"); // Show the label
-		  if(l.length > 0 && l.length[0] > 0) {
-			  s = l[0][0].getBBox(); // Find out how big the label is
-			  g.insert("rect", "." + c + ".linelabel") // And then put a white rectangle behind the label to make sure it stands out
-			  .attr("class", "labelbackground")
-			  .attr("x", s.x).attr("y", s.y)
-			  .attr("width", s.width + 6).attr("height", s.height);
-		  }
+                if (!showLabelFilter(d)) { // If the label was hidden
+                  l = g.selectAll("." + c + ".linelabel").attr("display", "inline"); // Show the label
+                  s = l[0][0].getBBox(); // Find out how big the label is
+                  g.insert("rect", "." + c + ".linelabel") // And then put a white rectangle behind the label to make sure it stands out
+                    .attr("class", "labelbackground")
+                    .attr("x", s.x).attr("y", s.y)
+                    .attr("width", s.width + 6).attr("height", s.height);
+                }
               }).on("mouseout", function(d, i) { // When the mouse has left the area
                 var c;
                 removeDataTable(); // Hide the data table
                 c = d.css
                 g.selectAll("." + c).classed("hover", false); // Unhighlight the label and area
-                  g.selectAll("." + c + ".linelabel.notShown").attr("display", "none"); // That means hiding the label
+                if (!showLabelFilter(d)) { // And, if the area is too small for a label, hide it again
+                  g.selectAll("." + c + ".linelabel").attr("display", "none"); // That means hiding the label
                   g.selectAll(".labelbackground").remove(); // And removing the white rectangle we put behind it
+                }
               });
-
-	  areas.exit().remove();
 
           // Oh yeah. Don't forget to actually draw the areas
           areas.transition().attr("d", function(d) { return d.path(d.value); });
-
-
-          // We need to make sure the total lines are still in front
-          d3.selectAll("path.total").each(function() {
-            this.parentNode.appendChild(this);
-          });
 
           // Sometimes we want to draw a background area for context (like on the electricity charts)
           // FIXME: This is a bit bodged
@@ -368,7 +301,6 @@ window.timeSeriesStackedAreaChart = function() {
             total = svg.select('g.context').selectAll('path').data([d]);
             total.enter().append("path");
             total.transition().attr("d", function(d) { return area(d); });
-	          total.exit().remove();
           }
 
           // Axis time!
@@ -386,8 +318,6 @@ window.timeSeriesStackedAreaChart = function() {
             .attr("class", "y axislabel");
           gEnter.append("text")
             .attr("class", "charttitle");
-          gEnter.append("text")
-            .attr("class", "chartsubtitle");
 
           // If the y-axis goes negative we need to move the the x-axis labels to the bottom of the chart
           if (yScale.domain()[0] < 0 && yScale.domain()[1] > 0) {
@@ -428,11 +358,6 @@ window.timeSeriesStackedAreaChart = function() {
           g.select(".charttitle")
             .attr("transform", "translate(" + x_center + "," + (xScale.range()[0] - 30) + ")")
             .text(title);
-
-          // Align the chart subtitle horizontally in the chart
-          g.select(".chartsubtitle")
-            .attr("transform", "translate(" + x_center + "," + (xScale.range()[0] - 18) + ")")
-            .text(subTitle);
 
           // Now we work through the labels. Only display ones that relate to the larger areas
           // Make sure we do them in the right order so that they overlap neatly
@@ -499,8 +424,9 @@ window.timeSeriesStackedAreaChart = function() {
 
           // And adding any new labels that are required
           labels.enter().append("text")
+            .attr("class", function(d, i) { return "linelabel " + d.css; }) // Coloured to match area
             .attr("x", label_x).attr("y", function(d) { return yScale(d.label_y) + 4; }) // To the right of the axis
-            .text(function(d) { return d.label; })
+            .text(function(d) { return d.key; })
             .on("mouseover", function(d, i) { // When mouse goes over, highlight area and the data table
               dataTable(d, d.css);
               g.selectAll("." + d.css ).classed("hover", true);
@@ -517,7 +443,6 @@ window.timeSeriesStackedAreaChart = function() {
             .sort(function(a, b) { return d3.descending(Math.abs(a.total), Math.abs(b.total)); }) // Smallest to largest
             .transition().attr("x", label_x) // To the right of the chart
             .attr("y", function(d) { return yScale(d.label_y) + 4; }) // In the right veritical positiojn
-            .attr("class", function(d, i) { return "linelabel " + (showLabelFilter(d) ? "shown " : "notShown ") + d.css; }) // Coloured to match area
             .attr("display", function(d, i) {
               if (showLabelFilter(d)) { // Only shown if large enough
                 return "inline";
@@ -538,7 +463,7 @@ window.timeSeriesStackedAreaChart = function() {
               .attr("class", "seriesValue"); // Add text for any labels that are missing
 
             grid
-              .text(function(d, i) { return d.table; })
+              .text(function(d, i) { return dataTableFormat(d.y); })
               .attr("transform", function(d, i) { return "translate(" + xScale(d.x) + "," + (yScale.range()[0] + 30) + ")"; })// Put it in the right x-position
               .classed(seriesclass, true) // With the right colour
               .attr("display", function(d, i) { // But only show it if it is within the axis area and matches a tick on the axis
@@ -564,13 +489,6 @@ window.timeSeriesStackedAreaChart = function() {
   chart.title = function(_) {
     if (_ == null) { return title; }
     title = _;
-    return chart;
-  };
-
-  // Use to get or set the chart sub Title
-  chart.subTitle = function(_) {
-    if (_ == null) { return subTitle; }
-    subTitle = _;
     return chart;
   };
 

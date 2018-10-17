@@ -26,7 +26,22 @@ window.twentyfifty.views.overview = function() {
     .unit('Mt.CO2e/yr')
     //      .css_for_label(css_for_labels)
     .max_value(1000)
-    .min_value(-100);
+    .min_value(-100)
+    .css_for_label({
+      "Dedicated GHG Removal": "Dedicated-GHG-Removal",
+      "Electricity Generation": "Electricity-Generation",
+      "Hydrogen Production": "Hydrogen-Production",
+      "Other Energy Supply": "Other-Energy-Supply",
+      "Waste Management": "Waste-Management",
+      "Agriculture & Land Use": "Agriculture-Land-Use",
+      "Industry": "Industry",
+      "Buildings-Residential": "Buildings-Residential",
+      "Buildings-Non-Residential": "Buildings-Non-Residential",
+      "Transport-Domestic": "Transport-Domestic",
+      "Transport-International": "Transport-International",
+      "Total Emissions": "Total-Emissions",
+      "Carbon Budgets": "Carbon-Budgets"
+    });
 
     this.emissions_cumulative_chart = lineChart()
     .title("Cumulative UK Greenhouse Gas Emissions")
@@ -110,6 +125,15 @@ window.twentyfifty.views.overview = function() {
         this.emissions_cumulative_chart.setMode(_mode);
         this.energy_consumption_chart.setMode(_mode);
         this.final_energy_consumption_chart.setMode(_mode);
+
+
+        //temporary fix, because Carbon Budgets are still malformatted
+        for(var i=pathway.emissions_sector.length-1; i>=0; i--) {
+          if(pathway.emissions_sector[i][0]==="Carbon Budgets") {
+            pathway.emissions_sector.splice(i,1);
+            break;
+          }
+        }
 
         d3.select('#top_container_1')
     	  .datum(convert_capacity_table_to_hash(pathway.emissions_sector))
