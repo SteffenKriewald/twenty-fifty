@@ -19,7 +19,7 @@ class Model
       set(name, arguments.first)
     else
       super
-    end
+    end 
   end
 
   def get(name)
@@ -43,7 +43,7 @@ class Model
         (0...c).each do |column|
           a[row][column] = ruby_value_from_excel_value(C::ExcelValue.new(p + (((row*c)+column)*s)))
         end
-      end
+      end 
       return a
     when :ExcelError; [:value,:name,:div0,:ref,:na,:num][excel_value[:number]]
     else
@@ -97,20 +97,20 @@ class Model
   end
 
 
-  module C
+  module C 
     extend FFI::Library
     ffi_lib  File.join(File.dirname(__FILE__),FFI.map_library_name('model'))
     ExcelType = enum :ExcelEmpty, :ExcelNumber, :ExcelString, :ExcelBoolean, :ExcelError, :ExcelRange
-
+                  
     class ExcelValue < FFI::Struct
       layout :type, ExcelType,
              :number, :double,
              :string, :pointer,
              :array, :pointer,
              :rows, :int,
-             :columns, :int
+             :columns, :int             
     end
-
+  
 
     # use this function to reset all cell values
     attach_function 'reset', [], :void
