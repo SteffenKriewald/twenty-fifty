@@ -11,3 +11,19 @@ public/index.html
 
 public/assets/manifest.json
 a.out
+public/.htaccess
+
+vendor/** vendor/**/*
+vendor/bundle/** vendor/bundle/**/*
+vendor/bundle/ruby/2.5.0/**  vendor/bundle/ruby/2.5.0/**/*
+
+.bundle/
+git_status.txt
+model/.~lock.model.xlsm#
+model/UK_Pathways_Calculator_Model_Development_V102.0_no_empty_rows_13H00.xlsm
+model/UK_Pathways_Calculator_Model_Development_V118.0.xlsm
+model/UK_Pathways_Calculator_Model_Development_V118.0_sk.xlsm
+model/model.xlsm.vincent
+vendor/
+index.html
+nohup.out
