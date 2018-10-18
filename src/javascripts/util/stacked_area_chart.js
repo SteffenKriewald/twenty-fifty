@@ -339,6 +339,8 @@ window.timeSeriesStackedAreaChart = function() {
 
 	  areas.exit().remove();
 
+          areas.order();
+
           // Oh yeah. Don't forget to actually draw the areas
           areas.transition().attr("d", function(d) { return d.path(d.value); });
 

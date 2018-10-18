@@ -30,10 +30,6 @@
     fill: none;
     stroke: black;
     stroke-width: 2;
-
-     /*important if graph goes negative:*/
-    position: relative;
-    z-index: 100;
   }
   .Dedicated-GHG-Removal { fill:orange; }
   .Electricity-Generation { fill:gold; }
