@@ -202,7 +202,16 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       $('#view3').append("<div id='sankey'></div>");
       this.s = s = new Sankey();
-      s.stack(0, ["Pumped heat", "Solar", "Wind", "Tidal", "Wave", "Geothermal", "Hydro", "Electricity imports", "Nuclear", "Coal reserves", "Coal imports", "Biomass imports", "Gas reserves", "Gas imports", "Oil reserves", "Oil imports", "Biofuel imports", "UK land based bioenergy", "Agricultural 'waste'", "Other waste", "Marine algae"]);
+      s.stack(0,["Environmental Energy","Waste","UK Biomass","Fossil Fuel Reserves","Imports"]);
+      s.stack(1,["Environmental Heat","Solar" ,"Wind","Tidal","Wave","Hydro","Electricity imports","Nuclear","Waste-EfW","Hydrogen Imports","Bio-Conversion","Coal","Oil","Hydrogen Production","Heat Network" ],"Imports");
+      s.stack(2,["CHP-Heat Network"],"Imports");
+      s.stack(3,["Natural Gas"],"Imports");
+      s.stack(4,["Thermal Generation"],"Imports");
+      s.stack(5,["Electricity Transmission"],"Imports");
+      s.stack(6,["Electricity Distribution"],"Imports");
+      s.stack(7,["Exports","Heat-Residential","Heat-Non-Residential","Appliances-Residential","Appliances-Non-Residential","Industry","Agriculture","Road Transport","Rail and Shipping","Aviation","Fossil Fuel Processing","Losses","GHG Removal"]);
+      //s.stack(1,[]);
+/*      s.stack(0, ["Pumped heat", "Solar", "Wind", "Tidal", "Wave", "Geothermal", "Hydro", "Electricity imports", "Nuclear", "Coal reserves", "Coal imports", "Biomass imports", "Gas reserves", "Gas imports", "Oil reserves", "Oil imports", "Biofuel imports", "UK land based bioenergy", "Agricultural 'waste'", "Other waste", "Marine algae"]);
       s.stack(1, ["Coal"], "Coal reserves");
       s.stack(1, ["Natural Gas"], "Gas reserves");
       s.stack(1, ["Oil"], "Oil reserves");
@@ -214,9 +223,9 @@ window.twentyfifty.views.flows_map_imports = function() {
       s.stack(5, ["H2 conversion"], "Electricity grid");
       s.stack(6, ["H2"], "H2 conversion");
       s.stack(7, ["Heating and cooling - homes", "Heating and cooling - commercial", "Lighting & appliances - homes", "Lighting & appliances - commercial", "Industry", "Road transport", "Rail transport", "Domestic aviation", "International aviation", "National navigation", "International shipping", "Agriculture", "Geosequestration", "Over generation / exports", "Losses"]);
-
+*/
       s.nudge_boxes_callback = function() {
-        this.boxes["Losses"].y = this.boxes["Marine algae"].b() - this.boxes["Losses"].size();
+      //  this.boxes["Losses"].y = this.boxes["Marine algae"].b() - this.boxes["Losses"].size();
       };
 
       s.setColors({
@@ -268,7 +277,7 @@ window.twentyfifty.views.flows_map_imports = function() {
         this.recolour(this.boxes["Electricity grid"].left_lines, "#0000FF");
       };
 
-      pixels_per_TWh = $('#sankey').height() / 6000;
+      pixels_per_TWh = $('#sankey').height() / 10000;
 
       s.y_space = Math.round(100 * pixels_per_TWh);
       s.right_margin = 250;

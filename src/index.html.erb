@@ -59,7 +59,7 @@
 
           <!-- To add or remove views from the web tool, alter the following section -->
           <div id='views'>
-    	       <a class='view' data-view='overview' href='#'>Energy & Emissions</a>
+    	      <div id="tp1"><a class='view' data-view='overview' href='#'>Overview</a></div>
     	<!--
             <a class='view' data-view='primary_energy_chart' href='#'>Overview</a>
             <a class='view' data-view='electricity' href='#'>Buildings</a>
@@ -70,13 +70,13 @@
             <a class='view' data-view='air_quality' href='#'>Land use & Biofuels</a>
             <a class='view' data-view='share' href='#'>Flows, Map & Imports</a>
     	-->
-            <a class='view' data-view='transport' href='#'>Transport</a>
-            <a class='view' data-view='buildings' href='#'>Buildings</a>
-            <a class='view' data-view='industry' href='#'>Industry</a>
-            <a class='view' data-view='conversions_and_ghg' href='#'>CO2 Removal & Gases</a>
-            <a class='view' data-view='story' href='#'>Electricity</a>
-            <a class='view' data-view='land_use' href='#'>Land Use & Bioenergy</a>
-            <a class='view' data-view='flows_map_imports' href='#'>Imports, Map & Flows</a>
+            <div id="tp2"><a class='view' data-view='transport' href='#'>Transport</a></div>
+            <div id="tp3"><a class='view' data-view='buildings' href='#'>Buildings</a></div>
+            <div id="tp4"><a class='view' data-view='industry' href='#'>Industry</a></div>
+            <div id="tp5"><a class='view' data-view='conversions_and_ghg' href='#'>CO2 Removal & Gases</a></div>
+            <div id="tp6"><a class='view' data-view='story' href='#'>Electricity</a></div>
+            <div id="tp7"><a class='view' data-view='land_use' href='#'>Land Use & Bioenergy</a></div>
+            <div id="tp8"><a class='view' data-view='flows_map_imports' href='#'>Imports, Map & Flows</a></div>
 
 
             <!-- Change this to link to your own country website documentation
@@ -91,7 +91,7 @@
       <div id="topbar_dd" class="dropdown">
            <img id="bars" class="svg" src="/assets/warning_icons/bars.svg"/>
       <div class="dropdown-content">
-        <div id="dd1"><a class='view' data-view='overview' href='#'>Energy & Emissions</a></div>
+        <div id="dd1"><a class='view' data-view='overview' href='#'>Overview</a></div>
         <div id="dd2"><a class='view' data-view='transport' href='#'>Transport</a></div>
         <div id="dd3"><a class='view' data-view='buildings' href='#'>Buildings</a></div>
         <div id="dd4"><a class='view' data-view='industry' href='#'>Industry</a></div>
@@ -135,9 +135,11 @@
          <div id="wE_div" data-original-title="...">
            <img id="wE" class="svg warning" src="/assets/warning_icons/map_coarse.svg"/><br>
          </div>
+        <!--
          <div id="wP_div" data-original-title="...">
            <img id="wP" class="svg warning" src="/assets/warning_icons/chart-pie.svg"/><br>
          </div>
+       -->
        </div>
 
      <script>

@@ -162,7 +162,7 @@ class DataFromModel
   end
 
   def names
-    @names ||= excel.input_names.flatten
+    @names ||= excel.output_lever_names.flatten
   end
 
   def dstartdates
@@ -201,7 +201,8 @@ class DataFromModel
 
   def generate_example_pathways
     # Transpose the data so that every row is an example pathway
-    data = excel.input_example_pathways.transpose
+    # data = excel.input_example_pathways.transpose
+    data = excel.output_lever_example_ambition.transpose
     data = data.map do |pathway_data|
       {
         name: pathway_data[0],

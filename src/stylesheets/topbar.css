@@ -132,12 +132,13 @@
 @media only screen and (max-width: 1542px) {
    #topbar_dd {visibility: visible;}
    #dd8 {display: inline;}
+   #tp8 {visibility: hidden;}
 }
 
-@media only screen and (max-width: 1369px) {#dd7 {display: inline;}}
-@media only screen and (max-width: 1193px) {#dd6 {display: inline;}}
-@media only screen and (max-width: 1107px) {#dd5 {display: inline;}}
-@media only screen and (max-width: 933px) {#dd4 {display: inline;}}
-@media only screen and (max-width: 859px) {#dd3 {display: inline;}}
-@media only screen and (max-width: 777px) {#dd2 {display: inline;}}
-@media only screen and (max-width: 692px) {#dd1 {display: inline;}}
+@media only screen and (max-width: 1369px) {#dd7 {display: inline;} #tp7 {visibility: hidden;}}
+@media only screen and (max-width: 1193px) {#dd6 {display: inline;} #tp6 {visibility: hidden;}}
+@media only screen and (max-width: 1107px) {#dd5 {display: inline;} #tp5 {visibility: hidden;}}
+@media only screen and (max-width: 933px) {#dd4 {display: inline;} #tp4 {visibility: hidden;}}
+@media only screen and (max-width: 859px) {#dd3 {display: inline;} #tp3 {visibility: hidden;}}
+@media only screen and (max-width: 777px) {#dd2 {display: inline;} #tp2 {visibility: hidden;}}
+@media only screen and (max-width: 692px) {#dd1 {display: inline;} #tp1 {visibility: hidden;}}
