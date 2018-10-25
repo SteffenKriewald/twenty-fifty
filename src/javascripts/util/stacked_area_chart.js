@@ -138,7 +138,12 @@ window.timeSeriesStackedAreaChart = function() {
           // First, we rescale the graph
           // FIXME: JQuery dependency
           width = $(this).width();
-          height = width / 1.5;
+          width = width > maxWidth ? maxWidth : width;
+
+          height = (window.innerHeight-150) / 2;
+          height = height < minHeight ? minHeight : height;
+          height = height > maxHeight ? maxHeight : height;
+
           x_center = (width - (margin.left * 2)) / 2;
           xScale
             .domain([extent.xmin, extent.xmax])
