@@ -123,20 +123,20 @@
 
 
     <div class="warnings">
-         <div id="w4_div" data-original-title="...">
+         <div id="w4_div" data-original-title="..." data-placement="left">
            <img id="w4" class="svg warning" src="/assets/warning_icons/four.svg"/><br>
          </div>
-         <div id="wR_div" data-original-title="...">
+         <div id="wR_div" data-original-title="..." data-placement="left">
            <img id="wR" class="svg warning" src="/assets/warning_icons/rocket.svg"/><br>
          </div>
-         <div id="wL_div" data-original-title="...">
+         <div id="wL_div" data-original-title="..." data-placement="left">
            <img id="wL" class="svg warning" src="/assets/warning_icons/leaf.svg"/><br>
          </div>
-         <div id="wE_div" data-original-title="...">
+         <div id="wE_div" data-original-title="..." data-placement="left">
            <img id="wE" class="svg warning" src="/assets/warning_icons/map_coarse.svg"/><br>
          </div>
         <!--
-         <div id="wP_div" data-original-title="...">
+         <div id="wP_div" data-original-title="..." data-placement="left">
            <img id="wP" class="svg warning" src="/assets/warning_icons/chart-pie.svg"/><br>
          </div>
        -->
@@ -369,7 +369,7 @@
 	  </tr>
 
 <tr>
-<td style="margin:0;background-color:#7f99b2;padding:4px">
+<td style="margin:0;background-color:#7f99b2;padding: 0px 4px">
       <h5>Transport</h5>
 </td>
 <td class='gap'></td>
@@ -379,7 +379,7 @@
 
 </td>
 
-	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+	    <td class='date-choice-mode-2100-wrapper' style="height:35px;text-align: center;">
 		<div id='transport-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
 			<div class="dates-column">
 				<div class="dates-column-left"></div>
@@ -414,7 +414,7 @@
 
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
               <td class='name lever-grey'>
-                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.long_descriptions %>' class='leverNameLink'>
                   <%= choice.name %>
                 </a>
               </td>
@@ -526,7 +526,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
         	  </tr>
 
       <tr>
-      <td style="margin:0;background-color:#7f99b2;padding:4px">
+      <td style="margin:0;background-color:#7f99b2;padding: 0px 4px">
 
             <h5>Buildings</h5>
       </td>
@@ -537,7 +537,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
       </td>
 
-      	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+      	    <td class='date-choice-mode-2100-wrapper' style="height:35px;text-align: center;">
       <div id='buildings-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
       <div class="dates-column">
       <div class="dates-column-left"></div>
@@ -569,7 +569,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
                 <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
                   <td class='name lever-grey'>
-                    <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+                    <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.long_descriptions %>' class='leverNameLink'>
                       <%= choice.name %>
                     </a>
                   </td>
@@ -673,7 +673,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
       	  </tr>
 
       <tr>
-      <td style="margin:0;background-color:#7f99b2;padding:4px">
+      <td style="margin:0;background-color:#7f99b2;padding: 0px 4px">
             <h5>Industry</h5>
       </td>
       <td class='gap'></td>
@@ -683,7 +683,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
       </td>
 
-      	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+      	    <td class='date-choice-mode-2100-wrapper' style="height:35px;text-align: center;">
       		<div id='industry-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
       			<div class="dates-column">
       				<div class="dates-column-left"></div>
@@ -718,7 +718,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
                   <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
                     <td class='name lever-lightgrey'>
-                      <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+                      <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.long_descriptions %>' class='leverNameLink'>
                         <%= choice.name %>
                       </a>
                     </td>
@@ -822,7 +822,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 	  </tr>
 
 <tr>
-<td style="margin:0;background-color:#7f99b2;padding:4px">
+<td style="margin:0;background-color:#7f99b2;padding: 0px 4px">
       <!-- The left column  &<br>GHG reduction-->
       <!--<h5 style="font-family: Arial Narrow;">Energy conversion & GHG reduction</h5>-->
       <!-- <h5>Energy conversions & <br>greenhouse gas reduction</h5>-->
@@ -835,7 +835,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
 </td>
 
-	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+	    <td class='date-choice-mode-2100-wrapper' style="height:35px;text-align: center;">
 		<div id='energy-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
 			<div class="dates-column">
 				<div class="dates-column-left"></div>
@@ -870,7 +870,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
               <td class='name lever-grey'>
-                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.long_descriptions %>' class='leverNameLink'>
                   <%= choice.name %>
                 </a>
               </td>
@@ -985,7 +985,7 @@ for (let i of rLGs) {
 	  </tr>
 
 <tr>
-<td style="margin:0;background-color:#7f99b2;padding:4px">
+<td style="margin:0;background-color:#7f99b2;padding: 0px 4px">
       <h5>Electricity supply</h5>
 </td>
 <td class='gap'></td>
@@ -995,7 +995,7 @@ for (let i of rLGs) {
 
 </td>
 
-	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+	    <td class='date-choice-mode-2100-wrapper' style="height:35px;text-align: center;">
 		<div id='electricity-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
 			<div class="dates-column">
 				<div class="dates-column-left"></div>
@@ -1030,7 +1030,7 @@ for (let i of rLGs) {
 
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
               <td class='name lever-grey'>
-                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.long_descriptions %>' class='leverNameLink'>
                   <%= choice.name %>
                 </a>
               </td>
@@ -1134,7 +1134,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 	  </tr>
 
 <tr>
-<td style="margin:0;background-color:#7f99b2;padding:4px">
+<td style="margin:0;background-color:#7f99b2;padding:0px 4px">
       <h5>Land use & biofuels</h5>
 </td>
 <td class='gap'></td>
@@ -1144,7 +1144,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
 </td>
 
-	    <td class='date-choice-mode-2100-wrapper' style="height:47px;text-align: center;">
+	    <td class='date-choice-mode-2100-wrapper' style="height:35px;text-align: center;">
 		<div id='land-header' class="date-choice-mode-2100-default" style="width:150px;height:100%;">
 			<div class="dates-column">
 				<div class="dates-column-left"></div>
@@ -1179,7 +1179,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
 
             <tr class='<%= choice.incremental_or_alternative %>' id='r<%= choice.number %>' >
               <td class='name lever-grey'>
-                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.name %>' class='leverNameLink'>
+                <a href='/assets/onepage/<%= choice.doc %>' target='_new' data-choicenumber='<%= choice.number %>' title= '<%= choice.long_descriptions %>' class='leverNameLink'>
                   <%= choice.name %>
                 </a>
               </td>
@@ -1295,7 +1295,7 @@ slider<%= choice.number %>.setAttribute('disabled', true); //https://refreshless
       <h6 class= "accordion-toggle" style="float:left;left:10px;margin-top:50px; margin-left:-200px; margin-right:200px;">Key</h6>
 
               <!-- <h5>Notes</h5> -->
-        <table class="fixed" id='notes' style="font-size:10px;/*convert from x-small*/;text-align:justify;width:284px;border-spacing: 10px 2px;background-color:#ccd6e0;">
+        <table class="fixed" id='notes' style="font-size:10px;/*convert from x-small*/;text-align:justify;width:284px;border-spacing: 10px 2px;background-color:#ccd6e0;margin-bottom:200px;">
 <!-- Remove Question mark
           <tr><td id='firstcell'><div class='help'>?</div></td><td>Question marks take you to one page descriptions of each choice</td></tr>
 -->

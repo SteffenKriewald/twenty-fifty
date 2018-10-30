@@ -12,7 +12,37 @@
   #transport {
       margin-top: 30px;
   }
-  
+
   #transport .clear {
       clear: both;
   }
+
+
+
+    path.Total-Direct {
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+    }
+    .Car { fill:var(--c_yellow); }
+    .Bus { fill:var(--c_orange); }
+    .Light-Goods-Vehicles { fill:var(--c_brown_l); }
+    .Heavy-Goods-Vehicles { fill:var(--c_brown_d); }
+    .Rail { fill:var(--c_red_m); }
+    .Shipping-Domestic { fill:var(--c_grey_l); }
+    .Aviation-Domestic { fill:var(--c_grey_m); }
+    .Shipping-International { fill:var(--c_blue_l); }
+    .Aviation-International { fill:var(--c_blue_d); }
+    .Indirect-emissions { fill:silver; }
+
+    path.Total-Direct {
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+    }
+    .Electricity  { fill:var(--c_yellow); }
+    .Hydrogen  { fill:var(--c_purble); }
+    .Biofuel { fill:var(--c_brown_m); }
+    .Oil { fill:var(--c_grey_m); }

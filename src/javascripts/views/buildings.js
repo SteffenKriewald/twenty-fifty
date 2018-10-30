@@ -60,7 +60,7 @@ window.twentyfifty.views.buildings = function() {
       this.buildings_heat_demand_chart = null;
   };
 
-  this.updateResults = function(pathway, mode) {
+    this.updateResults = function(pathway, mode) {
       var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
 
       this.pathway = pathway;

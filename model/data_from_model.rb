@@ -8,6 +8,7 @@ class ModelChoice
   attr_accessor :denddate
   attr_accessor :type
   attr_accessor :descriptions
+  attr_accessor :lever_descriptions
   attr_accessor :long_descriptions
   attr_accessor :incremental_or_alternative
   attr_accessor :levels
@@ -109,9 +110,9 @@ class DataFromModel
       'security_import_energy' => excel.output_security_import_energy,
       'security_import_fraction' => excel.output_security_import_fraction,
       # map
-      'map' => excel.output_landarea_kmsq,
-      'map_units' => excel.output_landarea_numberunits,
-
+      'map' => excel.output_land_map_area,
+      'map_distance' => excel.output_land_map_distance,
+      'map_units' => excel.output_land_map_numberunits,
     }
   end
 
@@ -134,8 +135,8 @@ class DataFromModel
       choice.denddate = denddates[i].round
       choice.type = choice_type
       choice.incremental_or_alternative =  incremental ? 'alternative' : 'incremental'
-      choice.descriptions = descriptions[i]
-      choice.long_descriptions = long_descriptions[i]
+      choice.descriptions = descriptions[i].drop(1)
+      choice.long_descriptions = descriptions[i][0]
       choice.levels = incremental ? 'A'.upto(choice_type.upcase) : 1.upto(choice_type.to_i)
 #      choice.doc = one_page_note_filenames[i]
       choices << choice
@@ -182,7 +183,8 @@ class DataFromModel
   end
 
   def descriptions
-    @descriptions ||= excel.input_descriptions
+    # @descriptions ||= excel.input_descriptions
+    @descriptions ||= excel.output_lever_descriptions
   end
 
   def long_descriptions

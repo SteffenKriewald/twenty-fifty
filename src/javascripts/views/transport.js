@@ -22,13 +22,34 @@ window.twentyfifty.views.transport = function() {
 
       this.emissions_from_transport_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions - Transport")
-	  .unit('Mt.CO2e/yr');
-      //      .css_for_label(css_for_labels)
+	  .unit('Mt.CO2e/yr')
+    .max_value(1000)
+    .css_for_label({
+      "Car":"Car",
+      "Bus":"Bus",
+      "Light Goods Vehicles":"Light-Goods-Vehicles",
+      "Heavy Goods Vehicles":"Heavy-Goods-Vehicles",
+      "Rail":"Rail",
+      "Shipping-Domestic":"Shipping-Domestic",
+      "Aviation-Domestic":"Aviation-Domestic",
+      "Shipping-International":"Shipping-International",
+      "Aviation-International":"Aviation-International",
+      "Indirect emissions":"Indirect-emissions",
+      "Total Direct":"Total Direct"
+    });
       //      .max_value(4000);
 
       this.energy_consumption_for_transport_chart = timeSeriesStackedAreaChart()
 	  .title("Energy Consumption - Transport")
-	  .unit('TWh/yr');
+	  .unit('TWh/yr')
+    .max_value(1000)
+    .css_for_label({
+      "Electricity":"Electricity",
+      "Hydrogen ":"Hydrogen",
+      "Biofuel":"Biofuel",
+      "Oil":"Oil",
+      "Total":"Total"
+    });
       //      .css_for_label(css_for_labels)
       //      .max_value(4000);
 
@@ -55,7 +76,9 @@ window.twentyfifty.views.transport = function() {
       this.car_share_of_demand_by_drivetrain_chart = null;
   };
 
-  this.updateResults = function(pathway) {
+  this.updateResults = function(pathway, mode) {
+      var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
       this.pathway = pathway;
       this.choices = twentyfifty.choices;
       updateGauge(pathway);
@@ -68,6 +91,11 @@ window.twentyfifty.views.transport = function() {
       classView2 = document.getElementById('view2').getAttribute('class');
       document.getElementById('view1').setAttribute('class', 'overview visible');
       document.getElementById('view2').setAttribute('class', 'overview visible');
+
+      this.emissions_from_transport_chart.setMode(_mode);
+      this.energy_consumption_for_transport_chart.setMode(_mode);
+      this.passenger_distance_travelled_by_mode_chart.setMode(_mode);
+      this.car_share_of_demand_by_drivetrain_chart.setMode(_mode);
 
       d3.select('#top_container_1')
   	  .datum(convert_capacity_table_to_hash(pathway.tra_emissions))

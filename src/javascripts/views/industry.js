@@ -34,10 +34,15 @@ window.twentyfifty.views.industry = function() {
       this.energy_consumption_for_industry_chart = null;
   };
 
-  this.updateResults = function(pathway) {
+  this.updateResults = function(pathway, mode) {
+    var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
     this.pathway = pathway;
     this.choices = twentyfifty.choices;
     updateGauge(pathway);
+
+    this.emissions_from_industry_chart.setMode(_mode);
+    this.energy_consumption_for_industry_chart.setMode(_mode);
 
     d3.select('#top_container_1')
     .datum(convert_capacity_table_to_hash(pathway.ind_emissions))

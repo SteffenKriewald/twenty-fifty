@@ -203,13 +203,14 @@ window.twentyfifty.views.flows_map_imports = function() {
       $('#view3').append("<div id='sankey'></div>");
       this.s = s = new Sankey();
       s.stack(0,["Environmental Energy","Waste","UK Biomass","Fossil Fuel Reserves","Imports"]);
-      s.stack(1,["Environmental Heat","Solar" ,"Wind","Tidal","Wave","Hydro","Electricity imports","Nuclear","Waste-EfW","Hydrogen Imports","Bio-Conversion","Coal","Oil","Hydrogen Production","Heat Network" ],"Imports");
-      s.stack(2,["CHP-Heat Network"],"Imports");
-      s.stack(3,["Natural Gas"],"Imports");
-      s.stack(4,["Thermal Generation"],"Imports");
-      s.stack(5,["Electricity Transmission"],"Imports");
-      s.stack(6,["Electricity Distribution"],"Imports");
-      s.stack(7,["Exports","Heat-Residential","Heat-Non-Residential","Appliances-Residential","Appliances-Non-Residential","Industry","Agriculture","Road Transport","Rail and Shipping","Aviation","Fossil Fuel Processing","Losses","GHG Removal"]);
+      s.stack(1,["Environmental Heat","Solar" ,"Wind","Tidal","Wave","Hydro","Electricity imports","Nuclear","Waste-EfW","Hydrogen Imports","Bio-Conversion","Coal","Oil","Hydrogen Production" ],"Imports");
+      s.stack(2,["Natural Gas"],"Imports");
+      s.stack(3,["CHP-Heat Network"],"Imports");
+      s.stack(4,["Heat Network"],"Imports");
+      s.stack(5,["Thermal Generation"],"Imports");
+      s.stack(6,["Electricity Transmission"],"Imports");
+      s.stack(7,["Electricity Distribution"],"Imports");
+      s.stack(8,["Exports","Heat-Residential","Heat-Non-Residential","Appliances-Residential","Appliances-Non-Residential","Industry","Agriculture","Road Transport","Rail and Shipping","Aviation","Fossil Fuel Processing","Losses","GHG Removal"]);
       //s.stack(1,[]);
 /*      s.stack(0, ["Pumped heat", "Solar", "Wind", "Tidal", "Wave", "Geothermal", "Hydro", "Electricity imports", "Nuclear", "Coal reserves", "Coal imports", "Biomass imports", "Gas reserves", "Gas imports", "Oil reserves", "Oil imports", "Biofuel imports", "UK land based bioenergy", "Agricultural 'waste'", "Other waste", "Marine algae"]);
       s.stack(1, ["Coal"], "Coal reserves");
@@ -268,13 +269,46 @@ window.twentyfifty.views.flows_map_imports = function() {
         "H2 conversion": "#FF6FCF",
         "Final electricity": "#0000FF",
         "Over generation / exports": "#0000FF",
-        "H2": "#FF6FCF"
+        "H2": "#FF6FCF",
+        "!!! HERE WE GO AGAIN !!!": "#ffa500",
+        "Environmental Energy": "#009900",
+        "Waste": "#521515",
+        "UK Biomass": "#731d1d",
+        "Fossil Fuel Reserves": "#808080",
+        "Imports": "#e5e500",
+        "Environmental Heat": "#990000",
+        "Solar": "#009900",
+        "Wind": "#00e500",
+        "Tidal": "#004c00",
+        "Wave": "#004c00",
+        "Hydro": "#004c00",
+        "Electricity Imports": "#e5e500",
+        "Nuclear": "#ffa500",
+        "Waste-EfW": "#521515",
+        "Hydrogen Imports": "#730073",
+        "Bio-Conversion": "#731d1d",
+        "Natural Gas": "#808080",
+        "Coal": "#4c4c4c",
+        "Oil": "#666666",
+        "Thermal Generation": "#e5e500",
+        "Electricity Transmission": "#e5e500",
+        "Hydrogen Production": "#730073",
+        "CHP-Heat Network": "#e5e500",
+        "Electricity Distribution": "#e5e500",
+        "Heat Network": "#990000",
+        "last": "#ffa500"
       });
 
       s.nudge_colours_callback = function() {
-        this.recolour(this.boxes["Losses"].left_lines, "#ddd");
-        this.recolour(this.boxes["District heating"].left_lines, "#FF0000");
-        this.recolour(this.boxes["Electricity grid"].left_lines, "#0000FF");
+        this.recolour(this.boxes["Environmental Heat"].left_lines, "#990000");
+        this.recolour(this.boxes["Nuclear"].left_lines, "#ffa500");
+        this.recolour(this.boxes["Hydrogen Imports"].left_lines, "#730073");
+        this.recolour(this.boxes["Bio-Conversion"].left_lines, "#731d1d");
+        this.recolour(this.boxes["Natural Gas"].left_lines, "#808080");
+        this.recolour(this.boxes["Coal"].left_lines, "#4c4c4c");
+        this.recolour(this.boxes["Oil"].left_lines, "#666666");
+        this.recolour(this.boxes["Losses"].left_lines, "#7f7fff");
+        this.recolour(this.boxes["Heat Network"].left_lines, "#990000");
       };
 
       pixels_per_TWh = $('#sankey').height() / 10000;
@@ -320,9 +354,11 @@ window.twentyfifty.views.flows_map_imports = function() {
       x = (map_width / 2) + map_offset_x;
       y = map_height + map_offset_y - 100;
       this.land_boxes = {};
-      land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'VI.a.Forestry'];
+      // land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'VI.a.Forestry'];
+      land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'Test'];
       for (i = 0, len = land_box_names.length; i < len; i++) {
         name = land_box_names[i];
+        console.log('xy '+x+' '+y+': '+ labels[name] + colours[name]);
         this.land_boxes[name] = r.upiabeled_square(x, y, labels[name], 0, colours[name]);
       }
 
@@ -396,7 +432,9 @@ window.twentyfifty.views.flows_map_imports = function() {
       s =  null;
   };
 
-  this.updateResults = function(pathway) {
+  this.updateResults = function(pathway, mode) {
+      var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
       this.pathway = pathway;
       this.choices = twentyfifty.choices;
       updateGauge(pathway);
@@ -411,6 +449,9 @@ window.twentyfifty.views.flows_map_imports = function() {
       document.getElementById('view1').setAttribute('class', 'overview visible');
       document.getElementById('view2').setAttribute('class', 'overview visible');
       document.getElementById('view3').setAttribute('class', 'overview visible');
+
+      this.security_import_energy_chart.setMode(_mode);
+      this.security_import_fraction_chart.setMode(_mode);
 
       d3.select('#top_container_1')
       .datum(convert_capacity_table_to_hash(pathway.security_import_energy))
@@ -469,11 +510,16 @@ window.twentyfifty.views.flows_map_imports = function() {
       // The data is supplied as a table, with values for every year
 
       // The first row is the header, look for the 2050 column
-      column_index = pathway.map[0].indexOf(2050);
+      console.log(pathway.map);
+      console.log(pathway.map[0]);
+      //column_index = pathway.map[0].indexOf(2050);
+      column_index = 1;
       // Then skip the header and loop through the rows
-      pathway.map.slice(1).forEach(function(row) {
+      // pathway.map.slice(1).forEach(function(row) {
+      pathway.map.forEach(function(row) {
         // Extract the labels and 2050 values into an object
         map[row[0]] = row[column_index];
+        console.log('extract map '+ map[row[0]]);
       });
 
       // Draw the line for wave machines
@@ -489,6 +535,7 @@ window.twentyfifty.views.flows_map_imports = function() {
       values = [];
 
       for (name in this.land_boxes) {
+        console.log('name map '+name);
         values.push({ name: name, value: map[name] });
       }
       values.sort(function(a, b) { return b.value - a.value; });

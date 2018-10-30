@@ -54,13 +54,38 @@ window.twentyfifty.views.overview = function() {
     .title("Primary Energy Consumption")
     .unit('TWh/yr')
     //      .css_for_label(css_for_labels)
-    .max_value(5000);
+    .max_value(5000)
+    .css_for_label({
+      "Coal":"Coal",
+      "Oil":"Oil",
+      "Natural gas":"Natural-gas",
+      "Waste":"Waste",
+      "Bioenergy":"Bioenergy",
+      "Hydrogen imports":"Hydrogen-imports",
+      "Electricity imports":"Electricity-imports",
+      "Nuclear":"Nuclear",
+      "Environmental heat":"Environmental-heat",
+      "Wind":"Wind",
+      "Solar":"Solar",
+      "Tidal, Wave, Hydro":"Tidal-Wave-Hydro",
+      "Total":"Total"
+    });
 
     this.final_energy_consumption_chart = timeSeriesStackedAreaChart()
     .title("Final Energy Consumption")
     .unit('TWh/yr')
     //      .css_for_label(css_for_labels)
-    .max_value(5000);
+    .max_value(5000)
+    .css_for_label({
+      "Dedicated GHG Removal":"Dedicated-GHG-Removal",
+      "Agriculture":"Agriculture",
+      "Industry":"Industry",
+      "Buildings-Residential":"Buildings-Residential",
+      "Buildings-Non-Residential":"Buildings-Non-Residential",
+      "Transport-Domestic":"Transport-Domestic",
+      "Transport-International":"Transport-International",
+       "Total":"Total"
+});
 
 // Styling of line charts
 /*

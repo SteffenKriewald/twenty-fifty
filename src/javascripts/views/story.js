@@ -50,7 +50,9 @@ window.twentyfifty.views.story = function() {
       this.peak_gate_chart = null;
   };
 
-  this.updateResults = function(pathway) {
+  this.updateResults = function(pathway, mode) {
+      var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
       this.pathway = pathway;
       this.choices = twentyfifty.choices;
       updateGauge(pathway);
@@ -63,6 +65,11 @@ window.twentyfifty.views.story = function() {
       classView2 = document.getElementById('view2').getAttribute('class');
       document.getElementById('view1').setAttribute('class', 'overview visible');
       document.getElementById('view2').setAttribute('class', 'overview visible');
+
+      this.emissions_from_electricity_chart.setMode(_mode);
+      this.electricity_supply_chart.setMode(_mode);
+      this.electricity_capacity_chart.setMode(_mode);
+      this.peak_gate_chart.setMode(_mode);
 
       d3.select('#top_container_1')
   	  .datum(convert_capacity_table_to_hash(pathway.electricity_emissions))

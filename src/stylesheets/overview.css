@@ -25,29 +25,85 @@
     default colors in colorbrewer.css
   */
 
+  :root {
+
+    --c_blue_l: #7f7fff;
+    --c_blue_m: #0000b2;
+    --c_blue_d: #00007f;
+
+    --c_green_l: #00e500;
+    --c_green_m: #009900;
+    --c_green_d: #004c00;
+
+    --c_grey_l: #808080;
+    --c_grey_m: #666666;
+    --c_grey_d: #4c4c4c;
+
+    --c_brown_l: #942525;
+    --c_brown_m: #731d1d;
+    --c_brown_d: #521515;
+
+    --c_red_l: #e50000;
+    --c_red_m: #990000;
+    --c_red_d: #660000;
+
+    --c_purple: #730073;
+    --c_orange: #ffa500;
+    --c_yellow: #cccc00;
+  }
+
   path.Total-Emissions {
     /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
     fill: none;
     stroke: black;
     stroke-width: 2;
   }
-  .Dedicated-GHG-Removal { fill:orange; }
-  .Electricity-Generation { fill:gold; }
-  .Hydrogen-Production { fill:purple; }
-  .Other-Energy-Supply { fill:#ABBFC5; }
-  .Waste-Management { fill:#48711B; }
-  .Agriculture-Land-Use { fill:#ABBFC5; }
-  .Buildings-Residential { fill:#55565A; }
-  .Buildings-Non-Residential { fill:#978463; }
-  .Transport-Domestic { fill:#61553F; }
-  .Transport-International { fill:#0099cc; }
-  .Carbon-Budgets { fill:#003366; }
-  .Industry { fill:red; }
+  .Dedicated-GHG-Removal { fill:var(--c_orange); }
+  .Electricity-Generation { fill:var(--c_yellow); }
+  .Hydrogen-Production { fill:var(--c_purple); }
+  .Other-Energy-Supply { fill:var(--c_grey_l); }
+  .Waste-Management { fill:var(--c_green_d); }
+  .Agriculture-Land-Use { fill:var(--c_green_l); }
+  .Industry { fill:var(--c_grey_d); }
+  .Buildings-Residential { fill:var(--c_brown_l); }
+  .Buildings-Non-Residential { fill:var(--c_brown_d); }
+  .Transport-Domestic { fill:var(--c_blue_l); }
+  .Transport-International { fill:var(--c_blue_d); }
+  /*.Carbon-Budgets { fill:#003366; }*/
+
+  path.Total {
+    /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+  }
+  .Coal { fill: var(--c_grey_d);}
+  .Oil { fill: var(--c_grey_m);}
+  .Natural-gas { fill: var(--c_grey_l),}
+  .Waste { fill: var(--c_brown_d);}
+  .Bioenergy { fill: var(--c_brown_m);}
+  .Hydrogen-imports { fill: var(--c_purple);}
+  .Electricity-imports { fill: var(--c_yellow);}
+  .Nuclear { fill: var(--c_orange);}
+  .Environmental-heat { fill: var(--c_red_m);}
+  .Wind { fill: var(--c_green_l);}
+  .Solar { fill: var(--c_green_m);}
+  .Tidal-Wave-Hydro { fill: var(--c_green_d);}
+
+  .Dedicated-GHG-Removal { fill: var(--c_red_m);}
+  .Agriculture { fill: var(--c_green_m);}
+  .Industry { fill: var(--c_grey_d);}
+  .Buildings-Residential { fill: var(--c_brown_l);}
+  .Buildings-Non-Residential { fill: var(--c_brown_d);}
+  .Transport-Domestic { fill: var(--c_blue_l);}
+  .Transport-International { fill: var(--c_blue_d);}
+
+
 
   /*
   #overview #view1 #top_container_1 .Paired .q0-12 { fill:orange; }
   #overview #view1 #top_container_1 .Paired .q1-12 { fill:gold; }
-  #overview #view1 #top_container_1 .Paired .q2-12 { fill:purple; }
+  #overview #view1 #top_container_1 .Paired .q2-12 { fill:var(--c_purple); }
   #overview #view1 #top_container_1 .Paired .q3-12 { fill:#ABBFC5; }
   #overview #view1 #top_container_1 .Paired .q4-12 { fill:#48711B; }
   #overview #view1 #top_container_1 .Paired .q5-12 { fill:#ABBFC5; }
@@ -59,7 +115,9 @@
   #overview #view1 #top_container_1 .Paired .q10-12 { fill:#003366; }
   #overview #view1 #top_container_1 .Paired .total { fill:black; }*/
 
-  #overview #view2 #top_container_2 .Paired .q0-12 { fill:red; }
+  #overview #view2 #top_container_2 .Paired .q0-12 { fill:black; }
+  #overview #view2 #top_container_2 .Paired .q1-12 { fill:var(--c_blue_m); }
+  #overview #view2 #top_container_2 .Paired .q2-12 { fill:var(--c_blue_d); }
 
 
 

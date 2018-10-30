@@ -58,7 +58,9 @@ window.twentyfifty.views.conversions_and_ghg = function() {
       this.hydrogen_production_by_technology_chart = null;
   };
 
-  this.updateResults = function(pathway) {
+  this.updateResults = function(pathway, mode) {
+      var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
       this.pathway = pathway;
       this.choices = twentyfifty.choices;
       updateGauge(pathway);
@@ -67,6 +69,11 @@ window.twentyfifty.views.conversions_and_ghg = function() {
       classView2 = document.getElementById('view2').getAttribute('class');
       document.getElementById('view1').setAttribute('class', 'overview visible');
       document.getElementById('view2').setAttribute('class', 'overview visible');
+
+      this.emissions_from_conversions_and_ghg_chart.setMode(_mode);
+      this.total_co2_captured_chart.setMode(_mode);
+      this.gas_grid_fuel_share_chart.setMode(_mode);
+      this.hydrogen_production_by_technology_chart.setMode(_mode);
 
       d3.select('#top_container_1')
   	  .datum(convert_capacity_table_to_hash(pathway.emissions_removal))
