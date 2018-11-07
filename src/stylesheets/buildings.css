@@ -24,10 +24,60 @@
     twelve possible graphs,
     first: q0-q12 last: q11-12
     default colors in colorbrewer.css
-  */
+
   #buildings #view1 #top_container_1 .Paired .q0-12 { fill:brown; }
   #buildings #view1 #top_container_1 .Paired .q1-12 { fill:maroon; }
   #buildings #view1 #top_container_1 .Paired .q2-12 { fill:silver; }
   #buildings #view1 #top_container_1 .Paired .total { fill:black; }
 
   #buildings #view2 #top_container_2 .Paired .q0-12 { fill:red; }
+*/
+
+  path.Total-Direct {
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+  }
+  .Residential{ fill:var(--c_brown_l); }
+  .Non-residential { fill:var(--c_brown_d); }
+  .Indirect-emissions { fill:silver; }
+
+  path.Total{
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+  }      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+  .Waste-Heat { fill:var(--c_red_m); }
+  .Electricity { fill:var(--c_yellow); }
+  .Hydrogen { fill:var(--c_purple); }
+  .Bioenergy { fill:var(--c_brown_m); }
+  .Natural-Gas { fill:var(--c_grey_l); }
+  .Oil { fill:var(--c_grey_m); }
+  .Coal { fill:var(--c_grey_d); }
+  .Environmental-Heat { fill:var(--c_red_l); }
+
+  path.Total{
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+  }
+  .District-Heat-Network { fill:var(--c_red_m); }
+  .Heat-Pump { fill:var(--c_orange); }
+  .Hybrid-Heat-Pump-Boiler { fill:var(--c_brown_m); }
+  .Electric-Heater { fill:var(--c_yellow); }
+  .Gas-Boiler { fill:var(--c_grey_l); }
+  .Oil-Solid-Fuel-Boiler { fill:var(--c_grey_d); }
+
+  path.Total{
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+  }
+  .Residential-Space-Heat { fill:var(--c_red_l); }
+  .Residential-Hot-Water { fill:var(--c_red_d); }
+  .Non-Residential-Space-Heat { fill:var(--c_brown_l); }
+  .Non-Residential-Hot-Water { fill:var(--c_brown_d); }

@@ -114,7 +114,7 @@ delay: { "show": 200, "hide": 100 }
 	//Expand or collapse this panel
 	$(this).next().slideToggle('fast');
 	// Show or not Show Sparklines for group
-	var spark = document.getElementById($(this).next().attr('id')+"db");
+	var spark = document.getElconsole.log("gruppe" + g);ementById($(this).next().attr('id')+"db");
 	if (spark.style.visibility == 'hidden') {spark.style.visibility='visible'} else {spark.style.visibility='hidden'}
 	});
     }
@@ -172,8 +172,8 @@ delay: { "show": 200, "hide": 100 }
 	    l = t.data().choicelevel;
 	    go(c, l);
 	    g = t.data().group;
-      console.log("gruppe" + g);
-	// create (FIXME) - Update spark plot depending on group
+      //console.log("group" + g);
+	    // create (FIXME) - Update spark plot depending on group
 
 	    if ( g == 'transport') { var levelData = choices.slice(0,12);}
 	    if ( g == 'buildings') { var levelData = choices.slice(12,20);}
@@ -182,22 +182,22 @@ delay: { "show": 200, "hide": 100 }
 	    if ( g == 'electricity') { var levelData = choices.slice(33,41);}
 	    if ( g == 'land') { var levelData = choices.slice(41,45);}
 
-      console.log("gruppe" + g);
+      //console.log("group: " + g);
       $("."+g+"db").sparkline(levelData, {
         type: 'bar', barColor: '#7f99b2', disableInteraction: true,
         barWidth:'2px', height:'75px', barSpacing:'0px',
         chartRangeMin: 0, chartRangeMax: 4}
       );
-      console.log("."+g+"db");
-//console.log("tabelle");
-//console.log(cache);
-      console.log(document.getElementById(g+'db'));
+      //console.log("."+g+"db");
+      //console.log("table");
+      //console.log(document.getElementById(g+'db'));
       document.getElementById(g+'db').style.visibility="hidden";
 	});
 
       $("a.leverNameLink").html(function(index, leverName) {
-	  truncated = leverName.trim().substring(0, 25);
-	  if (truncated.length < leverName.trim().length) {
+    // ellipsis = truncate lever names
+    truncated = leverName.trim().substring(0, 30);
+    if (truncated.length < (leverName.trim().length)) {
 	      truncated += "..."
 	  }
 	  return truncated;
@@ -605,9 +605,9 @@ letter_to_date_map = {
     go = function(index, level) {
 	old_choices = choices.slice(0);
 
-choices[index]
-	console.log("Math.ceil(choices[index])" + Math.ceil(choices[index]));
-	console.log("level" + level);
+  //choices[index]
+	//console.log("Math.ceil(choices[index])" + Math.ceil(choices[index]));
+	//console.log("level" + level);
 
 	//    if (index <= 15 && index !== 3 && level > 1 && Math.ceil(choices[index]) === level) {
 
@@ -644,8 +644,8 @@ choices[index]
     demoLevel = 1;
     demoOriginalLevel = choices[choice];
     demoMaximum = window.twentyfifty.choice_sizes[choice];
-    console.log("dm "+demoMaximum);
-    console.log("c "+ choice);
+    //console.log("dm "+demoMaximum);
+    //console.log("c "+ choice);
     return demoTimer = setInterval((function() {
       go(choice, demoLevel);
       demoLevel = demoLevel + 1;
@@ -747,11 +747,13 @@ choices[index]
               active_view.updateResults(data, window.global_time_mode);
               return $('#calculating').hide();
             }
+
           }
         });
       };
       return fetch();
     }
+
   };
 
   loadSecondaryPathway = function(secondary_code, callback) {
@@ -797,6 +799,7 @@ choices[index]
 
     // TODO [2018-06-19 Tue 13:43]: return value respects only the old interface, not the updated one with dates and intermediate categories
     updateControls = function(old_choices, choices) {
+
 
 	var c, choice, choice_frview, choice_whole, controls, i, old_choice, old_choice_frview, old_choice_whole, row, _i, _j, _len, _ref, _ref1, _results, _button, _startdate, _old_startdate, _enddate, _old_enddate, _original_title, _color_intermediate_category, _old_intermediate_category, intermediate_category;
 	this.choices = choices;
@@ -898,6 +901,17 @@ choices[index]
   		}
   	});
   	window['sliderSlider'+i].setAttribute('disabled', true);
+
+    console.log("test for endyear dependend lever descriptions");
+    console.log(cache);
+    console.log(codeForChoices());
+    console.log(cache[codeForChoices()]);
+//  console.log(cache.choicesDescriptions[i]);
+/*
+    for(l=1; l<5; l++ ){
+      $('#c'+i+'l'+l).attr('title', cache.choicesDescriptions[i][l]).tooltip('fixTitle');
+    }
+*/
   }else{
     _button.removeClass("update date-choice-mode-2100-edited");
     _button.addClass("update date-choice-mode-2100-default");

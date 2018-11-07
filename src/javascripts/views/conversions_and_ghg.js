@@ -23,8 +23,14 @@ window.twentyfifty.views.conversions_and_ghg = function() {
     this.emissions_from_conversions_and_ghg_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions Removal")
 	  .unit('Mt.CO2e/yr')
-    .max_value(50);
-      //      .css_for_label(css_for_labels)
+    .max_value(50)
+    .css_for_label({
+      "Process CCS":"Process-CCS",
+      "Direct Air Capture (CCS)":"Direct-Air-Capture-CCS",
+      "Enhanced Weathering":"Enhanced-Weathering",
+      "Forestry":"Forestry",
+      "Total Sequestration":"Total-Sequestration",
+    });
       //      .max_value(4000);
 
     this.total_co2_captured_chart = lineChart()
@@ -36,15 +42,26 @@ window.twentyfifty.views.conversions_and_ghg = function() {
     this.gas_grid_fuel_share_chart = timeSeriesStackedAreaChart()
 	  .title("Gas Distribution Grid Energy Supplied")
 	  .unit('TWh/yr')
-    .max_value(1000);
-//      .css_for_label(css_for_labels)
+    .max_value(1000)
+    .css_for_label({
+      "Hydrogen":"Hydrogen",
+      "Biomethane":"Biomethane",
+      "Natural Gas":"Natural-Gas",
+      "Total":"Total"
+    });
 //      .min_value(-500)
       //	  .max_value(1000);
     this.hydrogen_production_by_technology_chart = timeSeriesStackedAreaChart()
 	  .title("Hydrogen Supply")
 	  .unit('TWh/yr')
-    .max_value(.1);
-//      .css_for_label(css_for_labels)
+    .max_value(.1)
+    .css_for_label({
+      "Biomass CCS":"Biomass-CCS",
+      "Methane (SMR) CCS":"Methane-SMR-CCS",
+      "Electrolysis":"Electrolysis",
+      "Imports":"Imports",
+      "Total":"Total",
+    });
 //      .min_value(-500)
 //	  .max_value(1000);
 

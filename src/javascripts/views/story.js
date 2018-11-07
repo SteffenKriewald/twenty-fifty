@@ -23,22 +23,68 @@ window.twentyfifty.views.story = function() {
     this.emissions_from_electricity_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions - Electricity Generation")
 	  .unit('Mt.CO2e/yr')
-    .max_value(400);
+    .max_value(400)
+    .css_for_label({
+      "Biomass & Waste CCS":"Biomass-Waste-CCS",
+      "Biomass & Waste":"Biomass-Waste",
+      "Gas CCS":"Gas-CCS",
+      "Gas":"Gas",
+      "Coal":"Coal",
+      "Total":"Total"
+    });
 
     this.electricity_supply_chart = timeSeriesStackedAreaChart()
 	  .title("Electricity Supply")
 	  .unit('TWh/yr')
-    .max_value(1000);
+    .max_value(1000)
+    .css_for_label({
+      "Biomass & Waste CCS":"Biomass-Waste-CCS",
+      "Nuclear":"Nuclear",
+      "Wind":"Wind",
+      "Solar":"Solar",
+      "Tidal, Wave, Hydro":"Tidal-Wave-Hydro",
+      "Biomass & Waste":"Biomass-Waste",
+      "Gas CCS":"Gas-CCS",
+      "Gas":"Gas",
+      "Coal":"Coal",
+      "CHP":"CHP",
+      "Net Imports":"Net-Imports",
+      "Total":"Total"
+    });
 
     this.electricity_capacity_chart = timeSeriesStackedAreaChart()
 	  .title("Electrical Capacity")
 	  .unit('GW')
-    .max_value(400);
+    .max_value(400)
+    .css_for_label({
+      "Biomass & Waste CCS":"Biomass-Waste-CCS",
+      "Nuclear":"Nuclear",
+      "Wind":"Wind",
+      "Solar":"Solar",
+      "Tidal, Wave, Hydro":"Tidal-Wave-Hydro",
+      "Biomass & Waste":"Biomass-Waste",
+      "Gas CCS":"Gas-CCS",
+      "Gas":"Gas",
+      "Coal":"Coal",
+      "Interconnectors":"Interconnectors",
+      "Seasonal Storage":"Seasonal-Storage",
+      "DSR & Batteries":"DSR-Batteries",
+      "Total":"Total",
+    });
 
     this.peak_gate_chart = timeSeriesStackedAreaChart()
 	  .title("Peak Gate Power Demand")
 	  .unit('GW')
-    .max_value(400);
+    .max_value(400)
+    .css_for_label({
+      "Agriculture":"Agriculture",
+      "Industry":"Industry",
+      "Transport":"Transport",
+      "Buildings Other":"Buildings-Other",
+      "Buildings Heat":"Buildings-Heat",
+      "Energy Supply & GGR":"Energy-Supply-GGR",
+      "Total":"Total"
+    });
 
   };
 

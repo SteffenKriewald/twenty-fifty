@@ -21,7 +21,32 @@
   #stories {
       margin-top: 30px;
   }
-  
+
   #stories .clear {
       clear: both;
   }
+
+
+  .Biomass-Waste-CCS { fill: var(--c_brown_l);}
+  .Biomass-Waste { fill: var(--c_brown_d);}
+  .Gas-CCS { fill: var(--c_grey_l);}
+  .Gas { fill: var(--c_grey_m);}
+  .Coal { fill: var(--c_grey_d);}
+
+  .Nuclear { fill: var(--c_orange);}
+  .Wind { fill: var(--c_green_m);}
+  .Solar { fill: var(--c_red_m);}
+  .Tidal-Wave-Hydro { fill: var(--c_blue_m);}
+  .CHP { fill: var(--c_purple);}
+  .Net-Imports { fill: var(--c_yellow);}
+
+  .Interconnectors { fill: var(--c_yellow);}
+  .Seasonal-Storage { fill: var(--c_purple);}
+  .DSR-Batteries { fill: var(--c_purple_d);}
+
+  .Agriculture { fill: var(--c_green_m);}
+  .Industry { fill: var(--c_grey_d);}
+  .Transport { fill: var(--c_blue_m);}
+  .Buildings-Other { fill: var(--c_brown_l);}
+  .Buildings-Heat { fill: var(--c_brown_m);}
+  .Energy-Supply-GGR { fill: var(--c_red_m);}

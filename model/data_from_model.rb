@@ -58,6 +58,7 @@ class DataFromModel
     {
       '_id' => code,
       'choices' => choices,
+      'choicesDescriptions' => excel.output_lever_descriptions,
 	# Gauge
 	'mEreduction' => excel.output_metric_emissions_reduction_twentyfifty,
 	'mEyrZero' => excel.output_metric_emissions_yrzero,

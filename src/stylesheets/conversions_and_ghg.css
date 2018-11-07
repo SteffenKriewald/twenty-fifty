@@ -12,7 +12,28 @@
   #conversions_and_ghg {
       margin-top: 30px;
   }
-  
+
   #conversions_and_ghg .clear {
       clear: both;
   }
+
+  path.Total-Sequestration {
+    /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+  }
+.Process-CCS { fill: var(--c_red_m);}
+.Direct-Air-Capture-CCS { fill: var(--c_orange);}
+.Enhanced-Weathering { fill: var(--c_blue_m);}
+.Forestry { fill: var(--c_green_d);}
+
+
+.Hydrogen { fill: var(--c_purple);}
+.Biomethane { fill: var(--c_brown_m);}
+.Natural-Gas { fill: var(--c_grey_l);}
+
+.Biomass-CCS { fill: var(--c_brown_l);}
+.Methane-SMR-CCS { fill: var(--c_grey_l);}
+.Electrolysis { fill: var(--c_yellow);}
+.Imports { fill: var(--c_purple);}

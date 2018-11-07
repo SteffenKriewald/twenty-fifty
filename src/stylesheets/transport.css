@@ -46,3 +46,28 @@
     .Hydrogen  { fill:var(--c_purble); }
     .Biofuel { fill:var(--c_brown_m); }
     .Oil { fill:var(--c_grey_m); }
+
+    path.Total-Domestic {
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+    }
+    .Walking { fill:var(--c_grey_l); }
+    .Cycling { fill:var(--c_green_d); }
+    .Rail { fill:var(--c_red_m); }
+    .Bus { fill:var(--c_orange); }
+    .Car { fill:var(--c_yellow); }
+    .Aviation-Domestic { fill:var(--c_grey_m); }
+    .Aviation-International { fill:var(--c_blue_d); }
+
+    path.Total {
+      /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+    }
+    .Hydrogen { fill:var(--c_purple); }
+    .Electric { fill:var(--c_yellow); }
+    .Plug-in-Hybrid-Electric { fill:var(--c_brown_d); }
+    .Internal-Combustion-Engine { fill:var(--c_grey_m); }

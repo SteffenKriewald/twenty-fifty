@@ -23,22 +23,43 @@ window.twentyfifty.views.land_use = function() {
       this.emissions_from_land_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions - Land Use and Biofuels")
 	  .unit('Mt.CO2e/yr')
-    .max_value(100);
+    .max_value(100)
+    .css_for_label({
+      "Forestry":"Forestry",
+      "Land":"Land",
+      "Agricultural practices":"Agricultural-practices",
+      "Bio-Conversion":"Bio-Conversion",
+      "Waste Management":"Waste-Management",
+      "Indirect emissions":"Indirect-emissions",
+      "Total Direct":"Total-Direct"
+    });
 
       this.land_trade_off_chart = timeSeriesStackedAreaChart()
 	  .title("Land Area Trade Off")
 	  .unit('km²')
-    .max_value(50000);
+    .max_value(50000)
+    .css_for_label({
+      "Forest":"Forest",
+      "Bioenergy Land":"Bioenergy-Land",
+      "Max Available Land":"Max-Available-Land",
+      "Total Potential Land":"Total-Potential-Land"
+    });
 
       this.land_bioenergy_chart = timeSeriesStackedAreaChart()
 	  .title("Domestic Bioenergy Production")
 	  .unit('TWh/yr')
-    .max_value(10000);
+    .max_value(100)
+    .css_for_label({
+      "Solid Biomass":"Solid-Biomass",
+      "Dry Waste":"Dry-Waste",
+      "Wet Waste":"Wet-Waste",
+      "Total":"Total"
+    });
 
     this.bioenergy_imports_chart = lineChart()
   .title("Imported Bioenergy")
   .unit('TWh/yr')
-  .min_value(-10000)
+  .min_value(-100)
   .max_value(100);
 
   };

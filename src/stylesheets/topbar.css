@@ -5,7 +5,8 @@
   z-index: 101;
   margin-left: -465px;
   height:35px;
-  overflow: hidden;
+  overflow: visible;
+  white-space: nowrap;
   width: 100%;
   background-color: #003366;
   color: white;
@@ -22,11 +23,17 @@
     margin-left: 5px;
  }
 
+.topbar #name a img {
+  height: 25px;
+  padding: 0px 10px 0px 0px;
+  margin-top: -7px;
+}
+
  .topbar #views {
-   margin: 0 50px;
+   margin: 0;
    text-align: right; }
    .topbar #views a {
-     padding-right: 10px; }
+     padding-left: 10px; }
 
 .topbar a {
     color: white;
@@ -42,7 +49,7 @@
 }
 
 #menu_dd {
-  width: 25px;
+  width: 20px;
   height: 25px;
   float: right;
 
@@ -129,16 +136,16 @@
 @media only screen and (max-width: 503px) {#dd1 {display: inline;}}
 */
 
-@media only screen and (max-width: 1542px) {
+@media only screen and (max-width: 1331px) {
    #topbar_dd {visibility: visible;}
    #dd8 {display: inline;}
    #tp8 {visibility: hidden;}
 }
 
-@media only screen and (max-width: 1369px) {#dd7 {display: inline;} #tp7 {visibility: hidden;}}
-@media only screen and (max-width: 1193px) {#dd6 {display: inline;} #tp6 {visibility: hidden;}}
-@media only screen and (max-width: 1107px) {#dd5 {display: inline;} #tp5 {visibility: hidden;}}
-@media only screen and (max-width: 933px) {#dd4 {display: inline;} #tp4 {visibility: hidden;}}
-@media only screen and (max-width: 859px) {#dd3 {display: inline;} #tp3 {visibility: hidden;}}
-@media only screen and (max-width: 777px) {#dd2 {display: inline;} #tp2 {visibility: hidden;}}
-@media only screen and (max-width: 692px) {#dd1 {display: inline;} #tp1 {visibility: hidden;}}
+@media only screen and (max-width: 1196px) {#dd7 {display: inline;} #tp7 {visibility: hidden;}}
+@media only screen and (max-width: 1034px) {#dd6 {display: inline;} #tp6 {visibility: hidden;}}
+@media only screen and (max-width: 956px) {#dd5 {display: inline;} #tp5 {visibility: hidden;}}
+@media only screen and (max-width: 794px) {#dd4 {display: inline;} #tp4 {visibility: hidden;}}
+@media only screen and (max-width: 727px) {#dd3 {display: inline;} #tp3 {visibility: hidden;}}
+@media only screen and (max-width: 654px) {#dd2 {display: inline;} #tp2 {visibility: hidden;}}
+@media only screen and (max-width: 579px) {#dd1 {display: inline;} #tp1 {visibility: hidden;}}

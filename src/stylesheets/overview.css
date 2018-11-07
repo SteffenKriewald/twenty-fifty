@@ -47,7 +47,10 @@
     --c_red_m: #990000;
     --c_red_d: #660000;
 
+    --c_purple_l: #993299;
     --c_purple: #730073;
+    --c_purple_d:#590059;
+
     --c_orange: #ffa500;
     --c_yellow: #cccc00;
   }
@@ -79,7 +82,7 @@
   }
   .Coal { fill: var(--c_grey_d);}
   .Oil { fill: var(--c_grey_m);}
-  .Natural-gas { fill: var(--c_grey_l),}
+  .Natural-gas { fill: var(--c_grey_l);}
   .Waste { fill: var(--c_brown_d);}
   .Bioenergy { fill: var(--c_brown_m);}
   .Hydrogen-imports { fill: var(--c_purple);}

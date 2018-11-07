@@ -12,7 +12,9 @@
   #flows_map_imports {
       margin-top: 30px;
   }
-  
+
   #flows_map_imports .clear {
       clear: both;
   }
+
+.Gas-f { fill: var(--c_grey_l);}

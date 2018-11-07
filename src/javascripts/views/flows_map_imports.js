@@ -164,7 +164,17 @@ window.twentyfifty.views.flows_map_imports = function() {
     this.security_import_energy_chart = timeSeriesStackedAreaChart()
     .title("Energy Imports")
     .unit('TWh/yr')
-    .max_value(5000);
+    .max_value(5000)
+    .css_for_label({
+      "Coal":"Coal",
+      "Oil":"Oil",
+      "Gas":"Gas-f",
+      "Bioenergy":"Bioenergy",
+      "Electricity":"Electricity",
+      "Hydrogen":"Hydrogen",
+      "Nuclear (Uranium)":"Nuclear",
+      "Total":"Total"
+    });
 
     this.security_import_fraction_chart = lineChart()
     .title("Energy Import Dependence")

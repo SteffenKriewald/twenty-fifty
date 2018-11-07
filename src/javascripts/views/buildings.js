@@ -23,29 +23,58 @@ window.twentyfifty.views.buildings = function() {
       this.emissions_from_buildings_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions - Buildings")
 	  .unit('Mt.CO2e/yr')
-    .max_value(20);
-    //      .css_for_label(css_for_labels)
+    .max_value(200)
+    .css_for_label({
+      "Residential":"Residential",
+      "Non-residential":"Non-residential",
+      "Indirect emissions":"Indirect-emissions",
+      "Total Direct":"Total-Direct"
+    });
 
 
       this.buildings_energy_consumption_chart = timeSeriesStackedAreaChart()
 	  .title("Energy Consumption - Buildings & Heat Networks")
 	  .unit('TWh/yr')
-    .max_value(2000);
-      //      .css_for_label(css_for_labels)
+    .max_value(2000)
+    .css_for_label({
+      "Waste Heat":"Waste-Heat",
+      "Electricity":"Electricity",
+      "Hydrogen":"Hydrogen",
+      "Bioenergy":"Bioenergy",
+      "Natural Gas":"Natural-Gas",
+      "Oil":"Oil",
+      "Coal":"Coal",
+      "Environmental Heat":"Environmental-Heat",
+      "Total":"Total"
+    });
 
       this.buildings_heat_supply_chart = timeSeriesStackedAreaChart()
 	  .title("Heat Supplied")
 	  .unit('TWh/yr')
-    .max_value(2000);
-//      .css_for_label(css_for_labels)
+    .max_value(1000)
+    .css_for_label({
+      "District Heat Network":"District-Heat-Network",
+      "Heat Pump":"Heat-Pump",
+      "Hybrid Heat Pump/Boiler":"Hybrid-Heat-Pump-Boiler",
+      "Electric Heater":"Electric-Heater",
+      "Gas Boiler":"Gas-Boiler",
+      "Oil/Solid Fuel Boiler":"Oil-Solid-Fuel-Boiler",
+      "Total":"Total"
+    });
 //      .min_value(-500)
 //	  .max_value(1000);
 
     this.buildings_heat_demand_chart = timeSeriesStackedAreaChart()
     .title("Heat Demand")
     .unit('TWh/yr')
-    .max_value(2000);
-    //      .css_for_label(css_for_labels)
+    .max_value(1000)
+    .css_for_label({
+      "Residential Space Heat":"Residential-Space-Heat",
+      "Residential Hot Water":"Residential-Hot-Water",
+      "Non-Residential Space Heat":"Non-Residential-Space-Heat",
+      "Non-Residential Hot Water":"Non-Residential-Hot-Water",
+      "Total":"Total"
+    });
     //      .min_value(-500)
     //	  .max_value(1000);
 

@@ -55,16 +55,31 @@ window.twentyfifty.views.transport = function() {
 
       this.passenger_distance_travelled_by_mode_chart = timeSeriesStackedAreaChart()
 	  .title("Passenger Distance Travelled")
-	  .unit('Billion Passenger km/yr');
-//      .css_for_label(css_for_labels)
+	  .unit('Billion Passenger km/yr')
+    .css_for_label({
+      "Walking":"Walking",
+      "Cycling":"Cycling",
+      "Rail":"Rail",
+      "Bus":"Bus",
+      "Car":"Car",
+      "Aviation-Domestic":"Aviation-Domestic",
+      "Aviation-International":"Aviation-International",
+      "Total Domestic":"Total-Domestic"
+    });
 //      .min_value(-500)
       //	  .max_value(1000);
       this.car_share_of_demand_by_drivetrain_chart = timeSeriesStackedAreaChart()
 	  .title("Road Transport Energy Consumption by Engine Type")
-	  .unit('TWh/yr');
-//      .css_for_label(css_for_labels)
+	  .unit('TWh/yr')
+    .max_value(1000)
+    .css_for_label({
+      "Hydrogen":"Hydrogen",
+      "Electric":"Electric",
+      "Plug-in Hybrid Electric":"Plug-in-Hybrid-Electric",
+      "Internal Combustion Engine":"Internal-Combustion-Engine",
+      "Total":"Total"
+    });
 //      .min_value(-500)
-//	  .max_value(1000);
 
   };
 

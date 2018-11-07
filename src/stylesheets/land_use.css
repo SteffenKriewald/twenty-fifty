@@ -12,7 +12,28 @@
   #land_use {
       margin-top: 30px;
   }
-  
+
   #land_use .clear {
       clear: both;
   }
+
+  .Forestry  { fill: var(--c_green_d);}
+  .Land { fill: var(--c_green_l);}
+  .Agricultural-practices { fill: var(--c_blue_d);}
+  .Bio-Conversion { fill: var(--c_brown_m);}
+  .Waste-Management { fill: var(--c_brown_d);}
+  .Indirect-emissions { fill: silver;}
+
+  path.Total-Potential-Land {
+    /*path needs to be selected, otherwise the stroke settings are also applied for the text label*/
+    fill: none;
+    stroke: black;
+    stroke-width: 2;
+  }
+  .Forest { fill: var(--c_green_d);}
+  .Bioenergy-Land { fill: var(--c_brown_m);}
+  .Max-Available-Land { fill: var(--c_grey_l);}
+
+  .Solid-Biomass { fill: var(--c_brown_d);}
+  .Dry-Waste { fill: var(--c_brown_m);}
+  .Wet-Waste { fill: var(--c_brown_l);}

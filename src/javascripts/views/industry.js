@@ -15,15 +15,30 @@ window.twentyfifty.views.industry = function() {
       this.emissions_from_industry_chart = timeSeriesStackedAreaChart()
 	  .title("Emissions - Industry")
 	  .unit('Mt.CO2e/yr')
-    .max_value(80);
-      //      .css_for_label(css_for_labels)
+    .max_value(80)
+    .css_for_label({
+      "Ferrous & non-ferrous metals":"Ferrous-non-ferrous-metals",
+      "Cement, Ceramics, Glass":"Cement-Ceramics-Glass",
+      "Chemicals":"Chemicals",
+      "Other Industry":"Other-Industry",
+      "Indirect emissions":"Indirect-emissions",
+      "Total Direct":"Total-Direct"
+    });
       //      .max_value(4000);
 
       this.energy_consumption_for_industry_chart = timeSeriesStackedAreaChart()
 	  .title("Energy Consumption - Industry")
 	  .unit('TWh/yr')
-    .max_value(400);
-      //      .css_for_label(css_for_labels)
+    .max_value(400)
+    .css_for_label({
+      "Electricity":"Electricity",
+      "Hydrogen":"Hydrogen",
+      "Bioenergy":"Bioenergy",
+      "Natural gas":"Natural-gas-i",
+      "Oil":"Oil",
+      "Coal":"Coal",
+      "Total":"Total"
+    });
       //      .max_value(4000);
 
   };
