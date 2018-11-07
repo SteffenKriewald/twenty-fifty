@@ -53,11 +53,11 @@ window.twentyfifty.views.buildings = function() {
 	  .unit('TWh/yr')
     .max_value(1000)
     .css_for_label({
-      "District Heat Network":"District-Heat-Network",
+      "District Heat Network ":"District-Heat-Network",
       "Heat Pump":"Heat-Pump",
-      "Hybrid Heat Pump/Boiler":"Hybrid-Heat-Pump-Boiler",
-      "Electric Heater":"Electric-Heater",
-      "Gas Boiler":"Gas-Boiler",
+      "Hybrid Heat Pump/Boiler ":"Hybrid-Heat-Pump-Boiler",
+      "Electric Heater ":"Electric-Heater",
+      "Gas Boiler ":"Gas-Boiler",
       "Oil/Solid Fuel Boiler":"Oil-Solid-Fuel-Boiler",
       "Total":"Total"
     });
@@ -118,6 +118,7 @@ window.twentyfifty.views.buildings = function() {
   	  .datum(convert_capacity_table_to_hash(pathway.buildings_energy))
   	  .call(this.buildings_energy_consumption_chart);
 
+      //console.log('test ', convert_capacity_table_to_hash(pathway.buildings_heat_supply));
       d3.select('#top_container_2')
       .datum(convert_capacity_table_to_hash(pathway.buildings_heat_supply))
       .call(this.buildings_heat_supply_chart);
