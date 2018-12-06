@@ -731,6 +731,12 @@ letter_to_date_map = {
     }
     if (cache[main_code] != null) {
       active_view.updateResults(cache[main_code], window.global_time_mode);
+      // Update lever Descriptions depending on the end year
+      for (i = 0; i < startdatechoices.length; i++) {
+        for(l=1; l<5; l++ ){
+          $('#c'+i+'l'+l).attr('title', cache[main_code].choicesDescriptions[i][l]).tooltip('fixTitle');
+        }
+      }
       return $('#calculating').hide();
     } else {
       $('#calculating').show();
@@ -745,6 +751,12 @@ letter_to_date_map = {
             cache[data._id] = data;
             if (data._id === codeForChoices()) {
               active_view.updateResults(data, window.global_time_mode);
+              // Update lever Descriptions depending on the end year
+              for (i = 0; i < startdatechoices.length; i++) {
+                for(l=1; l<5; l++ ){
+                  $('#c'+i+'l'+l).attr('title', data.choicesDescriptions[i][l]).tooltip('fixTitle');
+                }
+              }
               return $('#calculating').hide();
             }
 
@@ -902,16 +914,6 @@ letter_to_date_map = {
   	});
   	window['sliderSlider'+i].setAttribute('disabled', true);
 
-    console.log("test for endyear dependend lever descriptions");
-    console.log(cache);
-    console.log(codeForChoices());
-    console.log(cache[codeForChoices()]);
-//  console.log(cache.choicesDescriptions[i]);
-/*
-    for(l=1; l<5; l++ ){
-      $('#c'+i+'l'+l).attr('title', cache.choicesDescriptions[i][l]).tooltip('fixTitle');
-    }
-*/
   }else{
     _button.removeClass("update date-choice-mode-2100-edited");
     _button.addClass("update date-choice-mode-2100-default");
