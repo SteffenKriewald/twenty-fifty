@@ -114,8 +114,10 @@ delay: { "show": 200, "hide": 100 }
 	//Expand or collapse this panel
 	$(this).next().slideToggle('fast');
 	// Show or not Show Sparklines for group
-	var spark = document.getElconsole.log("gruppe" + g);ementById($(this).next().attr('id')+"db");
-	if (spark.style.visibility == 'hidden') {spark.style.visibility='visible'} else {spark.style.visibility='hidden'}
+	var spark = document.getElementById($(this).next().attr('id')+"db");
+  console.log('spark: ');
+  console.log(spark);
+  if (spark.style.visibility == 'hidden') {spark.style.visibility='visible'} else {spark.style.visibility='hidden'}
 	});
     }
 
@@ -168,12 +170,11 @@ delay: { "show": 200, "hide": 100 }
 	$("a.choiceLink").on('click touchend', function(event) {
 	    event.preventDefault();
 	    t = $(event.target);
-	    c = t.data().choicenumber;
+      c = t.data().choicenumber;
 	    l = t.data().choicelevel;
 	    go(c, l);
 	    g = t.data().group;
-      //console.log("group" + g);
-	    // create (FIXME) - Update spark plot depending on group
+      // create (FIXME) - Update spark plot depending on group
 
 	    if ( g == 'transport') { var levelData = choices.slice(0,12);}
 	    if ( g == 'buildings') { var levelData = choices.slice(12,20);}
@@ -182,7 +183,6 @@ delay: { "show": 200, "hide": 100 }
 	    if ( g == 'electricity') { var levelData = choices.slice(33,41);}
 	    if ( g == 'land') { var levelData = choices.slice(41,45);}
 
-      //console.log("group: " + g);
       $("."+g+"db").sparkline(levelData, {
         type: 'bar', barColor: '#7f99b2', disableInteraction: true,
         barWidth:'2px', height:'75px', barSpacing:'0px',
@@ -194,9 +194,9 @@ delay: { "show": 200, "hide": 100 }
       document.getElementById(g+'db').style.visibility="hidden";
 	});
 
-      $("a.leverNameLink").html(function(index, leverName) {
-    // ellipsis = truncate lever names
-    truncated = leverName.trim().substring(0, 30);
+  // ellipsis = truncate lever names
+  $("a.leverNameLink").html(function(index, leverName) {
+      truncated = leverName.trim().substring(0, 30);
     if (truncated.length < (leverName.trim().length)) {
 	      truncated += "..."
 	  }
@@ -1065,6 +1065,8 @@ function loadSparkLines() {
   var groupArray = ["buildings","transport","industryLever","energy","electricity","land"];
     for (var i = 0; i <groupArray.length; i++) {
       var g = groupArray[i];
+      //console.log('FUNKTION loadSparklines');
+      //console.log("gruppe:"+g);
 
 	    if ( g == 'transport') { var levelData = choices.slice(0,12);}
 	    if ( g == 'buildings') { var levelData = choices.slice(12,20);}
