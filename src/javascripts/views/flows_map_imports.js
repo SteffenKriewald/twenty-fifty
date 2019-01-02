@@ -94,7 +94,8 @@ window.twentyfifty.views.flows_map_imports = function() {
   GW = 2;
   MW = GW / 1000;
 
-  colours = {
+
+/*colours = {
     'III.a.2': '#ff0000',
     'III.a.1': '#ff0000',
     'IV.c': '#aa0000',
@@ -114,9 +115,21 @@ window.twentyfifty.views.flows_map_imports = function() {
     'III.d': '#F00',
     'VII.c': '#008000',
     'VI.b': '#F00'
+  };*/
+
+  colours = {
+    'Onshore Wind': '#ff0000',
+    'Hydroelectric': '#ff0000',
+    'Solar PV': '#aa0000',
+    'Bioenergy Growth': '#00ff00',
+    'Forest/Woodland': '#408000',
+    'Offshore Wind': '#00ff00',
+    'Tidal Stream': '#00ff00',
+    'Tidal Range': '#ffff00',
+    'Bioenergy Growth Overseas': '#cccc00'
   };
 
-  labels = {
+/*labels = {
     'III.a.2': 'Offshore wind',
     'III.a.1': 'Onshore wind',
     'IV.c': 'Micro wind',
@@ -136,15 +149,30 @@ window.twentyfifty.views.flows_map_imports = function() {
     'III.d': '0.01 GW geothermal stations',
     'VII.c': '1 GW gas standby power stations',
     'VI.b': '215 kt/y waste to energy conversion facilities'
+  };*/
+
+  labels = {
+    'Onshore Wind': 'Onshore Wind',
+    'Hydroelectric': 'Hydroelectric',
+    'Solar PV': 'Solar PV',
+    'Bioenergy Growth': 'Bioenergy Growth',
+    'Forest/Woodland': 'Forest/Woodland',
+    'Offshore Wind': 'Offshore Wind',
+    'Tidal Stream': 'Tidal Stream',
+    'Tidal Range': 'Tidal Range',
+    'Bioenergy Growth Overseas': 'Bioenergy Growth Overseas'
   };
 
   pointSizes = {
-    'I.a': 2,
-    'I.b': 1.2,
-    'II.a': 3,
-    'III.d': 0.01,
-    'VII.c': 1,
-    'VI.b': 0.01
+    'Onshore Wind': 2,
+    'Hydroelectric': 1.2,
+    'Solar PV': 3,
+    'Bioenergy Growth': 0.01,
+    'Forest/Woodland': 1,
+    'Offshore Wind': 0.01,
+    'Tidal Stream': 1,
+    'Tidal Range': 1,
+    'Bioenergy Growth Overseas': 1
   };
 
   // MAP ENDS
@@ -365,7 +393,10 @@ window.twentyfifty.views.flows_map_imports = function() {
       y = map_height + map_offset_y - 100;
       this.land_boxes = {};
       // land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'VI.a.Forestry'];
-      land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'Test'];
+      //land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'Test'];
+      land_box_names = ['Bioenergy Growth', 'Bioenergy Growth Overseas', 'Forest/Woodland', 'Hydroelectric', 'Onshore Wind', 'Solar PV'];
+
+
       for (i = 0, len = land_box_names.length; i < len; i++) {
         name = land_box_names[i];
         console.log('xy '+x+' '+y+': '+ labels[name] + colours[name]);
@@ -376,7 +407,9 @@ window.twentyfifty.views.flows_map_imports = function() {
       x = (map_width / 2) + map_offset_x + 250;
       y = 30;
       this.sea_boxes = {};
-      sea_box_names = ['III.a.2', 'III.c.TidalStream', 'III.c.TidalRange', 'VI.c'];
+      //sea_box_names = ['III.a.2', 'III.c.TidalStream', 'III.c.TidalRange', 'VI.c'];
+      sea_box_names = ['Offshore Wind', 'Tidal Stream', 'Tidal Range']
+
       for (i = 0, len = sea_box_names.length; i < len; i++) {
         name = sea_box_names[i];
         this.sea_boxes[name] = r.downiabeled_square(x, y, labels[name], 0, colours[name]);
@@ -390,7 +423,8 @@ window.twentyfifty.views.flows_map_imports = function() {
       x = map_offset_x - 105;
       y = map_height + map_offset_y - 30;
       this.overseasiand_boxes = {};
-      overseasiand_box_names = ['V.b', 'VII.a'];
+      //overseasiand_box_names = ['V.b', 'VII.a'];
+      overseasiand_box_names = ['Bioenergy Growth Overseas'];
       for (i = 0, len = overseasiand_box_names.length; i < len; i++) {
         name = overseasiand_box_names[i];
         this.overseasiand_boxes[name] = r.upiabeled_square(x, y, labels[name], 0, colours[name]);
@@ -444,6 +478,12 @@ window.twentyfifty.views.flows_map_imports = function() {
 
   this.updateResults = function(pathway, mode) {
       var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
+
+      /*todo:
+        - what about map['III.c.Wave'] ?
+        - pathway.map doesn't change on lever changes (e.g. offshore & onshore wind)
+        - what's to be shown on the right side of the map?
+      */
 
       this.pathway = pathway;
       this.choices = twentyfifty.choices;
@@ -520,9 +560,9 @@ window.twentyfifty.views.flows_map_imports = function() {
       // The data is supplied as a table, with values for every year
 
       // The first row is the header, look for the 2050 column
-      console.log(pathway.map);
+      console.log('pathway.map', pathway.map);
       console.log(pathway.map[0]);
-      //column_index = pathway.map[0].indexOf(2050);
+     //column_index = pathway.map[0].indexOf(2050);
       column_index = 1;
       // Then skip the header and loop through the rows
       // pathway.map.slice(1).forEach(function(row) {
@@ -549,6 +589,7 @@ window.twentyfifty.views.flows_map_imports = function() {
         values.push({ name: name, value: map[name] });
       }
       values.sort(function(a, b) { return b.value - a.value; });
+      console.log('values ', values, map);
 
       for (i = 0, len = values.length; i < len; i++) {
         value = values[i];
@@ -613,11 +654,18 @@ window.twentyfifty.views.flows_map_imports = function() {
       }
 
       // Now draw the points for particular power stations
-      if (this.points != null) { this.points.remove(); }
+      /*if (this.points != null) { this.points.remove(); }
       this.r.setStart();
       y = 35;
       x = 1055;
       values = [];
+
+
+      //  I.a 2 GW coal gas or biomass power stations without CCS
+      //  I.b 1.2 GW coal gas or biomass power stations with CCS
+      //  III.d 0.01 GW geothermal stations
+      //  VII.c 1 GW gas standby power stations
+      //  VI.b 215 kt/y waste to energy conversion facilities
 
       point_cluster_names = ['I.a', 'I.b', 'II.a', 'III.d', 'VII.c', 'VI.b'];
       for (i = 0, len = point_cluster_names.length; i < len; i++) {
@@ -633,9 +681,9 @@ window.twentyfifty.views.flows_map_imports = function() {
           y = this.point_stack(x, y, value.value, colours[value.name], "" + (Math.round(value.value)) + " x " + labels[value.name], size);
         }
       }
-      this.points = this.r.setFinish();
+      this.points = this.r.setFinish();*/
       // MAP ENDS
-
+/**/
       document.getElementById('view1').setAttribute('class', classView1);
       document.getElementById('view2').setAttribute('class', classView2);
       document.getElementById('view3').setAttribute('class', classView3);
