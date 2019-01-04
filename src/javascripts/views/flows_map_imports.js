@@ -374,7 +374,10 @@ window.twentyfifty.views.flows_map_imports = function() {
       // SANKEY ENDS
 
       // Map
-      $('#view2').append("<div id='map'></div>");
+      $('#view2').append("<div id='map-container'>"
+                            +"<div id='map'></div>"
+                            +"<div id='power-stations'><div id='power-stations-title'>Illustration of the number of thermal power stations in 2050</div></div>"
+                          +"</div>");
       this.r = r = Raphael(displayin_element, display_width, display_height);
 
       // The map itself is a bitmap image in public/assets/images
@@ -438,8 +441,8 @@ window.twentyfifty.views.flows_map_imports = function() {
       }
 
       // Now deal with the objects that aren't on the map. In this case a stack of circles
-      this.points = r.set();
-      r.text(700, 10, "Illustration of the number of thermal power stations in 2050 (scales and positions are arbitrary)").attr({ 'font-weight': 'bold', 'text-anchor': 'start' });
+      //this.points = r.set();
+      //r.text(700, 10, "Illustration of the number of thermal power stations in 2050 (scales and positions are arbitrary)").attr({ 'font-weight': 'bold', 'text-anchor': 'start' });
     //MAP ENDS
 
 
@@ -669,7 +672,14 @@ window.twentyfifty.views.flows_map_imports = function() {
         y = y - side - 5;
       }
 
+
       // Now draw the points for particular power stations
+/*
+      console.log('pathway[map_units]', pathway['map_units']);
+      var units = d3.select("#power-stations").selectAll("div")
+              .data(pathway['map_units']).enter().append("p").text("hello ");
+*/
+
       /*if (this.points != null) { this.points.remove(); }
       this.r.setStart();
       y = 35;
