@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/tamc/excel_to_code
-  revision: 42f49c9c9c0933a393908be51ad205bfa358bc79
+  revision: a258a23949439ad3efe5dd953a8faff3364d45fa
   branch: master
   specs:
-    excel_to_code (0.3.18.beta.1)
+    excel_to_code (0.3.18.beta.2)
       ffi (~> 1.9, >= 1.9.18)
       minitest (~> 5.11, >= 5.11.1)
       ox (~> 2.8, >= 2.8.2)
@@ -13,15 +13,15 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
-    concurrent-ruby (1.0.5)
+    concurrent-ruby (1.1.4)
     diff-lcs (1.3)
     ffi (1.9.25)
     json (2.1.0)
     minitest (5.11.3)
     mustermann (1.0.3)
     ox (2.10.0)
-    rack (2.0.5)
-    rack-protection (2.0.4)
+    rack (2.0.6)
+    rack-protection (2.0.5)
       rack
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -39,15 +39,15 @@ GEM
     rubypeg (0.0.4)
       rubyscriptwriter
     rubyscriptwriter (0.0.2)
-    sinatra (2.0.4)
+    sinatra (2.0.5)
       mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.4)
+      rack-protection (= 2.0.5)
       tilt (~> 2.0)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    tilt (2.0.8)
+    tilt (2.0.9)
 
 PLATFORMS
   ruby
@@ -61,4 +61,4 @@ DEPENDENCIES
   sprockets
 
 BUNDLED WITH
-   1.16.4
+   1.16.5

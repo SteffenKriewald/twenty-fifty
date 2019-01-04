@@ -110,9 +110,12 @@ class DataFromModel
       # import flow map
       'security_import_energy' => excel.output_security_import_energy,
       'security_import_fraction' => excel.output_security_import_fraction,
-      # map
+      # map - land demand
+      # index 8=2050; 18=2100
       'map' => excel.output_land_map_area,
+      # map - length of wave front
       'map_distance' => excel.output_land_map_distance,
+      # map - number of units (power plants)
       'map_units' => excel.output_land_map_numberunits,
     }
   end
