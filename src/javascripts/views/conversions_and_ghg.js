@@ -35,7 +35,12 @@ window.twentyfifty.views.conversions_and_ghg = function() {
 
     this.total_co2_captured_chart = lineChart()
 	  .title("Cumulative Emissions Stored")
-	  .unit('Mt.CO2e');
+	  .unit('Mt.CO2e')
+    .setCustomStyles({
+      '0': {color: "#c0c0c0", dashPattern: "4 4"},
+      '2': {dashPattern: "2 3 2 1"},
+      '3': {color: "blue"}
+    });
       //      .css_for_label(css_for_labels)
       //      .max_value(4000);
 

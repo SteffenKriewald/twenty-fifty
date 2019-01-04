@@ -568,10 +568,10 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       // The first row is the header, look for the 2050 column
       //console.log('pathway', pathway);
-      console.log('pathway.map', pathway);
+      console.log('pathway.map', pathway.map);
       console.log(pathway.map[0]);
      //column_index = pathway.map[0].indexOf(2050);
-      column_index = 1; //8:  2050, 18: 2100
+      column_index = 1;
       //column_index = 8; //should be last index (18 for 2050), although that never changes
       // Then skip the header and loop through the rows
       // pathway.map.slice(1).forEach(function(row) {

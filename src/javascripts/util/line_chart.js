@@ -609,6 +609,15 @@ window.lineChart = function() {
   */
 
   chart.setCustomStyles = function(styles) {
+
+/*
+  Example for styles parameter-object, which overrides any default styling
+  styles = {
+    '0': {color: "#c0c0c0", dashPattern: "4 4"},
+    '2': {dashPattern: "2 3 2 1"},
+    '3': {color: "blue"}
+  }
+*/
     customStyling = styles;
     return chart;
   }
