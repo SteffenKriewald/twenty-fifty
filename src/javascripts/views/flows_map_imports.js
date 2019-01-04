@@ -417,7 +417,9 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       // Draw the half circle with label to indicate land area overseas
       r.path("M244,695 q0,-200 -200,-200").attr({ 'stroke': '#ccc' });
-      r.text(44, 510, "Imports").attr({ 'fill': '#ccc', 'font-weight': 'bold', 'text-anchor': 'start' });
+      //r.text(44, 510, "Imports").attr({ 'fill': '#ccc', 'font-weight': 'bold', 'text-anchor': 'start' });
+      r.text(44, 260, "Imports").attr({ 'fill': '#ccc', 'font-weight': 'bold', 'text-anchor': 'start' }); //cheap 'solution'
+
 
       // Now draw the land area overseas boxes, starting map bottom-left
       x = map_offset_x - 105;
@@ -483,6 +485,10 @@ window.twentyfifty.views.flows_map_imports = function() {
         - what about map['III.c.Wave'] ?
         - pathway.map doesn't change on lever changes (e.g. offshore & onshore wind)
         - what's to be shown on the right side of the map?
+
+        - done:
+          - move overseas to the left
+          - add 'imports' label to quarter circle as in original tool
       */
 
       this.pathway = pathway;
@@ -560,17 +566,20 @@ window.twentyfifty.views.flows_map_imports = function() {
       // The data is supplied as a table, with values for every year
 
       // The first row is the header, look for the 2050 column
+      //console.log('pathway', pathway);
       console.log('pathway.map', pathway.map);
       console.log(pathway.map[0]);
      //column_index = pathway.map[0].indexOf(2050);
       column_index = 1;
+      //column_index = 8; //should be last index (18 for 2050), although that never changes
       // Then skip the header and loop through the rows
       // pathway.map.slice(1).forEach(function(row) {
       pathway.map.forEach(function(row) {
         // Extract the labels and 2050 values into an object
         map[row[0]] = row[column_index];
-        console.log('extract map '+ map[row[0]]);
+        console.log('extract map ', map[row[0]]);
       });
+      console.log('map map ', map);
 
       // Draw the line for wave machines
       if (map['III.c.Wave'] > 0) {
@@ -608,6 +617,7 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       // Now draw the sea boxes
       x = (map_width / 2) + map_offset_x + 250;
+      x = 250;
       y = 30;
       values = [];
 
