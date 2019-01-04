@@ -59,6 +59,12 @@ window.twentyfifty.views.land_use = function() {
     this.bioenergy_imports_chart = lineChart()
   .title("Imported Bioenergy")
   .unit('TWh/yr')
+  .setCustomStyles({
+    '0': {color: "black"},
+    '1': {color: "#7f7fff", dashPattern: "4 4"},
+    '2': {color: "#0000b2", dashPattern: "4 4"},
+    '3': {color: "#020342", dashPattern: "4 4"}
+  })
   .min_value(-100)
   .max_value(100);
 

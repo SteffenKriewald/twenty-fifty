@@ -207,9 +207,14 @@ window.twentyfifty.views.flows_map_imports = function() {
     this.security_import_fraction_chart = lineChart()
     .title("Energy Import Dependence")
     .unit('Percent')
+    .setCustomStyles({
+      '0': {color: "#101010"},
+      '1': {color: "#787878"},
+      '2': {color: "#D3D3D3"},
+      '3': {color: "#731d1d"},
+      '4': {color: "black", dashPattern: "4 4"}
+    })
     .max_value(1);
-
-
 
       containers_2 = d3.select("#fmi_map").selectAll(".chart")
 	  .data(['top_container_2']);

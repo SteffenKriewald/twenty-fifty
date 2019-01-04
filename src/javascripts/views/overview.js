@@ -46,7 +46,11 @@ window.twentyfifty.views.overview = function() {
     this.emissions_cumulative_chart = lineChart()
     .title("Cumulative UK Greenhouse Gas Emissions")
     .unit('Mt.CO2e')
-    //      .css_for_label(css_for_labels)
+    .setCustomStyles({
+      '0': {color: "black"},
+      '1': {color: "#0000b2", dashPattern: "4 4"},
+      '2': {color: "#00007f", dashPattern: "4 4"}
+    })
     .max_value(50000);
 
 

@@ -37,11 +37,11 @@ window.twentyfifty.views.conversions_and_ghg = function() {
 	  .title("Cumulative Emissions Stored")
 	  .unit('Mt.CO2e')
     .setCustomStyles({
-      '0': {color: "#c0c0c0", dashPattern: "4 4"},
-      '2': {dashPattern: "2 3 2 1"},
-      '3': {color: "blue"}
+      '0': {color: "black"},
+      '1': {color: "#7f7fff", dashPattern: "4 4"},
+      '2': {color: "#0000b2", dashPattern: "4 4"},
+      '3': {color: "#020342", dashPattern: "4 4"}
     });
-      //      .css_for_label(css_for_labels)
       //      .max_value(4000);
 
     this.gas_grid_fuel_share_chart = timeSeriesStackedAreaChart()
