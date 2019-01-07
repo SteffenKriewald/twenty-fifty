@@ -116,11 +116,26 @@
       fill: #b2c1d1;
 }
 
+#bars:hover
+
 #dd8, #dd7, #dd6, #dd5, #dd4, #dd3, #dd2, #dd1 {
   /*visibility: hidden*/
   display: none;
-
 }
+
+#topbar_dd .dropdown-content {
+  margin-top: 25px;
+  display: inline;
+  transition: all 0s ease 1s; /*delay 1s*/
+  visibility: hidden;
+}
+#topbar_dd:hover .dropdown-content {
+  transition-delay: 0s;
+  visibility: visible;
+}
+
+
+
 /*
 @media only screen and (max-width: 1413px) {
    #topbar_dd {visibility: visible;}
