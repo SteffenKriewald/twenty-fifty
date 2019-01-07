@@ -214,7 +214,7 @@ window.twentyfifty.views.flows_map_imports = function() {
       '3': {color: "#731d1d"},
       '4': {color: "black", dashPattern: "4 4"}
     })
-    .max_value(1);
+    .max_value(100);
 
       containers_2 = d3.select("#fmi_map").selectAll(".chart")
 	  .data(['top_container_2']);

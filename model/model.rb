@@ -1342,6 +1342,7 @@ class Model
     attach_function 'control_c105', [], ExcelValue.by_value
     attach_function 'control_c106', [], ExcelValue.by_value
     # end of Control
+    # end of OnePager
     # end of My2050 CONTROL
     attach_function 'weboutputs_g704', [], ExcelValue.by_value
     attach_function 'weboutputs_h704', [], ExcelValue.by_value
@@ -3243,26 +3244,6 @@ class Model
     attach_function 'weboutputs_w347', [], ExcelValue.by_value
     attach_function 'weboutputs_x347', [], ExcelValue.by_value
     attach_function 'weboutputs_y347', [], ExcelValue.by_value
-    attach_function 'weboutputs_f806', [], ExcelValue.by_value
-    attach_function 'weboutputs_g806', [], ExcelValue.by_value
-    attach_function 'weboutputs_h806', [], ExcelValue.by_value
-    attach_function 'weboutputs_i806', [], ExcelValue.by_value
-    attach_function 'weboutputs_j806', [], ExcelValue.by_value
-    attach_function 'weboutputs_k806', [], ExcelValue.by_value
-    attach_function 'weboutputs_l806', [], ExcelValue.by_value
-    attach_function 'weboutputs_m806', [], ExcelValue.by_value
-    attach_function 'weboutputs_n806', [], ExcelValue.by_value
-    attach_function 'weboutputs_o806', [], ExcelValue.by_value
-    attach_function 'weboutputs_p806', [], ExcelValue.by_value
-    attach_function 'weboutputs_q806', [], ExcelValue.by_value
-    attach_function 'weboutputs_r806', [], ExcelValue.by_value
-    attach_function 'weboutputs_s806', [], ExcelValue.by_value
-    attach_function 'weboutputs_t806', [], ExcelValue.by_value
-    attach_function 'weboutputs_u806', [], ExcelValue.by_value
-    attach_function 'weboutputs_v806', [], ExcelValue.by_value
-    attach_function 'weboutputs_w806', [], ExcelValue.by_value
-    attach_function 'weboutputs_x806', [], ExcelValue.by_value
-    attach_function 'weboutputs_y806', [], ExcelValue.by_value
     attach_function 'weboutputs_f807', [], ExcelValue.by_value
     attach_function 'weboutputs_g807', [], ExcelValue.by_value
     attach_function 'weboutputs_h807', [], ExcelValue.by_value
@@ -5363,6 +5344,26 @@ class Model
     attach_function 'weboutputs_w911', [], ExcelValue.by_value
     attach_function 'weboutputs_x911', [], ExcelValue.by_value
     attach_function 'weboutputs_y911', [], ExcelValue.by_value
+    attach_function 'weboutputs_f912', [], ExcelValue.by_value
+    attach_function 'weboutputs_g912', [], ExcelValue.by_value
+    attach_function 'weboutputs_h912', [], ExcelValue.by_value
+    attach_function 'weboutputs_i912', [], ExcelValue.by_value
+    attach_function 'weboutputs_j912', [], ExcelValue.by_value
+    attach_function 'weboutputs_k912', [], ExcelValue.by_value
+    attach_function 'weboutputs_l912', [], ExcelValue.by_value
+    attach_function 'weboutputs_m912', [], ExcelValue.by_value
+    attach_function 'weboutputs_n912', [], ExcelValue.by_value
+    attach_function 'weboutputs_o912', [], ExcelValue.by_value
+    attach_function 'weboutputs_p912', [], ExcelValue.by_value
+    attach_function 'weboutputs_q912', [], ExcelValue.by_value
+    attach_function 'weboutputs_r912', [], ExcelValue.by_value
+    attach_function 'weboutputs_s912', [], ExcelValue.by_value
+    attach_function 'weboutputs_t912', [], ExcelValue.by_value
+    attach_function 'weboutputs_u912', [], ExcelValue.by_value
+    attach_function 'weboutputs_v912', [], ExcelValue.by_value
+    attach_function 'weboutputs_w912', [], ExcelValue.by_value
+    attach_function 'weboutputs_x912', [], ExcelValue.by_value
+    attach_function 'weboutputs_y912', [], ExcelValue.by_value
     attach_function 'weboutputs_g555', [], ExcelValue.by_value
     attach_function 'weboutputs_h555', [], ExcelValue.by_value
     attach_function 'weboutputs_i555', [], ExcelValue.by_value
@@ -6066,25 +6067,6 @@ class Model
     attach_function 'weboutputs_w693', [], ExcelValue.by_value
     attach_function 'weboutputs_x693', [], ExcelValue.by_value
     attach_function 'weboutputs_y693', [], ExcelValue.by_value
-    attach_function 'weboutputs_g763', [], ExcelValue.by_value
-    attach_function 'weboutputs_h763', [], ExcelValue.by_value
-    attach_function 'weboutputs_i763', [], ExcelValue.by_value
-    attach_function 'weboutputs_j763', [], ExcelValue.by_value
-    attach_function 'weboutputs_k763', [], ExcelValue.by_value
-    attach_function 'weboutputs_l763', [], ExcelValue.by_value
-    attach_function 'weboutputs_m763', [], ExcelValue.by_value
-    attach_function 'weboutputs_n763', [], ExcelValue.by_value
-    attach_function 'weboutputs_o763', [], ExcelValue.by_value
-    attach_function 'weboutputs_p763', [], ExcelValue.by_value
-    attach_function 'weboutputs_q763', [], ExcelValue.by_value
-    attach_function 'weboutputs_r763', [], ExcelValue.by_value
-    attach_function 'weboutputs_s763', [], ExcelValue.by_value
-    attach_function 'weboutputs_t763', [], ExcelValue.by_value
-    attach_function 'weboutputs_u763', [], ExcelValue.by_value
-    attach_function 'weboutputs_v763', [], ExcelValue.by_value
-    attach_function 'weboutputs_w763', [], ExcelValue.by_value
-    attach_function 'weboutputs_x763', [], ExcelValue.by_value
-    attach_function 'weboutputs_y763', [], ExcelValue.by_value
     attach_function 'weboutputs_g764', [], ExcelValue.by_value
     attach_function 'weboutputs_h764', [], ExcelValue.by_value
     attach_function 'weboutputs_i764', [], ExcelValue.by_value
@@ -6237,44 +6219,44 @@ class Model
     attach_function 'weboutputs_w771', [], ExcelValue.by_value
     attach_function 'weboutputs_x771', [], ExcelValue.by_value
     attach_function 'weboutputs_y771', [], ExcelValue.by_value
-    attach_function 'weboutputs_g777', [], ExcelValue.by_value
-    attach_function 'weboutputs_h777', [], ExcelValue.by_value
-    attach_function 'weboutputs_i777', [], ExcelValue.by_value
-    attach_function 'weboutputs_j777', [], ExcelValue.by_value
-    attach_function 'weboutputs_k777', [], ExcelValue.by_value
-    attach_function 'weboutputs_l777', [], ExcelValue.by_value
-    attach_function 'weboutputs_m777', [], ExcelValue.by_value
-    attach_function 'weboutputs_n777', [], ExcelValue.by_value
-    attach_function 'weboutputs_o777', [], ExcelValue.by_value
-    attach_function 'weboutputs_p777', [], ExcelValue.by_value
-    attach_function 'weboutputs_q777', [], ExcelValue.by_value
-    attach_function 'weboutputs_r777', [], ExcelValue.by_value
-    attach_function 'weboutputs_s777', [], ExcelValue.by_value
-    attach_function 'weboutputs_t777', [], ExcelValue.by_value
-    attach_function 'weboutputs_u777', [], ExcelValue.by_value
-    attach_function 'weboutputs_v777', [], ExcelValue.by_value
-    attach_function 'weboutputs_w777', [], ExcelValue.by_value
-    attach_function 'weboutputs_x777', [], ExcelValue.by_value
-    attach_function 'weboutputs_y777', [], ExcelValue.by_value
-    attach_function 'weboutputs_g784', [], ExcelValue.by_value
-    attach_function 'weboutputs_h784', [], ExcelValue.by_value
-    attach_function 'weboutputs_i784', [], ExcelValue.by_value
-    attach_function 'weboutputs_j784', [], ExcelValue.by_value
-    attach_function 'weboutputs_k784', [], ExcelValue.by_value
-    attach_function 'weboutputs_l784', [], ExcelValue.by_value
-    attach_function 'weboutputs_m784', [], ExcelValue.by_value
-    attach_function 'weboutputs_n784', [], ExcelValue.by_value
-    attach_function 'weboutputs_o784', [], ExcelValue.by_value
-    attach_function 'weboutputs_p784', [], ExcelValue.by_value
-    attach_function 'weboutputs_q784', [], ExcelValue.by_value
-    attach_function 'weboutputs_r784', [], ExcelValue.by_value
-    attach_function 'weboutputs_s784', [], ExcelValue.by_value
-    attach_function 'weboutputs_t784', [], ExcelValue.by_value
-    attach_function 'weboutputs_u784', [], ExcelValue.by_value
-    attach_function 'weboutputs_v784', [], ExcelValue.by_value
-    attach_function 'weboutputs_w784', [], ExcelValue.by_value
-    attach_function 'weboutputs_x784', [], ExcelValue.by_value
-    attach_function 'weboutputs_y784', [], ExcelValue.by_value
+    attach_function 'weboutputs_g772', [], ExcelValue.by_value
+    attach_function 'weboutputs_h772', [], ExcelValue.by_value
+    attach_function 'weboutputs_i772', [], ExcelValue.by_value
+    attach_function 'weboutputs_j772', [], ExcelValue.by_value
+    attach_function 'weboutputs_k772', [], ExcelValue.by_value
+    attach_function 'weboutputs_l772', [], ExcelValue.by_value
+    attach_function 'weboutputs_m772', [], ExcelValue.by_value
+    attach_function 'weboutputs_n772', [], ExcelValue.by_value
+    attach_function 'weboutputs_o772', [], ExcelValue.by_value
+    attach_function 'weboutputs_p772', [], ExcelValue.by_value
+    attach_function 'weboutputs_q772', [], ExcelValue.by_value
+    attach_function 'weboutputs_r772', [], ExcelValue.by_value
+    attach_function 'weboutputs_s772', [], ExcelValue.by_value
+    attach_function 'weboutputs_t772', [], ExcelValue.by_value
+    attach_function 'weboutputs_u772', [], ExcelValue.by_value
+    attach_function 'weboutputs_v772', [], ExcelValue.by_value
+    attach_function 'weboutputs_w772', [], ExcelValue.by_value
+    attach_function 'weboutputs_x772', [], ExcelValue.by_value
+    attach_function 'weboutputs_y772', [], ExcelValue.by_value
+    attach_function 'weboutputs_g778', [], ExcelValue.by_value
+    attach_function 'weboutputs_h778', [], ExcelValue.by_value
+    attach_function 'weboutputs_i778', [], ExcelValue.by_value
+    attach_function 'weboutputs_j778', [], ExcelValue.by_value
+    attach_function 'weboutputs_k778', [], ExcelValue.by_value
+    attach_function 'weboutputs_l778', [], ExcelValue.by_value
+    attach_function 'weboutputs_m778', [], ExcelValue.by_value
+    attach_function 'weboutputs_n778', [], ExcelValue.by_value
+    attach_function 'weboutputs_o778', [], ExcelValue.by_value
+    attach_function 'weboutputs_p778', [], ExcelValue.by_value
+    attach_function 'weboutputs_q778', [], ExcelValue.by_value
+    attach_function 'weboutputs_r778', [], ExcelValue.by_value
+    attach_function 'weboutputs_s778', [], ExcelValue.by_value
+    attach_function 'weboutputs_t778', [], ExcelValue.by_value
+    attach_function 'weboutputs_u778', [], ExcelValue.by_value
+    attach_function 'weboutputs_v778', [], ExcelValue.by_value
+    attach_function 'weboutputs_w778', [], ExcelValue.by_value
+    attach_function 'weboutputs_x778', [], ExcelValue.by_value
+    attach_function 'weboutputs_y778', [], ExcelValue.by_value
     attach_function 'weboutputs_g785', [], ExcelValue.by_value
     attach_function 'weboutputs_h785', [], ExcelValue.by_value
     attach_function 'weboutputs_i785', [], ExcelValue.by_value
@@ -6370,6 +6352,25 @@ class Model
     attach_function 'weboutputs_w789', [], ExcelValue.by_value
     attach_function 'weboutputs_x789', [], ExcelValue.by_value
     attach_function 'weboutputs_y789', [], ExcelValue.by_value
+    attach_function 'weboutputs_g790', [], ExcelValue.by_value
+    attach_function 'weboutputs_h790', [], ExcelValue.by_value
+    attach_function 'weboutputs_i790', [], ExcelValue.by_value
+    attach_function 'weboutputs_j790', [], ExcelValue.by_value
+    attach_function 'weboutputs_k790', [], ExcelValue.by_value
+    attach_function 'weboutputs_l790', [], ExcelValue.by_value
+    attach_function 'weboutputs_m790', [], ExcelValue.by_value
+    attach_function 'weboutputs_n790', [], ExcelValue.by_value
+    attach_function 'weboutputs_o790', [], ExcelValue.by_value
+    attach_function 'weboutputs_p790', [], ExcelValue.by_value
+    attach_function 'weboutputs_q790', [], ExcelValue.by_value
+    attach_function 'weboutputs_r790', [], ExcelValue.by_value
+    attach_function 'weboutputs_s790', [], ExcelValue.by_value
+    attach_function 'weboutputs_t790', [], ExcelValue.by_value
+    attach_function 'weboutputs_u790', [], ExcelValue.by_value
+    attach_function 'weboutputs_v790', [], ExcelValue.by_value
+    attach_function 'weboutputs_w790', [], ExcelValue.by_value
+    attach_function 'weboutputs_x790', [], ExcelValue.by_value
+    attach_function 'weboutputs_y790', [], ExcelValue.by_value
     attach_function 'weboutputs_g185', [], ExcelValue.by_value
     attach_function 'weboutputs_h185', [], ExcelValue.by_value
     attach_function 'weboutputs_g186', [], ExcelValue.by_value
@@ -6777,25 +6778,6 @@ class Model
     attach_function 'weboutputs_w728', [], ExcelValue.by_value
     attach_function 'weboutputs_x728', [], ExcelValue.by_value
     attach_function 'weboutputs_y728', [], ExcelValue.by_value
-    attach_function 'weboutputs_g739', [], ExcelValue.by_value
-    attach_function 'weboutputs_h739', [], ExcelValue.by_value
-    attach_function 'weboutputs_i739', [], ExcelValue.by_value
-    attach_function 'weboutputs_j739', [], ExcelValue.by_value
-    attach_function 'weboutputs_k739', [], ExcelValue.by_value
-    attach_function 'weboutputs_l739', [], ExcelValue.by_value
-    attach_function 'weboutputs_m739', [], ExcelValue.by_value
-    attach_function 'weboutputs_n739', [], ExcelValue.by_value
-    attach_function 'weboutputs_o739', [], ExcelValue.by_value
-    attach_function 'weboutputs_p739', [], ExcelValue.by_value
-    attach_function 'weboutputs_q739', [], ExcelValue.by_value
-    attach_function 'weboutputs_r739', [], ExcelValue.by_value
-    attach_function 'weboutputs_s739', [], ExcelValue.by_value
-    attach_function 'weboutputs_t739', [], ExcelValue.by_value
-    attach_function 'weboutputs_u739', [], ExcelValue.by_value
-    attach_function 'weboutputs_v739', [], ExcelValue.by_value
-    attach_function 'weboutputs_w739', [], ExcelValue.by_value
-    attach_function 'weboutputs_x739', [], ExcelValue.by_value
-    attach_function 'weboutputs_y739', [], ExcelValue.by_value
     attach_function 'weboutputs_g740', [], ExcelValue.by_value
     attach_function 'weboutputs_h740', [], ExcelValue.by_value
     attach_function 'weboutputs_i740', [], ExcelValue.by_value
@@ -6872,12 +6854,29 @@ class Model
     attach_function 'weboutputs_w743', [], ExcelValue.by_value
     attach_function 'weboutputs_x743', [], ExcelValue.by_value
     attach_function 'weboutputs_y743', [], ExcelValue.by_value
-    attach_function 'weboutputs_g937', [], ExcelValue.by_value
-    attach_function 'weboutputs_h937', [], ExcelValue.by_value
+    attach_function 'weboutputs_g744', [], ExcelValue.by_value
+    attach_function 'weboutputs_h744', [], ExcelValue.by_value
+    attach_function 'weboutputs_i744', [], ExcelValue.by_value
+    attach_function 'weboutputs_j744', [], ExcelValue.by_value
+    attach_function 'weboutputs_k744', [], ExcelValue.by_value
+    attach_function 'weboutputs_l744', [], ExcelValue.by_value
+    attach_function 'weboutputs_m744', [], ExcelValue.by_value
+    attach_function 'weboutputs_n744', [], ExcelValue.by_value
+    attach_function 'weboutputs_o744', [], ExcelValue.by_value
+    attach_function 'weboutputs_p744', [], ExcelValue.by_value
+    attach_function 'weboutputs_q744', [], ExcelValue.by_value
+    attach_function 'weboutputs_r744', [], ExcelValue.by_value
+    attach_function 'weboutputs_s744', [], ExcelValue.by_value
+    attach_function 'weboutputs_t744', [], ExcelValue.by_value
+    attach_function 'weboutputs_u744', [], ExcelValue.by_value
+    attach_function 'weboutputs_v744', [], ExcelValue.by_value
+    attach_function 'weboutputs_w744', [], ExcelValue.by_value
+    attach_function 'weboutputs_x744', [], ExcelValue.by_value
+    attach_function 'weboutputs_y744', [], ExcelValue.by_value
     attach_function 'weboutputs_g938', [], ExcelValue.by_value
     attach_function 'weboutputs_h938', [], ExcelValue.by_value
-    attach_function 'weboutputs_g963', [], ExcelValue.by_value
-    attach_function 'weboutputs_h963', [], ExcelValue.by_value
+    attach_function 'weboutputs_g939', [], ExcelValue.by_value
+    attach_function 'weboutputs_h939', [], ExcelValue.by_value
     attach_function 'weboutputs_g964', [], ExcelValue.by_value
     attach_function 'weboutputs_h964', [], ExcelValue.by_value
     attach_function 'weboutputs_g965', [], ExcelValue.by_value
@@ -6890,8 +6889,8 @@ class Model
     attach_function 'weboutputs_h968', [], ExcelValue.by_value
     attach_function 'weboutputs_g969', [], ExcelValue.by_value
     attach_function 'weboutputs_h969', [], ExcelValue.by_value
-    attach_function 'weboutputs_g949', [], ExcelValue.by_value
-    attach_function 'weboutputs_h949', [], ExcelValue.by_value
+    attach_function 'weboutputs_g970', [], ExcelValue.by_value
+    attach_function 'weboutputs_h970', [], ExcelValue.by_value
     attach_function 'weboutputs_g950', [], ExcelValue.by_value
     attach_function 'weboutputs_h950', [], ExcelValue.by_value
     attach_function 'weboutputs_g951', [], ExcelValue.by_value
@@ -6904,9 +6903,8 @@ class Model
     attach_function 'weboutputs_h954', [], ExcelValue.by_value
     attach_function 'weboutputs_g955', [], ExcelValue.by_value
     attach_function 'weboutputs_h955', [], ExcelValue.by_value
-    attach_function 'weboutputs_g979', [], ExcelValue.by_value
-    attach_function 'weboutputs_h979', [], ExcelValue.by_value
-    attach_function 'weboutputs_i979', [], ExcelValue.by_value
+    attach_function 'weboutputs_g956', [], ExcelValue.by_value
+    attach_function 'weboutputs_h956', [], ExcelValue.by_value
     attach_function 'weboutputs_g980', [], ExcelValue.by_value
     attach_function 'weboutputs_h980', [], ExcelValue.by_value
     attach_function 'weboutputs_i980', [], ExcelValue.by_value
@@ -6916,9 +6914,9 @@ class Model
     attach_function 'weboutputs_g982', [], ExcelValue.by_value
     attach_function 'weboutputs_h982', [], ExcelValue.by_value
     attach_function 'weboutputs_i982', [], ExcelValue.by_value
-    attach_function 'weboutputs_g992', [], ExcelValue.by_value
-    attach_function 'weboutputs_h992', [], ExcelValue.by_value
-    attach_function 'weboutputs_i992', [], ExcelValue.by_value
+    attach_function 'weboutputs_g983', [], ExcelValue.by_value
+    attach_function 'weboutputs_h983', [], ExcelValue.by_value
+    attach_function 'weboutputs_i983', [], ExcelValue.by_value
     attach_function 'weboutputs_g993', [], ExcelValue.by_value
     attach_function 'weboutputs_h993', [], ExcelValue.by_value
     attach_function 'weboutputs_i993', [], ExcelValue.by_value
@@ -6931,6 +6929,9 @@ class Model
     attach_function 'weboutputs_g996', [], ExcelValue.by_value
     attach_function 'weboutputs_h996', [], ExcelValue.by_value
     attach_function 'weboutputs_i996', [], ExcelValue.by_value
+    attach_function 'weboutputs_g997', [], ExcelValue.by_value
+    attach_function 'weboutputs_h997', [], ExcelValue.by_value
+    attach_function 'weboutputs_i997', [], ExcelValue.by_value
     attach_function 'weboutputs_g356', [], ExcelValue.by_value
     attach_function 'weboutputs_h356', [], ExcelValue.by_value
     attach_function 'weboutputs_i356', [], ExcelValue.by_value
@@ -7509,7 +7510,7 @@ class Model
     # end of Model
     # end of FullTimeSeries
     # end of NameConv
-    # end of V136.0_Named_Range_List
+    # end of V151.0_Named_Range_List
     # end of Column Assessment
     # Start of named references
     attach_function 'input_lever_ambition', [], ExcelValue.by_value
