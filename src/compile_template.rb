@@ -56,16 +56,16 @@ class CompileTemplate
   end
 
   def compile_html
-    assets = JSON.parse(IO.readlines(manifest_file).join)['assets']
+    assets = JSON.parse(IO.readlines(manifest_file, :encoding => 'UTF-8').join)['assets']
 
-    input = IO.readlines(erb_file).join
+    input = IO.readlines(erb_file, :encoding => 'UTF-8').join
     File.open(html_file, 'w') do |f|
       f.puts ERB.new(input).result(binding)
     end
   end
 
   def remove!
-    # Need to remove the compiled html in public/ because otherwise it will 
+    # Need to remove the compiled html in public/ because otherwise it will
     # be loaded in preference to the erb file in src/
     #
     # Can leave the compiled stylesheets and javascripts because the ones in
