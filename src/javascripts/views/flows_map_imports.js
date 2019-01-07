@@ -29,6 +29,7 @@ window.twentyfifty.views.flows_map_imports = function() {
       fill: colour,
       'fill-opacity': "0.5"
     });
+    console.log('sq ', label, x, y, y - side, side);
     label = this.text(x - 2, y - (side / 2), label).attr({
       'text-anchor': 'end',
       fill: 'black'
@@ -77,15 +78,17 @@ window.twentyfifty.views.flows_map_imports = function() {
   };
 
   // All the settings
+  var scaleFactor = 0.9;
   displayin_element = 'map';
-  display_width = 1200;
-  display_height = 800;
+  //display_width = 1200;
+  display_width = 642*scaleFactor;
+  display_height = 800*scaleFactor;
   mapimage_url = '/assets/images/uk.png';
-  map_width = 492;
-  map_height = 725;
-  map_offset_x = 150;
-  map_offset_y = 0;
-  km = 0.69;
+  map_width = 492*scaleFactor;
+  map_height = 725*scaleFactor;
+  map_offset_x = 150*scaleFactor;
+  map_offset_y = 0*scaleFactor;
+  km = 0.69 *scaleFactor;
   m = km / 1000.0;
   m2 = m * m;
   ha = 10000 * m2;
@@ -494,6 +497,9 @@ window.twentyfifty.views.flows_map_imports = function() {
         - pathway.map doesn't change on lever changes (e.g. offshore & onshore wind)
           - they change in the new excel, which isn't compiled yet
         - what's to be shown on the right side of the map?
+        - forestry doesn't change
+
+        - 2100: changes in years only affect Solar PV
 
         - done:
           - move overseas to the left
@@ -579,7 +585,8 @@ window.twentyfifty.views.flows_map_imports = function() {
       console.log('pathway.map', pathway);
       console.log(pathway.map[0]);
      //column_index = pathway.map[0].indexOf(2050);
-      column_index = 1; //8:  2050, 18: 2100
+      //column_index = 8;
+      column_index = (_mode == 2050) ? 8 : 18 //8:  2050, 18: 2100
       //column_index = 8; //should be last index (18 for 2050), although that never changes
       // Then skip the header and loop through the rows
       // pathway.map.slice(1).forEach(function(row) {
