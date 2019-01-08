@@ -29,7 +29,7 @@ window.twentyfifty.views.flows_map_imports = function() {
       fill: colour,
       'fill-opacity': "0.5"
     });
-    console.log('sq ', label, x, y, y - side, side);
+    //console.log('sq ', label, x, y, y - side, side);
     label = this.text(x - 2, y - (side / 2), label).attr({
       'text-anchor': 'end',
       fill: 'black'
@@ -78,7 +78,7 @@ window.twentyfifty.views.flows_map_imports = function() {
   };
 
   // All the settings
-  var scaleFactor = 0.9;
+  var scaleFactor = 0.85;
   displayin_element = 'map';
   //display_width = 1200;
   display_width = 642*scaleFactor;
@@ -377,17 +377,27 @@ window.twentyfifty.views.flows_map_imports = function() {
       // SANKEY ENDS
 
       // Map
-      $('#view2').append("<div id='map-container'>"
+      var mapContainer = $("<div id='map-container'><div id='map'></div></div>");
+      this.powerStationsContainer = $("<div id='power-stations'></div>");
+      mapContainer.append(this.powerStationsContainer);
+      $('#view2').append(mapContainer);
+    /*  $('#view2').append("<div id='map-container'>"
                             +"<div id='map'></div>"
-                            +"<div id='power-stations'><div id='power-stations-title'>Illustration of the number of thermal power stations in 2050</div></div>"
+                            +"<div id='power-stations'></div>"
                           +"</div>");
+
+      var powerStationsElement = $('#power-stations'); //not very performant..
+      //<div id='power-stations-title'>Illustration of the number of thermal power stations in 2050</div>
+*/
+
+
       this.r = r = Raphael(displayin_element, display_width, display_height);
 
       // The map itself is a bitmap image in public/assets/images
       r.image(mapimage_url, map_offset_x, map_offset_y, map_width, map_height);
 
       // Title
-      r.text(20, 10, "Illustration of scale of land and sea use in 2050 (positions are arbitrary)").attr({
+      this.mapTitle = r.text(20, 10, "Illustration of scale of land and sea use in 2050 (positions are arbitrary)").attr({
         'font-weight': 'bold',
         'text-anchor': 'start'
       });
@@ -410,7 +420,7 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       for (i = 0, len = land_box_names.length; i < len; i++) {
         name = land_box_names[i];
-        console.log('xy '+x+' '+y+': '+ labels[name] + colours[name]);
+        //console.log('xy '+x+' '+y+': '+ labels[name] + colours[name]);
         this.land_boxes[name] = r.upiabeled_square(x, y, labels[name], 0, colours[name]);
       }
 
@@ -575,6 +585,24 @@ window.twentyfifty.views.flows_map_imports = function() {
       //SANKEY ENDS
 
       // MAP
+
+/*
+map_units:
+0: ["2 GW thermal power stations", 24.771574499999996, 22.622391500000003, 14.6551665, 9.929537759195311, 16.191212984751434, 20.575666712774872, 21.924482750841836, 23.796184523880616, 23.951168621424856, 24.090407971143893, 24.229395252067594, 24.378642399547005, 24.53972128909334, 24.705535535254334, 24.869755462232963, 25.032295476050518, 25.196536947896245, 25.363543442590615]
+1: ["1.2 GW CCS thermal power stations", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+2: ["3GW Nuclear Power Stations", 3.1893333333333334, 3.1893333333333334, 2.1326666666666667, 2.2959999999999994, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5]
+3: ["1 GW standby generators", 1.9547, 1.1704319919847201, 19.84485818580317, 31.58063176350085, 31.48533176350085, 31.46833176350085, 31.46833176350085, 31.19259977151613, 27.911319546476886, 28.127387030808183, 29.269269364384687, 29.497935275915786, 29.74775346692605, 30.004203495928113, 30.254385312434703, 30.498235236102012, 30.742708433370552, 30.98994647453768]
+4: ["Number of Household, C&I and CDW to energy facilities", 9.25970596422075, 8.58010073059142, 8.058629550914867, 7.703150766351192, 7.741966435601144, 7.852311426078088, 8.00150324394053, 8.208328482909687, 8.095050994901335, 8.151543409061976, 8.18762068874879, 8.211494319933907, 8.227985590078047, 8.240228461394837, 8.250156137394523, 8.258767884531968, 8.266533393871104, 8.273790273575166]
+5: ["1.2 GW CCS Hydrogen Production Plants", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+*/
+
+
+      // Title
+      var mapTitleText = "Illustration of scale of land and sea use in "+ mode +" (positions are arbitrary)";
+      this.mapTitle.attr("text", mapTitleText);
+
+
+
       var i, len, map, values, value, x, y, box, side;
 
       map = {};
@@ -582,20 +610,31 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       // The first row is the header, look for the 2050 column
       //console.log('pathway', pathway);
-      console.log('pathway.map', pathway);
-      console.log(pathway.map[0]);
+
+      //console.log(pathway.map[0]);
      //column_index = pathway.map[0].indexOf(2050);
       //column_index = 8;
-      column_index = (_mode == 2050) ? 8 : 18 //8:  2050, 18: 2100
+      var column_index = (_mode == 2050) ? 8 : 18 //8:  2050, 18: 2100
       //column_index = 8; //should be last index (18 for 2050), although that never changes
+      console.log('pathway column_index', pathway, column_index);
+      //Power Stations
+      this.powerStationsContainer.empty();
+      this.powerStationsContainer.append($("<div id='power-stations-title'>Number of thermal power stations in "+mode+":</div>"));
+      var that = this;
+      pathway.map_units.forEach(function(powerUnit) {
+        //console.log('powerUnit ', powerUnit);
+        var content = '<div class="power-station"><span class="power-station-amount">'+Math.round(powerUnit[column_index])+' x</span><span class="power-station-type">'+powerUnit[0]+'</span></div>'
+        that.powerStationsContainer.append(content);
+      });
+
       // Then skip the header and loop through the rows
       // pathway.map.slice(1).forEach(function(row) {
       pathway.map.forEach(function(row) {
         // Extract the labels and 2050 values into an object
         map[row[0]] = row[column_index];
-        console.log('extract map ', map[row[0]]);
+        //console.log('extract map ', map[row[0]]);
       });
-      console.log('map map ', map);
+      //console.log('map map ', map);
 
       // Draw the line for wave machines
       if (map['III.c.Wave'] > 0) {
@@ -610,11 +649,11 @@ window.twentyfifty.views.flows_map_imports = function() {
       values = [];
 
       for (name in this.land_boxes) {
-        console.log('name map '+name);
+        //console.log('name map '+name);
         values.push({ name: name, value: map[name] });
       }
       values.sort(function(a, b) { return b.value - a.value; });
-      console.log('values ', values, map);
+      //console.log('values ', values, map);
 
       for (i = 0, len = values.length; i < len; i++) {
         value = values[i];

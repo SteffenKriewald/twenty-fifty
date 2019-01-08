@@ -18,3 +18,54 @@
   }
 
 .Gas-f { fill: var(--c_grey_l);}
+
+
+#map-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#map {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+#map svg {
+  border: 1px solid silver;
+}
+
+#power-stations {
+/*  flex-grow: 1;
+  flex-shrink: 1;
+  min-width: 200px;*/
+  margin-left: 10px;
+}
+
+#power-stations-title {
+  font-weight: bold;
+}
+
+.power-station {
+  display: flex;
+  align-items: flex-start;
+}
+
+.power-station-amount {
+  min-width: 40px;
+  text-align: right;
+  margin-right: 10px;
+}
+.power-station-type {
+  max-width: 200px;
+}
+/*
+#power-stations-title
+
+
+.power-station-amount
+
+.power-station-type
+
+*/
