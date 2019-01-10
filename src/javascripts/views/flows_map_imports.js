@@ -30,7 +30,7 @@ window.twentyfifty.views.flows_map_imports = function() {
       'fill-opacity': "0.5"
     });
     //console.log('sq ', label, x, y, y - side, side);
-    label = this.text(x - 2, y - (side / 2), label).attr({
+    label = this.text(x - 5, y - (side / 2), label).attr({
       'text-anchor': 'end',
       fill: 'black',
       'font-size': 16
@@ -530,7 +530,6 @@ window.twentyfifty.views.flows_map_imports = function() {
       var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
 
       /*todo:
-        - Biomass with CCS lever level 4: Biomass overseas get's huge -> where to put label?
         - make svg shorter in total (too much white space at the bottom)
         - what about map['III.c.Wave'] ?
         - pathway.map doesn't change on lever changes (e.g. offshore & onshore wind)
@@ -702,7 +701,8 @@ map_units:
         box = this.land_boxes[value.name];
         side = Math.sqrt(value.value * km2);
         box.square.attr({ y: y - side, width: side, height: side });
-        box.label.attr({ y: y - (side / 2) });
+        //box.label.attr({ y: y - (side / 2) });
+        box.label.attr({ y: y - 6 });
         // Dont bother showing small boxes
         if (value.value > 10) {
           box.label.show();
@@ -729,7 +729,8 @@ map_units:
         box = this.sea_boxes[value.name];
         side = Math.sqrt(value.value * km2);
         box.square.attr({ x:x,  y: y, width: side, height: side });
-        box.label.attr({ x: x+side+5, y: y + (side / 2) });
+        //box.label.attr({ x: x+side+5, y: y + (side / 2) });
+        box.label.attr({ x: x+side+5, y: y + side - 6 });
         if (value.value > 10) {
           box.label.show();
         } else {
@@ -754,7 +755,8 @@ map_units:
         side = Math.sqrt(value.value * km2);
         box.square.attr({ y: y - side, width: side, height: side });
         //box.label.attr({ y: y - (side / 2) });
-        box.label.attr({ x: x+side+5, y: y - (side / 2) });
+        //box.label.attr({ x: x+side+5, y: y - (side / 2) });
+        box.label.attr({ x: x+side+5, y: y - 6 });
         if (value.value > 10) {
           box.label.show();
         } else {
