@@ -32,7 +32,8 @@ window.twentyfifty.views.flows_map_imports = function() {
     //console.log('sq ', label, x, y, y - side, side);
     label = this.text(x - 2, y - (side / 2), label).attr({
       'text-anchor': 'end',
-      fill: 'black'
+      fill: 'black',
+      'font-size': 16
     });
     label.hide();
     return {
@@ -51,7 +52,8 @@ window.twentyfifty.views.flows_map_imports = function() {
     });
     label = this.text(x + (side / 2) + 4, y - (side / 2), label).attr({
       'text-anchor': 'start',
-      fill: 'black'
+      fill: 'black',
+      'font-size': 16
     });
     return {
       square: sq,
@@ -67,9 +69,11 @@ window.twentyfifty.views.flows_map_imports = function() {
       fill: colour,
       'fill-opacity': "0.5"
     });
+    //console.log('downiabeled_square sq area', label, sq, area);
     label = this.text(x + 4, y + (side / 2), label).attr({
       'text-anchor': 'start',
-      fill: 'black'
+      fill: 'black',
+      'font-size': 16
     });
     return {
       square: sq,
@@ -78,16 +82,18 @@ window.twentyfifty.views.flows_map_imports = function() {
   };
 
   // All the settings
-  var scaleFactor = 0.85;
+  var scaleFactor = 1;
   displayin_element = 'map';
   //display_width = 1200;
+  //display aspect ratio: 800/642
   display_width = 642*scaleFactor;
-  display_height = 800*scaleFactor;
+  //display_height = 800*scaleFactor;
+  display_height = 770*scaleFactor;
   mapimage_url = '/assets/images/uk.png';
   map_width = 492*scaleFactor;
   map_height = 725*scaleFactor;
   map_offset_x = 150*scaleFactor;
-  map_offset_y = 0*scaleFactor;
+  map_offset_y = 35*scaleFactor;
   km = 0.69 *scaleFactor;
   m = km / 1000.0;
   m2 = m * m;
@@ -391,15 +397,21 @@ window.twentyfifty.views.flows_map_imports = function() {
 */
 
 
-      this.r = r = Raphael(displayin_element, display_width, display_height);
+      //this.r = r = Raphael(displayin_element, display_width, display_height);
+      var svgHeight = 600;
+      this.r = r = Raphael(displayin_element, display_width*svgHeight/display_height, svgHeight);
+      //this.r = r = Raphael(displayin_element);
+      //this.r.setHeight('400');
+      this.r.setViewBox(0, 0, display_width, display_height);
 
       // The map itself is a bitmap image in public/assets/images
       r.image(mapimage_url, map_offset_x, map_offset_y, map_width, map_height);
 
       // Title
-      this.mapTitle = r.text(20, 10, "Illustration of scale of land and sea use in 2050 (positions are arbitrary)").attr({
+      this.mapTitle = r.text(20, 15, "Illustration of scale of land and sea use in 2050 (positions are arbitrary)").attr({
         'font-weight': 'bold',
-        'text-anchor': 'start'
+        'text-anchor': 'start',
+        'font-size': 16
       });
 
       // The wave line
@@ -411,11 +423,12 @@ window.twentyfifty.views.flows_map_imports = function() {
 
       // Now draw the boxes, starting at the map bottom-center
       x = (map_width / 2) + map_offset_x;
-      y = map_height + map_offset_y - 100;
+      //y = map_height + map_offset_y - 100;
+      y = 0; //final y-value is set in updateResults function further down
       this.land_boxes = {};
       // land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'VI.a.Forestry'];
       //land_box_names = ['III.a.1', 'III.b', 'IV.a', 'IV.b', 'IV.c', 'VI.a.Biocrop', 'Test'];
-      land_box_names = ['Bioenergy Growth', 'Bioenergy Growth Overseas', 'Forest/Woodland', 'Hydroelectric', 'Onshore Wind', 'Solar PV'];
+      land_box_names = ['Bioenergy Growth', 'Forest/Woodland', 'Hydroelectric', 'Onshore Wind', 'Solar PV'];
 
 
       for (i = 0, len = land_box_names.length; i < len; i++) {
@@ -427,6 +440,8 @@ window.twentyfifty.views.flows_map_imports = function() {
       // Now draw the sea boxes, starting at the top center
       x = (map_width / 2) + map_offset_x + 250;
       y = 30;
+      //x = 0;
+      //y = 0;
       this.sea_boxes = {};
       //sea_box_names = ['III.a.2', 'III.c.TidalStream', 'III.c.TidalRange', 'VI.c'];
       sea_box_names = ['Offshore Wind', 'Tidal Stream', 'Tidal Range']
@@ -434,23 +449,35 @@ window.twentyfifty.views.flows_map_imports = function() {
       for (i = 0, len = sea_box_names.length; i < len; i++) {
         name = sea_box_names[i];
         this.sea_boxes[name] = r.downiabeled_square(x, y, labels[name], 0, colours[name]);
+        //console.log('this.sea_boxes[name] ', this.sea_boxes[name]);
       }
 
       // Draw the half circle with label to indicate land area overseas
+      //var halfCirclePath = "M"+ 244*scaleFactor +","+ 695*scaleFactor +"q0,"+ -200*scaleFactor+" "+ -200*scaleFactor+","+ -200*scaleFactor;
       r.path("M244,695 q0,-200 -200,-200").attr({ 'stroke': '#ccc' });
+      //r.path(halfCirclePath).attr({ 'stroke': '#ccc' });
       //r.text(44, 510, "Imports").attr({ 'fill': '#ccc', 'font-weight': 'bold', 'text-anchor': 'start' });
-      r.text(44, 260, "Imports").attr({ 'fill': '#ccc', 'font-weight': 'bold', 'text-anchor': 'start' }); //cheap 'solution'
+      r.text(44, 260, "Imports").attr({
+        'fill': '#ccc',
+        'font-weight': 'bold',
+        'text-anchor': 'start',
+        'font-size': 16
+      }); //cheap 'solution'
 
 
       // Now draw the land area overseas boxes, starting map bottom-left
       x = map_offset_x - 105;
-      y = map_height + map_offset_y - 30;
+      y = 0; //final y-value is set in updateResults function further down
+      //y = map_height + map_offset_y - 30;
+      //x = 0;
       this.overseasiand_boxes = {};
       //overseasiand_box_names = ['V.b', 'VII.a'];
       overseasiand_box_names = ['Bioenergy Growth Overseas'];
       for (i = 0, len = overseasiand_box_names.length; i < len; i++) {
         name = overseasiand_box_names[i];
-        this.overseasiand_boxes[name] = r.upiabeled_square(x, y, labels[name], 0, colours[name]);
+        //this.overseasiand_boxes[name] = r.upiabeled_square(x, y, labels[name], 0, colours[name]);
+        this.overseasiand_boxes[name] = r.downiabeled_square(x, y, labels[name], 0, colours[name]);
+        //console.log('this.overseasiand_boxes[name] ', this.overseasiand_boxes[name]);
       }
 
       // Now deal with the objects that aren't on the map. In this case a stack of circles
@@ -463,7 +490,7 @@ window.twentyfifty.views.flows_map_imports = function() {
   };
   // MAP
   // This is a helper method for drawing the blocks of circles representating power stations of a particular type
-  this.point_stack = function(x, y, number, colour, label, size) {
+  /*this.point_stack = function(x, y, number, colour, label, size) {
     var i, x_count, width, x_step, y_step;
 
     x_count = 0;
@@ -488,7 +515,7 @@ window.twentyfifty.views.flows_map_imports = function() {
       }
     }
     return y = y + 30;
-  }
+  }*/
   // MAP ENDS
 
 
@@ -503,6 +530,8 @@ window.twentyfifty.views.flows_map_imports = function() {
       var _mode = (mode == 2050 || mode == 2100) ? mode : 2050;
 
       /*todo:
+        - Biomass with CCS lever level 4: Biomass overseas get's huge -> where to put label?
+        - make svg shorter in total (too much white space at the bottom)
         - what about map['III.c.Wave'] ?
         - pathway.map doesn't change on lever changes (e.g. offshore & onshore wind)
           - they change in the new excel, which isn't compiled yet
@@ -512,6 +541,17 @@ window.twentyfifty.views.flows_map_imports = function() {
         - 2100: changes in years only affect Solar PV
 
         - done:
+          - map-area simple sanity check:
+              all levers on 1, offshore&onshore wind on 2, 2050 mode:
+                "Onshore Wind": 2385.3042753211257
+                "Hydroelectric": 58.12134959530439
+                "Solar PV": 52.10178964563369
+                "Bioenergy Growth": 0
+                "Forest/Woodland": 32046.223555847606
+                "Offshore Wind": 8095.829790835379
+                "Tidal Stream": 0
+                "Bioenergy Growth Overseas": 20616.49637557465
+              --> the values seem to visually match the drawn areas
           - move overseas to the left
           - add 'imports' label to quarter circle as in original tool
       */
@@ -598,7 +638,8 @@ map_units:
 
 
       // Title
-      var mapTitleText = "Illustration of scale of land and sea use in "+ mode +" (positions are arbitrary)";
+      var mapTitleText = "Illustration of scale of land and sea use in 2050 (positions are arbitrary)";
+      //var mapTitleText = "Illustration of scale of land and sea use in "+ mode +" (positions are arbitrary)";
       this.mapTitle.attr("text", mapTitleText);
 
 
@@ -613,13 +654,14 @@ map_units:
 
       //console.log(pathway.map[0]);
      //column_index = pathway.map[0].indexOf(2050);
-      //column_index = 8;
-      var column_index = (_mode == 2050) ? 8 : 18 //8:  2050, 18: 2100
+      column_index = 8;
+      //var column_index = (_mode == 2050) ? 8 : 18 //8:  2050, 18: 2100
       //column_index = 8; //should be last index (18 for 2050), although that never changes
-      console.log('pathway column_index', pathway, column_index);
+      console.log('pathway', pathway);
       //Power Stations
       this.powerStationsContainer.empty();
-      this.powerStationsContainer.append($("<div id='power-stations-title'>Number of thermal power stations in "+mode+":</div>"));
+      //this.powerStationsContainer.append($("<div id='power-stations-title'>Number of thermal power stations in "+mode+":</div>"));
+      this.powerStationsContainer.append($("<div id='power-stations-title'>Number of thermal power stations in 2050:</div>"));
       var that = this;
       pathway.map_units.forEach(function(powerUnit) {
         //console.log('powerUnit ', powerUnit);
@@ -667,13 +709,14 @@ map_units:
         } else {
           box.label.hide();
         }
-        y = y - side - 5;
+        y = y - side - 10; //gap between the boxes
       }
 
       // Now draw the sea boxes
-      x = (map_width / 2) + map_offset_x + 250;
-      x = 250;
-      y = 30;
+      //x = (map_width / 2) + map_offset_x + 250;
+      x = map_offset_x - 105;
+      //x = 250;
+      y = 40;
       values = [];
 
       for (name in this.sea_boxes) {
@@ -685,18 +728,19 @@ map_units:
         value = values[i];
         box = this.sea_boxes[value.name];
         side = Math.sqrt(value.value * km2);
-        box.square.attr({ x: x - side, y: y, width: side, height: side });
-        box.label.attr({ x: x + 4, y: y + (side / 2) });
+        box.square.attr({ x:x,  y: y, width: side, height: side });
+        box.label.attr({ x: x+side+5, y: y + (side / 2) });
         if (value.value > 10) {
           box.label.show();
         } else {
           box.label.hide();
         }
-        y = y + side + 5;
+        y = y + side + 10;
       }
 
       // Now draw the overseas land boxes
       y = map_height + map_offset_y - 30;
+      x = map_offset_x - 105;
       values = [];
 
       for (name in this.overseasiand_boxes) {
@@ -709,13 +753,14 @@ map_units:
         box = this.overseasiand_boxes[value.name];
         side = Math.sqrt(value.value * km2);
         box.square.attr({ y: y - side, width: side, height: side });
-        box.label.attr({ y: y - (side / 2) });
+        //box.label.attr({ y: y - (side / 2) });
+        box.label.attr({ x: x+side+5, y: y - (side / 2) });
         if (value.value > 10) {
           box.label.show();
         } else {
           box.label.hide();
         }
-        y = y - side - 5;
+        y = y - side - 10;
       }
 
 
